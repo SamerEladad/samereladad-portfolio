@@ -1,71 +1,56 @@
-/* ==========================
-   Base Theme (Dark Grey)
-   ========================== */
-
 :root{
-  --bg: #0e1116;                 /* deep graphite */
-  --bg-2: #10141b;               /* slightly lighter */
+  /* Unique dark-grey theme (not pure black) */
+  --bg0: #0c0f14;
+  --bg1: #0f131a;
   --panel: rgba(255,255,255,.06);
-  --panel-2: rgba(255,255,255,.08);
+  --panel-strong: rgba(255,255,255,.08);
   --border: rgba(255,255,255,.10);
-  --border-2: rgba(255,255,255,.14);
 
   --text: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.70);
+  --muted: rgba(255,255,255,.68);
   --faint: rgba(255,255,255,.55);
 
-  --shadow: 0 18px 50px rgba(0,0,0,.45);
+  --shadow: 0 14px 42px rgba(0,0,0,.55);
   --radius: 18px;
 
-  --max: 1100px;
-  --pad: 20px;
+  --max: 1040px;
 
-  /* accent is intentionally subtle and grey-forward */
-  --accent-a: rgba(150,170,210,.18);
-  --accent-b: rgba(210,160,190,.14);
+  /* Logo sizing system (do not recolor logos) */
+  --logo-h-mobile: 20px;
+  --logo-h-desktop: 24px;
+  --logo-max-w: 92px;
+
+  /* Motion */
+  --ease: cubic-bezier(.2,.8,.2,1);
 }
 
-*{ box-sizing: border-box; }
-html, body { height: 100%; }
-html { scroll-behavior: smooth; }
-
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
 body{
   margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   color: var(--text);
-  background:
-    radial-gradient(1100px 700px at 10% 10%, var(--accent-a), transparent 60%),
-    radial-gradient(900px 650px at 90% 20%, var(--accent-b), transparent 55%),
-    linear-gradient(180deg, var(--bg), var(--bg-2));
-  overflow-x: hidden;
+  background: radial-gradient(1200px 700px at 18% 8%, rgba(110,165,255,.12), transparent 60%),
+              radial-gradient(1000px 650px at 85% 18%, rgba(255,125,195,.09), transparent 55%),
+              linear-gradient(180deg, var(--bg0), var(--bg1));
+  overflow-x:hidden;
 }
 
-a{ color: inherit; text-decoration: none; }
-a:hover{ text-decoration: underline; text-underline-offset: 3px; }
-
-img{ max-width: 100%; display: block; }
+a{ color:inherit; text-decoration:none; }
+a:hover{ text-decoration:underline; text-underline-offset:3px; }
 
 .container{
-  width: min(var(--max), calc(100% - (var(--pad) * 2)));
-  margin: 0 auto;
+  width:min(var(--max), calc(100% - 40px));
+  margin:0 auto;
 }
 
-.skip{
-  position:absolute;
-  left:-999px;
-  top: 10px;
-  background:#fff;
-  color:#000;
-  padding:10px 12px;
-  border-radius: 12px;
-  z-index: 999;
-}
-.skip:focus{ left: 10px; }
+.page{ padding: 18px 0 28px; }
+
+img{ max-width:100%; display:block; }
+
+h1,h2,h3{ margin:0; }
+p{ margin:0; }
 
 ::selection{
-  background: rgba(255,255,255,.18);
-}
-
-@media (min-width: 900px){
-  :root{ --pad: 28px; }
+  background: rgba(255,255,255,.16);
 }
