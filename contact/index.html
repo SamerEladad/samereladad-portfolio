@@ -1,75 +1,103 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Samer Eladad</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Contact Samer Eladad — Solutions Engineer (ERP/BI).">
+  <meta name="description" content="Contact Samer Eladad — Solutions Engineer (ERP/BI). Fastest response via LinkedIn or email." />
 
-  <!-- Shared styles from repo root -->
-  <link rel="stylesheet" href="../styles/base.css">
-  <link rel="stylesheet" href="../styles/components.css">
+  <meta property="og:title" content="Contact — Samer Eladad" />
+  <meta property="og:description" content="Reach out via form, email, or LinkedIn." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+
+  <link rel="icon" href="../assets/images/headshot.jpg" />
 </head>
 
 <body>
+  <!-- Decorative background layers -->
+  <div class="bg">
+    <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div class="bg-noise" aria-hidden="true"></div>
+  </div>
+
+  <!-- Top Nav -->
   <header class="nav">
-    <div class="container">
-      <a class="brand" href="../">Samer Eladad</a>
-      <nav>
-        <a href="../">Home</a>
-        <a href="../projects/">Projects</a>
-        <a href="../about/">About</a>
-        <a href="./">Contact</a>
+    <div class="container nav__inner">
+      <a class="brand" href="../" aria-label="Go to Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__name">Samer Eladad</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="../" class="nav__link">Home</a>
+        <a href="../projects/" class="nav__link">Projects</a>
+        <a href="../about/" class="nav__link">About</a>
+        <a href="./" class="nav__link is-active" aria-current="page">Contact</a>
       </nav>
+
+      <div class="nav__cta">
+        <a class="btn btn--ghost" href="../assets/Samer_Eladad_CV.pdf" target="_blank" rel="noreferrer">
+          Download CV
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <!-- Subtle banner (uses your existing 21:9 image) -->
-    <section class="contact-banner" aria-hidden="true">
-      <img src="../assets/images/event-banner-21-9.jpg" alt="" loading="lazy">
-    </section>
-
-    <section class="page-header">
-      <h1>Contact</h1>
-      <p>
-        Fastest response via LinkedIn or email. For project inquiries, use the form below.
-      </p>
-
-      <div class="chips">
-        <span class="chip">ERP & Integrations</span>
-        <span class="chip">Power BI & Reporting</span>
-        <span class="chip">Automation</span>
-        <span class="chip">AI Enablement</span>
+  <main class="container page">
+    <!-- Subtle banner -->
+    <section class="banner card card--flat reveal">
+      <img
+        src="../assets/images/event-banner-21-9.jpg"
+        alt=""
+        class="banner__img"
+        loading="lazy"
+      />
+      <div class="banner__overlay" aria-hidden="true"></div>
+      <div class="banner__content">
+        <p class="kicker">Contact</p>
+        <h1 class="h1">Let’s talk</h1>
+        <p class="lead">
+          Fastest response via LinkedIn or email. For project or role inquiries, use the form.
+        </p>
       </div>
     </section>
 
-    <section class="contact-grid">
-      <section class="card contact-card">
-        <h2>Send a message</h2>
-        <p class="muted">
-          Minimal fields, clear topic selection, and a quick response path.
-        </p>
+    <section class="chips reveal" aria-label="Topics">
+      <span class="chip">ERP & Integrations</span>
+      <span class="chip">Power BI & Reporting</span>
+      <span class="chip">Automation</span>
+      <span class="chip">AI Enablement</span>
+    </section>
 
-        <!-- Formspree works on GitHub Pages.
-             1) Create a form at https://formspree.io/
-             2) Replace YOUR_FORM_ID below with your endpoint -->
-        <form id="contactForm" class="form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
-          <div class="row">
-            <label>
-              <span>Name</span>
-              <input name="name" type="text" placeholder="Your name" autocomplete="name" required>
+    <section class="grid grid--contact">
+      <!-- Form card -->
+      <section class="card reveal">
+        <header class="card__head">
+          <h2 class="h2">Message</h2>
+          <p class="muted">Minimal fields, clear routing, quick replies.</p>
+        </header>
+
+        <!-- GitHub Pages friendly: Formspree -->
+        <form id="contactForm" class="form" method="POST" action="https://formspree.io/f/xeeakvbd">
+          <div class="form__row">
+            <label class="field">
+              <span class="field__label">Name</span>
+              <input class="field__input" name="name" type="text" autocomplete="name" placeholder="Your name" required />
             </label>
 
-            <label>
-              <span>Email</span>
-              <input name="email" type="email" placeholder="you@domain.com" autocomplete="email" required>
+            <label class="field">
+              <span class="field__label">Email</span>
+              <input class="field__input" name="email" type="email" autocomplete="email" placeholder="you@domain.com" required />
             </label>
           </div>
 
-          <label>
-            <span>Topic</span>
-            <select name="topic" required>
+          <label class="field">
+            <span class="field__label">Topic</span>
+            <select class="field__input" name="topic" required>
               <option value="" selected disabled>Select a topic</option>
               <option>ERP / Infor / Dynamics</option>
               <option>Power BI / Reporting</option>
@@ -79,88 +107,100 @@
             </select>
           </label>
 
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="6" placeholder="What can I help with?" required></textarea>
+          <label class="field">
+            <span class="field__label">Message</span>
+            <textarea class="field__input" name="message" rows="6" placeholder="What can I help with?" required></textarea>
           </label>
 
           <!-- Honeypot (spam reduction) -->
           <label class="hp" aria-hidden="true">
             <span>Do not fill</span>
-            <input name="company" type="text" tabindex="-1" autocomplete="off">
+            <input name="company" type="text" tabindex="-1" autocomplete="off" />
           </label>
 
-          <div class="actions">
-            <button class="btn" type="submit">
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">
               <span>Send message</span>
-              <span class="arrow" aria-hidden="true">→</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
             </button>
 
             <p class="fineprint">
               Prefer direct contact?
-              <a href="mailto:YOUR_EMAIL">Email me</a> or message me on
-              <a href="https://YOUR_LINKEDIN_URL" target="_blank" rel="noreferrer">LinkedIn</a>.
+              <a href="mailto:samereladad@gmail.com" class="link">samereladad@gmail.com</a> ·
+              <a href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer" class="link">LinkedIn</a>
             </p>
           </div>
 
-          <p id="status" class="status" aria-live="polite"></p>
+          <div id="formStatus" class="status" role="status" aria-live="polite"></div>
         </form>
       </section>
 
-      <aside class="card contact-aside">
-        <h2>Direct links</h2>
-        <p class="muted">Choose the fastest channel.</p>
+      <!-- Direct links card -->
+      <aside class="card reveal">
+        <header class="card__head">
+          <h2 class="h2">Direct links</h2>
+          <p class="muted">Pick the fastest channel.</p>
+        </header>
 
         <div class="list">
-          <a class="item" href="mailto:YOUR_EMAIL">
+          <a class="item" href="mailto:samereladad@gmail.com">
             <div>
-              <div class="k">Email</div>
-              <div class="v">YOUR_EMAIL</div>
+              <div class="item__k">Email</div>
+              <div class="item__v">samereladad@gmail.com</div>
             </div>
-            <div class="chev" aria-hidden="true">→</div>
+            <div class="item__chev" aria-hidden="true">→</div>
           </a>
 
-          <a class="item" href="https://YOUR_LINKEDIN_URL" target="_blank" rel="noreferrer">
+          <a class="item" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer">
             <div>
-              <div class="k">LinkedIn</div>
-              <div class="v">Message me</div>
+              <div class="item__k">LinkedIn</div>
+              <div class="item__v">Message me</div>
             </div>
-            <div class="chev" aria-hidden="true">→</div>
+            <div class="item__chev" aria-hidden="true">→</div>
           </a>
 
-          <a class="item" href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noreferrer">
+          <a class="item" href="https://github.com/samereladad" target="_blank" rel="noreferrer">
             <div>
-              <div class="k">GitHub</div>
-              <div class="v">Repositories</div>
+              <div class="item__k">GitHub</div>
+              <div class="item__v">Repositories</div>
             </div>
-            <div class="chev" aria-hidden="true">→</div>
+            <div class="item__chev" aria-hidden="true">→</div>
           </a>
         </div>
 
         <div class="divider" aria-hidden="true"></div>
 
-        <h3 class="aside-title">Availability</h3>
-        <p class="muted">
-          Open to Solutions Engineer opportunities and projects across ERP, BI, and automation.
-        </p>
+        <div class="note">
+          <h3 class="h3">Availability</h3>
+          <p class="muted">
+            Open to Solutions Engineer opportunities and projects across ERP, BI, and automation.
+          </p>
+        </div>
       </aside>
     </section>
-  </main>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Samer Eladad</p>
-  </footer>
+    <footer class="footer reveal">
+      <div class="footer__inner">
+        <span class="muted">© <span id="year"></span> Samer Eladad</span>
+        <span class="footer__dot" aria-hidden="true">•</span>
+        <a class="muted link" href="../">Home</a>
+        <span class="footer__dot" aria-hidden="true">•</span>
+        <a class="muted link" href="../projects/">Projects</a>
+      </div>
+    </footer>
+  </main>
 
   <script src="../scripts/main.js"></script>
 
-  <!-- Page-specific enhancement: contact form status -->
+  <!-- Contact-page form UX -->
   <script>
     (() => {
       const form = document.getElementById("contactForm");
-      const status = document.getElementById("status");
+      const status = document.getElementById("formStatus");
       if (!form || !status) return;
 
       form.addEventListener("submit", async (e) => {
+        // Honeypot check
         const hp = form.querySelector('input[name="company"]');
         if (hp && hp.value.trim().length > 0) {
           e.preventDefault();

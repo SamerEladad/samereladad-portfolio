@@ -1,48 +1,146 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Samer Eladad</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About Samer Eladad — Solutions Engineer focused on ERP, BI, and automation." />
 
-  <link rel="stylesheet" href="../styles/base.css">
-  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
 </head>
 
 <body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="bg" aria-hidden="true">
+    <div class="glow a"></div>
+    <div class="glow b"></div>
+    <div class="noise"></div>
+  </div>
+
   <header class="nav">
-    <div class="container">
-      <a class="brand" href="../">Samer Eladad</a>
-      <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="../">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>Samer Eladad</span>
+      </a>
+
+      <nav class="nav-links" data-nav="true">
         <a href="../">Home</a>
         <a href="../projects/">Projects</a>
         <a href="./">About</a>
-        <a href="https://YOUR_CONTACT_URL" target="_blank">Contact</a>
+        <a href="../contact/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="page-header">
-      <h1>About</h1>
-      <p>
-        Business Informatics graduate working at the intersection of systems,
-        data, and engineering.
-      </p>
+  <main id="main" class="container">
+    <section class="hero reveal">
+      <div>
+        <h1>About</h1>
+        <p class="lead">
+          Business Informatics background with practical systems ownership — combining technical implementation with business clarity.
+        </p>
+      </div>
+
+      <div class="banner" aria-hidden="true">
+        <img src="../assets/images/event-banner-21-9.jpg" alt="" loading="lazy" />
+      </div>
     </section>
 
-    <section class="content">
-      <p>
-        I work as a Solutions Engineer with a focus on ERP systems, reporting,
-        and automation. My background combines technical implementation with
-        business understanding.
-      </p>
+    <section class="section reveal">
+      <div class="section-head">
+        <h2>What I’m known for</h2>
+        <p class="hint">How I work</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin:0; font-size:15px;">Clarity over complexity</h3>
+          <p class="meta">I favor clean, maintainable solutions that teams can operate and extend.</p>
+          <div class="kpi">
+            <span class="pill">Maintainable</span>
+            <span class="pill">Documented</span>
+            <span class="pill">Pragmatic</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0; font-size:15px;">End-to-end mindset</h3>
+          <p class="meta">From requirements → implementation → enablement → measurement.</p>
+          <div class="kpi">
+            <span class="pill">Delivery</span>
+            <span class="pill">Enablement</span>
+            <span class="pill">Metrics</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0; font-size:15px;">Cross-functional execution</h3>
+          <p class="meta">I translate between business stakeholders and technical constraints without losing precision.</p>
+          <div class="kpi">
+            <span class="pill">Stakeholders</span>
+            <span class="pill">Systems</span>
+            <span class="pill">Outcomes</span>
+          </div>
+        </div>
+
+        <a class="card" href="../contact/" style="text-decoration:none;">
+          <h3 style="margin:0; font-size:15px;">Let’s talk</h3>
+          <p class="meta">If you’re hiring or scoping a project, contact is the fastest route.</p>
+          <div class="kpi">
+            <span class="pill">Contact</span>
+            <span class="pill">LinkedIn</span>
+            <span class="pill">Email</span>
+          </div>
+        </a>
+      </div>
     </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <h2>Tools & domains</h2>
+        <p class="hint">Core stack</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3 style="margin:0; font-size:15px;">ERP & Systems</h3>
+          <p class="meta">Infor, Dynamics 365, roles/permissions, integrations, operations support.</p>
+          <div class="kpi">
+            <span class="pill">Infor</span>
+            <span class="pill">Dynamics 365</span>
+            <span class="pill">Integrations</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0; font-size:15px;">Data & BI</h3>
+          <p class="meta">Power BI, data modeling, SQL, clean reporting flows and dashboards.</p>
+          <div class="kpi">
+            <span class="pill">Power BI</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Modeling</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0; font-size:15px;">Automation & AI</h3>
+          <p class="meta">Python automation, APIs, and AI-assisted documentation workflows.</p>
+          <div class="kpi">
+            <span class="pill">Python</span>
+            <span class="pill">APIs</span>
+            <span class="pill">Azure OpenAI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> Samer Eladad
+    </footer>
   </main>
-
-  <footer class="footer">
-    <p>© <span id="year"></span> Samer Eladad</p>
-  </footer>
 
   <script src="../scripts/main.js"></script>
 </body>
