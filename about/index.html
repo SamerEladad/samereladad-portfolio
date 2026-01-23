@@ -4,19 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Samer Eladad</title>
-  <meta name="description" content="About Samer Eladad — Solutions Engineer focused on ERP, BI, automation, and AI-enabled documentation." />
+  <meta name="description" content="About Samer Eladad — Business Informatics graduate and Solutions Engineer (ERP, BI, automation)." />
 
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/components.css" />
 </head>
 
-<body class="page-bg" data-bg="../assets/images/event-banner2-21-9.jpg">
-  <!-- Background: color glows + fixed “window” image -->
+<body>
   <div class="bg" aria-hidden="true">
     <div class="bg__glow bg__glow--a"></div>
     <div class="bg__glow bg__glow--b"></div>
+    <div class="bg__bannerWin"></div>
     <div class="bg__noise"></div>
-    <div class="bg__photo"></div>
   </div>
 
   <header class="header">
@@ -43,14 +42,16 @@
 
   <main class="container page">
     <div class="stack stack--lg">
+
+      <div data-banner="../assets/images/event-banner3-21-9.jpg" style="height:1px;"></div>
+
       <section class="card reveal" style="padding:18px;">
         <h1 class="h1">About</h1>
         <p class="lead">
           Business Informatics graduate and Solutions Engineer working across ERP, BI, and automation.
           I build reliable reporting pipelines, improve operational workflows, and deliver pragmatic solutions that scale.
         </p>
-
-        <div class="chips" style="margin-top:14px;">
+        <div class="chips">
           <span class="chip">Infor / Dynamics 365</span>
           <span class="chip">Power BI (DAX)</span>
           <span class="chip">SQL</span>
@@ -59,141 +60,48 @@
         </div>
       </section>
 
-      <!-- Brand spotlight (rotating, pauses on hover/focus) -->
       <section class="card reveal" style="padding:18px;">
         <h2 class="h2">Experience</h2>
-        <p class="muted" style="margin-top:10px; line-height:1.6;">
-          I’ve delivered work in environments where documentation quality, system reliability, and data visibility directly impact operations.
+        <p class="lead">
+          Delivered work where documentation quality, system reliability, and data visibility directly impact operations.
         </p>
 
-        <div class="brand-spotlight" id="brandSpotlight" style="margin-top:14px;">
-          <button class="brand-pill is-active" type="button" data-brand="ei" aria-pressed="true">
-            <img src="../assets/logos/ei-electronics.png" alt="Ei Electronics" />
-          </button>
-          <button class="brand-pill" type="button" data-brand="mb" aria-pressed="false">
-            <img src="../assets/logos/mercedes-benz.png" alt="Mercedes-Benz" />
-          </button>
-          <button class="brand-pill" type="button" data-brand="metro" aria-pressed="false">
-            <img src="../assets/logos/metro.png" alt="METRO Markets" />
-          </button>
-        </div>
-      </section>
-
-      <section class="card reveal" style="padding:18px;">
-        <h2 class="h2">Work experience</h2>
-
-        <div class="timeline" style="margin-top:12px;">
-          <div class="timeline__item">
-            <div class="timeline__head">
-              <strong>Ei Electronics KG</strong>
-              <span class="muted">Solutions Engineer</span>
-              <span class="muted">Dec 2024 – Present</span>
-            </div>
-            <ul class="list">
-              <li>Manage and optimize Infor and Dynamics 365 ERP systems across three entities; led setup and go-live of an international subsidiary.</li>
-              <li>Design Power BI data models and dashboards (DAX, SQL) with end-to-end data engineering from cleaning to presentation.</li>
-              <li>Automate workflows (e.g., OCR-based order processing, invoice posting) and maintain documentation/training in Confluence & SharePoint.</li>
-            </ul>
+        <div class="logoStrip" style="margin-top:12px;">
+          <div class="logoCard">
+            <img src="../assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
           </div>
-
-          <div class="timeline__item">
-            <div class="timeline__head">
-              <strong>Mercedes-Benz</strong>
-              <span class="muted">Intern & Bachelor Thesis (Production/Logistics Information Office)</span>
-              <span class="muted">Oct 2023 – Sep 2024</span>
-            </div>
-            <ul class="list">
-              <li>Built an AI-based documentation prototype on Azure OpenAI as part of my Bachelor’s thesis.</li>
-              <li>Defined evaluation metrics to measure accuracy, structure understanding, and consistency at scale.</li>
-              <li>Improved collaboration and delivery using ServiceNow, Mural, and structured task management practices.</li>
-            </ul>
+          <div class="logoCard">
+            <img src="../assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
           </div>
-
-          <div class="timeline__item">
-            <div class="timeline__head">
-              <strong>METRO Markets</strong>
-              <span class="muted">Seller Support (Working Student)</span>
-              <span class="muted">Mar 2022 – Sep 2023</span>
-            </div>
-            <ul class="list">
-              <li>Supported international expansion into Italy, Portugal, Netherlands, and France.</li>
-              <li>Built Power BI dashboards with the BI team for seller and product analytics.</li>
-              <li>Contributed to ~25% YoY revenue growth for a key customer through data-driven operational support.</li>
-              <li>Managed workflows and knowledge bases using Salesforce and Confluence.</li>
-            </ul>
+          <div class="logoCard">
+            <img src="../assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
           </div>
         </div>
+
+        <ul style="margin:14px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+          <li><strong>Ei Electronics (Solutions Engineer):</strong> ERP ownership (Infor & Dynamics 365), Power BI modeling (DAX/SQL), and automation initiatives.</li>
+          <li><strong>Mercedes-Benz (Intern & Thesis):</strong> Azure OpenAI prototype for documentation automation with defined evaluation metrics.</li>
+          <li><strong>METRO Markets (Working Student):</strong> Dashboarding and analytics support for marketplace operations across multiple countries.</li>
+        </ul>
       </section>
+
+      <div data-banner="../assets/images/event-banner4-21-9.jpg" style="height:1px;"></div>
 
       <section class="card reveal" style="padding:18px;">
         <h2 class="h2">Education</h2>
-        <div class="grid-2" style="margin-top:12px;">
-          <div class="panel">
-            <strong>Bochum University of Applied Sciences</strong>
-            <div class="muted" style="margin-top:8px; line-height:1.6;">
-              B.Sc. Business Informatics (Oct 2021 – Oct 2024)<br />
-              Final grade: 2.19 (Good)
-            </div>
-            <div class="muted" style="margin-top:10px; line-height:1.6;">
-              Coursework: Data Science, Software Engineering, Python, Java, Algorithms, Artificial Intelligence
-            </div>
-          </div>
-          <div class="panel">
-            <strong>Rheinisches Studienkolleg</strong>
-            <div class="muted" style="margin-top:8px; line-height:1.6;">
-              Business & mathematics (Jan 2017 – Nov 2017)<br />
-              Final grade: 1.3 (Very Good)
-            </div>
-          </div>
-        </div>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+          <li><strong>B.Sc. Business Informatics</strong> — Bochum University of Applied Sciences (Oct 2021 – Oct 2024) • Final grade: 2.19</li>
+          <li><strong>Rheinisches Studienkolleg</strong> — Business & mathematics college course (Jan 2017 – Nov 2017) • Final grade: 1.3</li>
+        </ul>
       </section>
 
       <section class="card reveal" style="padding:18px;">
         <h2 class="h2">Certificates & workshops</h2>
-        <div class="grid-2" style="margin-top:12px;">
-          <div class="panel">
-            <strong>Certificates</strong>
-            <ul class="list" style="margin-top:10px;">
-              <li>TechLabs — Digital Shaper (AI & Deep Learning), Sep 2024</li>
-              <li>TechLabs — Digital Shaper (Data Science), Apr 2024</li>
-              <li>Udacity — Full Stack Developer, Aug 2018</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <strong>Workshops</strong>
-            <ul class="list" style="margin-top:10px;">
-              <li>Microsoft Dynamics 365 Business Central</li>
-              <li>AI Governance & Ideation</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="card reveal" style="padding:18px;">
-        <h2 class="h2">Awards & volunteering</h2>
-        <div class="grid-2" style="margin-top:12px;">
-          <div class="panel">
-            <strong>Awards</strong>
-            <ul class="list" style="margin-top:10px;">
-              <li>Robotics Race — 1st Place (Hochschule Bochum, 2021)</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <strong>Volunteer</strong>
-            <ul class="list" style="margin-top:10px;">
-              <li>TechLabs Global — Growth Acceleration Manager (Jan 2024 – Jan 2025)</li>
-              <li>Organized 300+ attendee events; led marketing, social, and website optimization initiatives.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="card reveal" style="padding:18px;">
-        <h2 class="h2">Languages</h2>
-        <ul class="list" style="margin-top:12px;">
-          <li>Arabic — Native</li>
-          <li>English — Fluent</li>
-          <li>German — Fluent</li>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+          <li>TechLabs — Digital Shaper (AI & Deep Learning), Sep 2024</li>
+          <li>TechLabs — Digital Shaper (Data Science), Apr 2024</li>
+          <li>Udacity — Full Stack Developer, Aug 2018</li>
+          <li>Workshops: Microsoft Dynamics 365 Business Central • AI Governance & Ideation</li>
         </ul>
       </section>
 
@@ -208,6 +116,7 @@
           <a class="muted link" href="../contact/">Contact</a>
         </div>
       </footer>
+
     </div>
   </main>
 

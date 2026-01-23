@@ -14,7 +14,7 @@
   <div class="bg" aria-hidden="true">
     <div class="bg__glow bg__glow--a"></div>
     <div class="bg__glow bg__glow--b"></div>
-    <div class="bg__photo is-off"></div>
+    <div class="bg__bannerWin"></div>
     <div class="bg__noise"></div>
   </div>
 
@@ -43,8 +43,8 @@
   <main class="container page">
     <div class="stack stack--lg">
 
-      <!-- marker for background photo -->
-      <div data-bg="./assets/images/event-banner-21-9.jpg" style="height:1px;"></div>
+      <!-- Banner window appears around this hero area -->
+      <div data-banner="./assets/images/event-banner-21-9.jpg" style="height:1px;"></div>
 
       <section class="card reveal">
         <div class="hero">
@@ -59,7 +59,7 @@
             </div>
           </div>
 
-          <div class="hero__body">
+          <div>
             <h1 class="h1">Solutions Engineer</h1>
             <p class="lead">
               ERP ownership, BI reporting, and automation — designed for production-grade environments and measurable outcomes.
@@ -80,28 +80,58 @@
         </div>
       </section>
 
-      <!-- second photo window -->
-      <div data-bg="./assets/images/event-banner2-21-9.jpg" style="height:1px;"></div>
+      <!-- Banner window appears around this section -->
+      <div data-banner="./assets/images/event-banner2-21-9.jpg" style="height:1px;"></div>
 
-      <section class="card reveal">
-        <div class="brandcard">
-          <div class="brandcarousel" aria-label="Recognizable brands">
-            <div class="brandcarousel__slot media" data-brand-slot style="padding:10px 12px;">
-              <img data-brand-item class="brandcarousel__img" src="./assets/logos/ei-electronics.png" alt="Ei Electronics">
-              <img data-brand-item class="brandcarousel__img" src="./assets/logos/mercedes-benz.png" alt="Mercedes-Benz">
-              <img data-brand-item class="brandcarousel__img" src="./assets/logos/metro.png" alt="METRO Markets">
-            </div>
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Selected impact</h2>
+        <p class="lead">
+          I build reliable reporting pipelines, improve operational workflows, and deliver pragmatic systems that scale.
+        </p>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+          <li>Ei Electronics: ERP ownership across entities (Infor & Dynamics 365), dashboards and data modeling in Power BI (DAX/SQL), automation initiatives.</li>
+          <li>Mercedes-Benz: AI documentation prototype (Azure OpenAI) as part of internship & thesis work, with evaluation metrics and measurable outcomes.</li>
+          <li>METRO Markets: Power BI dashboards and analytics support for marketplace operations across multiple countries.</li>
+        </ul>
+      </section>
+
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Brands and environments</h2>
+        <p class="lead">
+          Experience in global teams delivering ERP rollouts, BI dashboards, and automation that reduces operational friction.
+        </p>
+
+        <div class="logoStrip" style="margin-top:12px;">
+          <div class="logoCard">
+            <img src="./assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
           </div>
-
-          <p class="brandcarousel__meta">
-            Experience in global teams delivering ERP rollouts, BI dashboards, and automation that reduces operational friction.
-          </p>
+          <div class="logoCard">
+            <img src="./assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
+          </div>
+          <div class="logoCard">
+            <img src="./assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
+          </div>
         </div>
       </section>
 
-      <!-- third + fourth photo windows -->
-      <div data-bg="./assets/images/event-banner3-21-9.jpg" style="height:1px;"></div>
-      <div data-bg="./assets/images/event-banner4-21-9.jpg" style="height:1px;"></div>
+      <!-- Banner window appears around this section -->
+      <div data-banner="./assets/images/event-banner3-21-9.jpg" style="height:1px;"></div>
+
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Featured work</h2>
+        <div class="chips" aria-label="Quick links" style="margin-top:12px;">
+          <a class="chip" href="./projects/#ai-doc">AI Documentation Assistant</a>
+          <a class="chip" href="./projects/#cinemalytics">Cinemalytics</a>
+          <a class="chip" href="./projects/#wallet">Bitcoin Wallet</a>
+          <a class="chip" href="./projects/#mytranslate">myTRANSLATE</a>
+        </div>
+        <p class="lead" style="margin-top:12px;">
+          The project page contains concise summaries focused on outcomes, scope, and tooling.
+        </p>
+      </section>
+
+      <!-- Last banner window -->
+      <div data-banner="./assets/images/event-banner4-21-9.jpg" style="height:1px;"></div>
 
       <footer class="footer reveal">
         <div class="footer__inner">

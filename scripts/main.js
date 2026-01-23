@@ -3,7 +3,7 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Reveal-on-scroll
+  // Reveal on scroll
   const reveals = Array.from(document.querySelectorAll(".reveal"));
   if (reveals.length) {
     const io = new IntersectionObserver((entries) => {
@@ -14,53 +14,37 @@
     reveals.forEach(el => io.observe(el));
   }
 
-  // Background photo switching by scroll markers
-  const photoLayer = document.querySelector(".bg__photo");
-  const photoMarks = Array.from(document.querySelectorAll("[data-bg]"));
+  // Banner “window” logic: fixed image, appears only near markers
+  const bannerWin = document.querySelector(".bg__bannerWin");
+  const marks = Array.from(document.querySelectorAll("[data-banner]"));
 
-  if (photoLayer && photoMarks.length) {
-    const setPhoto = (url) => {
-      document.documentElement.style.setProperty("--bg-photo", `url("${url}")`);
-      photoLayer.classList.remove("is-off");
+  if (bannerWin && marks.length) {
+    const setBanner = (url) => {
+      document.documentElement.style.setProperty("--banner-url", `url("${url}")`);
+      document.documentElement.style.setProperty("--banner-opacity", "1");
+    };
+    const hideBanner = () => {
+      document.documentElement.style.setProperty("--banner-opacity", "0");
     };
 
-    const ioBg = new IntersectionObserver((entries) => {
-      // pick the most visible intersecting entry
-      const visible = entries
+    const ioBanner = new IntersectionObserver((entries) => {
+      const active = entries
         .filter(e => e.isIntersecting)
-        .sort((a,b) => (b.intersectionRatio - a.intersectionRatio))[0];
+        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-      if (visible) {
-        const url = visible.target.getAttribute("data-bg");
-        if (url) setPhoto(url);
+      if (!active) {
+        hideBanner();
+        return;
       }
-    }, { threshold: [0.12, 0.2, 0.35, 0.5] });
 
-    photoMarks.forEach(m => ioBg.observe(m));
+      const url = active.target.getAttribute("data-banner");
+      if (url) setBanner(url);
+    }, { threshold: [0.18, 0.28, 0.40] });
+
+    marks.forEach(m => ioBanner.observe(m));
   }
 
-  // Brand/logo carousel (pause on hover)
-  const slot = document.querySelector("[data-brand-slot]");
-  const items = Array.from(document.querySelectorAll("[data-brand-item]"));
-  let idx = 0;
-  let paused = false;
-
-  const rotate = () => {
-    if (!slot || items.length === 0 || paused) return;
-    items.forEach((el, i) => el.style.display = (i === idx ? "block" : "none"));
-    idx = (idx + 1) % items.length;
-  };
-
-  if (slot && items.length) {
-    items.forEach((el, i) => el.style.display = (i === 0 ? "block" : "none"));
-    slot.addEventListener("mouseenter", () => paused = true);
-    slot.addEventListener("mouseleave", () => paused = false);
-    slot.addEventListener("touchstart", () => paused = true, { passive: true });
-    slot.addEventListener("touchend", () => paused = false, { passive: true });
-    setInterval(rotate, 2200);
-  }
-
-  // Contact form (Formspree) + spam gates
+  // Contact form: Formspree + spam gates
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
   const tsField = document.getElementById("fp_ts");
@@ -87,7 +71,7 @@
         return;
       }
 
-      // time-to-submit
+      // time-to-submit gate
       const elapsed = Date.now() - startTs;
       if (elapsedField) elapsedField.value = String(elapsed);
       if (elapsed < 2200) {
