@@ -24,15 +24,59 @@
   - Mobile Safari: transform-based fallback (JS adds translateY to inner)
 */
 
-.parallax-band{
+/* =========================
+   Parallax “Window” (full-width, no styling)
+   - Image is anchored (sticky) for a segment
+   - Content scrolls over it (overlap)
+   ========================= */
+
+.parallax-window{
   position: relative;
-  height: clamp(220px, 34vh, 380px);   /* ~1/3 of viewport height */
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 24px 70px rgba(0,0,0,.55);
-  background: rgba(0,0,0,.18);
-  isolation: isolate;
+  width: 100%;
+  height: clamp(380px, 85vh, 820px); /* how long the window exists while scrolling */
+  margin: 26px 0;
+  z-index: 0;
+}
+
+/* The “band” itself (≈ 1/3 viewport height), full width, no borders/shadows/filters */
+.parallax-window__sticky{
+  position: sticky;
+  top: 76px; /* keeps it below the header */
+  height: clamp(220px, 34vh, 380px); /* your “one third” requirement */
+  width: 100%;
+  background-image: var(--parallax-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translate3d(0,0,0);
+}
+
+/* Desktop: true parallax feel */
+@media (hover:hover) and (pointer:fine){
+  .parallax-window__sticky{
+    background-attachment: fixed;
+  }
+}
+
+/* Content wrapper that should float over the banner */
+.parallax-overlap{
+  position: relative;
+  z-index: 1;
+  margin-top: -140px; /* overlap amount */
+}
+
+@media (min-width: 980px){
+  .parallax-overlap{
+    margin-top: -170px;
+  }
+}
+
+/* Mobile fallback: the JS will translate the sticky layer subtly.
+   We keep it smooth and ensure no weird clipping. */
+@supports (-webkit-touch-callout: none){
+  .parallax-window__sticky{
+    background-attachment: scroll; /* iOS ignores fixed anyway */
+  }
 }
 
 /* The actual image layer */

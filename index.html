@@ -77,25 +77,14 @@
           </div>
         </section>
 
-      </div>
-    </div>
-
-    <!-- Full-width Parallax Banner (no styling; full width; ~1/3 viewport height) -->
-    <section class="parallax-band reveal" data-parallax-band style="--parallax-image: url('./assets/images/event-banner-21-9.jpg');">
-      <div class="parallax-band__inner"></div>
-    </section>
-
-    <div class="container">
-      <div class="stack stack--lg">
-
         <section class="card reveal" style="padding:18px;">
           <h2 class="h2">Selected impact</h2>
           <p class="lead">
             I build reliable reporting pipelines, improve operational workflows, and deliver pragmatic systems that scale.
           </p>
           <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
-            <li><strong>Ei Electronics:</strong> ERP ownership across entities (Infor & Dynamics 365), Power BI (DAX/SQL), automation initiatives.</li>
-            <li><strong>Mercedes-Benz:</strong> Azure OpenAI documentation prototype, evaluation metrics, and thesis delivery in a production/operations context.</li>
+            <li><strong>Ei Electronics:</strong> ERP ownership (Infor & Dynamics 365), Power BI (DAX/SQL), and automation initiatives.</li>
+            <li><strong>Mercedes-Benz:</strong> Azure OpenAI documentation prototype, evaluation metrics, and thesis delivery in production/operations.</li>
             <li><strong>METRO Markets:</strong> Power BI dashboards and analytics support for marketplace operations across multiple countries.</li>
           </ul>
         </section>
@@ -103,11 +92,12 @@
       </div>
     </div>
 
-    <section class="parallax-band reveal" data-parallax-band style="--parallax-image: url('./assets/images/event-banner2-21-9.jpg');">
-      <div class="parallax-band__inner"></div>
+    <!-- Parallax window 1: full-width, anchored band, content floats over it -->
+    <section class="parallax-window reveal" data-parallax-band style="--parallax-image: url('./assets/images/event-banner-21-9.jpg');">
+      <div class="parallax-window__sticky"></div>
     </section>
 
-    <div class="container">
+    <div class="container parallax-overlap">
       <div class="stack stack--lg">
 
         <section class="card reveal" style="padding:18px;">
@@ -132,19 +122,20 @@
       </div>
     </div>
 
-    <section class="parallax-band reveal" data-parallax-band style="--parallax-image: url('./assets/images/event-banner3-21-9.jpg');">
-      <div class="parallax-band__inner"></div>
+    <!-- Parallax window 2 -->
+    <section class="parallax-window reveal" data-parallax-band style="--parallax-image: url('./assets/images/event-banner2-21-9.jpg');">
+      <div class="parallax-window__sticky"></div>
     </section>
 
-    <div class="container">
+    <div class="container parallax-overlap">
       <div class="stack stack--lg">
 
         <section class="card reveal" style="padding:18px;">
           <h2 class="h2">Featured work</h2>
           <p class="lead">
-            A selection of hands-on projects covering documentation automation, ML recommendations, secure engineering, and web delivery.
+            A selection of hands-on work across documentation automation, ML recommendations, secure engineering, and web delivery.
           </p>
-          <div class="chips" aria-label="Quick links" style="margin-top:12px;">
+          <div class="chips" style="margin-top:12px;">
             <a class="chip" href="./projects/#ai-doc">AI Documentation Assistant</a>
             <a class="chip" href="./projects/#cinemalytics">Cinemalytics</a>
             <a class="chip" href="./projects/#wallet">Bitcoin Wallet</a>
