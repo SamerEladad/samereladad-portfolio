@@ -4,7 +4,6 @@
 
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.70);
-  --faint: rgba(255,255,255,.56);
 
   --border: rgba(255,255,255,.10);
   --shadow: 0 18px 48px rgba(0,0,0,.58);
@@ -12,9 +11,9 @@
   --max: 1120px;
   --ease: cubic-bezier(.2,.8,.2,1);
 
-  /* banner window controls (set via JS) */
-  --banner-url: none;
-  --banner-opacity: 0;
+  --page-banner: none;
+  --page-banner-opacity: .28; /* increased so you can actually see it */
+  --page-banner-darken: .58;  /* controls readability */
 }
 
 *{ box-sizing:border-box; }
@@ -25,7 +24,7 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color: var(--text);
 
-  /* Smooth background, no visible cut line */
+  /* Base background (kept) */
   background:
     radial-gradient(1200px 900px at 14% 10%, rgba(110,165,255,.12), transparent 62%),
     radial-gradient(1100px 900px at 88% 14%, rgba(255,125,195,.10), transparent 62%),
@@ -34,9 +33,41 @@ body{
 
   overflow-x:hidden;
 
-  /* Non-selectable UI text (chips etc.) */
   user-select: none;
   -webkit-user-select: none;
+}
+
+/* Banner sits as a fixed wallpaper layer */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -2;            /* IMPORTANT: above base background but behind glows/noise/content */
+  pointer-events: none;
+
+  background-image: var(--page-banner);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: var(--page-banner-opacity);
+  transform: scale(1.02);
+}
+
+/* Dark overlay to keep text readable while still showing banner */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;            /* sits above banner but below .bg glows/noise (which are z-index:-1 in components.css) */
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0, var(--page-banner-darken)),
+    rgba(0,0,0, calc(var(--page-banner-darken) + 0.10))
+  );
+  opacity: 1;
 }
 
 a{ color:inherit; text-decoration:none; }

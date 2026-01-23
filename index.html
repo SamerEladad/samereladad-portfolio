@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Samer Eladad — Solutions Engineer</title>
-  <meta name="description" content="Samer Eladad — Solutions Engineer focused on ERP ownership, BI reporting, and automation." />
+  <meta name="description" content="Samer Eladad — Solutions Engineer working across ERP ownership, BI reporting, and automation." />
 
   <link rel="stylesheet" href="./styles/base.css" />
   <link rel="stylesheet" href="./styles/components.css" />
 </head>
 
-<body>
+<body class="page--home" style="--page-banner: url('./assets/images/event-banner-21-9.jpg');">
   <div class="bg" aria-hidden="true">
     <div class="bg__glow bg__glow--a"></div>
     <div class="bg__glow bg__glow--b"></div>
@@ -41,8 +41,9 @@
 
   <main class="page">
     <div class="container">
-      <div class="stack stack--lg">
+      <div class="stack stack--xl">
 
+        <!-- HERO -->
         <section class="card reveal">
           <div class="hero">
             <div class="hero__photo">
@@ -59,7 +60,7 @@
             <div>
               <h1 class="h1">Solutions Engineer</h1>
               <p class="lead">
-                ERP ownership, BI reporting, and automation — designed for production-grade environments and measurable outcomes.
+                I help teams run smoother operations with clear ERP ownership, decision-ready Power BI reporting, and practical automation.
               </p>
 
               <div class="hero__actions">
@@ -77,36 +78,42 @@
           </div>
         </section>
 
-        <section class="card reveal" style="padding:18px;">
-          <h2 class="h2">Selected impact</h2>
+        <!-- VALUE -->
+        <section class="card reveal card--pad">
+          <h2 class="h2">What I deliver</h2>
           <p class="lead">
-            I build reliable reporting pipelines, improve operational workflows, and deliver pragmatic systems that scale.
+            Clear ownership, measurable outcomes, and systems that are easy to operate, explain, and maintain.
           </p>
-          <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
-            <li><strong>Ei Electronics:</strong> ERP ownership (Infor & Dynamics 365), Power BI (DAX/SQL), and automation initiatives.</li>
-            <li><strong>Mercedes-Benz:</strong> Azure OpenAI documentation prototype, evaluation metrics, and thesis delivery in production/operations.</li>
-            <li><strong>METRO Markets:</strong> Power BI dashboards and analytics support for marketplace operations across multiple countries.</li>
-          </ul>
+
+          <div class="grid2" style="margin-top:14px;">
+            <div class="panel">
+              <div class="panel__title">ERP & operations</div>
+              <ul class="bullets">
+                <li>Own and stabilize ERP processes across teams and entities.</li>
+                <li>Make handovers easier with structured documentation and clear workflows.</li>
+                <li>Reduce operational friction by fixing root causes, not symptoms.</li>
+              </ul>
+            </div>
+
+            <div class="panel">
+              <div class="panel__title">Reporting & automation</div>
+              <ul class="bullets">
+                <li>Build Power BI models and KPIs that stakeholders trust (DAX/SQL).</li>
+                <li>Automate repetitive work with pragmatic scripts and process changes.</li>
+                <li>Deliver outputs that are useful for both technical and non-technical users.</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
-      </div>
-    </div>
-
-    <!-- Parallax window 1: full-width, anchored band, content floats over it -->
-    <section class="parallax-window reveal" data-parallax-band style="--parallax-image: url('./assets/images/event-banner-21-9.jpg');">
-      <div class="parallax-window__sticky"></div>
-    </section>
-
-    <div class="container parallax-overlap">
-      <div class="stack stack--lg">
-
-        <section class="card reveal" style="padding:18px;">
-          <h2 class="h2">Brands and environments</h2>
+        <!-- BRANDS -->
+        <section class="card reveal card--pad">
+          <h2 class="h2">Where I’ve delivered</h2>
           <p class="lead">
-            Experience in global teams delivering ERP rollouts, BI dashboards, and automation that reduces operational friction.
+            I’ve worked in environments where system reliability, documentation quality, and data visibility directly impact daily operations.
           </p>
 
-          <div class="logoStrip" style="margin-top:12px;">
+          <div class="logoStrip" style="margin-top:14px;">
             <div class="logoCard">
               <img src="./assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
             </div>
@@ -119,27 +126,26 @@
           </div>
         </section>
 
-      </div>
-    </div>
+        <!-- HIGHLIGHTS -->
+        <section class="card reveal card--pad">
+          <h2 class="h2">Highlights</h2>
+          <ul class="bullets" style="margin-top:10px;">
+            <li><strong>Ei Electronics:</strong> ERP ownership (Infor & Dynamics 365), Power BI reporting (DAX/SQL), and automation initiatives.</li>
+            <li><strong>Mercedes-Benz:</strong> Azure OpenAI documentation prototype with defined evaluation metrics and governance alignment.</li>
+            <li><strong>METRO Markets:</strong> Dashboards, KPI tables, and performance analysis for marketplace operations.</li>
+          </ul>
+        </section>
 
-    <!-- Parallax window 2 -->
-    <section class="parallax-window reveal" data-parallax-band style="--parallax-image: url('./assets/images/event-banner2-21-9.jpg');">
-      <div class="parallax-window__sticky"></div>
-    </section>
-
-    <div class="container parallax-overlap">
-      <div class="stack stack--lg">
-
-        <section class="card reveal" style="padding:18px;">
-          <h2 class="h2">Featured work</h2>
+        <!-- NEXT -->
+        <section class="card reveal card--pad">
+          <h2 class="h2">Start here</h2>
           <p class="lead">
-            A selection of hands-on work across documentation automation, ML recommendations, secure engineering, and web delivery.
+            For the fastest overview, open the Projects page or send a short message with your context and goal.
           </p>
-          <div class="chips" style="margin-top:12px;">
-            <a class="chip" href="./projects/#ai-doc">AI Documentation Assistant</a>
-            <a class="chip" href="./projects/#cinemalytics">Cinemalytics</a>
-            <a class="chip" href="./projects/#wallet">Bitcoin Wallet</a>
-            <a class="chip" href="./projects/#mytranslate">myTRANSLATE</a>
+
+          <div class="hero__actions" style="margin-top:14px;">
+            <a class="btn btn--ghost" href="./projects/">Open Projects</a>
+            <a class="btn btn--ghost" href="./contact/">Contact</a>
           </div>
         </section>
 
