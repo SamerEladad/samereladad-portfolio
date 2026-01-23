@@ -146,9 +146,9 @@
       }
 
       const action = form.getAttribute("action") || "";
-      if (!action || action.includes("xxxxxxx")) {
+      if (!action || action.includes("xeeakvbd")) {
         e.preventDefault();
-        status.textContent = "Form endpoint not set. Replace xxxxxxx with your Formspree ID.";
+        status.textContent = "Form endpoint not set. Replace xeeakvbd with your Formspree ID.";
         return;
       }
 
