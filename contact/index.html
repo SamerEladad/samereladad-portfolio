@@ -14,7 +14,6 @@
   <div class="bg" aria-hidden="true">
     <div class="bg__glow bg__glow--a"></div>
     <div class="bg__glow bg__glow--b"></div>
-    <div class="bg__bannerWin"></div>
     <div class="bg__noise"></div>
   </div>
 
@@ -40,120 +39,128 @@
     </div>
   </header>
 
-  <main class="container page">
-    <div class="stack stack--lg">
+  <main class="page">
+    <div class="container">
+      <div class="stack stack--lg">
+
+        <section class="card reveal" style="padding:18px;">
+          <h1 class="h1">Contact</h1>
+          <p class="lead">
+            Send a message with your context and goal. If it’s a role inquiry, include the job title and location.
+          </p>
+          <div class="chips" aria-label="Focus areas">
+            <span class="chip">ERP & Integrations</span>
+            <span class="chip">Power BI & Reporting</span>
+            <span class="chip">Automation</span>
+            <span class="chip">AI Enablement</span>
+          </div>
+        </section>
+
+      </div>
+    </div>
 
     <section class="parallax-band reveal" data-parallax-band style="--parallax-image: url('../assets/images/event-banner4-21-9.jpg');">
-    <div class="parallax-band__inner"></div>
+      <div class="parallax-band__inner"></div>
     </section>
 
-      <section class="card reveal" style="padding:18px;">
-        <h1 class="h1">Contact</h1>
-        <p class="lead">
-          Send a message with your context and goal. If it’s a role inquiry, include the job title and location.
-        </p>
-        <div class="chips" aria-label="Focus areas">
-          <span class="chip">ERP & Integrations</span>
-          <span class="chip">Power BI & Reporting</span>
-          <span class="chip">Automation</span>
-          <span class="chip">AI Enablement</span>
-        </div>
-      </section>
+    <div class="container">
+      <div class="stack stack--lg">
 
-      <section class="card reveal">
-        <header class="card__head">
-          <h2 class="h2">Send a message</h2>
-          <p class="muted">Minimal fields. Clear routing. Quick reply.</p>
-        </header>
+        <section class="card reveal">
+          <header class="card__head">
+            <h2 class="h2">Send a message</h2>
+            <p class="muted">Minimal fields. Clear routing. Quick reply.</p>
+          </header>
 
-        <form
-          id="contactForm"
-          class="form"
-          method="POST"
-          action="https://formspree.io/f/xeeakvbd"
-          novalidate
-        >
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <input type="hidden" name="_subject" value="New message from portfolio site" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_timestamp" id="fp_ts" />
-          <input type="hidden" name="_elapsed" id="fp_elapsed" />
+          <form
+            id="contactForm"
+            class="form"
+            method="POST"
+            action="https://formspree.io/f/xeeakvbd"
+            novalidate
+          >
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="_subject" value="New message from portfolio site" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_timestamp" id="fp_ts" />
+            <input type="hidden" name="_elapsed" id="fp_elapsed" />
 
-          <div class="form__row">
-            <label class="field">
-              <span class="field__label">Name</span>
-              <input class="field__input" name="name" type="text" autocomplete="name" placeholder="Your name" required />
-            </label>
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">Name</span>
+                <input class="field__input" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+              </label>
 
-            <label class="field">
-              <span class="field__label">Email</span>
-              <input class="field__input" name="email" type="email" autocomplete="email" placeholder="you@domain.com" required />
-            </label>
-          </div>
-
-          <label class="field">
-            <span class="field__label">Topic</span>
-            <select class="field__input" name="topic" required>
-              <option value="" selected disabled>Select a topic</option>
-              <option>ERP / Infor / Dynamics</option>
-              <option>Power BI / Reporting</option>
-              <option>Automation / Python</option>
-              <option>AI / Azure OpenAI</option>
-              <option>Other</option>
-            </select>
-          </label>
-
-          <label class="field">
-            <span class="field__label">Message</span>
-            <textarea
-              class="field__input"
-              name="message"
-              rows="7"
-              placeholder="What’s the situation, what’s currently not working, and what would a good outcome look like?"
-              required
-            ></textarea>
-          </label>
-
-          <label class="check">
-            <input class="check__box" type="checkbox" id="humanCheck" required />
-            <span class="check__text">I’m a real person.</span>
-          </label>
-
-          <button class="btn btn--ghost" type="submit">Send</button>
-          <div id="formStatus" class="status" role="status" aria-live="polite"></div>
-
-          <div class="quick">
-            <div class="quick__title">Quick contact</div>
-            <div class="quick__grid">
-              <a class="quick__item" href="mailto:samereladad@gmail.com">
-                <span class="quick__k">Email</span>
-                <span class="quick__v">samereladad@gmail.com</span>
-              </a>
-              <a class="quick__item" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer">
-                <span class="quick__k">LinkedIn</span>
-                <span class="quick__v">linkedin.com/in/samereladad</span>
-              </a>
-              <a class="quick__item" href="https://github.com/samereladad" target="_blank" rel="noreferrer">
-                <span class="quick__k">GitHub</span>
-                <span class="quick__v">github.com/samereladad</span>
-              </a>
+              <label class="field">
+                <span class="field__label">Email</span>
+                <input class="field__input" name="email" type="email" autocomplete="email" placeholder="you@domain.com" required />
+              </label>
             </div>
+
+            <label class="field">
+              <span class="field__label">Topic</span>
+              <select class="field__input" name="topic" required>
+                <option value="" selected disabled>Select a topic</option>
+                <option>ERP / Infor / Dynamics</option>
+                <option>Power BI / Reporting</option>
+                <option>Automation / Python</option>
+                <option>AI / Azure OpenAI</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Message</span>
+              <textarea
+                class="field__input"
+                name="message"
+                rows="7"
+                placeholder="What’s the situation, what’s currently not working, and what would a good outcome look like?"
+                required
+              ></textarea>
+            </label>
+
+            <label class="check">
+              <input class="check__box" type="checkbox" id="humanCheck" required />
+              <span class="check__text">I’m a real person.</span>
+            </label>
+
+            <button class="btn btn--ghost" type="submit">Send</button>
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+
+            <div class="quick">
+              <div class="quick__title">Quick contact</div>
+              <div class="quick__grid">
+                <a class="quick__item" href="mailto:samereladad@gmail.com">
+                  <span class="quick__k">Email</span>
+                  <span class="quick__v">samereladad@gmail.com</span>
+                </a>
+                <a class="quick__item" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer">
+                  <span class="quick__k">LinkedIn</span>
+                  <span class="quick__v">linkedin.com/in/samereladad</span>
+                </a>
+                <a class="quick__item" href="https://github.com/samereladad" target="_blank" rel="noreferrer">
+                  <span class="quick__k">GitHub</span>
+                  <span class="quick__v">github.com/samereladad</span>
+                </a>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        <footer class="footer reveal">
+          <div class="footer__inner">
+            <span class="muted">© <span id="year"></span> Samer Eladad</span>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <a class="muted link" href="../projects/">Projects</a>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <a class="muted link" href="../about/">About</a>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <a class="muted link" href="../contact/">Contact</a>
           </div>
-        </form>
-      </section>
+        </footer>
 
-      <footer class="footer reveal">
-        <div class="footer__inner">
-          <span class="muted">© <span id="year"></span> Samer Eladad</span>
-          <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../projects/">Projects</a>
-          <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../about/">About</a>
-          <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../contact/">Contact</a>
-        </div>
-      </footer>
-
+      </div>
     </div>
   </main>
 

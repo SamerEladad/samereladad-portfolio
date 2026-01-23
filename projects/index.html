@@ -14,7 +14,6 @@
   <div class="bg" aria-hidden="true">
     <div class="bg__glow bg__glow--a"></div>
     <div class="bg__glow bg__glow--b"></div>
-    <div class="bg__bannerWin"></div>
     <div class="bg__noise"></div>
   </div>
 
@@ -40,102 +39,116 @@
     </div>
   </header>
 
-  <main class="container page">
-    <div class="stack stack--lg">
+  <main class="page">
+    <div class="container">
+      <div class="stack stack--lg">
+
+        <section class="card reveal" style="padding:18px;">
+          <h1 class="h1">Projects</h1>
+          <p class="lead">
+            Compact summaries focused on scope, tooling, and outcomes.
+          </p>
+        </section>
+
+      </div>
+    </div>
 
     <section class="parallax-band reveal" data-parallax-band style="--parallax-image: url('../assets/images/event-banner2-21-9.jpg');">
       <div class="parallax-band__inner"></div>
     </section>
 
-      <section class="card reveal" style="padding:18px;">
-        <h1 class="h1">Projects</h1>
-        <p class="lead">
-          Compact summaries focused on scope, tooling, and outcomes.
-        </p>
-      </section>
+    <div class="container">
+      <div class="stack stack--lg">
 
-      <section id="ai-doc" class="card reveal" style="padding:18px;">
-        <h2 class="h2">AI Documentation Assistant (Azure OpenAI) — Mercedes-Benz</h2>
-        <p class="lead">
-          Built an AI prototype to create, update, and query internal system documentation, aligned with privacy constraints and scalable evaluation.
-        </p>
-        <div class="chips">
-          <span class="chip">Azure OpenAI</span>
-          <span class="chip">Documentation</span>
-          <span class="chip">Evaluation Metrics</span>
-        </div>
-        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
-          <li>Mapped documentation gaps into measurable requirements and evaluation criteria.</li>
-          <li>Developed a workflow projected to improve efficiency (~30%) and reduce documentation-related cost (~40%).</li>
-          <li>Supported delivery with structured collaboration (ServiceNow, Mural) and clear stakeholder communication.</li>
-        </ul>
-      </section>
+        <section id="ai-doc" class="card reveal" style="padding:18px;">
+          <h2 class="h2">AI Documentation Assistant (Azure OpenAI) — Mercedes-Benz</h2>
+          <p class="lead">
+            Built an AI prototype to create, update, and query internal system documentation, aligned with privacy constraints and scalable evaluation.
+          </p>
+          <div class="chips">
+            <span class="chip">Azure OpenAI</span>
+            <span class="chip">Documentation</span>
+            <span class="chip">Evaluation Metrics</span>
+          </div>
+          <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+            <li>Mapped documentation gaps into measurable requirements and evaluation criteria.</li>
+            <li>Designed a workflow projected to improve efficiency (~30%) and reduce documentation-related cost (~40%).</li>
+            <li>Supported delivery with structured collaboration (ServiceNow, Mural) and clear stakeholder communication.</li>
+          </ul>
+        </section>
 
-      <div data-banner="../assets/images/event-banner3-21-9.jpg" style="height:1px;"></div>
+        <section id="cinemalytics" class="card reveal" style="padding:18px;">
+          <h2 class="h2">Cinemalytics — ML Recommendations for Streaming Strategy</h2>
+          <p class="lead">
+            Data science project supporting streaming platform choice using genre performance analysis and ML models.
+          </p>
+          <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Random Forest</span>
+          </div>
+          <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+            <li>Built analysis pipelines to evaluate genre–platform fit.</li>
+            <li>Trained recommendation models for platform selection.</li>
+            <li>Optimized for decision-ready outputs for non-technical stakeholders.</li>
+          </ul>
+        </section>
 
-      <section id="cinemalytics" class="card reveal" style="padding:18px;">
-        <h2 class="h2">Cinemalytics — ML Recommendations for Streaming Strategy</h2>
-        <p class="lead">
-          Data science project helping producers select streaming platforms using genre performance analysis and ML models.
-        </p>
-        <div class="chips">
-          <span class="chip">Python</span>
-          <span class="chip">SQL</span>
-          <span class="chip">Random Forest</span>
-        </div>
-        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
-          <li>Built analysis pipelines to evaluate genre–platform fit.</li>
-          <li>Trained models to support platform recommendations with interpretable outputs.</li>
-          <li>Optimized for decision-ready results for non-technical users.</li>
-        </ul>
-      </section>
+      </div>
+    </div>
 
-      <div data-banner="../assets/images/event-banner4-21-9.jpg" style="height:1px;"></div>
+    <section class="parallax-band reveal" data-parallax-band style="--parallax-image: url('../assets/images/event-banner3-21-9.jpg');">
+      <div class="parallax-band__inner"></div>
+    </section>
 
-      <section id="wallet" class="card reveal" style="padding:18px;">
-        <h2 class="h2">Bitcoin Wallet — Secure Wallet & Key Management</h2>
-        <p class="lead">
-          Co-developed a secure Bitcoin wallet with emphasis on safe transactions, key handling, and usability.
-        </p>
-        <div class="chips">
-          <span class="chip">Java</span>
-          <span class="chip">Security</span>
-          <span class="chip">Key Management</span>
-        </div>
-        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
-          <li>Implemented wallet creation and secure key handling.</li>
-          <li>Designed transaction flows with a clean UX for core operations.</li>
-        </ul>
-      </section>
+    <div class="container">
+      <div class="stack stack--lg">
 
-      <section id="mytranslate" class="card reveal" style="padding:18px;">
-        <h2 class="h2">myTRANSLATE — Scientific Translation Web App</h2>
-        <p class="lead">
-          Web app enabling on-demand expert translation requests for scientific texts.
-        </p>
-        <div class="chips">
-          <span class="chip">HTML</span>
-          <span class="chip">CSS</span>
-          <span class="chip">JavaScript</span>
-        </div>
-        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
-          <li>Built a lightweight request flow with a clean UI.</li>
-          <li>Implemented core interactions with vanilla web tech.</li>
-        </ul>
-      </section>
+        <section id="wallet" class="card reveal" style="padding:18px;">
+          <h2 class="h2">Bitcoin Wallet — Secure Wallet & Key Management</h2>
+          <p class="lead">
+            Co-developed a secure Bitcoin wallet emphasizing safe transactions, key handling, and usability.
+          </p>
+          <div class="chips">
+            <span class="chip">Java</span>
+            <span class="chip">Security</span>
+            <span class="chip">Key Management</span>
+          </div>
+          <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+            <li>Implemented wallet creation and secure key handling.</li>
+            <li>Designed safe transaction flows and UX for core operations.</li>
+          </ul>
+        </section>
 
-      <footer class="footer reveal">
-        <div class="footer__inner">
-          <span class="muted">© <span id="year"></span> Samer Eladad</span>
-          <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../projects/">Projects</a>
-          <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../about/">About</a>
-          <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../contact/">Contact</a>
-        </div>
-      </footer>
+        <section id="mytranslate" class="card reveal" style="padding:18px;">
+          <h2 class="h2">myTRANSLATE — Scientific Translation Web App</h2>
+          <p class="lead">
+            Web app enabling on-demand expert translation requests for scientific texts.
+          </p>
+          <div class="chips">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+          </div>
+          <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+            <li>Built a lightweight request flow with a clean UI.</li>
+            <li>Implemented core interactions with vanilla web tech.</li>
+          </ul>
+        </section>
 
+        <footer class="footer reveal">
+          <div class="footer__inner">
+            <span class="muted">© <span id="year"></span> Samer Eladad</span>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <a class="muted link" href="../projects/">Projects</a>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <a class="muted link" href="../about/">About</a>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <a class="muted link" href="../contact/">Contact</a>
+          </div>
+        </footer>
+
+      </div>
     </div>
   </main>
 

@@ -14,7 +14,6 @@
   <div class="bg" aria-hidden="true">
     <div class="bg__glow bg__glow--a"></div>
     <div class="bg__glow bg__glow--b"></div>
-    <div class="bg__bannerWin"></div>
     <div class="bg__noise"></div>
   </div>
 
@@ -40,85 +39,91 @@
     </div>
   </header>
 
-  <main class="container page">
-    <div class="stack stack--lg">
+  <main class="page">
+    <div class="container">
+      <div class="stack stack--lg">
+
+        <section class="card reveal" style="padding:18px;">
+          <h1 class="h1">About</h1>
+          <p class="lead">
+            Business Informatics graduate and Solutions Engineer working across ERP, BI, and automation.
+            I build reliable reporting pipelines, improve operational workflows, and deliver pragmatic solutions that scale.
+          </p>
+          <div class="chips">
+            <span class="chip">Infor / Dynamics 365</span>
+            <span class="chip">Power BI (DAX)</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Python Automation</span>
+            <span class="chip">Azure OpenAI</span>
+          </div>
+        </section>
+
+      </div>
+    </div>
 
     <section class="parallax-band reveal" data-parallax-band style="--parallax-image: url('../assets/images/event-banner3-21-9.jpg');">
       <div class="parallax-band__inner"></div>
     </section>
 
-      <section class="card reveal" style="padding:18px;">
-        <h1 class="h1">About</h1>
-        <p class="lead">
-          Business Informatics graduate and Solutions Engineer working across ERP, BI, and automation.
-          I build reliable reporting pipelines, improve operational workflows, and deliver pragmatic solutions that scale.
-        </p>
-        <div class="chips">
-          <span class="chip">Infor / Dynamics 365</span>
-          <span class="chip">Power BI (DAX)</span>
-          <span class="chip">SQL</span>
-          <span class="chip">Python Automation</span>
-          <span class="chip">Azure OpenAI</span>
-        </div>
-      </section>
+    <div class="container">
+      <div class="stack stack--lg">
 
-      <section class="card reveal" style="padding:18px;">
-        <h2 class="h2">Experience</h2>
-        <p class="lead">
-          Delivered work where documentation quality, system reliability, and data visibility directly impact operations.
-        </p>
+        <section class="card reveal" style="padding:18px;">
+          <h2 class="h2">Experience</h2>
+          <p class="lead">
+            Delivered work where documentation quality, system reliability, and data visibility directly impact operations.
+          </p>
 
-        <div class="logoStrip" style="margin-top:12px;">
-          <div class="logoCard">
-            <img src="../assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
+          <div class="logoStrip" style="margin-top:12px;">
+            <div class="logoCard">
+              <img src="../assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
+            </div>
+            <div class="logoCard">
+              <img src="../assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
+            </div>
+            <div class="logoCard">
+              <img src="../assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
+            </div>
           </div>
-          <div class="logoCard">
-            <img src="../assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
+
+          <ul style="margin:14px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+            <li><strong>Ei Electronics (Solutions Engineer):</strong> ERP ownership (Infor & Dynamics 365), Power BI modeling (DAX/SQL), and automation initiatives.</li>
+            <li><strong>Mercedes-Benz (Intern & Thesis):</strong> Azure OpenAI prototype for documentation automation with defined evaluation metrics.</li>
+            <li><strong>METRO Markets (Working Student):</strong> Dashboarding and analytics support for marketplace operations across multiple countries.</li>
+          </ul>
+        </section>
+
+        <section class="card reveal" style="padding:18px;">
+          <h2 class="h2">Education</h2>
+          <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+            <li><strong>B.Sc. Business Informatics</strong> — Bochum University of Applied Sciences (Oct 2021 – Oct 2024) • Final grade: 2.19</li>
+            <li><strong>Rheinisches Studienkolleg</strong> — Business & mathematics college course (Jan 2017 – Nov 2017) • Final grade: 1.3</li>
+          </ul>
+        </section>
+
+        <section class="card reveal" style="padding:18px;">
+          <h2 class="h2">Certificates & workshops</h2>
+          <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
+            <li>TechLabs — Digital Shaper (AI & Deep Learning), Sep 2024</li>
+            <li>TechLabs — Digital Shaper (Data Science), Apr 2024</li>
+            <li>Udacity — Full Stack Developer, Aug 2018</li>
+            <li>Workshops: Microsoft Dynamics 365 Business Central • AI Governance & Ideation</li>
+          </ul>
+        </section>
+
+        <footer class="footer reveal">
+          <div class="footer__inner">
+            <span class="muted">© <span id="year"></span> Samer Eladad</span>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <a class="muted link" href="../projects/">Projects</a>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <a class="muted link" href="../about/">About</a>
+            <span class="footer__dot" aria-hidden="true">•</span>
+            <a class="muted link" href="../contact/">Contact</a>
           </div>
-          <div class="logoCard">
-            <img src="../assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
-          </div>
-        </div>
+        </footer>
 
-        <ul style="margin:14px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
-          <li><strong>Ei Electronics (Solutions Engineer):</strong> ERP ownership (Infor & Dynamics 365), Power BI modeling (DAX/SQL), and automation initiatives.</li>
-          <li><strong>Mercedes-Benz (Intern & Thesis):</strong> Azure OpenAI prototype for documentation automation with defined evaluation metrics.</li>
-          <li><strong>METRO Markets (Working Student):</strong> Dashboarding and analytics support for marketplace operations across multiple countries.</li>
-        </ul>
-      </section>
-
-      <div data-banner="../assets/images/event-banner4-21-9.jpg" style="height:1px;"></div>
-
-      <section class="card reveal" style="padding:18px;">
-        <h2 class="h2">Education</h2>
-        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
-          <li><strong>B.Sc. Business Informatics</strong> — Bochum University of Applied Sciences (Oct 2021 – Oct 2024) • Final grade: 2.19</li>
-          <li><strong>Rheinisches Studienkolleg</strong> — Business & mathematics college course (Jan 2017 – Nov 2017) • Final grade: 1.3</li>
-        </ul>
-      </section>
-
-      <section class="card reveal" style="padding:18px;">
-        <h2 class="h2">Certificates & workshops</h2>
-        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.75;">
-          <li>TechLabs — Digital Shaper (AI & Deep Learning), Sep 2024</li>
-          <li>TechLabs — Digital Shaper (Data Science), Apr 2024</li>
-          <li>Udacity — Full Stack Developer, Aug 2018</li>
-          <li>Workshops: Microsoft Dynamics 365 Business Central • AI Governance & Ideation</li>
-        </ul>
-      </section>
-
-      <footer class="footer reveal">
-        <div class="footer__inner">
-          <span class="muted">© <span id="year"></span> Samer Eladad</span>
-          <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../projects/">Projects</a>
-          <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../about/">About</a>
-          <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../contact/">Contact</a>
-        </div>
-      </footer>
-
+      </div>
     </div>
   </main>
 
