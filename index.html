@@ -2,201 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Samer Eladad — Solutions Engineer</title>
-  <meta name="description" content="Solutions Engineer focused on ERP, BI, and automation. ERP ownership, reporting, and systems enablement." />
+  <meta name="description" content="Samer Eladad, Solutions Engineer focused on ERP, BI, and automation." />
 
-  <link rel="stylesheet" href="styles/base.css" />
-  <link rel="stylesheet" href="styles/components.css" />
+  <!-- IMPORTANT: keep these relative (./) for GitHub Pages project URLs -->
+  <link rel="stylesheet" href="./styles/base.css" />
+  <link rel="stylesheet" href="./styles/components.css" />
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
   <div class="bg" aria-hidden="true">
-    <div class="glow a"></div>
-    <div class="glow b"></div>
-    <div class="noise"></div>
+    <div class="bg__glow bg__glow--a"></div>
+    <div class="bg__glow bg__glow--b"></div>
+    <div class="bg__noise"></div>
   </div>
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="./">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span>Samer Eladad</span>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="./" aria-label="Go to Home">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__text">Samer Eladad</span>
       </a>
 
-      <nav class="nav-links" data-nav="true">
-        <a href="./">Home</a>
-        <a href="projects/">Projects</a>
-        <a href="about/">About</a>
-        <a href="contact/">Contact</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__link is-active" href="./" aria-current="page">Home</a>
+        <a class="nav__link" href="./projects/">Projects</a>
+        <a class="nav__link" href="./about/">About</a>
+        <a class="nav__link" href="./contact/">Contact</a>
       </nav>
+
+      <div class="header__actions">
+        <!-- Optional. Remove if you don't have the PDF yet. -->
+        <a class="btn btn--ghost" href="./assets/Samer_Eladad_CV.pdf" target="_blank" rel="noreferrer">
+          Download CV
+        </a>
+      </div>
     </div>
   </header>
 
-  <main id="main" class="container">
-    <section class="hero reveal">
-      <div class="hero-top">
-        <img class="avatar" src="assets/images/headshot.jpg" alt="Samer Eladad headshot" />
-        <div>
-          <h1>Solutions Engineer</h1>
-          <p class="lead">
-            ERP, BI, and automation — enabling teams with scalable reporting, reliable systems, and pragmatic engineering.
-          </p>
-        </div>
-      </div>
+  <main class="container page">
+    <div class="stack stack--lg">
+      <!-- HERO CARD -->
+      <section class="card reveal">
+        <div class="hero">
+          <div class="hero__media">
+            <img
+              src="./assets/images/headshot.jpg"
+              alt="Portrait of Samer Eladad"
+              class="hero__img"
+              loading="eager"
+            />
+          </div>
 
-      <div class="ctas">
-        <a class="btn" href="contact/">
-          <span>Contact</span><span class="arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="btn secondary" href="projects/">
-          <span>View Projects</span><span class="arrow" aria-hidden="true">→</span>
-        </a>
-        <!-- Optional: add CV PDF later -->
-        <!-- <a class="btn secondary" href="assets/Samer-Eladad-CV.pdf" target="_blank" rel="noreferrer">Download CV</a> -->
-      </div>
+          <div class="hero__body">
+            <h1 class="h1">Solutions Engineer</h1>
+            <p class="lead">
+              ERP, BI, and automation — enabling teams with scalable reporting, reliable systems, and pragmatic engineering.
+            </p>
 
-      <div class="banner" aria-hidden="true">
-        <img src="assets/images/event-banner-21-9.jpg" alt="" loading="lazy" />
-      </div>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="./contact/">
+                <span>Contact</span><span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="btn btn--ghost" href="./projects/">
+                <span>View projects</span><span class="btn__arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
 
-      <!-- Subtle "logo flex" row -->
-      <div class="logo-row">
-        <div class="logo-badge" title="Ei Electronics">
-          <img src="assets/logos/ei-electronics.png" alt="Ei Electronics logo" data-fallback="fb-ei">
-          <span id="fb-ei" class="logo-fallback" style="display:none;">Ei Electronics</span>
-        </div>
-
-        <div class="logo-badge" title="Mercedes-Benz">
-          <img src="assets/logos/mercedes-benz.png" alt="Mercedes-Benz logo" data-fallback="fb-mb">
-          <span id="fb-mb" class="logo-fallback" style="display:none;">Mercedes-Benz</span>
-        </div>
-
-        <div class="logo-badge" title="METRO Markets">
-          <img src="assets/logos/metro.png" alt="METRO Markets logo" data-fallback="fb-metro">
-          <span id="fb-metro" class="logo-fallback" style="display:none;">METRO Markets</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <div class="section-head">
-        <h2>Impact focus</h2>
-        <p class="hint">What you can expect from me</p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Systems ownership</h3>
-          <p class="meta">
-            End-to-end responsibility: configuration, roles, documentation, training, and stable operations.
-          </p>
-          <div class="kpi">
-            <span class="pill">ERP enablement</span>
-            <span class="pill">Governance</span>
-            <span class="pill">Documentation</span>
+            <div class="chips" aria-label="Focus areas">
+              <span class="chip">ERP & Integrations</span>
+              <span class="chip">Power BI & Reporting</span>
+              <span class="chip">Automation</span>
+              <span class="chip">AI Enablement</span>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Reporting & visibility</h3>
-          <p class="meta">
-            Power BI models and reporting flows that are consistent, explainable, and easy to maintain.
-          </p>
-          <div class="kpi">
-            <span class="pill">Power BI</span>
-            <span class="pill">Data modeling</span>
-            <span class="pill">Automation</span>
-          </div>
+      <!-- BANNER CARD -->
+      <section class="card banner reveal">
+        <div class="banner__media" tabindex="0" aria-label="Event banner image">
+          <img
+            src="./assets/images/event-banner-21-9.jpg"
+            alt="Samer speaking at an event"
+            class="banner__img"
+            loading="lazy"
+          />
         </div>
+      </section>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Automation mindset</h3>
-          <p class="meta">
-            Reduce manual work through scripts, APIs, and workflow improvements with measurable results.
-          </p>
-          <div class="kpi">
-            <span class="pill">Python</span>
-            <span class="pill">APIs</span>
-            <span class="pill">Process improvement</span>
-          </div>
+      <!-- “FLEX” LOGOS (kept small, not recolored) -->
+      <section class="card reveal">
+        <div class="logo-row">
+          <!-- Replace src paths with your actual logo files if different -->
+          <img class="logo" src="./assets/images/logo-ei.png" alt="Ei Electronics" loading="lazy" />
+          <img class="logo" src="./assets/images/logo-mercedes.png" alt="Mercedes-Benz" loading="lazy" />
+          <img class="logo" src="./assets/images/logo-metro.png" alt="METRO Markets" loading="lazy" />
         </div>
+        <p class="muted logo-row__note">
+          Experience across recognizable brands — focused on delivery, reliability, and measurable outcomes.
+        </p>
+      </section>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">AI enablement</h3>
-          <p class="meta">
-            Practical AI support for documentation and knowledge discovery without over-engineering.
-          </p>
-          <div class="kpi">
-            <span class="pill">Azure OpenAI</span>
-            <span class="pill">Knowledge</span>
-            <span class="pill">UX for teams</span>
-          </div>
+      <footer class="footer reveal">
+        <div class="footer__inner">
+          <span class="muted">© <span id="year"></span> Samer Eladad</span>
+          <span class="footer__dot" aria-hidden="true">•</span>
+          <a class="muted link" href="./projects/">Projects</a>
+          <span class="footer__dot" aria-hidden="true">•</span>
+          <a class="muted link" href="./contact/">Contact</a>
         </div>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <div class="section-head">
-        <h2>Experience</h2>
-        <p class="hint">A concise overview</p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Ei Electronics — Solutions Engineer</h3>
-          <p class="meta">ERP systems, reporting, integrations, and operational enablement.</p>
-          <ul class="bullets">
-            <li>ERP ownership and rollout support across stakeholders.</li>
-            <li>Reporting and automation to improve consistency and speed.</li>
-            <li>Documentation, training, and support processes.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Mercedes-Benz — Intern & Bachelor Thesis</h3>
-          <p class="meta">AI-assisted documentation prototype and evaluation framework.</p>
-          <ul class="bullets">
-            <li>Built a prototype to enhance and generate system documentation.</li>
-            <li>Defined evaluation metrics to measure performance and quality.</li>
-            <li>Created usable formats for teams in production/logistics context.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <div class="section-head">
-        <h2>Quick links</h2>
-        <p class="hint">Short paths to details</p>
-      </div>
-
-      <div class="grid">
-        <a class="card" href="projects/" style="text-decoration:none;">
-          <h3 style="margin:0; font-size:15px;">Projects</h3>
-          <p class="meta">Technical work and case studies (ready for GitHub links as you publish repos).</p>
-          <div class="kpi">
-            <span class="pill">Data</span><span class="pill">Automation</span><span class="pill">Systems</span>
-          </div>
-        </a>
-
-        <a class="card" href="contact/" style="text-decoration:none;">
-          <h3 style="margin:0; font-size:15px;">Contact</h3>
-          <p class="meta">One form, direct links, and fast response routes.</p>
-          <div class="kpi">
-            <span class="pill">Email</span><span class="pill">LinkedIn</span><span class="pill">Availability</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <footer class="footer">
-      © <span id="year"></span> Samer Eladad
-    </footer>
+      </footer>
+    </div>
   </main>
 
-  <script src="scripts/main.js"></script>
+  <script src="./scripts/main.js"></script>
 </body>
 </html>

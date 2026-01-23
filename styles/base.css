@@ -1,38 +1,39 @@
 :root{
-  /* Unique dark-grey theme (not pure black) */
   --bg0: #0c0f14;
   --bg1: #0f131a;
-  --panel: rgba(255,255,255,.06);
-  --panel-strong: rgba(255,255,255,.08);
-  --border: rgba(255,255,255,.10);
 
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.68);
   --faint: rgba(255,255,255,.55);
 
+  --border: rgba(255,255,255,.10);
   --shadow: 0 14px 42px rgba(0,0,0,.55);
   --radius: 18px;
-
   --max: 1040px;
 
-  /* Logo sizing system (do not recolor logos) */
+  --ease: cubic-bezier(.2,.8,.2,1);
+
+  /* Exact logo sizing system */
   --logo-h-mobile: 20px;
   --logo-h-desktop: 24px;
-  --logo-max-w: 92px;
+  --logo-max-w: 110px;
 
-  /* Motion */
-  --ease: cubic-bezier(.2,.8,.2,1);
+  /* Image constraints */
+  --hero-img-max-h: 420px;     /* phone */
+  --banner-max-h: 320px;       /* phone */
 }
 
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+html, body{ height:100%; }
+
 body{
   margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color: var(--text);
-  background: radial-gradient(1200px 700px at 18% 8%, rgba(110,165,255,.12), transparent 60%),
-              radial-gradient(1000px 650px at 85% 18%, rgba(255,125,195,.09), transparent 55%),
-              linear-gradient(180deg, var(--bg0), var(--bg1));
+  background:
+    radial-gradient(1200px 700px at 18% 8%, rgba(110,165,255,.12), transparent 60%),
+    radial-gradient(1000px 650px at 85% 18%, rgba(255,125,195,.09), transparent 55%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
   overflow-x:hidden;
 }
 
@@ -46,11 +47,7 @@ a:hover{ text-decoration:underline; text-underline-offset:3px; }
 
 .page{ padding: 18px 0 28px; }
 
-img{ max-width:100%; display:block; }
+img{ display:block; max-width:100%; }
 
 h1,h2,h3{ margin:0; }
 p{ margin:0; }
-
-::selection{
-  background: rgba(255,255,255,.16);
-}
