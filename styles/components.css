@@ -1,0 +1,41 @@
+.nav {
+  border-bottom: 1px solid #1f2430;
+}
+
+.nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  margin-left: 16px;
+  color: #b5b9c6;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.hero {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.avatar {
+  width: 120px;
+  border-radius: 50%;
+}
+
+.card {
+  background: #141925;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 64px;
+  color: #777;
+}
