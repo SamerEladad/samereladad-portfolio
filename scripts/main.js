@@ -27,33 +27,7 @@
     });
   }
 
-  // ══════════════════════════════════════════════════════════════════════════
-  // PARALLAX HERO BANNER SCROLL EFFECT
-  // ══════════════════════════════════════════════════════════════════════════
-  const parallaxBanner = document.querySelector(".parallax-banner__img");
-  if (parallaxBanner) {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    
-    if (!prefersReduced) {
-      let ticking = false;
-      
-      const updateParallax = () => {
-        const scrollY = window.scrollY;
-        const translateY = scrollY * 0.4; // Parallax speed (0.4 = slower than scroll)
-        parallaxBanner.style.transform = `translateY(${translateY}px)`;
-        ticking = false;
-      };
-      
-      window.addEventListener("scroll", () => {
-        if (!ticking) {
-          requestAnimationFrame(updateParallax);
-          ticking = true;
-        }
-      }, { passive: true });
-      
-      updateParallax(); // Initial position
-    }
-  }
+  // Banner stays fixed in background (no scroll effect)
 
   // Scroll to top functionality
   const scrollToTopBtn = document.getElementById("scrollToTop");
@@ -128,7 +102,9 @@
     }
   }
 
-  // Contact form: Formspree + spam gates
+  // ══════════════════════════════════════════════════════════════════════════
+  // CONTACT FORM: Validation + Formspree + Spam Protection
+  // ══════════════════════════════════════════════════════════════════════════
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
   const tsField = document.getElementById("fp_ts");
@@ -139,30 +115,103 @@
     const startTs = Date.now();
     if (tsField) tsField.value = String(startTs);
 
+    // Helper function to validate email format
+    const isValidEmail = (email) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
+
+    // Helper function to show field error
+    const showFieldError = (fieldName, message) => {
+      const field = form.querySelector(`[name="${fieldName}"]`);
+      if (field) {
+        field.style.borderColor = "#ff6b6b";
+        field.focus();
+      }
+      status.textContent = message;
+      status.style.color = "#ff6b6b";
+    };
+
+    // Helper function to clear field errors
+    const clearFieldErrors = () => {
+      const fields = form.querySelectorAll(".field__input");
+      fields.forEach(field => {
+        field.style.borderColor = "";
+      });
+      status.textContent = "";
+      status.style.color = "";
+    };
+
     form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      clearFieldErrors();
+
+      // Honeypot check
       const gotcha = form.querySelector('input[name="_gotcha"]');
       if (gotcha && gotcha.value.trim().length > 0) {
-        e.preventDefault();
         status.textContent = "Submission blocked.";
         return;
       }
 
-      if (humanCheck && !humanCheck.checked) {
-        e.preventDefault();
-        status.textContent = "Please confirm you’re a real person.";
+      // Get form values
+      const nameField = form.querySelector('[name="name"]');
+      const emailField = form.querySelector('[name="email"]');
+      const messageField = form.querySelector('[name="message"]');
+
+      const name = nameField?.value.trim() || "";
+      const email = emailField?.value.trim() || "";
+      const message = messageField?.value.trim() || "";
+
+      // Validate required fields
+      if (!name) {
+        showFieldError("name", "Please enter your name.");
         return;
       }
 
+      if (name.length < 2) {
+        showFieldError("name", "Name must be at least 2 characters.");
+        return;
+      }
+
+      if (!email) {
+        showFieldError("email", "Please enter your email address.");
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        showFieldError("email", "Please enter a valid email address.");
+        return;
+      }
+
+      if (!message) {
+        showFieldError("message", "Please enter your message.");
+        return;
+      }
+
+      if (message.length < 10) {
+        showFieldError("message", "Message must be at least 10 characters.");
+        return;
+      }
+
+      // Human check
+      if (humanCheck && !humanCheck.checked) {
+        status.textContent = "Please confirm you're a real person.";
+        status.style.color = "#ff6b6b";
+        return;
+      }
+
+      // Time-based spam check
       const elapsed = Date.now() - startTs;
       if (elapsedField) elapsedField.value = String(elapsed);
       if (elapsed < 2200) {
-        e.preventDefault();
-        status.textContent = "Please take a second to review your message, then send again.";
+        status.textContent = "Please take a moment to review your message, then try again.";
+        status.style.color = "#ff6b6b";
         return;
       }
 
-      e.preventDefault();
+      // All validations passed - submit the form
       status.textContent = "Sending…";
+      status.style.color = "";
 
       // Add loading state to button
       const submitBtn = form.querySelector('button[type="submit"]');
@@ -179,17 +228,29 @@
 
         if (res.ok) {
           form.reset();
-          status.textContent = "Message sent. I'll get back to you shortly.";
+          status.textContent = "Message sent! I'll get back to you shortly.";
+          status.style.color = "#4ade80";
         } else {
-          status.textContent = "Something went wrong. Please email me instead.";
+          status.textContent = "Something went wrong. Please email me directly.";
+          status.style.color = "#ff6b6b";
         }
       } catch {
-        status.textContent = "Network error. Please email me instead.";
+        status.textContent = "Network error. Please email me directly.";
+        status.style.color = "#ff6b6b";
       } finally {
         // Reset button state
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
       }
+    });
+
+    // Clear error styling when user starts typing
+    form.querySelectorAll(".field__input").forEach(field => {
+      field.addEventListener("input", () => {
+        field.style.borderColor = "";
+        status.textContent = "";
+        status.style.color = "";
+      });
     });
   }
 })();

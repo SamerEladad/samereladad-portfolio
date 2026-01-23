@@ -519,6 +519,77 @@ body.light-theme .quick__k {
 body.light-theme .quick__v {
   color: rgba(33,37,41,.90);
 }
+/* ══════════════════════════════════════════════════════════════════════════
+   MOBILE HEADER RESPONSIVE STYLES
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Mobile: Reorganize header layout */
+@media (max-width: 859px) {
+  .header__inner {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 0;
+  }
+  
+  /* First row: brand on left, actions on right */
+  .brand {
+    order: 1;
+    flex: 1;
+  }
+  
+  .header__actions {
+    order: 2;
+    gap: 8px;
+  }
+  
+  /* Theme toggle on the right (after CV button) */
+  .header__actions {
+    flex-direction: row-reverse;
+  }
+  
+  /* Smaller CV button on mobile */
+  .header__actions .btn--ghost {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  /* Nav takes full width on second row */
+  .nav {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+  }
+  
+  .nav__link {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .brand__text {
+    font-size: 14px;
+  }
+  
+  .header__actions .btn--ghost {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .nav__link {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
 @media (min-width: 860px){ .nav{ max-width: none; } }
 
 /* Typography + layout */

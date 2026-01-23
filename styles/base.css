@@ -29,24 +29,17 @@
 }
 
 *{ box-sizing:border-box; }
-html, body{ height:100%; }
+html{ height:100%; }
+body{ min-height:100%; }
 
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color: var(--text);
 
-  /* Base background (kept) */
-  background:
-    radial-gradient(1200px 900px at 14% 10%, rgba(110,165,255,.12), transparent 62%),
-    radial-gradient(1100px 900px at 88% 14%, rgba(255,125,195,.10), transparent 62%),
-    radial-gradient(1200px 900px at 50% 120%, rgba(255,255,255,.06), transparent 60%),
-    var(--page-texture),
-    linear-gradient(180deg, var(--bg0), var(--bg1));
-
-  background-size: auto, auto, auto, cover, auto;
-  background-position: 14% 10%, 88% 14%, 50% 120%, center, center;
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  /* Base background - solid color that extends full page */
+  background: var(--bg0);
+  background-attachment: scroll;
 
   overflow-x:hidden;
 
@@ -57,37 +50,19 @@ body{
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Texture layer for subtle background patterns */
+/* Ambient glow effects - fixed position */
 body::before{
   content:"";
   position: fixed;
   inset: 0;
-  z-index: -3;            /* below banner layer */
+  z-index: -10;
   pointer-events: none;
 
-  background-image: var(--page-texture);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  opacity: var(--page-texture-opacity);
+  background:
+    radial-gradient(1200px 900px at 14% 10%, rgba(110,165,255,.10), transparent 62%),
+    radial-gradient(1100px 900px at 88% 14%, rgba(255,125,195,.08), transparent 62%);
 }
 
-/* Dark overlay to keep text readable while still showing banner */
-body::after{
-  content:"";
-  position: fixed;
-  inset: 0;
-  z-index: -1;            /* sits above banner but below .bg glows/noise (which are z-index:-1 in components.css) */
-  pointer-events: none;
-
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0, var(--page-banner-darken)),
-    rgba(0,0,0, calc(var(--page-banner-darken) + 0.10))
-  );
-  opacity: 1;
-}
 /* Light theme */
 body.light-theme {
   --bg0: var(--bg0-light);
@@ -99,19 +74,15 @@ body.light-theme {
   --page-banner-darken: var(--page-banner-darken-light);
   --page-texture-opacity: var(--page-texture-opacity-light);
 
-  /* Simplified background for light mode - remove colored gradients */
-  background:
-    radial-gradient(1200px 900px at 50% 120%, rgba(0,0,0,.02), transparent 60%),
-    linear-gradient(180deg, var(--bg0), var(--bg1));
+  background: var(--bg0);
 }
 
-body.light-theme::after {
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255, 0.02),
-    rgba(255,255,255, 0.01)
-  );
+body.light-theme::before {
+  background:
+    radial-gradient(1200px 900px at 14% 10%, rgba(110,165,255,.05), transparent 62%),
+    radial-gradient(1100px 900px at 88% 14%, rgba(255,125,195,.04), transparent 62%);
 }
+
 a{ color:inherit; text-decoration:none; }
 a:hover{ text-decoration:none; }
 
