@@ -4,29 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Samer Eladad — Solutions Engineer</title>
-  <meta name="description" content="Samer Eladad — Solutions Engineer focused on ERP, BI, and automation." />
+  <meta name="description" content="Samer Eladad — Solutions Engineer focused on ERP ownership, BI reporting, and automation." />
 
   <link rel="stylesheet" href="./styles/base.css" />
   <link rel="stylesheet" href="./styles/components.css" />
 </head>
 
-<body class="no-select">
-  <!-- Smooth background + scrolling “windows” for banners -->
+<body>
   <div class="bg" aria-hidden="true">
     <div class="bg__glow bg__glow--a"></div>
     <div class="bg__glow bg__glow--b"></div>
+    <div class="bg__photo is-off"></div>
     <div class="bg__noise"></div>
-
-    <!-- Fixed banner “windows” (they do not move; content scrolls over them) -->
-    <div class="bg__panel bg__panel--one" style="--panel-img:url('./assets/images/event-banner-21-9.jpg');"></div>
-    <div class="bg__panel bg__panel--two" style="--panel-img:url('./assets/images/event-banner2-21-9.jpg');"></div>
-    <div class="bg__panel bg__panel--three" style="--panel-img:url('./assets/images/event-banner3-21-9.jpg');"></div>
-    <div class="bg__panel bg__panel--four" style="--panel-img:url('./assets/images/event-banner4-21-9.jpg');"></div>
   </div>
 
   <header class="header">
     <div class="container header__inner">
-      <!-- Remove underline hover; brand hover uses subtle glow handled by CSS -->
       <a class="brand" href="./" aria-label="Go to Home">
         <span class="brand__dot" aria-hidden="true"></span>
         <span class="brand__text">Samer Eladad</span>
@@ -40,7 +33,6 @@
       </nav>
 
       <div class="header__actions">
-        <!-- Rename -->
         <a class="btn btn--ghost" href="./assets/Samer_Eladad_CV.pdf" target="_blank" rel="noreferrer">
           Printable CV
         </a>
@@ -51,12 +43,13 @@
   <main class="container page">
     <div class="stack stack--lg">
 
-      <!-- HERO -->
+      <!-- marker for background photo -->
+      <div data-bg="./assets/images/event-banner-21-9.jpg" style="height:1px;"></div>
+
       <section class="card reveal">
-        <div class="hero hero--wide">
-          <!-- On wide screens: keep the headshot square (no cropping) -->
-          <div class="hero__media">
-            <div class="media hero__square" tabindex="0" aria-label="Headshot">
+        <div class="hero">
+          <div class="hero__photo">
+            <div class="media hero__square">
               <img
                 src="./assets/images/headshot.jpg"
                 alt="Portrait of Samer Eladad"
@@ -68,19 +61,15 @@
 
           <div class="hero__body">
             <h1 class="h1">Solutions Engineer</h1>
-
-            <!-- prevent awkward line break: CSS will wrap naturally; no forced breaks -->
             <p class="lead">
-              ERP, BI, and automation — enabling teams with scalable reporting, reliable systems, and pragmatic engineering.
+              ERP ownership, BI reporting, and automation — designed for production-grade environments and measurable outcomes.
             </p>
 
-            <!-- Buttons: same style; no arrows -->
             <div class="hero__actions">
               <a class="btn btn--ghost" href="./contact/">Contact</a>
               <a class="btn btn--ghost" href="./projects/">View projects</a>
             </div>
 
-            <!-- Chips: no text selection (site-wide), and chips are not selectable -->
             <div class="chips" aria-label="Focus areas">
               <span class="chip">ERP & Integrations</span>
               <span class="chip">Power BI & Reporting</span>
@@ -91,29 +80,29 @@
         </div>
       </section>
 
-      <!-- Logos: rotate one at a time (carousel) -->
+      <!-- second photo window -->
+      <div data-bg="./assets/images/event-banner2-21-9.jpg" style="height:1px;"></div>
+
       <section class="card reveal">
-        <div class="logo-rotator" aria-label="Experience logos">
-          <div class="logo-rotator__stage" data-rotator="logos">
-            <div class="logo-rotator__slide is-active">
-              <img class="logo logo--xl" src="./assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
-            </div>
-            <div class="logo-rotator__slide">
-              <img class="logo logo--xl" src="./assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
-            </div>
-            <div class="logo-rotator__slide">
-              <img class="logo logo--xl" src="./assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
+        <div class="brandcard">
+          <div class="brandcarousel" aria-label="Recognizable brands">
+            <div class="brandcarousel__slot media" data-brand-slot style="padding:10px 12px;">
+              <img data-brand-item class="brandcarousel__img" src="./assets/logos/ei-electronics.png" alt="Ei Electronics">
+              <img data-brand-item class="brandcarousel__img" src="./assets/logos/mercedes-benz.png" alt="Mercedes-Benz">
+              <img data-brand-item class="brandcarousel__img" src="./assets/logos/metro.png" alt="METRO Markets">
             </div>
           </div>
 
-          <!-- improved copy -->
-          <p class="muted logo-rotator__note">
-            Experience in global teams delivering ERP ownership, BI reporting, and automation in production-grade environments.
+          <p class="brandcarousel__meta">
+            Experience in global teams delivering ERP rollouts, BI dashboards, and automation that reduces operational friction.
           </p>
         </div>
       </section>
 
-      <!-- Footer: include About -->
+      <!-- third + fourth photo windows -->
+      <div data-bg="./assets/images/event-banner3-21-9.jpg" style="height:1px;"></div>
+      <div data-bg="./assets/images/event-banner4-21-9.jpg" style="height:1px;"></div>
+
       <footer class="footer reveal">
         <div class="footer__inner">
           <span class="muted">© <span id="year"></span> Samer Eladad</span>
