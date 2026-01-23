@@ -14,6 +14,8 @@
   --page-banner: none;
   --page-banner-opacity: .28; /* increased so you can actually see it */
   --page-banner-darken: .58;  /* controls readability */
+  --page-texture: none;
+  --page-texture-opacity: .03; /* very subtle */
 
   /* Light theme variables */
   --bg0-light: #f8f9fa;
@@ -23,6 +25,7 @@
   --border-light: rgba(33,37,41,.10);
   --shadow-light: 0 18px 48px rgba(0,0,0,.12);
   --page-banner-darken-light: .20;
+  --page-texture-opacity-light: .02; /* even more subtle in light mode */
 }
 
 *{ box-sizing:border-box; }
@@ -38,7 +41,12 @@ body{
     radial-gradient(1200px 900px at 14% 10%, rgba(110,165,255,.12), transparent 62%),
     radial-gradient(1100px 900px at 88% 14%, rgba(255,125,195,.10), transparent 62%),
     radial-gradient(1200px 900px at 50% 120%, rgba(255,255,255,.06), transparent 60%),
+    var(--page-texture),
     linear-gradient(180deg, var(--bg0), var(--bg1));
+
+  background-size: auto, auto, auto, cover, auto;
+  background-position: 14% 10%, 88% 14%, 50% 120%, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
 
   overflow-x:hidden;
 
@@ -49,21 +57,20 @@ body{
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Banner sits as a fixed wallpaper layer */
+/* Texture layer for subtle background patterns */
 body::before{
   content:"";
   position: fixed;
   inset: 0;
-  z-index: -2;            /* IMPORTANT: above base background but behind glows/noise/content */
+  z-index: -3;            /* below banner layer */
   pointer-events: none;
 
-  background-image: var(--page-banner);
+  background-image: var(--page-texture);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  opacity: var(--page-banner-opacity);
-  transform: scale(1.02);
+  opacity: var(--page-texture-opacity);
 }
 
 /* Dark overlay to keep text readable while still showing banner */
@@ -90,13 +97,19 @@ body.light-theme {
   --border: var(--border-light);
   --shadow: var(--shadow-light);
   --page-banner-darken: var(--page-banner-darken-light);
+  --page-texture-opacity: var(--page-texture-opacity-light);
+
+  /* Simplified background for light mode - remove colored gradients */
+  background:
+    radial-gradient(1200px 900px at 50% 120%, rgba(0,0,0,.02), transparent 60%),
+    linear-gradient(180deg, var(--bg0), var(--bg1));
 }
 
 body.light-theme::after {
   background: linear-gradient(
     180deg,
-    rgba(0,0,0, var(--page-banner-darken)),
-    rgba(0,0,0, calc(var(--page-banner-darken) + 0.05))
+    rgba(255,255,255, 0.02),
+    rgba(255,255,255, 0.01)
   );
 }
 a{ color:inherit; text-decoration:none; }

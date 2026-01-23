@@ -27,6 +27,34 @@
     });
   }
 
+  // ══════════════════════════════════════════════════════════════════════════
+  // PARALLAX HERO BANNER SCROLL EFFECT
+  // ══════════════════════════════════════════════════════════════════════════
+  const parallaxBanner = document.querySelector(".parallax-banner__img");
+  if (parallaxBanner) {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    
+    if (!prefersReduced) {
+      let ticking = false;
+      
+      const updateParallax = () => {
+        const scrollY = window.scrollY;
+        const translateY = scrollY * 0.4; // Parallax speed (0.4 = slower than scroll)
+        parallaxBanner.style.transform = `translateY(${translateY}px)`;
+        ticking = false;
+      };
+      
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+      
+      updateParallax(); // Initial position
+    }
+  }
+
   // Scroll to top functionality
   const scrollToTopBtn = document.getElementById("scrollToTop");
 
@@ -79,7 +107,7 @@
       const onScroll = () => {
         const vh = window.innerHeight || 800;
         for (const band of bands) {
-          const inner = band.querySelector(".parallax-band__inner");
+          const inner = band.querySelector(".parallax-band__inner") || band.querySelector(".parallax-window__sticky");
           if (!inner) continue;
 
           const r = band.getBoundingClientRect();
