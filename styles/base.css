@@ -1,4 +1,5 @@
 :root{
+  /* Dark-grey theme (not pure black) */
   --bg0: #0c0f14;
   --bg1: #0f131a;
 
@@ -13,14 +14,17 @@
 
   --ease: cubic-bezier(.2,.8,.2,1);
 
-  /* Exact logo sizing system */
-  --logo-h-mobile: 20px;
-  --logo-h-desktop: 24px;
-  --logo-max-w: 110px;
-
   /* Image constraints */
-  --hero-img-max-h: 420px;     /* phone */
-  --banner-max-h: 320px;       /* phone */
+  --hero-img-max-h: 440px;
+  --banner-max-h: 340px;
+
+  /* Logos */
+  --logo-h-mobile: 22px;
+  --logo-h-desktop: 26px;
+  --logo-max-w: 140px;
+
+  /* Hover brighten timing */
+  --media-dur: 420ms;
 }
 
 *{ box-sizing:border-box; }
@@ -51,3 +55,5 @@ img{ display:block; max-width:100%; }
 
 h1,h2,h3{ margin:0; }
 p{ margin:0; }
+
+::selection{ background: rgba(255,255,255,.16); }

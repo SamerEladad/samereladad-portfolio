@@ -2,144 +2,146 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Projects — Samer Eladad</title>
-  <meta name="description" content="Selected projects and technical work by Samer Eladad." />
+  <meta name="description" content="Selected projects by Samer Eladad across AI documentation, reporting, and software engineering." />
 
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/components.css" />
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
   <div class="bg" aria-hidden="true">
-    <div class="glow a"></div>
-    <div class="glow b"></div>
-    <div class="noise"></div>
+    <div class="bg__glow bg__glow--a"></div>
+    <div class="bg__glow bg__glow--b"></div>
+    <div class="bg__noise"></div>
   </div>
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="../">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span>Samer Eladad</span>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="../" aria-label="Go to Home">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__text">Samer Eladad</span>
       </a>
 
-      <nav class="nav-links" data-nav="true">
-        <a href="../">Home</a>
-        <a href="./">Projects</a>
-        <a href="../about/">About</a>
-        <a href="../contact/">Contact</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__link" href="../">Home</a>
+        <a class="nav__link is-active" href="./" aria-current="page">Projects</a>
+        <a class="nav__link" href="../about/">About</a>
+        <a class="nav__link" href="../contact/">Contact</a>
       </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="../assets/Samer_Eladad_CV.pdf" target="_blank" rel="noreferrer">
+          Download CV
+        </a>
+      </div>
     </div>
   </header>
 
-  <main id="main" class="container">
-    <section class="hero reveal">
-      <div>
-        <h1>Projects</h1>
+  <main class="container page">
+    <div class="stack stack--lg">
+
+      <section class="card reveal" style="padding:18px;">
+        <h1 class="h1">Projects</h1>
         <p class="lead">
-          A compact selection of technical work. Add GitHub links as you publish repositories.
+          A concise selection of projects across AI-enabled documentation, data science, and secure software engineering.
         </p>
-      </div>
+      </section>
 
-      <div class="banner" aria-hidden="true">
-        <img src="../assets/images/event-banner-16-9.jpg" alt="" loading="lazy" />
-      </div>
-    </section>
+      <!-- Project 1: Bachelor thesis / AI prototype -->
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">AI Documentation Assistant (Azure OpenAI) — Mercedes-Benz</h2>
+        <p class="muted" style="margin-top:10px; line-height:1.6;">
+          Built an AI-based prototype to automate and enhance internal system documentation as part of my internship and Bachelor’s thesis.
+        </p>
 
-    <section class="section reveal">
-      <div class="section-head">
-        <h2>Selected work</h2>
-        <p class="hint">Purpose → outcome → stack</p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">AI Documentation Tool (Azure OpenAI)</h3>
-          <p class="meta">
-            Prototype for generating, updating, and improving system documentation with evaluation metrics.
-          </p>
-          <div class="kpi">
-            <span class="pill">Azure OpenAI</span>
-            <span class="pill">Documentation</span>
-            <span class="pill">Evaluation</span>
-          </div>
-          <!-- Add later: <a class="btn secondary" href="https://github.com/..." target="_blank" rel="noreferrer">GitHub</a> -->
+        <div class="chips" style="margin-top:12px;">
+          <span class="chip">Azure OpenAI</span>
+          <span class="chip">Documentation Automation</span>
+          <span class="chip">Evaluation Metrics</span>
+          <span class="chip">Cross-functional Delivery</span>
         </div>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Cinemalytics</h3>
-          <p class="meta">
-            Movie success prediction using structured data and ML. Built for clarity and reproducibility.
-          </p>
-          <div class="kpi">
-            <span class="pill">Python</span>
-            <span class="pill">SQL</span>
-            <span class="pill">ML</span>
-          </div>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+          <li>Identified inefficiencies in documentation practices and translated them into a scoped prototype with measurable KPIs.</li>
+          <li>Developed an AI workflow projected to increase efficiency by ~30% and reduce related costs by ~40%.</li>
+          <li>Integrated collaboration and delivery tooling (ServiceNow, Mural) and supported structured project communication.</li>
+        </ul>
+      </section>
+
+      <!-- Project 2: Cinemalytics -->
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Cinemalytics — ML-Driven Movie Platform Recommendations</h2>
+        <p class="muted" style="margin-top:10px; line-height:1.6;">
+          Machine learning project for producers to choose optimal streaming platforms by analyzing genre–platform performance.
+        </p>
+
+        <div class="chips" style="margin-top:12px;">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Random Forest</span>
+          <span class="chip">Data Modeling</span>
         </div>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Bitcoin Wallet</h3>
-          <p class="meta">
-            A security-focused wallet implementation emphasizing correctness and safe handling.
-          </p>
-          <div class="kpi">
-            <span class="pill">Java</span>
-            <span class="pill">Security</span>
-            <span class="pill">Design</span>
-          </div>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+          <li>Built analysis pipelines in Python and SQL to evaluate streaming fit by genre and performance signals.</li>
+          <li>Applied models (including Random Forest) to support platform placement decisions with data-driven recommendations.</li>
+          <li>Focused on clarity of outputs and decision usability for non-technical stakeholders.</li>
+        </ul>
+      </section>
+
+      <!-- Project 3: Bitcoin Wallet -->
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Bitcoin Wallet — Secure Wallet & Key Management</h2>
+        <p class="muted" style="margin-top:10px; line-height:1.6;">
+          Co-developed a secure Bitcoin wallet with a strong focus on usability and transaction safety as part of a university security module.
+        </p>
+
+        <div class="chips" style="margin-top:12px;">
+          <span class="chip">Java</span>
+          <span class="chip">Security</span>
+          <span class="chip">Key Management</span>
+          <span class="chip">Team Project</span>
         </div>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">myTRANSLATE</h3>
-          <p class="meta">
-            Lightweight translation website focusing on usability and clean interface design.
-          </p>
-          <div class="kpi">
-            <span class="pill">HTML/CSS</span>
-            <span class="pill">JavaScript</span>
-            <span class="pill">UX</span>
-          </div>
-        </div>
-      </div>
-    </section>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+          <li>Implemented wallet creation, key management, and secure transaction workflows.</li>
+          <li>Designed around transaction safety and a practical user experience for core wallet operations.</li>
+        </ul>
+      </section>
 
-    <section class="section reveal">
-      <div class="section-head">
-        <h2>Next additions</h2>
-        <p class="hint">As you create GitHub repos</p>
-      </div>
+      <!-- Project 4: myTRANSLATE -->
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">myTRANSLATE — On-Demand Scientific Translation Web App</h2>
+        <p class="muted" style="margin-top:10px; line-height:1.6;">
+          Web app enabling users to request expert translations for scientific texts on demand.
+        </p>
 
-      <div class="grid">
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Case studies (short)</h3>
-          <p class="meta">
-            For each repo: context, what you built, measurable impact, stack, and screenshots.
-          </p>
-          <div class="kpi">
-            <span class="pill">1–2 min read</span>
-            <span class="pill">Screenshots</span>
-            <span class="pill">Metrics</span>
-          </div>
+        <div class="chips" style="margin-top:12px;">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Web App</span>
         </div>
 
-        <a class="card" href="../contact/" style="text-decoration:none;">
-          <h3 style="margin:0; font-size:15px;">Want a specific example?</h3>
-          <p class="meta">Reach out and I can share details relevant to your role or project.</p>
-          <div class="kpi">
-            <span class="pill">Contact</span>
-            <span class="pill">Fast response</span>
-          </div>
-        </a>
-      </div>
-    </section>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+          <li>Built a lightweight front-end experience focused on usability and quick request flow.</li>
+          <li>Implemented core UI interactions and structure using vanilla web technologies.</li>
+        </ul>
+      </section>
 
-    <footer class="footer">
-      © <span id="year"></span> Samer Eladad
-    </footer>
+      <footer class="footer reveal">
+        <div class="footer__inner">
+          <span class="muted">© <span id="year"></span> Samer Eladad</span>
+          <span class="footer__dot" aria-hidden="true">•</span>
+          <a class="muted link" href="../about/">About</a>
+          <span class="footer__dot" aria-hidden="true">•</span>
+          <a class="muted link" href="../contact/">Contact</a>
+        </div>
+      </footer>
+
+    </div>
   </main>
 
   <script src="../scripts/main.js"></script>

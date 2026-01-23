@@ -6,7 +6,6 @@
   <title>Samer Eladad — Solutions Engineer</title>
   <meta name="description" content="Samer Eladad, Solutions Engineer focused on ERP, BI, and automation." />
 
-  <!-- IMPORTANT: keep these relative (./) for GitHub Pages project URLs -->
   <link rel="stylesheet" href="./styles/base.css" />
   <link rel="stylesheet" href="./styles/components.css" />
 </head>
@@ -33,7 +32,6 @@
       </nav>
 
       <div class="header__actions">
-        <!-- Optional. Remove if you don't have the PDF yet. -->
         <a class="btn btn--ghost" href="./assets/Samer_Eladad_CV.pdf" target="_blank" rel="noreferrer">
           Download CV
         </a>
@@ -43,16 +41,18 @@
 
   <main class="container page">
     <div class="stack stack--lg">
-      <!-- HERO CARD -->
+
       <section class="card reveal">
         <div class="hero">
           <div class="hero__media">
-            <img
-              src="./assets/images/headshot.jpg"
-              alt="Portrait of Samer Eladad"
-              class="hero__img"
-              loading="eager"
-            />
+            <div class="media hero__square">
+              <img
+                src="./assets/images/headshot.jpg"
+                alt="Portrait of Samer Eladad"
+                class="hero__img"
+                loading="eager"
+              />
+            </div>
           </div>
 
           <div class="hero__body">
@@ -80,9 +80,8 @@
         </div>
       </section>
 
-      <!-- BANNER CARD -->
-      <section class="card banner reveal">
-        <div class="banner__media" tabindex="0" aria-label="Event banner image">
+      <section class="card reveal">
+        <div class="media banner__media" tabindex="0" aria-label="Event banner image">
           <img
             src="./assets/images/event-banner-21-9.jpg"
             alt="Samer speaking at an event"
@@ -92,13 +91,17 @@
         </div>
       </section>
 
-      <!-- “FLEX” LOGOS (kept small, not recolored) -->
       <section class="card reveal">
-        <div class="logo-row">
-          <!-- Replace src paths with your actual logo files if different -->
-          <img class="logo" src="./assets/images/logo-ei.png" alt="Ei Electronics" loading="lazy" />
-          <img class="logo" src="./assets/images/logo-mercedes.png" alt="Mercedes-Benz" loading="lazy" />
-          <img class="logo" src="./assets/images/logo-metro.png" alt="METRO Markets" loading="lazy" />
+        <div class="logo-row" aria-label="Recognizable brands">
+          <a href="./about/" class="media" style="display:inline-flex; padding:10px; border-radius:14px;">
+            <img class="logo" src="./assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
+          </a>
+          <a href="./about/" class="media" style="display:inline-flex; padding:10px; border-radius:14px;">
+            <img class="logo" src="./assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
+          </a>
+          <a href="./about/" class="media" style="display:inline-flex; padding:10px; border-radius:14px;">
+            <img class="logo" src="./assets/logos/metro.png" alt="METRO" loading="lazy" />
+          </a>
         </div>
         <p class="muted logo-row__note">
           Experience across recognizable brands — focused on delivery, reliability, and measurable outcomes.
@@ -114,6 +117,7 @@
           <a class="muted link" href="./contact/">Contact</a>
         </div>
       </footer>
+
     </div>
   </main>
 

@@ -2,144 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Samer Eladad</title>
-  <meta name="description" content="About Samer Eladad — Solutions Engineer focused on ERP, BI, and automation." />
+  <meta name="description" content="About Samer Eladad — Business Informatics (B.Sc.) and Solutions Engineer specializing in ERP, BI, and automation." />
 
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/components.css" />
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
   <div class="bg" aria-hidden="true">
-    <div class="glow a"></div>
-    <div class="glow b"></div>
-    <div class="noise"></div>
+    <div class="bg__glow bg__glow--a"></div>
+    <div class="bg__glow bg__glow--b"></div>
+    <div class="bg__noise"></div>
   </div>
 
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="../">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span>Samer Eladad</span>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="../" aria-label="Go to Home">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__text">Samer Eladad</span>
       </a>
 
-      <nav class="nav-links" data-nav="true">
-        <a href="../">Home</a>
-        <a href="../projects/">Projects</a>
-        <a href="./">About</a>
-        <a href="../contact/">Contact</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__link" href="../">Home</a>
+        <a class="nav__link" href="../projects/">Projects</a>
+        <a class="nav__link is-active" href="./" aria-current="page">About</a>
+        <a class="nav__link" href="../contact/">Contact</a>
       </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="../assets/Samer_Eladad_CV.pdf" target="_blank" rel="noreferrer">
+          Download CV
+        </a>
+      </div>
     </div>
   </header>
 
-  <main id="main" class="container">
-    <section class="hero reveal">
-      <div>
-        <h1>About</h1>
+  <main class="container page">
+    <div class="stack stack--lg">
+
+      <section class="card reveal" style="padding:18px;">
+        <h1 class="h1">About</h1>
         <p class="lead">
-          Business Informatics background with practical systems ownership — combining technical implementation with business clarity.
+          Business Informatics graduate with hands-on experience in ERP systems, data engineering, and process automation.
+          Skilled in Python, SQL, and Power BI, with a track record of designing scalable solutions that improve operational efficiency and data visibility.
+          Experienced in international projects, AI prototyping, and cross-functional teams.
         </p>
-      </div>
+      </section>
 
-      <div class="banner" aria-hidden="true">
-        <img src="../assets/images/event-banner-21-9.jpg" alt="" loading="lazy" />
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <div class="section-head">
-        <h2>What I’m known for</h2>
-        <p class="hint">How I work</p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Clarity over complexity</h3>
-          <p class="meta">I favor clean, maintainable solutions that teams can operate and extend.</p>
-          <div class="kpi">
-            <span class="pill">Maintainable</span>
-            <span class="pill">Documented</span>
-            <span class="pill">Pragmatic</span>
+      <section class="card reveal">
+        <div class="logo-row" aria-label="Recognizable brands">
+          <div class="media" style="display:inline-flex; padding:10px; border-radius:14px;">
+            <img class="logo" src="../assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
+          </div>
+          <div class="media" style="display:inline-flex; padding:10px; border-radius:14px;">
+            <img class="logo" src="../assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
+          </div>
+          <div class="media" style="display:inline-flex; padding:10px; border-radius:14px;">
+            <img class="logo" src="../assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
           </div>
         </div>
+        <p class="muted logo-row__note">
+          Experience across ERP ownership, AI prototyping, and business intelligence delivery in international environments.
+        </p>
+      </section>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">End-to-end mindset</h3>
-          <p class="meta">From requirements → implementation → enablement → measurement.</p>
-          <div class="kpi">
-            <span class="pill">Delivery</span>
-            <span class="pill">Enablement</span>
-            <span class="pill">Metrics</span>
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Work experience</h2>
+
+        <div style="margin-top:12px; display:flex; flex-direction:column; gap:14px;">
+          <div>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:baseline;">
+              <strong>Ei Electronics KG</strong>
+              <span class="muted">— Solutions Engineer</span>
+              <span class="muted">• Dec 2024 – Present</span>
+            </div>
+            <ul style="margin:8px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+              <li>Manage and optimize Infor and Dynamics 365 ERP systems across three entities, leading the complete setup and go-live of an international subsidiary.</li>
+              <li>Design Power BI data models and dashboards (DAX, SQL), performing end-to-end data engineering from cleaning to presentation.</li>
+              <li>Automate business processes (e.g., OCR-based order workflows, invoice posting) and maintain documentation, roles, and training using Confluence and SharePoint.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:baseline;">
+              <strong>Mercedes-Benz</strong>
+              <span class="muted">— Intern & Bachelor Thesis (Information Office Production & Logistics)</span>
+              <span class="muted">• Oct 2023 – Sep 2024</span>
+            </div>
+            <ul style="margin:8px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+              <li>Identified documentation inefficiencies and used them as the basis for the Bachelor’s thesis.</li>
+              <li>Developed an AI-based prototype on Azure to automate and enhance documentation (projected +30% efficiency; -40% related costs).</li>
+              <li>Improved task management and communication using ServiceNow, Mural, and frameworks such as Jira.</li>
+            </ul>
+          </div>
+
+          <div>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:baseline;">
+              <strong>METRO Markets</strong>
+              <span class="muted">— Seller Support (Working Student)</span>
+              <span class="muted">• Mar 2022 – Sep 2023</span>
+            </div>
+            <ul style="margin:8px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+              <li>Supported international expansion into Italy, Portugal, Netherlands, and France.</li>
+              <li>Built Power BI dashboards in collaboration with the BI team for seller and product analytics.</li>
+              <li>Contributed to 25% year-over-year revenue growth for a key customer through data-driven insights and operational support.</li>
+              <li>Managed workflows using Salesforce and Confluence to ensure accuracy and efficiency.</li>
+            </ul>
           </div>
         </div>
+      </section>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Cross-functional execution</h3>
-          <p class="meta">I translate between business stakeholders and technical constraints without losing precision.</p>
-          <div class="kpi">
-            <span class="pill">Stakeholders</span>
-            <span class="pill">Systems</span>
-            <span class="pill">Outcomes</span>
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Education</h2>
+        <div style="margin-top:12px; display:flex; flex-direction:column; gap:12px;">
+          <div>
+            <strong>Bochum University of Applied Sciences</strong>
+            <div class="muted" style="margin-top:6px; line-height:1.6;">
+              B.Sc. Business Informatics — Bochum, Germany (Oct 2021 – Oct 2024)<br/>
+              Final Grade: 2.19 (Good)<br/>
+              Relevant coursework: Data Science, Software Engineering, Python, Java, Algorithms, Artificial Intelligence
+            </div>
+          </div>
+
+          <div>
+            <strong>Rheinisches Studienkolleg</strong>
+            <div class="muted" style="margin-top:6px; line-height:1.6;">
+              Business and mathematics college course — Bonn, Germany (Jan 2017 – Nov 2017)<br/>
+              Final Grade: 1.3 (Very Good)
+            </div>
           </div>
         </div>
+      </section>
 
-        <a class="card" href="../contact/" style="text-decoration:none;">
-          <h3 style="margin:0; font-size:15px;">Let’s talk</h3>
-          <p class="meta">If you’re hiring or scoping a project, contact is the fastest route.</p>
-          <div class="kpi">
-            <span class="pill">Contact</span>
-            <span class="pill">LinkedIn</span>
-            <span class="pill">Email</span>
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Certificates</h2>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+          <li><strong>Digital Shaper (AI & Deep Learning)</strong> — TechLabs, Germany (Sep 2024)</li>
+          <li><strong>Digital Shaper (Data Science)</strong> — TechLabs, Germany (Apr 2024)</li>
+          <li><strong>Full Stack Developer</strong> — Udacity, UAE (Aug 2018)</li>
+        </ul>
+      </section>
+
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Workshops</h2>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+          <li>Microsoft Dynamics 365 Business Central</li>
+          <li>AI Governance & Ideation</li>
+        </ul>
+      </section>
+
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Awards</h2>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+          <li><strong>Robotics Race — First Place</strong> — Hochschule Bochum, Germany (2021)</li>
+        </ul>
+      </section>
+
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Volunteer experience</h2>
+        <div style="margin-top:12px;">
+          <strong>TechLabs Global</strong>
+          <div class="muted" style="margin-top:6px; line-height:1.6;">
+            Growth Acceleration Manager • Jan 2024 – Jan 2025
           </div>
-        </a>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <div class="section-head">
-        <h2>Tools & domains</h2>
-        <p class="hint">Core stack</p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">ERP & Systems</h3>
-          <p class="meta">Infor, Dynamics 365, roles/permissions, integrations, operations support.</p>
-          <div class="kpi">
-            <span class="pill">Infor</span>
-            <span class="pill">Dynamics 365</span>
-            <span class="pill">Integrations</span>
-          </div>
+          <ul style="margin:8px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+            <li>Organized community events with 300+ attendees, including companies like Huawei and Amazon.</li>
+            <li>Led marketing, social media, and website optimization initiatives to support digital education.</li>
+          </ul>
         </div>
+      </section>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Data & BI</h3>
-          <p class="meta">Power BI, data modeling, SQL, clean reporting flows and dashboards.</p>
-          <div class="kpi">
-            <span class="pill">Power BI</span>
-            <span class="pill">SQL</span>
-            <span class="pill">Modeling</span>
-          </div>
+      <section class="card reveal" style="padding:18px;">
+        <h2 class="h2">Languages</h2>
+        <ul style="margin:12px 0 0; padding-left:18px; color:rgba(255,255,255,.78); line-height:1.7;">
+          <li>Arabic — Native</li>
+          <li>English — Fluent</li>
+          <li>German — Fluent</li>
+        </ul>
+      </section>
+
+      <footer class="footer reveal">
+        <div class="footer__inner">
+          <span class="muted">© <span id="year"></span> Samer Eladad</span>
+          <span class="footer__dot" aria-hidden="true">•</span>
+          <a class="muted link" href="../projects/">Projects</a>
+          <span class="footer__dot" aria-hidden="true">•</span>
+          <a class="muted link" href="../contact/">Contact</a>
         </div>
+      </footer>
 
-        <div class="card">
-          <h3 style="margin:0; font-size:15px;">Automation & AI</h3>
-          <p class="meta">Python automation, APIs, and AI-assisted documentation workflows.</p>
-          <div class="kpi">
-            <span class="pill">Python</span>
-            <span class="pill">APIs</span>
-            <span class="pill">Azure OpenAI</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      © <span id="year"></span> Samer Eladad
-    </footer>
+    </div>
   </main>
 
   <script src="../scripts/main.js"></script>
