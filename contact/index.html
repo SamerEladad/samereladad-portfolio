@@ -10,11 +10,12 @@
   <link rel="stylesheet" href="../styles/components.css" />
 </head>
 
-<body>
+<body class="page-bg" data-bg="../assets/images/event-banner4-21-9.jpg">
   <div class="bg" aria-hidden="true">
     <div class="bg__glow bg__glow--a"></div>
     <div class="bg__glow bg__glow--b"></div>
     <div class="bg__noise"></div>
+    <div class="bg__photo"></div>
   </div>
 
   <header class="header">
@@ -33,7 +34,7 @@
 
       <div class="header__actions">
         <a class="btn btn--ghost" href="../assets/Samer_Eladad_CV.pdf" target="_blank" rel="noreferrer">
-          Download CV
+          Printable CV
         </a>
       </div>
     </div>
@@ -42,38 +43,25 @@
   <main class="container page">
     <div class="stack stack--lg">
 
-      <!-- Banner / intro -->
-      <section class="card reveal">
-        <div class="media banner__media" tabindex="0" aria-label="Event banner image">
-          <img
-            src="../assets/images/event-banner-21-9.jpg"
-            alt="Samer speaking at an event"
-            class="banner__img"
-            loading="lazy"
-          />
-        </div>
+      <section class="card reveal" style="padding:18px;">
+        <h1 class="h1">Contact</h1>
+        <p class="lead">
+          For hiring inquiries or project discussions, send a message and I’ll reply with next steps.
+        </p>
 
-        <div style="padding:16px 18px 18px;">
-          <h1 class="h1">Contact</h1>
-          <p class="lead">
-            For hiring inquiries or project discussions, send a message and I’ll reply with next steps.
-          </p>
-
-          <div class="chips" aria-label="Focus areas">
-            <span class="chip">ERP & Integrations</span>
-            <span class="chip">Power BI & Reporting</span>
-            <span class="chip">Automation</span>
-            <span class="chip">AI Enablement</span>
-          </div>
+        <div class="chips" style="margin-top:14px;">
+          <span class="chip">ERP & Integrations</span>
+          <span class="chip">Power BI & Reporting</span>
+          <span class="chip">Automation</span>
+          <span class="chip">AI Enablement</span>
         </div>
       </section>
 
-      <!-- Form -->
       <section class="card reveal">
         <header class="card__head">
           <h2 class="h2">Send a message</h2>
           <p class="muted">
-            Share a short context and your goal. I typically respond via email or LinkedIn.
+            Share context and desired outcome. I typically respond via email or LinkedIn.
           </p>
         </header>
 
@@ -84,7 +72,6 @@
           action="https://formspree.io/f/xeeakvbd"
           novalidate
         >
-          <!-- Spam protection (Formspree + client-side) -->
           <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <input type="hidden" name="_subject" value="New message from portfolio site" />
           <input type="hidden" name="_template" value="table" />
@@ -121,7 +108,7 @@
               class="field__input"
               name="message"
               rows="7"
-              placeholder="What are you building, and what would you like to achieve?"
+              placeholder="What’s the context, and what would a great outcome look like?"
               required
             ></textarea>
           </label>
@@ -132,23 +119,13 @@
           </label>
 
           <div class="form__actions">
-            <button class="btn btn--primary" type="submit">
-              <span>Send</span><span class="btn__arrow" aria-hidden="true">→</span>
+            <button class="btn btn--ghost" type="submit">
+              <span>Send</span>
             </button>
-
-            <p class="fineprint">
-              Prefer direct contact?
-              <a class="link" href="mailto:samereladad@gmail.com">samereladad@gmail.com</a>
-              <span class="sep" aria-hidden="true">•</span>
-              <a class="link" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <span class="sep" aria-hidden="true">•</span>
-              <a class="link" href="https://github.com/samereladad" target="_blank" rel="noreferrer">GitHub</a>
-            </p>
           </div>
 
           <div id="formStatus" class="status" role="status" aria-live="polite"></div>
 
-          <!-- Compact quick links at the bottom of the form card -->
           <div class="quick">
             <div class="quick__title">Quick contact</div>
             <div class="quick__grid">
@@ -158,7 +135,7 @@
               </a>
               <a class="quick__item" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer">
                 <span class="quick__k">LinkedIn</span>
-                <span class="quick__v">www.linkedin.com/in/samereladad</span>
+                <span class="quick__v">linkedin.com/in/samereladad</span>
               </a>
               <a class="quick__item" href="https://github.com/samereladad" target="_blank" rel="noreferrer">
                 <span class="quick__k">GitHub</span>
@@ -173,9 +150,11 @@
         <div class="footer__inner">
           <span class="muted">© <span id="year"></span> Samer Eladad</span>
           <span class="footer__dot" aria-hidden="true">•</span>
-          <a class="muted link" href="../">Home</a>
-          <span class="footer__dot" aria-hidden="true">•</span>
           <a class="muted link" href="../projects/">Projects</a>
+          <span class="footer__dot" aria-hidden="true">•</span>
+          <a class="muted link" href="../about/">About</a>
+          <span class="footer__dot" aria-hidden="true">•</span>
+          <a class="muted link" href="../contact/">Contact</a>
         </div>
       </footer>
 

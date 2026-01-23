@@ -1,30 +1,26 @@
 :root{
-  /* Dark-grey theme (not pure black) */
-  --bg0: #0c0f14;
-  --bg1: #0f131a;
+  /* Dark grey theme */
+  --bg0: #0b0f14;
+  --bg1: #0f141c;
 
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.68);
-  --faint: rgba(255,255,255,.55);
+  --faint: rgba(255,255,255,.52);
 
   --border: rgba(255,255,255,.10);
   --shadow: 0 14px 42px rgba(0,0,0,.55);
   --radius: 18px;
-  --max: 1040px;
+  --max: 1080px;
 
   --ease: cubic-bezier(.2,.8,.2,1);
 
-  /* Image constraints */
-  --hero-img-max-h: 440px;
-  --banner-max-h: 340px;
+  /* Hover brighten timing (slower) */
+  --media-dur: 600ms;
 
-  /* Logos */
-  --logo-h-mobile: 22px;
-  --logo-h-desktop: 26px;
-  --logo-max-w: 140px;
-
-  /* Hover brighten timing */
-  --media-dur: 420ms;
+  /* Layout */
+  --hero-square: 360px;      /* desktop headshot square size */
+  --hero-square-sm: 44vh;    /* mobile max height */
+  --banner-opacity: .22;     /* background window opacity */
 }
 
 *{ box-sizing:border-box; }
@@ -34,15 +30,16 @@ body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color: var(--text);
-  background:
-    radial-gradient(1200px 700px at 18% 8%, rgba(110,165,255,.12), transparent 60%),
-    radial-gradient(1000px 650px at 85% 18%, rgba(255,125,195,.09), transparent 55%),
-    linear-gradient(180deg, var(--bg0), var(--bg1));
+  background: linear-gradient(180deg, var(--bg0), var(--bg1));
   overflow-x:hidden;
+
+  /* Make all text non-selectable (inputs will override) */
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 a{ color:inherit; text-decoration:none; }
-a:hover{ text-decoration:underline; text-underline-offset:3px; }
+a:hover{ text-decoration:none; }
 
 .container{
   width:min(var(--max), calc(100% - 40px));
@@ -55,5 +52,12 @@ img{ display:block; max-width:100%; }
 
 h1,h2,h3{ margin:0; }
 p{ margin:0; }
+
+/* Allow selection where it matters */
+input, textarea, select, button{
+  -webkit-user-select: text;
+  user-select: text;
+}
+button{ -webkit-user-select:none; user-select:none; }
 
 ::selection{ background: rgba(255,255,255,.16); }
