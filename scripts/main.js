@@ -14,34 +14,43 @@
     reveals.forEach(el => io.observe(el));
   }
 
-  // Banner “window” logic: fixed image, appears only near markers
-  const bannerWin = document.querySelector(".bg__bannerWin");
-  const marks = Array.from(document.querySelectorAll("[data-banner]"));
+  // Parallax bands (mobile fallback)
+  // Desktop uses background-attachment: fixed (when supported)
+  // Mobile uses translateY on .parallax-band__inner
+  const bands = Array.from(document.querySelectorAll("[data-parallax-band]"));
+  if (bands.length) {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
 
-  if (bannerWin && marks.length) {
-    const setBanner = (url) => {
-      document.documentElement.style.setProperty("--banner-url", `url("${url}")`);
-      document.documentElement.style.setProperty("--banner-opacity", "1");
-    };
-    const hideBanner = () => {
-      document.documentElement.style.setProperty("--banner-opacity", "0");
-    };
+    const supportsFixed =
+      !/iP(hone|od|ad)/.test(navigator.platform) &&
+      !/Mac/.test(navigator.platform) &&
+      CSS.supports("background-attachment: fixed");
 
-    const ioBanner = new IntersectionObserver((entries) => {
-      const active = entries
-        .filter(e => e.isIntersecting)
-        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+    // If fixed is supported, we do nothing (CSS handles it)
+    if (!supportsFixed) {
+      const onScroll = () => {
+        const vh = window.innerHeight || 800;
+        for (const band of bands) {
+          const inner = band.querySelector(".parallax-band__inner");
+          if (!inner) continue;
 
-      if (!active) {
-        hideBanner();
-        return;
-      }
+          const r = band.getBoundingClientRect();
+          // Only compute when near viewport
+          if (r.bottom < -200 || r.top > vh + 200) continue;
 
-      const url = active.target.getAttribute("data-banner");
-      if (url) setBanner(url);
-    }, { threshold: [0.18, 0.28, 0.40] });
+          // progress: -1..1 (centered around viewport middle)
+          const center = r.top + r.height / 2;
+          const p = (center - vh / 2) / (vh / 2);
+          const offset = Math.max(-1, Math.min(1, p)) * 18; // px range
+          inner.style.transform = `translate3d(0, ${offset}px, 0) scale(1.04)`;
+        }
+      };
 
-    marks.forEach(m => ioBanner.observe(m));
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+    }
   }
 
   // Contact form: Formspree + spam gates
@@ -56,7 +65,6 @@
     if (tsField) tsField.value = String(startTs);
 
     form.addEventListener("submit", async (e) => {
-      // honeypot
       const gotcha = form.querySelector('input[name="_gotcha"]');
       if (gotcha && gotcha.value.trim().length > 0) {
         e.preventDefault();
@@ -64,14 +72,12 @@
         return;
       }
 
-      // human checkbox
       if (humanCheck && !humanCheck.checked) {
         e.preventDefault();
         status.textContent = "Please confirm you’re a real person.";
         return;
       }
 
-      // time-to-submit gate
       const elapsed = Date.now() - startTs;
       if (elapsedField) elapsedField.value = String(elapsed);
       if (elapsed < 2200) {
