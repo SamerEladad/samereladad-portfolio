@@ -52,15 +52,91 @@
     toggleScrollToTop(); // Check initial state
   }
 
-  // Reveal on scroll
+  // Reveal on scroll (with staggered delay for children)
   const reveals = Array.from(document.querySelectorAll(".reveal"));
   if (reveals.length) {
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add("is-visible");
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
       }
     }, { threshold: 0.12 });
-    reveals.forEach(el => io.observe(el));
+    reveals.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 0.1}s`;
+      io.observe(el);
+    });
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // 3D TILT EFFECT ON HERO CARD
+  // ══════════════════════════════════════════════════════════════════════════
+  const tiltElements = document.querySelectorAll("[data-tilt]");
+  if (tiltElements.length) {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    
+    if (!prefersReduced) {
+      tiltElements.forEach(el => {
+        el.addEventListener("mousemove", (e) => {
+          const rect = el.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = ((y - centerY) / centerY) * -8;
+          const rotateY = ((x - centerX) / centerX) * 8;
+          
+          el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+        });
+        
+        el.addEventListener("mouseleave", () => {
+          el.style.transform = "perspective(1000px) rotateX(0) rotateY(0) translateY(0)";
+        });
+      });
+    }
+  }
+
+  // ══════════════════════════════════════════════════════════════════════════
+  // ANIMATED COUNTING NUMBERS
+  // ══════════════════════════════════════════════════════════════════════════
+  const counters = document.querySelectorAll("[data-count]");
+  if (counters.length) {
+    const animateCounter = (el) => {
+      const target = parseInt(el.getAttribute("data-count"), 10);
+      const duration = 2000;
+      const startTime = performance.now();
+      
+      const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+      
+      const update = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutQuart(progress);
+        const current = Math.round(easedProgress * target);
+        
+        el.textContent = current;
+        
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        }
+      };
+      
+      requestAnimationFrame(update);
+    };
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => counterObserver.observe(counter));
   }
 
   // Parallax bands (mobile fallback)

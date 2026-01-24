@@ -70,6 +70,15 @@
     <div class="bg__noise"></div>
   </div>
 
+  <!-- Parallax Hero Banner -->
+  <div class="parallax-banner" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 768px)" srcset="./assets/images/mobile-event-banner-21-9.jpg" />
+      <img class="parallax-banner__img" src="./assets/images/event-banner-21-9.jpg" alt="" />
+    </picture>
+    <div class="parallax-banner__overlay"></div>
+  </div>
+
   <header class="header">
     <div class="container header__inner">
       <a class="brand" href="./" aria-label="Go to Home">
@@ -95,32 +104,36 @@
     </div>
   </header>
 
+  <!-- Spacer to push content below banner -->
+  <div class="banner-spacer"></div>
+
   <main class="page">
     <div class="container">
       <div class="stack stack--xl">
 
-        <!-- HERO -->
-        <section class="card reveal">
+        <!-- HERO with animated gradient border -->
+        <section class="card card--glow reveal" data-tilt>
           <div class="hero">
             <div class="hero__photo">
-              <div class="media hero__square">
+              <div class="media hero__square hero__square--float">
                 <img
                   src="./assets/images/headshot.jpg"
                   alt="Portrait of Samer Eladad"
                   class="hero__img"
                   loading="eager"
                 />
+                <div class="hero__photo-glow"></div>
               </div>
             </div>
 
             <div>
-              <h1 class="h1">Solutions Engineer</h1>
+              <h1 class="h1 hero__title">Solutions Engineer</h1>
               <p class="lead">
                 I design scalable solutions across ERP systems, data engineering, and process automation—delivering measurable impact through clear ownership and cross-functional collaboration.
               </p>
 
               <div class="hero__actions">
-                <a class="btn btn--ghost" href="./contact/">Get in touch</a>
+                <a class="btn btn--primary" href="./contact/">Get in touch</a>
                 <a class="btn btn--ghost" href="./projects/">View projects</a>
               </div>
 
@@ -135,74 +148,149 @@
           </div>
         </section>
 
+        <!-- ANIMATED STATS -->
+        <section class="stats-row reveal">
+          <div class="stat" data-tilt>
+            <span class="stat__number" data-count="4">0</span><span class="stat__suffix">+</span>
+            <span class="stat__label">Years Experience</span>
+          </div>
+          <div class="stat" data-tilt>
+            <span class="stat__number" data-count="8">0</span><span class="stat__suffix">+</span>
+            <span class="stat__label">Markets Served</span>
+          </div>
+          <div class="stat" data-tilt>
+            <span class="stat__number" data-count="15">0</span><span class="stat__suffix">+</span>
+            <span class="stat__label">BI Dashboards Built</span>
+          </div>
+          <div class="stat" data-tilt>
+            <span class="stat__number" data-count="100">0</span><span class="stat__suffix">+</span>
+            <span class="stat__label">Users Supported</span>
+          </div>
+        </section>
+
         <!-- VALUE -->
-        <section class="card reveal card--pad">
-          <h2 class="h2">What I deliver</h2>
+        <section class="card reveal card--pad" data-tilt>
+          <h2 class="h2">What I bring to the table</h2>
           <p class="lead">
-            End-to-end ownership of business-critical systems, from implementation to optimization—with a focus on operational efficiency and data-driven decision making.
+            Business Informatics gave me a dual perspective—technical depth and business acumen. I connect systems, teams, and processes to deliver results that matter.
           </p>
 
           <div class="grid2" style="margin-top:14px;">
             <div class="panel">
-              <div class="panel__title">ERP & System Integration</div>
+              <div class="panel__title">Problem-Solving & Systems Thinking</div>
               <ul class="bullets">
-                <li>Manage and optimize ERP systems (Infor, Dynamics 365) across multiple entities, including international rollouts.</li>
-                <li>Bridge the gap between business requirements and technical implementation as the primary liaison.</li>
-                <li>Maintain comprehensive documentation, security roles, and user training programs.</li>
+                <li><strong>End-to-end visibility:</strong> I understand how ERP, data pipelines, reporting, and automation interconnect—allowing me to identify root causes, not just symptoms.</li>
+                <li><strong>Business-technical bridge:</strong> I translate requirements between stakeholders and developers, ensuring alignment and reducing miscommunication.</li>
+                <li><strong>Ownership-driven:</strong> I proactively identify gaps and drive initiatives from problem definition through implementation.</li>
               </ul>
             </div>
 
             <div class="panel">
-              <div class="panel__title">Data & Automation</div>
+              <div class="panel__title">Adaptability & Execution</div>
               <ul class="bullets">
-                <li>Design Power BI data models and dashboards using DAX and SQL, covering the full pipeline from ETL to presentation.</li>
-                <li>Automate business processes including OCR-based workflows, invoice posting, and recurring reports.</li>
-                <li>Deliver actionable insights that improve reporting accuracy and reduce manual effort.</li>
+                <li><strong>Productive from day one:</strong> Took over as sole ERP manager on short notice—and launched an international subsidiary within my first year.</li>
+                <li><strong>Comfortable with challenges:</strong> I thrive when the path isn't clear. New tools, new industries, undefined problems—I figure it out and deliver.</li>
+                <li><strong>Business-wide perspective:</strong> Finance, logistics, e-commerce, manufacturing—I see how the whole machine works, not just my part of it.</li>
               </ul>
             </div>
           </div>
         </section>
 
         <!-- BRANDS -->
-        <section class="card reveal card--pad">
+        <section class="card reveal card--pad" data-tilt>
           <h2 class="h2">Where I've delivered impact</h2>
           <p class="lead">
-            Proven track record in international projects across automotive, electronics, and e-commerce—from AI prototyping at Mercedes-Benz to ERP management at Ei Electronics.
+            International experience across automotive, electronics, and e-commerce—building solutions that scale.
           </p>
 
-          <div class="logoStrip" style="margin-top:14px;">
-            <div class="logoCard">
-              <img src="./assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
+          <div class="company-grid" style="margin-top:18px;">
+            <div class="company-card company-card--featured" data-tilt>
+              <div class="company-card__logo">
+                <img src="./assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
+              </div>
+              <div class="company-card__info">
+                <span class="company-card__role">Solutions Engineer</span>
+                <span class="company-card__name">Ei Electronics</span>
+                <span class="company-card__period">2024 — Present</span>
+              </div>
+              <div class="company-card__tag">Current</div>
             </div>
-            <div class="logoCard">
-              <img src="./assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
+
+            <div class="company-card" data-tilt>
+              <div class="company-card__logo">
+                <img src="./assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
+              </div>
+              <div class="company-card__info">
+                <span class="company-card__role">Working Student — IT</span>
+                <span class="company-card__name">Mercedes-Benz</span>
+                <span class="company-card__period">2023 — 2024</span>
+              </div>
             </div>
-            <div class="logoCard">
-              <img src="./assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
+
+            <div class="company-card" data-tilt>
+              <div class="company-card__logo">
+                <img src="./assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
+              </div>
+              <div class="company-card__info">
+                <span class="company-card__role">Working Student — BI</span>
+                <span class="company-card__name">METRO Markets</span>
+                <span class="company-card__period">2021 — 2023</span>
+              </div>
             </div>
           </div>
         </section>
 
         <!-- HIGHLIGHTS -->
-        <section class="card reveal card--pad">
-          <h2 class="h2">Key achievements</h2>
-          <ul class="bullets" style="margin-top:10px;">
-            <li><strong>Ei Electronics:</strong> Sole ERP manager across three entities, led complete setup and go-live of an international subsidiary on Dynamics 365.</li>
-            <li><strong>Mercedes-Benz:</strong> Developed Azure OpenAI prototype projecting ~30% efficiency improvement and ~40% cost reduction in documentation workflows.</li>
-            <li><strong>METRO Markets:</strong> Built analytics dashboards contributing to 25% YoY revenue growth for a key customer across four European markets.</li>
-          </ul>
+        <section class="reveal">
+          <div class="section-header" style="margin-bottom:18px;">
+            <h2 class="h2">Key achievements</h2>
+          </div>
+
+          <div class="impact-grid">
+            <div class="impact-card impact-card--hero" data-tilt>
+              <span class="impact-card__label">Ei Electronics</span>
+              <div class="impact-card__metric">
+                <span class="impact-card__number" data-count="3">0</span>
+                <span class="impact-card__unit">ERP systems</span>
+              </div>
+              <p class="impact-card__desc">Sole ERP manager across parent company and two subsidiaries. Led Dynamics 365 setup and international go-live.</p>
+            </div>
+
+            <div class="impact-card" data-tilt>
+              <span class="impact-card__label">Mercedes-Benz</span>
+              <div class="impact-card__metric">
+                <span class="impact-card__number" data-count="40">0</span><span class="impact-card__percent">%</span>
+                <span class="impact-card__unit">cost reduction</span>
+              </div>
+              <p class="impact-card__desc">Azure OpenAI prototype for documentation workflows.</p>
+            </div>
+
+            <div class="impact-card" data-tilt>
+              <span class="impact-card__label">METRO Markets</span>
+              <div class="impact-card__metric">
+                <span class="impact-card__number" data-count="5">0</span>
+                <span class="impact-card__unit">countries expanded</span>
+              </div>
+              <p class="impact-card__desc">BI dashboards supporting market expansion across Europe.</p>
+            </div>
+          </div>
         </section>
 
-        <!-- NEXT -->
-        <section class="card reveal card--pad">
-          <h2 class="h2">Let's connect</h2>
-          <p class="lead">
-            Explore my projects for detailed case studies, or reach out directly to discuss how I can contribute to your team.
-          </p>
-
-          <div class="hero__actions" style="margin-top:14px;">
-            <a class="btn btn--ghost" href="./projects/">View projects</a>
-            <a class="btn btn--ghost" href="./contact/">Get in touch</a>
+        <!-- CTA -->
+        <section class="cta reveal">
+          <div class="cta__content">
+            <h2 class="cta__title">Let's build something together</h2>
+            <p class="cta__text">
+              Looking for someone who can bridge business and technology? Let's talk.
+            </p>
+            <div class="cta__actions">
+              <a class="btn btn--primary btn--lg" href="./contact/">Get in touch</a>
+              <a class="btn btn--ghost btn--lg" href="./projects/">View projects</a>
+            </div>
+          </div>
+          <div class="cta__decoration" aria-hidden="true">
+            <div class="cta__orb cta__orb--1"></div>
+            <div class="cta__orb cta__orb--2"></div>
           </div>
         </section>
 

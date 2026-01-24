@@ -58,8 +58,8 @@
     <div class="container">
       <div class="stack stack--xl">
 
-        <section class="card reveal" style="padding:24px;">
-          <h1 class="h1">About</h1>
+        <section class="card card--glow reveal card--pad" data-tilt>
+          <h1 class="h1 gradient-title">About</h1>
           <p class="lead">
             Business Informatics graduate with hands-on experience in ERP systems, data engineering, and process automation. I design scalable solutions that improve operational efficiency and data visibility—bridging the gap between technical implementation and business impact.
           </p>
@@ -73,52 +73,78 @@
           </div>
         </section>
 
-        <section class="card reveal" style="padding:24px;">
+        <section class="card reveal card--pad" data-tilt>
           <h2 class="h2">Experience</h2>
           <p class="lead">
             Track record of delivering measurable impact across international projects in automotive, electronics, and e-commerce.
           </p>
 
-          <div class="logoStrip" style="margin-top:12px;">
-            <div class="logoCard">
-              <img src="../assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
+          <div class="stack" style="margin-top:20px;">
+            <div class="experience-entry">
+              <div class="experience-entry__logo">
+                <img src="../assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
+              </div>
+              <div class="experience-entry__content">
+                <div class="experience-entry__header">
+                  <span class="experience-entry__company">Ei Electronics</span>
+                  <span class="experience-entry__role">Solutions Engineer</span>
+                  <span class="experience-entry__period">Dec 2024 – Present</span>
+                </div>
+                <p class="experience-entry__desc">Manage Infor and Dynamics 365 ERP systems across three entities. Led complete setup and go-live of an international subsidiary. Design Power BI dashboards and automate business processes including OCR workflows.</p>
+              </div>
             </div>
-            <div class="logoCard">
-              <img src="../assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
+
+            <div class="experience-entry">
+              <div class="experience-entry__logo">
+                <img src="../assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
+              </div>
+              <div class="experience-entry__content">
+                <div class="experience-entry__header">
+                  <span class="experience-entry__company">Mercedes-Benz</span>
+                  <span class="experience-entry__role">Intern & Bachelor Thesis</span>
+                  <span class="experience-entry__period">Oct 2023 – Sep 2024</span>
+                </div>
+                <p class="experience-entry__desc">Developed an AI prototype on Azure to automate system documentation, projecting ~30% efficiency improvement and ~40% cost reduction. Integrated ServiceNow, Mural, and Jira workflows.</p>
+              </div>
             </div>
-            <div class="logoCard">
-              <img src="../assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
+
+            <div class="experience-entry">
+              <div class="experience-entry__logo">
+                <img src="../assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
+              </div>
+              <div class="experience-entry__content">
+                <div class="experience-entry__header">
+                  <span class="experience-entry__company">METRO Markets</span>
+                  <span class="experience-entry__role">Working Student</span>
+                  <span class="experience-entry__period">Mar 2022 – Sep 2023</span>
+                </div>
+                <p class="experience-entry__desc">Built Power BI dashboards supporting international expansion across Italy, Portugal, Netherlands, and France. Contributed to 25% YoY revenue growth for a key customer.</p>
+              </div>
             </div>
           </div>
-
-          <ul style="margin:14px 0 0; padding-left:18px; line-height:1.75;">
-            <li><strong>Ei Electronics — Solutions Engineer (Dec 2024 – Present):</strong> Manage Infor and Dynamics 365 ERP systems across three entities. Led complete setup and go-live of an international subsidiary. Design Power BI dashboards and automate business processes including OCR workflows.</li>
-            <li><strong>Mercedes-Benz — Intern & Bachelor Thesis (Oct 2023 – Sep 2024):</strong> Developed an AI prototype on Azure to automate system documentation, projecting ~30% efficiency improvement and ~40% cost reduction. Integrated ServiceNow, Mural, and Jira workflows.</li>
-            <li><strong>METRO Markets — Working Student (Mar 2022 – Sep 2023):</strong> Built Power BI dashboards supporting international expansion across Italy, Portugal, Netherlands, and France. Contributed to 25% YoY revenue growth for a key customer.</li>
-          </ul>
         </section>
 
-        <section class="card reveal" style="padding:24px;">
+        <section class="card reveal card--pad" data-tilt>
           <h2 class="h2">Education</h2>
-          <ul style="margin:12px 0 0; padding-left:18px; line-height:1.75;">
-            <li><strong>B.Sc. Business Informatics</strong> — Bochum University of Applied Sciences (Oct 2021 – Oct 2024)<br/><span style="color:var(--muted);">Final Grade: 2.19 (Good) • Coursework: Data Science, Software Engineering, Python, Java, AI, Algorithms</span></li>
-            <li><strong>Rheinisches Studienkolleg</strong> — Business & Mathematics Preparatory Course (Jan 2017 – Nov 2017)<br/><span style="color:var(--muted);">Final Grade: 1.3 (Very Good)</span></li>
+          <ul class="bullets">
+            <li><strong>B.Sc. Business Informatics</strong> — Bochum University of Applied Sciences (Oct 2021 – Oct 2024)<br/><span class="muted">Final Grade: 2.19 (Good) • Coursework: Data Science, Software Engineering, Python, Java, AI, Algorithms</span></li>
+            <li><strong>Rheinisches Studienkolleg</strong> — Business & Mathematics Preparatory Course (Jan 2017 – Nov 2017)<br/><span class="muted">Final Grade: 1.3 (Very Good)</span></li>
           </ul>
         </section>
 
-        <section class="card reveal" style="padding:24px;">
+        <section class="card reveal card--pad" data-tilt>
           <h2 class="h2">Certifications & Training</h2>
-          <ul style="margin:12px 0 0; padding-left:18px; line-height:1.75;">
+          <ul class="bullets">
             <li><strong>Digital Shaper (AI & Deep Learning)</strong> — TechLabs, Sep 2024</li>
             <li><strong>Digital Shaper (Data Science)</strong> — TechLabs, Apr 2024</li>
             <li><strong>Full Stack Developer</strong> — Udacity, Aug 2018</li>
           </ul>
-          <p style="margin-top:14px; color:var(--muted);">
+          <p class="muted" style="margin-top:14px;">
             <strong>Workshops:</strong> Microsoft Dynamics 365 Business Central • AI Governance & Ideation
           </p>
         </section>
 
-        <section class="card reveal" style="padding:24px;">
+        <section class="card reveal card--pad" data-tilt>
           <h2 class="h2">Skills & Tools</h2>
           <div class="grid2" style="margin-top:12px;">
             <div>
@@ -148,20 +174,47 @@
           </div>
         </section>
 
-        <section class="card reveal" style="padding:24px;">
+        <section class="card reveal card--pad" data-tilt>
           <h2 class="h2">Languages</h2>
-          <ul style="margin:12px 0 0; padding-left:18px; line-height:1.75;">
-            <li><strong>Arabic</strong> — Native</li>
-            <li><strong>English</strong> — Fluent</li>
-            <li><strong>German</strong> — Fluent</li>
-          </ul>
+          <div class="languages-grid">
+            <div class="language-card">
+              <div class="language-card__header">
+                <span class="language-card__flag">🇸🇦</span>
+                <span class="language-card__name">Arabic</span>
+              </div>
+              <span class="language-card__level">Native</span>
+              <div class="language-card__bar">
+                <div class="language-card__fill" style="width:100%"></div>
+              </div>
+            </div>
+            <div class="language-card">
+              <div class="language-card__header">
+                <span class="language-card__flag">🇬🇧</span>
+                <span class="language-card__name">English</span>
+              </div>
+              <span class="language-card__level">Fluent</span>
+              <div class="language-card__bar">
+                <div class="language-card__fill" style="width:100%"></div>
+              </div>
+            </div>
+            <div class="language-card">
+              <div class="language-card__header">
+                <span class="language-card__flag">🇩🇪</span>
+                <span class="language-card__name">German</span>
+              </div>
+              <span class="language-card__level">Fluent</span>
+              <div class="language-card__bar">
+                <div class="language-card__fill" style="width:95%"></div>
+              </div>
+            </div>
+          </div>
         </section>
 
-        <section class="card reveal" style="padding:24px;">
+        <section class="card reveal card--pad" data-tilt>
           <h2 class="h2">Community & Leadership</h2>
-          <ul style="margin:12px 0 0; padding-left:18px; line-height:1.75;">
-            <li><strong>TechLabs Global — Growth Acceleration Manager (Jan 2024 – Jan 2025)</strong><br/><span style="color:var(--muted);">Organized community events with 300+ attendees, partnering with companies including Huawei and Amazon. Led marketing, social media, and website optimization for digital education programs.</span></li>
-            <li><strong>Robotics Race — First Place, Hochschule Bochum (2021)</strong><br/><span style="color:var(--muted);">Won first place in a university-wide robotics competition.</span></li>
+          <ul class="bullets">
+            <li><strong>TechLabs Global — Growth Acceleration Manager (Jan 2024 – Jan 2025)</strong><br/><span class="muted">Organized community events with 300+ attendees, partnering with companies including Huawei and Amazon. Led marketing, social media, and website optimization for digital education programs.</span></li>
+            <li><strong>Robotics Race — First Place, Hochschule Bochum (2021)</strong><br/><span class="muted">Won first place in a university-wide robotics competition.</span></li>
           </ul>
         </section>
 

@@ -58,8 +58,8 @@
     <div class="container">
       <div class="stack stack--xl">
 
-        <section class="card reveal" style="padding:24px;">
-          <h1 class="h1">Let's Connect</h1>
+        <section class="card card--glow reveal card--pad" data-tilt>
+          <h1 class="h1 gradient-title">Let's Connect</h1>
           <p class="lead">
             I'm open to discussing opportunities in ERP systems, data engineering, business intelligence, and process automation. For role inquiries, please include the position title and location.
           </p>
@@ -72,7 +72,7 @@
           </div>
         </section>
 
-        <section class="card reveal" style="padding:24px;">
+        <section class="card reveal card--pad" data-tilt>
           <header class="card__head">
             <h2 class="h2">Send a message</h2>
             <p class="muted">Minimal fields. Clear routing. Quick reply.</p>
@@ -119,27 +119,31 @@
               <span class="check__text">I'm a real person.</span>
             </label>
 
-            <button class="btn btn--ghost" type="submit">Send</button>
+            <button class="btn btn--primary btn--lg" type="submit">Send Message</button>
             <div id="formStatus" class="status" role="status" aria-live="polite"></div>
-
-            <div class="quick">
-              <div class="quick__title">Quick contact</div>
-              <div class="quick__grid">
-                <a class="quick__item" href="mailto:samereladad@gmail.com">
-                  <span class="quick__k">Email</span>
-                  <span class="quick__v">samereladad@gmail.com</span>
-                </a>
-                <a class="quick__item" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer">
-                  <span class="quick__k">LinkedIn</span>
-                  <span class="quick__v">linkedin.com/in/samereladad</span>
-                </a>
-                <a class="quick__item" href="https://github.com/samereladad" target="_blank" rel="noreferrer">
-                  <span class="quick__k">GitHub</span>
-                  <span class="quick__v">github.com/samereladad</span>
-                </a>
-              </div>
-            </div>
           </form>
+        </section>
+
+        <!-- Direct Contact Section -->
+        <section class="card reveal card--pad">
+          <p class="direct-contact__intro">Prefer a different channel?</p>
+          <div class="contact-cards contact-cards--inline">
+            <a class="contact-card" href="mailto:samereladad@gmail.com" data-tilt>
+              <span class="contact-card__icon">✉️</span>
+              <span class="contact-card__label">Email</span>
+              <span class="contact-card__value">samereladad@gmail.com</span>
+            </a>
+            <a class="contact-card" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer" data-tilt>
+              <span class="contact-card__icon">💼</span>
+              <span class="contact-card__label">LinkedIn</span>
+              <span class="contact-card__value">linkedin.com/in/samereladad</span>
+            </a>
+            <a class="contact-card" href="https://github.com/samereladad" target="_blank" rel="noreferrer" data-tilt>
+              <span class="contact-card__icon">🐙</span>
+              <span class="contact-card__label">GitHub</span>
+              <span class="contact-card__value">github.com/samereladad</span>
+            </a>
+          </div>
         </section>
 
         <footer class="footer reveal">
