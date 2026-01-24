@@ -86,10 +86,10 @@
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
           
-          const rotateX = ((y - centerY) / centerY) * -8;
-          const rotateY = ((x - centerX) / centerX) * 8;
+          const rotateX = ((y - centerY) / centerY) * -0.5;
+          const rotateY = ((x - centerX) / centerX) * 0.5;
           
-          el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+          el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
         
         el.addEventListener("mouseleave", () => {
