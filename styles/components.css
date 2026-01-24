@@ -160,7 +160,7 @@ body.light-theme .parallax-banner__overlay {
   background: rgba(0,0,0,.10);
   border: 1px solid var(--border);
 }
-.header__actions{ display:flex; align-items:center; gap:10px; }
+.header__actions{ display:flex; flex-direction:row-reverse; align-items:center; gap:10px; }
 
 .theme-toggle {
   background: rgba(0,0,0,.14);
