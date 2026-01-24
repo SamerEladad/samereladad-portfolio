@@ -60,80 +60,91 @@
 
         <section class="card card--glow reveal card--pad" data-tilt>
           <h1 class="h1 hero__title">Projects</h1>
-          <p class="lead">Selected work showcasing data engineering, AI prototyping, and software development—with a focus on measurable outcomes and real-world impact.</p>
+          <p class="lead">Selected work showcasing data engineering, AI prototyping, and software development.</p>
         </section>
 
-        <section id="ai-doc" class="card reveal card--pad" data-tilt>
-          <span class="project-tag">Featured</span>
-          <h2 class="h2">AI Documentation Assistant — Mercedes-Benz</h2>
-          <p class="lead">
-            Developed an AI-powered prototype on Microsoft Azure to automate the creation, updating, and querying of internal system documentation—aligned with enterprise privacy constraints and scalable evaluation frameworks.
-          </p>
-          <div class="chips">
-            <span class="chip">Azure OpenAI</span>
-            <span class="chip">Python</span>
-            <span class="chip">ServiceNow</span>
-            <span class="chip">Mural</span>
-          </div>
-          <ul class="bullets" style="margin-top:12px;">
-            <li>Identified documentation inefficiencies during internship and transformed them into a thesis-driven solution.</li>
-            <li>Projected <strong>~30% efficiency improvement</strong> and <strong>~40% cost reduction</strong> in documentation workflows.</li>
-            <li>Designed measurable evaluation criteria and integrated cross-functional collaboration tools (ServiceNow, Mural, Jira).</li>
-          </ul>
-        </section>
+        <div class="projects-grid">
+          <article id="ai-doc" class="project-card project-card--featured reveal">
+            <span class="project-card__tag">Featured</span>
+            <h2 class="project-card__title">AI Documentation Assistant</h2>
+            <p class="project-card__company">Mercedes-Benz</p>
+            <p class="project-card__desc">AI-powered prototype on Azure to automate internal system documentation.</p>
+            <div class="project-card__metrics">
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">+30%</span>
+                <span class="project-card__metric-label">Efficiency</span>
+              </div>
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">-40%</span>
+                <span class="project-card__metric-label">Cost</span>
+              </div>
+            </div>
+            <div class="project-card__chips">
+              <span class="chip">Azure OpenAI</span>
+              <span class="chip">ServiceNow</span>
+            </div>
+          </article>
 
-        <section id="cinemalytics" class="card reveal card--pad" data-tilt>
-          <h2 class="h2">Cinemalytics — ML-Powered Streaming Analytics</h2>
-          <p class="lead">
-            Built a machine learning platform helping film producers identify optimal streaming platforms based on genre performance analysis and predictive modeling.
-          </p>
-          <div class="chips">
-            <span class="chip">Python</span>
-            <span class="chip">SQL</span>
-            <span class="chip">Random Forest</span>
-            <span class="chip">Data Visualization</span>
-          </div>
-          <ul class="bullets" style="margin-top:12px;">
-            <li>Engineered data pipelines to analyze genre–platform performance correlations across major streaming services.</li>
-            <li>Trained and validated recommendation models using Random Forest for platform selection decisions.</li>
-            <li>Designed decision-ready outputs optimized for non-technical stakeholders in the entertainment industry.</li>
-          </ul>
-        </section>
+          <article id="cinemalytics" class="project-card reveal">
+            <h2 class="project-card__title">Cinemalytics</h2>
+            <p class="project-card__company">TechLabs Project</p>
+            <p class="project-card__desc">ML platform helping film producers identify optimal streaming platforms.</p>
+            <div class="project-card__metrics">
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">Python</span>
+                <span class="project-card__metric-label">Full Stack</span>
+              </div>
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">SQL</span>
+                <span class="project-card__metric-label">Data</span>
+              </div>
+            </div>
+            <div class="project-card__chips">
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Data Visualization</span>
+            </div>
+          </article>
 
-        <section id="wallet" class="card reveal card--pad" data-tilt>
-          <h2 class="h2">Bitcoin Wallet — Secure Transaction Platform</h2>
-          <p class="lead">
-            Co-developed a secure Bitcoin wallet application with a focus on cryptographic key management, transaction safety, and intuitive user experience.
-          </p>
-          <div class="chips">
-            <span class="chip">Java</span>
-            <span class="chip">Cryptography</span>
-            <span class="chip">Security Engineering</span>
-          </div>
-          <ul class="bullets" style="margin-top:12px;">
-            <li>Implemented secure wallet creation and private key management following cryptographic best practices.</li>
-            <li>Designed transaction validation flows ensuring safety and reliability for end users.</li>
-            <li>Built as part of a university security module, demonstrating practical application of security principles.</li>
-          </ul>
-        </section>
+          <article id="wallet" class="project-card reveal">
+            <h2 class="project-card__title">Bitcoin Wallet</h2>
+            <p class="project-card__company">University Project</p>
+            <p class="project-card__desc">Secure Bitcoin wallet with cryptographic key management and transaction safety.</p>
+            <div class="project-card__metrics">
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">Java</span>
+                <span class="project-card__metric-label">Full Stack</span>
+              </div>
+            </div>
+            <div class="project-card__chips">
+              <span class="chip">Cryptography</span>
+              <span class="chip">Security</span>
+            </div>
+          </article>
 
-        <section id="mytranslate" class="card reveal card--pad" data-tilt>
-          <h2 class="h2">myTRANSLATE — Scientific Translation Platform</h2>
-          <p class="lead">
-            Developed a web application enabling researchers to request on-demand expert translations for scientific and technical documents.
-          </p>
-          <div class="chips">
-            <span class="chip">HTML</span>
-            <span class="chip">CSS</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">REST API</span>
-          </div>
-          <ul class="bullets" style="margin-top:12px;">
-            <li>Designed a clean, intuitive interface for translation request submission and tracking.</li>
-            <li>Built with vanilla web technologies for maximum compatibility and performance.</li>
-            <li>Implemented responsive design principles for seamless cross-device experience.</li>
-          </ul>
-        </section>
+          <article id="mytranslate" class="project-card reveal">
+            <h2 class="project-card__title">myTRANSLATE</h2>
+            <p class="project-card__company">Web Application</p>
+            <p class="project-card__desc">Platform for researchers to request expert translations for scientific documents.</p>
+            <div class="project-card__metrics">
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">JS</span>
+                <span class="project-card__metric-label">Frontend</span>
+              </div>
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">HTML</span>
+                <span class="project-card__metric-label">Structure</span>
+              </div>
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">CSS</span>
+                <span class="project-card__metric-label">Styling</span>
+              </div>
+            </div>
+            <div class="project-card__chips">
+              <span class="chip">REST API</span>
+              <span class="chip">Responsive Design</span>
+            </div>
+          </article>
+        </div>
 
         <footer class="footer reveal">
           <div class="footer__inner">
