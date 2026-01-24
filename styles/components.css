@@ -11,6 +11,24 @@
   opacity:.10;
 }
 
+/* Mobile background glows */
+@media (max-width: 768px) {
+  .bg__glow {
+    width: 400px;
+    height: 400px;
+    filter: blur(60px);
+    opacity: .35;
+  }
+  .bg__glow--a {
+    left: -100px;
+    top: 30vh;
+  }
+  .bg__glow--b {
+    right: -100px;
+    top: 50vh;
+  }
+}
+
 /* Hide glows in light theme */
 body.light-theme .bg__glow { opacity: 0; }
 body.light-theme .bg__noise { opacity: 0.02; }
@@ -122,6 +140,10 @@ body.light-theme .banner-spacer::before {
     height: 45vh;
     min-height: 280px;
     max-height: 420px;
+  }
+  .banner-spacer::before {
+    top: 55vh;
+    height: 60vh;
   }
 }
 
