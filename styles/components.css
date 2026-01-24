@@ -280,8 +280,8 @@ body.light-theme .banner-spacer::before {
   background: rgba(0,0,0,.14);
   border: 1px solid var(--border);
   border-radius: 999px;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -694,8 +694,8 @@ body.light-theme .quick__v {
   }
   
   .theme-toggle {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
   }
   
   .nav__link {
