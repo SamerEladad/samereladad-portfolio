@@ -150,6 +150,8 @@ body.light-theme .banner-spacer::before {
       #0b0f14 95%,
       #0b0f14 100%
     );
+    z-index: 1;
+    position: absolute;
   }
   .banner-spacer {
     height: 35vh;
@@ -183,6 +185,8 @@ body.light-theme .banner-spacer::before {
       #f8f9fa 95%,
       #f8f9fa 100%
     );
+    z-index: 1;
+    position: absolute;
   }
   body.light-theme .banner-spacer::before {
     background: linear-gradient(
@@ -218,17 +222,28 @@ body.light-theme .banner-spacer::before {
   align-items:center;
   gap:10px;
   min-width:0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,.14);
+  transition: transform .16s var(--ease), background .16s var(--ease), border-color .16s var(--ease);
+  cursor: pointer;
+  width: fit-content;
+}
+.brand:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,.06);
+  border-color: rgba(255,255,255,.18);
 }
 .brand__dot{
   width:10px; height:10px;
   border-radius:999px;
   background: var(--text);
-  box-shadow: 0 0 0 6px var(--border);
-  transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+  transition: transform .22s var(--ease);
+  flex-shrink: 0;
 }
 .brand:hover .brand__dot{
   transform: translateY(-1px);
-  box-shadow: 0 0 0 7px rgba(255,255,255,.10);
 }
 .brand__text{
   font-weight: 740;
@@ -238,6 +253,16 @@ body.light-theme .banner-spacer::before {
   transition: opacity .22s var(--ease), transform .22s var(--ease);
 }
 .brand:hover .brand__text{ opacity:.96; transform: translateY(-1px); }
+
+body.light-theme .brand {
+  background: rgba(255,255,255,.14);
+  border-color: var(--border);
+}
+
+body.light-theme .brand:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(33,37,41,.18);
+}
 
 /* pill nav */
 .nav{
@@ -648,12 +673,14 @@ body.light-theme .quick__v {
   /* First row: brand on left, actions on right */
   .brand {
     order: 1;
-    flex: 1;
+    flex: 0 1 auto;
+    width: fit-content;
   }
   
   .header__actions {
     order: 2;
     gap: 8px;
+    margin-left: auto;
   }
   
   /* Theme toggle on the right (after CV button) */
@@ -670,10 +697,13 @@ body.light-theme .quick__v {
   /* Nav takes full width on second row */
   .nav {
     order: 3;
-    width: 100%;
-    max-width: 100%;
+    flex: 0 0 auto;
+    width: fit-content;
+    max-width: none;
     justify-content: center;
     margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .nav__link {
