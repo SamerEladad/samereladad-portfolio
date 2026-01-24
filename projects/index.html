@@ -6,8 +6,16 @@
   <title>Projects — Samer Eladad</title>
   <meta name="description" content="Portfolio of projects by Samer Eladad including AI documentation automation at Mercedes-Benz, ML-powered streaming analytics, secure cryptocurrency applications, and web development." />
 
+  <!-- Preload critical resources -->
+  <link rel="preload" href="../styles/base.css" as="style" />
+  <link rel="preload" href="../styles/components.css" as="style" />
+  <link rel="preload" href="../scripts/main.js" as="script" />
+
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/components.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
 </head>
 
 <body>
@@ -64,7 +72,7 @@
         </section>
 
         <div class="projects-grid">
-          <article id="ai-doc" class="project-card project-card--featured reveal">
+          <article id="ai-doc" class="project-card project-card--featured reveal" data-tilt>
             <span class="project-card__tag">Featured</span>
             <h2 class="project-card__title">AI Documentation Assistant</h2>
             <p class="project-card__company">Mercedes-Benz</p>
@@ -85,7 +93,7 @@
             </div>
           </article>
 
-          <article id="cinemalytics" class="project-card reveal">
+          <article id="cinemalytics" class="project-card reveal" data-tilt>
             <h2 class="project-card__title">Cinemalytics</h2>
             <p class="project-card__company">TechLabs Project</p>
             <p class="project-card__desc">ML platform helping film producers identify optimal streaming platforms.</p>
@@ -105,7 +113,7 @@
             </div>
           </article>
 
-          <article id="wallet" class="project-card reveal">
+          <article id="wallet" class="project-card reveal" data-tilt>
             <h2 class="project-card__title">Bitcoin Wallet</h2>
             <p class="project-card__company">University Project</p>
             <p class="project-card__desc">Secure Bitcoin wallet with cryptographic key management and transaction safety.</p>
@@ -121,7 +129,7 @@
             </div>
           </article>
 
-          <article id="mytranslate" class="project-card reveal">
+          <article id="mytranslate" class="project-card reveal" data-tilt>
             <h2 class="project-card__title">myTRANSLATE</h2>
             <p class="project-card__company">Web Application</p>
             <p class="project-card__desc">Platform for researchers to request expert translations for scientific documents.</p>

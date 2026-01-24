@@ -6,8 +6,16 @@
   <title>Contact — Samer Eladad</title>
   <meta name="description" content="Get in touch with Samer Eladad for opportunities in ERP systems, data engineering, Power BI, and process automation. Based in Duisburg, Germany." />
 
+  <!-- Preload critical resources -->
+  <link rel="preload" href="../styles/base.css" as="style" />
+  <link rel="preload" href="../styles/components.css" as="style" />
+  <link rel="preload" href="../scripts/main.js" as="script" />
+
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/components.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
 </head>
 
 <body>
@@ -64,11 +72,11 @@
             Whether it's a new opportunity, a collaboration, or just a conversation about technology and innovation—I'd love to hear from you.
           </p>
           <div class="chips" aria-label="Areas of expertise">
-            <span class="chip">ERP Implementation</span>
+            <span class="chip">ERP Systems</span>
             <span class="chip">Data Engineering</span>
             <span class="chip">Power BI</span>
             <span class="chip">Process Automation</span>
-            <span class="chip">AI Solutions</span>
+            <span class="chip">AI Prototyping</span>
           </div>
         </section>
 
@@ -116,7 +124,7 @@
 
             <label class="check">
               <input class="check__box" type="checkbox" id="humanCheck" required />
-              <span class="check__text">I'm a real person.</span>
+              <span class="check__text">I am not a robot.</span>
             </label>
 
             <button class="btn btn--primary btn--lg" type="submit">Send Message</button>
@@ -125,7 +133,7 @@
         </section>
 
         <!-- Direct Contact Section -->
-        <section class="card reveal card--pad">
+        <section class="card reveal card--pad" data-tilt>
           <p class="direct-contact__intro">Prefer a different channel?</p>
           <div class="contact-cards contact-cards--inline">
             <a class="contact-card" href="mailto:samereladad@gmail.com" data-tilt>
