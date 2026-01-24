@@ -45,12 +45,12 @@ body.light-theme .bg__noise { opacity: 0.02; }
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(11, 15, 20, 0.2) 20%,
-    rgba(11, 15, 20, 0.4) 40%,
-    rgba(11, 15, 20, 0.6) 55%,
-    rgba(11, 15, 20, 0.8) 70%,
-    rgba(11, 15, 20, 0.95) 90%,
-    rgba(11, 15, 20, 0.98) 100%
+    transparent 50%,
+    rgba(11, 15, 20, 0.3) 65%,
+    rgba(11, 15, 20, 0.6) 75%,
+    rgba(11, 15, 20, 0.85) 85%,
+    #0b0f14 92%,
+    #0b0f14 100%
   );
   pointer-events: none;
 }
@@ -59,11 +59,12 @@ body.light-theme .parallax-banner__overlay {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(248, 249, 250, 0.2) 30%,
-    rgba(248, 249, 250, 0.5) 50%,
-    rgba(248, 249, 250, 0.8) 70%,
-    rgba(248, 249, 250, 0.95) 90%,
-    rgba(248, 249, 250, 0.98) 100%
+    transparent 50%,
+    rgba(248, 249, 250, 0.3) 65%,
+    rgba(248, 249, 250, 0.6) 75%,
+    rgba(248, 249, 250, 0.85) 85%,
+    #f8f9fa 92%,
+    #f8f9fa 100%
   );
 }
 
