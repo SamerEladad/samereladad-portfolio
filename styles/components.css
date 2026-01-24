@@ -129,21 +129,70 @@ body.light-theme .banner-spacer::before {
 /* Responsive adjustments for parallax banner */
 @media (max-width: 768px) {
   .parallax-banner {
-    height: 65vh;
-    min-height: 400px;
-    max-height: 600px;
+    height: 55vh;
+    min-height: 350px;
+    max-height: 500px;
   }
   .parallax-banner__img {
-    object-position: center 20%;
+    object-fit: contain;
+    object-position: center top;
+    height: 100%;
+  }
+  .parallax-banner__overlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 40%,
+      rgba(11, 15, 20, 0.3) 55%,
+      rgba(11, 15, 20, 0.6) 70%,
+      rgba(11, 15, 20, 0.85) 85%,
+      #0b0f14 95%,
+      #0b0f14 100%
+    );
   }
   .banner-spacer {
-    height: 45vh;
-    min-height: 280px;
-    max-height: 420px;
+    height: 35vh;
+    min-height: 220px;
+    max-height: 350px;
   }
   .banner-spacer::before {
-    top: 55vh;
-    height: 60vh;
+    top: 45vh;
+    height: 70vh;
+    background: linear-gradient(
+      to bottom,
+      #0b0f14 0%,
+      #0b0f14 10%,
+      rgba(11, 15, 20, 0.85) 25%,
+      rgba(11, 15, 20, 0.5) 50%,
+      rgba(11, 15, 20, 0.2) 75%,
+      transparent 100%
+    );
+  }
+}
+
+@media (max-width: 768px) {
+  body.light-theme .parallax-banner__overlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 40%,
+      rgba(248, 249, 250, 0.3) 55%,
+      rgba(248, 249, 250, 0.6) 70%,
+      rgba(248, 249, 250, 0.85) 85%,
+      #f8f9fa 95%,
+      #f8f9fa 100%
+    );
+  }
+  body.light-theme .banner-spacer::before {
+    background: linear-gradient(
+      to bottom,
+      #f8f9fa 0%,
+      #f8f9fa 10%,
+      rgba(248, 249, 250, 0.85) 25%,
+      rgba(248, 249, 250, 0.5) 50%,
+      rgba(248, 249, 250, 0.2) 75%,
+      transparent 100%
+    );
   }
 }
 
