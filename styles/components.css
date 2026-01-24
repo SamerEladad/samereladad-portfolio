@@ -134,9 +134,10 @@ body.light-theme .banner-spacer::before {
     max-height: 500px;
   }
   .parallax-banner__img {
-    object-fit: contain;
-    object-position: center top;
-    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    height: 120%;
+    width: 100%;
   }
   .parallax-banner__overlay {
     background: linear-gradient(
