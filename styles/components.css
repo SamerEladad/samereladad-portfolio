@@ -280,8 +280,8 @@ body.light-theme .banner-spacer::before {
   background: rgba(0,0,0,.14);
   border: 1px solid var(--border);
   border-radius: 999px;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -298,14 +298,14 @@ body.light-theme .banner-spacer::before {
 }
 
 body.light-theme .theme-toggle {
-  background: rgba(0,0,0,.14);
+  background: rgba(255,255,255,.14);
   border-color: var(--border);
   color: var(--text);
 }
 
 body.light-theme .theme-toggle:hover {
-  background: rgba(0,0,0,.06);
-  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(33,37,41,.18);
   color: var(--text);
 }
 
@@ -694,8 +694,8 @@ body.light-theme .quick__v {
   }
   
   .theme-toggle {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
   }
   
   .nav__link {
