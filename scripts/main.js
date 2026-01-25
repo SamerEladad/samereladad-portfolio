@@ -27,6 +27,49 @@
     });
   }
 
+  // CV Dropdown functionality
+  const cvDropdowns = document.querySelectorAll(".cv-dropdown");
+  cvDropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector(".cv-dropdown__toggle");
+    
+    if (toggle) {
+      // Toggle dropdown on click
+      toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.toggle("is-open");
+        toggle.setAttribute("aria-expanded", isOpen);
+        
+        // Close other dropdowns
+        cvDropdowns.forEach(other => {
+          if (other !== dropdown) {
+            other.classList.remove("is-open");
+            other.querySelector(".cv-dropdown__toggle")?.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+    }
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".cv-dropdown")) {
+      cvDropdowns.forEach(dropdown => {
+        dropdown.classList.remove("is-open");
+        dropdown.querySelector(".cv-dropdown__toggle")?.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
+
+  // Close dropdown on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      cvDropdowns.forEach(dropdown => {
+        dropdown.classList.remove("is-open");
+        dropdown.querySelector(".cv-dropdown__toggle")?.setAttribute("aria-expanded", "false");
+      });
+    }
+  });
+
   // Banner stays fixed in background (no scroll effect)
 
   // Scroll to top functionality
