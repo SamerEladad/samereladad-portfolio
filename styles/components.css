@@ -1213,6 +1213,55 @@ body.light-theme .project-card__metric-value {
   color: #764ba2;
 }
 
+/* Clickable project card links */
+.project-card__link {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius);
+  transition: transform .3s var(--ease);
+}
+.project-card__link .project-card {
+  width: 100%;
+}
+.project-card__link:hover .project-card {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.12);
+  transform: translateY(-4px);
+}
+.project-card__link:hover .project-card--featured {
+  border-color: rgba(102,126,234,.4);
+  background: linear-gradient(135deg, rgba(102,126,234,.1), rgba(118,75,162,.1));
+}
+body.light-theme .project-card__link:hover .project-card {
+  background: rgba(0,0,0,.04);
+  border-color: rgba(0,0,0,.12);
+}
+body.light-theme .project-card__link:hover .project-card--featured {
+  background: linear-gradient(135deg, rgba(102,126,234,.08), rgba(118,75,162,.08));
+}
+
+/* Confidential project card */
+.project-card--confidential {
+  cursor: default;
+}
+.project-card__tag--muted {
+  background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.10)) !important;
+  color: var(--muted) !important;
+}
+body.light-theme .project-card__tag--muted {
+  background: linear-gradient(135deg, rgba(0,0,0,.10), rgba(0,0,0,.06)) !important;
+  color: var(--muted) !important;
+}
+.project-card__confidential-note {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 12px;
+  opacity: 0.7;
+  letter-spacing: 0.2px;
+}
+
 /* Logo strip for company logos */
 .logoStrip {
   display: flex;

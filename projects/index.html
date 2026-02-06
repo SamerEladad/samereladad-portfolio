@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Projects — Samer Eladad</title>
+  <title>Projects  -  Samer Eladad</title>
   <meta name="description" content="Portfolio of projects by Samer Eladad including AI documentation automation at Mercedes-Benz, ML-powered streaming analytics, secure cryptocurrency applications, and web development." />
 
   <!-- Preload critical resources -->
@@ -27,7 +27,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Samer Eladad" />
   <meta property="og:url" content="https://samereladad.cv/projects/" />
-  <meta property="og:title" content="Projects — Samer Eladad" />
+  <meta property="og:title" content="Projects  -  Samer Eladad" />
   <meta property="og:description" content="Portfolio of projects including AI documentation automation, ML-powered analytics, and software development." />
   <meta property="og:image" content="https://samereladad.cv/assets/images/banner-og.jpg" />
   <meta property="og:image:secure_url" content="https://samereladad.cv/assets/images/banner-og.jpg" />
@@ -36,7 +36,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Samer Eladad - Solutions Engineer" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Projects — Samer Eladad" />
+  <meta name="twitter:title" content="Projects  -  Samer Eladad" />
   <meta name="twitter:description" content="Portfolio of projects including AI documentation automation, ML-powered analytics, and software development." />
   <meta name="twitter:image" content="https://samereladad.cv/assets/images/banner-og.jpg" />
 </head>
@@ -104,12 +104,110 @@
 
         <section class="card card--glow reveal card--pad" data-tilt>
           <h1 class="h1 gradient-title">Projects</h1>
-          <p class="lead">Selected work showcasing data engineering, AI prototyping, and software development.</p>
+          <p class="lead">A collection of personal and professional projects I've built and worked on - from ERP implementations and AI-powered tools to serverless bots and full-stack applications.</p>
         </section>
 
         <div class="projects-grid">
-          <article id="ai-doc" class="project-card project-card--featured reveal" data-tilt>
-            <span class="project-card__tag">Featured</span>
+          <a href="https://github.com/SamerEladad/ask-samer-content-engine" target="_blank" rel="noreferrer" class="project-card__link">
+            <article id="content-engine" class="project-card project-card--featured reveal" data-tilt>
+              <span class="project-card__tag">Latest</span>
+              <h2 class="project-card__title">AI Social Media Content Engine</h2>
+              <p class="project-card__company">Personal Project</p>
+              <p class="project-card__desc">Full-stack AI-powered content engine that transforms raw ideas into refined content angles and complete video blueprints using Google Gemini 2.5 Pro, with inline editing, status workflows, and drag-to-reorder.</p>
+              <div class="project-card__metrics">
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">React</span>
+                  <span class="project-card__metric-label">Frontend</span>
+                </div>
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">Gemini</span>
+                  <span class="project-card__metric-label">API</span>
+                </div>
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">Edge</span>
+                  <span class="project-card__metric-label">Deploy</span>
+                </div>
+              </div>
+              <div class="project-card__chips">
+                <span class="chip">TypeScript</span>
+                <span class="chip">Cloudflare Workers</span>
+                <span class="chip">SQLite</span>
+                <span class="chip">Tailwind CSS</span>
+              </div>
+            </article>
+          </a>
+
+          <a href="https://github.com/SamerEladad/wotd-telegram" target="_blank" rel="noreferrer" class="project-card__link">
+            <article id="wotd" class="project-card reveal" data-tilt>
+              <h2 class="project-card__title">Word of the Day Bot</h2>
+              <p class="project-card__company">Personal Project</p>
+              <p class="project-card__desc">Serverless, edge-deployed Telegram bot for daily multilingual vocabulary delivery. Pairs Russian and Egyptian Arabic expressions with curated transliterations, contextual examples, and chapter-based learning - with automatic daily delivery and duplicate tracking.</p>
+              <div class="project-card__metrics">
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">JS</span>
+                  <span class="project-card__metric-label">Runtime</span>
+                </div>
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">Cloudflare KV</span>
+                  <span class="project-card__metric-label">Storage</span>
+                </div>
+              </div>
+              <div class="project-card__chips">
+                <span class="chip">Cloudflare Workers</span>
+                <span class="chip">Telegram API</span>
+                <span class="chip">Cron Triggers</span>
+              </div>
+            </article>
+          </a>
+
+          <article id="erp-go-live" class="project-card project-card--confidential reveal" data-tilt>
+            <span class="project-card__confidential-note">🔒 Source code unavailable - proprietary project</span>
+            <h2 class="project-card__title">ERP Go-Live & Rollout</h2>
+            <p class="project-card__company">Ei Electronics</p>
+            <p class="project-card__desc">Launched Dynamics 365 Business Central for a new Polish subsidiary - configuring core ERP processes, implementing Copilot Agents, OCR-based document scanning, and automating workflows across finance and customer support.</p>
+            <div class="project-card__metrics">
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">Business Central</span>
+                <span class="project-card__metric-label">ERP</span>
+              </div>
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">Copilot</span>
+                <span class="project-card__metric-label">AI Agents</span>
+              </div>
+            </div>
+            <div class="project-card__chips">
+              <span class="chip">Dynamics 365</span>
+              <span class="chip">Copilot Agents</span>
+              <span class="chip">OCR</span>
+              <span class="chip">REST APIs</span>
+            </div>
+          </article>
+
+          <article id="power-bi-reporting" class="project-card project-card--confidential reveal" data-tilt>
+            <span class="project-card__confidential-note">🔒 Source code unavailable - proprietary project</span>
+            <h2 class="project-card__title">Automated Reporting & Data Modeling</h2>
+            <p class="project-card__company">Ei Electronics</p>
+            <p class="project-card__desc">Replaced manual weekly reports with an automated, dynamic Power BI solution - spanning the full analytics pipeline from data modeling and engineering to interactive dashboards integrated with Infor ERP data.</p>
+            <div class="project-card__metrics">
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">5-10%</span>
+                <span class="project-card__metric-label">Capacity Gain</span>
+              </div>
+              <div class="project-card__metric">
+                <span class="project-card__metric-value">Power BI</span>
+                <span class="project-card__metric-label">Analytics</span>
+              </div>
+            </div>
+            <div class="project-card__chips">
+              <span class="chip">Power BI</span>
+              <span class="chip">Data Modeling</span>
+              <span class="chip">Data Engineering</span>
+              <span class="chip">Infor ERP</span>
+            </div>
+          </article>
+
+          <article id="ai-doc" class="project-card project-card--confidential reveal" data-tilt>
+            <span class="project-card__confidential-note">🔒 Source code unavailable - proprietary project</span>
             <h2 class="project-card__title">AI Documentation Assistant</h2>
             <p class="project-card__company">Mercedes-Benz</p>
             <p class="project-card__desc">AI-powered prototype on Azure to automate internal system documentation.</p>
@@ -129,65 +227,71 @@
             </div>
           </article>
 
-          <article id="cinemalytics" class="project-card reveal" data-tilt>
-            <h2 class="project-card__title">Cinemalytics</h2>
-            <p class="project-card__company">TechLabs Project</p>
-            <p class="project-card__desc">ML platform helping film producers identify optimal streaming platforms.</p>
-            <div class="project-card__metrics">
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">Python</span>
-                <span class="project-card__metric-label">Full Stack</span>
+          <a href="https://github.com/SamerEladad/Cinemalytics" target="_blank" rel="noreferrer" class="project-card__link">
+            <article id="cinemalytics" class="project-card reveal" data-tilt>
+              <h2 class="project-card__title">Cinemalytics</h2>
+              <p class="project-card__company">TechLabs Project</p>
+              <p class="project-card__desc">ML platform helping film producers identify optimal streaming platforms.</p>
+              <div class="project-card__metrics">
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">Python</span>
+                  <span class="project-card__metric-label">Full Stack</span>
+                </div>
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">SQL</span>
+                  <span class="project-card__metric-label">Data</span>
+                </div>
               </div>
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">SQL</span>
-                <span class="project-card__metric-label">Data</span>
+              <div class="project-card__chips">
+                <span class="chip">Machine Learning</span>
+                <span class="chip">Data Visualization</span>
               </div>
-            </div>
-            <div class="project-card__chips">
-              <span class="chip">Machine Learning</span>
-              <span class="chip">Data Visualization</span>
-            </div>
-          </article>
+            </article>
+          </a>
 
-          <article id="wallet" class="project-card reveal" data-tilt>
-            <h2 class="project-card__title">Bitcoin Wallet</h2>
-            <p class="project-card__company">University Project</p>
-            <p class="project-card__desc">Secure Bitcoin wallet with cryptographic key management and transaction safety.</p>
-            <div class="project-card__metrics">
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">Java</span>
-                <span class="project-card__metric-label">Full Stack</span>
+          <a href="https://github.com/SamerEladad/Bitcoin-Wallet" target="_blank" rel="noreferrer" class="project-card__link">
+            <article id="wallet" class="project-card reveal" data-tilt>
+              <h2 class="project-card__title">Bitcoin Wallet</h2>
+              <p class="project-card__company">University Project</p>
+              <p class="project-card__desc">Secure Bitcoin wallet with cryptographic key management and transaction safety.</p>
+              <div class="project-card__metrics">
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">Java</span>
+                  <span class="project-card__metric-label">Full Stack</span>
+                </div>
               </div>
-            </div>
-            <div class="project-card__chips">
-              <span class="chip">Cryptography</span>
-              <span class="chip">Security</span>
-            </div>
-          </article>
+              <div class="project-card__chips">
+                <span class="chip">Cryptography</span>
+                <span class="chip">Security</span>
+              </div>
+            </article>
+          </a>
 
-          <article id="mytranslate" class="project-card reveal" data-tilt>
-            <h2 class="project-card__title">myTRANSLATE</h2>
-            <p class="project-card__company">Web Application</p>
-            <p class="project-card__desc">Platform for researchers to request expert translations for scientific documents.</p>
-            <div class="project-card__metrics">
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">JS</span>
-                <span class="project-card__metric-label">Frontend</span>
+          <a href="https://github.com/SamerEladad/myTranslate" target="_blank" rel="noreferrer" class="project-card__link">
+            <article id="mytranslate" class="project-card reveal" data-tilt>
+              <h2 class="project-card__title">myTRANSLATE</h2>
+              <p class="project-card__company">University Project</p>
+              <p class="project-card__desc">Web application for researchers to request expert translations for scientific documents.</p>
+              <div class="project-card__metrics">
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">JS</span>
+                  <span class="project-card__metric-label">Frontend</span>
+                </div>
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">HTML</span>
+                  <span class="project-card__metric-label">Structure</span>
+                </div>
+                <div class="project-card__metric">
+                  <span class="project-card__metric-value">CSS</span>
+                  <span class="project-card__metric-label">Styling</span>
+                </div>
               </div>
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">HTML</span>
-                <span class="project-card__metric-label">Structure</span>
+              <div class="project-card__chips">
+                <span class="chip">REST API</span>
+                <span class="chip">Responsive Design</span>
               </div>
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">CSS</span>
-                <span class="project-card__metric-label">Styling</span>
-              </div>
-            </div>
-            <div class="project-card__chips">
-              <span class="chip">REST API</span>
-              <span class="chip">Responsive Design</span>
-            </div>
-          </article>
+            </article>
+          </a>
         </div>
 
         <footer class="footer reveal">
