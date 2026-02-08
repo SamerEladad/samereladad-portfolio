@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
 
+  <!-- jsPDF for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
+
   <style>
     /* ════════════════════════════════════════════════════════════════════
        RESET & ROOT
@@ -709,6 +712,12 @@
         </a>
 
         <button class="btn btn--icon" id="themeToggle" aria-label="Toggle theme">🌙</button>
+
+        <!-- Temporary: Generate PDF from cards -->
+        <button class="btn btn--ghost" id="generatePdfBtn" aria-label="Generate PDF" style="border-color:var(--accent);color:var(--accent)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>Generate PDF</span>
+        </button>
       </div>
     </div>
   </div>
@@ -1237,6 +1246,84 @@
     // Hook into language toggle
     langBtns.forEach(btn => {
       btn.addEventListener("click", updateDownloadLink);
+    });
+
+    // ── Temporary: Generate PDF from print page cards via hidden iframe ──
+    document.getElementById("generatePdfBtn").addEventListener("click", async () => {
+      const btn = document.getElementById("generatePdfBtn");
+      const origHTML = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> <span>Generating…</span>';
+
+      const printFile = currentLang === 'de' ? 'print-de.html' : 'print-en.html';
+      const filename  = currentLang === 'de' ? 'Samer_Eladad_Lebenslauf.pdf' : 'Samer_Eladad_CV.pdf';
+
+      // 1 — Create a hidden iframe and load the print page
+      const iframe = document.createElement('iframe');
+      iframe.style.cssText = 'position:fixed;left:-9999px;top:0;width:794px;height:2400px;border:none;';
+      document.body.appendChild(iframe);
+
+      try {
+        // 2 — Wait for iframe to fully load
+        await new Promise((resolve, reject) => {
+          iframe.onload = resolve;
+          iframe.onerror = reject;
+          iframe.src = printFile;
+        });
+
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const iframeWin = iframe.contentWindow;
+
+        // 3 — Wait for html2canvas to be available inside the iframe
+        await new Promise(r => {
+          const check = () => iframeWin.html2canvas ? r() : setTimeout(check, 50);
+          check();
+        });
+
+        // 4 — Wait for fonts + images inside the iframe
+        if (iframeDoc.fonts && iframeDoc.fonts.ready) await iframeDoc.fonts.ready;
+        const imgs = iframeDoc.querySelectorAll('img');
+        await Promise.all([...imgs].map(img =>
+          img.complete ? Promise.resolve() : new Promise(r => { img.onload = r; img.onerror = r; })
+        ));
+        await new Promise(r => setTimeout(r, 400));
+
+        // 5 — Capture each card using the iframe's own html2canvas
+        const cards = iframeDoc.querySelectorAll('.cv-card');
+        const canvases = [];
+        for (const card of cards) {
+          const canvas = await iframeWin.html2canvas(card, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#ffffff',
+            width: 794,
+            height: 1123,
+            windowWidth: 794
+          });
+          canvases.push(canvas);
+        }
+
+        // 6 — Build a 2-page A4 PDF with jsPDF
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+        const pageW = 210;
+        const pageH = 297;
+
+        canvases.forEach((canvas, i) => {
+          if (i > 0) pdf.addPage();
+          const imgData = canvas.toDataURL('image/png');
+          pdf.addImage(imgData, 'PNG', 0, 0, pageW, pageH);
+        });
+
+        pdf.save(filename);
+      } catch (err) {
+        console.error('PDF generation failed:', err);
+        alert('PDF generation failed. Please try again.');
+      } finally {
+        iframe.remove();
+        btn.disabled = false;
+        btn.innerHTML = origHTML;
+      }
     });
   </script>
 </body>
