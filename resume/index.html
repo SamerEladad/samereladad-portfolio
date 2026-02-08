@@ -97,14 +97,12 @@
     /* ════════════════════════════════════════════════════════════════════
        LANGUAGE TOGGLE — show/hide content blocks
        ════════════════════════════════════════════════════════════════════ */
-    [data-lang="de"] { display: none; }
-    body.lang-de [data-lang="en"] { display: none; }
-    body.lang-de [data-lang="de"] { display: revert; }
-    /* Grid containers need display:grid, not revert */
-    body.lang-de .cv-body[data-lang="de"] { display: grid; }
-    /* Flex containers need display:flex, not revert */
+    [data-lang="de"] { display: none !important; }
+    body.lang-de [data-lang="en"] { display: none !important; }
+    body.lang-de [data-lang="de"] { display: revert !important; }
+    body.lang-de .cv-body[data-lang="de"] { display: grid !important; }
     body.lang-de .cv-job__meta[data-lang="de"],
-    body.lang-de .cv-project__header[data-lang="de"] { display: flex; }
+    body.lang-de .cv-project__header[data-lang="de"] { display: flex !important; }
 
     /* ════════════════════════════════════════════════════════════════════
        TOP BAR
