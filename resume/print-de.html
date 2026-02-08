@@ -12,10 +12,10 @@
     html, body { height: 100%; }
     body {
       font-family: 'Nunito Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-      background: #fff;
+      background: #f4f4f4;
       color: #1a1a1a;
       -webkit-font-smoothing: antialiased;
-      padding: 0;
+      padding: 40px 0;
       margin: 0;
     }
     a { color: #1a1a1a; text-decoration: none; }
@@ -33,8 +33,8 @@
       width: 794px;
       min-height: 1123px; /* A4 height at 96dpi */
       background: #fff;
-      border: none;
-      border-radius: 0;
+      border: 1px solid #ccc;
+      border-radius: 12px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -282,6 +282,32 @@
     .cv-award__name { font-size: 11px; color: #1a1a1a; }
     .cv-award__name strong { font-weight: 700; }
     .cv-award__meta { font-size: 10.5px; color: #555; margin-top: 1px; }
+
+    /* ════════════════════════════════════════
+       PRINT — each card becomes one A4 page
+       ════════════════════════════════════════ */
+    @media print {
+      body { background: #fff; padding: 0; margin: 0; }
+      .cv-wrapper { gap: 0; }
+      .cv-card {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+      .cv-card:last-child {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -517,5 +543,14 @@
     </div>
 
   </div>
+
+  <script>
+    // Auto-print when opened with ?print query param
+    if (new URLSearchParams(window.location.search).has('print')) {
+      window.addEventListener('load', () => {
+        setTimeout(() => window.print(), 400);
+      });
+    }
+  </script>
 </body>
 </html>
