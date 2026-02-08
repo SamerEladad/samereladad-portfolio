@@ -681,10 +681,48 @@
     /* ════════════════════════════════════════════════════════════════════
        PRINT STYLES — this is what makes the PDF export work
        ════════════════════════════════════════════════════════════════════ */
+    /* ════════════════════════════════════════════════════════════════════
+       PRINT-MODE CLASS — applied by JS before window.print()
+       ════════════════════════════════════════════════════════════════════ */
+    /* Hide original sidebar/main when print-restructured */
+    body.is-printing .cv-sidebar,
+    body.is-printing .cv-main {
+      display: none !important;
+    }
+
+    /* Page containers (only exist during print) */
+    .cv-page-1, .cv-page-2 {
+      display: none;
+    }
+    body.is-printing .cv-page-1,
+    body.is-printing .cv-page-2 {
+      display: grid !important;
+      grid-template-columns: 210px 1fr;
+    }
+    body.is-printing .cv-page-2 {
+      break-before: page;
+    }
+
+    .cv-page-1__sidebar,
+    .cv-page-2__sidebar {
+      padding: 14px 14px 16px 0;
+      border-right: 1px solid var(--divider);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cv-page-1__main,
+    .cv-page-2__main {
+      padding: 14px 0 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
     @media print {
       @page {
         size: A4;
-        margin: 12mm 10mm 12mm 10mm;
+        margin: 10mm 10mm 10mm 10mm;
       }
 
       body {
@@ -692,6 +730,7 @@
         color: #1a1a1a !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        font-size: 11px;
       }
       body::before { display: none; }
 
@@ -707,77 +746,95 @@
         border-radius: 0;
         box-shadow: none;
         background: #fff;
+        overflow: visible;
       }
 
+      /* ── Header ── */
       .cv-header {
-        padding: 0 0 12px;
+        padding: 0 0 8px;
         border-bottom: 1px solid #bbb;
-      }
-      .cv-header__text {
-        text-align: center;
+        gap: 16px;
       }
       .cv-header__photo {
-        width: 72px;
-        height: 72px;
+        width: 60px;
+        height: 60px;
         border-color: #ccc;
       }
-      .cv-header__name { color: #1a1a1a; font-size: 24px; }
-      .cv-header__role { color: #555; }
+      .cv-header__text { text-align: center; }
+      .cv-header__name { color: #1a1a1a; font-size: 20px; letter-spacing: 5px; }
+      .cv-header__role { color: #555; font-size: 11px; letter-spacing: 4px; }
 
-      /* ── Two-column grid for print ── */
-      .cv-body {
-        display: block !important;
-        grid-template-columns: none;
-      }
-      .cv-sidebar, .cv-main {
-        display: contents;
-      }
-
-      /* ── Page 1 wrapper ── */
-      .cv-page-1 {
-        display: grid;
-        grid-template-columns: 230px 1fr;
-        grid-template-rows: auto;
-      }
-      /* ── Page 2 wrapper ── */
-      .cv-page-2 {
-        break-before: page;
-        display: grid;
-        grid-template-columns: 230px 1fr;
-        grid-template-rows: auto;
-      }
-
-      .cv-page-1__sidebar {
-        padding: 16px 16px 20px 0;
-        border-right: 1px solid #bbb;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-      }
-      .cv-page-1__main {
-        padding: 16px 0 20px 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-      }
+      /* ── Page containers ── */
+      .cv-page-1__sidebar,
       .cv-page-2__sidebar {
-        padding: 16px 16px 20px 0;
+        padding: 12px 12px 16px 0;
         border-right: 1px solid #bbb;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
+        gap: 12px;
       }
+      .cv-page-1__main,
       .cv-page-2__main {
-        padding: 16px 0 20px 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
+        padding: 12px 0 16px 18px;
+        gap: 12px;
       }
 
+      /* ── Compact typography for print ── */
       .cv-section__title {
         color: #1a1a1a;
         border-bottom-color: #bbb;
+        font-size: 9px;
+        letter-spacing: 3px;
+        margin-bottom: 8px;
+        padding-bottom: 4px;
       }
+
+      .cv-contact-list { gap: 4px; }
+      .cv-contact-list li { font-size: 10.5px; gap: 6px; }
+      .cv-contact-list .icon { width: 12px; height: 12px; }
+
+      .cv-skill-list { gap: 2px; }
+      .cv-skill-list li { font-size: 10.5px; line-height: 1.5; }
+
+      .cv-lang-list { gap: 2px; }
+      .cv-lang-list li { font-size: 10.5px; line-height: 1.5; }
+
+      .cv-summary p { font-size: 10.5px; line-height: 1.6; }
+
+      .cv-jobs { gap: 14px; }
+      .cv-job__company { font-size: 11px; }
+      .cv-job__meta { margin-top: 1px; }
+      .cv-job__title { font-size: 10.5px; }
+      .cv-job__date { font-size: 10px; }
+      .cv-job__sub { font-size: 10px; margin-top: 0; }
+      .cv-job__bullets { margin-top: 4px; gap: 2px; }
+      .cv-job__bullets li { font-size: 10.5px; line-height: 1.55; padding-left: 12px; }
+
+      .cv-edu-list { gap: 12px; }
+      .cv-edu__school { font-size: 11px; }
+      .cv-edu__degree { font-size: 10.5px; }
+      .cv-edu__meta { font-size: 10px; }
+      .cv-edu__grade { font-size: 10.5px; }
+      .cv-edu__coursework { font-size: 10px; line-height: 1.5; }
+
+      .cv-projects { gap: 12px; }
+      .cv-project__name { font-size: 11px; }
+      .cv-project__date { font-size: 10px; }
+      .cv-project__bullets { margin-top: 3px; gap: 2px; }
+      .cv-project__bullets li { font-size: 10.5px; line-height: 1.55; padding-left: 12px; }
+
+      .cv-certs { gap: 8px; }
+      .cv-cert__name { font-size: 10.5px; }
+      .cv-cert__sub { font-size: 10px; }
+      .cv-cert__meta { font-size: 10px; }
+
+      .cv-volunteer__org { font-size: 10.5px; }
+      .cv-volunteer__date { font-size: 10px; }
+      .cv-volunteer__role { font-size: 10.5px; }
+
+      .cv-workshop-list { gap: 2px; }
+      .cv-workshop-list li { font-size: 10.5px; line-height: 1.5; padding-left: 12px; }
+
+      .cv-award__name { font-size: 10.5px; }
+      .cv-award__meta { font-size: 10px; }
 
       .cv-job__bullets li::before,
       .cv-project__bullets li::before,
@@ -1344,29 +1401,24 @@
     });
 
     // ── Download PDF (print-to-PDF) ──
-    // Restructure DOM into two-page layout for printing, then revert
-    document.getElementById("downloadBtn").addEventListener("click", () => {
-      // Find the active cv-body
-      const activeLang = currentLang;
-      const activeBody = document.querySelector('.cv-body[data-lang="' + activeLang + '"]');
+    const sidebarOrder = ['cv-sec--contact', 'cv-sec--skills', 'cv-sec--tools', 'cv-sec--languages', 'cv-sec--certificates', 'cv-sec--volunteer', 'cv-sec--workshops', 'cv-sec--awards'];
+    const mainOrder = ['cv-sec--summary', 'cv-sec--work', 'cv-sec--education', 'cv-sec--projects'];
+    const p1Sidebar = ['cv-sec--contact', 'cv-sec--skills', 'cv-sec--tools', 'cv-sec--languages'];
+    const p1Main    = ['cv-sec--summary', 'cv-sec--work'];
+    const p2Sidebar = ['cv-sec--certificates', 'cv-sec--volunteer', 'cv-sec--workshops', 'cv-sec--awards'];
+    const p2Main    = ['cv-sec--education', 'cv-sec--projects'];
+
+    let printCleanup = null;
+
+    function setupPrintLayout() {
+      const activeBody = document.querySelector('.cv-body[data-lang="' + currentLang + '"]');
       if (!activeBody) return;
 
       const sidebar = activeBody.querySelector('.cv-sidebar');
       const main = activeBody.querySelector('.cv-main');
+      const find = (parent, cls) => parent.querySelector('.' + cls);
 
-      // Gather sections by their identifier class
-      const getSection = (parent, cls) => parent.querySelector('.' + cls);
-
-      // Page 1 sidebar: contact, skills, tools, languages
-      // Page 1 main: summary, work experience
-      // Page 2 sidebar: certificates, volunteer, workshops, awards
-      // Page 2 main: education, projects
-      const p1SidebarSections = ['cv-sec--contact', 'cv-sec--skills', 'cv-sec--tools', 'cv-sec--languages'];
-      const p1MainSections = ['cv-sec--summary', 'cv-sec--work'];
-      const p2SidebarSections = ['cv-sec--certificates', 'cv-sec--volunteer', 'cv-sec--workshops', 'cv-sec--awards'];
-      const p2MainSections = ['cv-sec--education', 'cv-sec--projects'];
-
-      // Build print layout
+      // Create page containers
       const page1 = document.createElement('div');
       page1.className = 'cv-page-1';
       const p1sb = document.createElement('div');
@@ -1381,73 +1433,48 @@
       const p2mn = document.createElement('div');
       p2mn.className = 'cv-page-2__main';
 
-      p1SidebarSections.forEach(cls => {
-        const el = getSection(sidebar, cls) || getSection(activeBody, cls);
-        if (el) p1sb.appendChild(el);
-      });
-      p1MainSections.forEach(cls => {
-        const el = getSection(main, cls) || getSection(activeBody, cls);
-        if (el) p1mn.appendChild(el);
-      });
-      p2SidebarSections.forEach(cls => {
-        const el = getSection(sidebar, cls) || getSection(activeBody, cls);
-        if (el) p2sb.appendChild(el);
-      });
-      p2MainSections.forEach(cls => {
-        const el = getSection(main, cls) || getSection(activeBody, cls);
-        if (el) p2mn.appendChild(el);
-      });
+      // Move sections into page containers
+      p1Sidebar.forEach(cls => { const el = find(sidebar, cls); if (el) p1sb.appendChild(el); });
+      p1Main.forEach(cls =>    { const el = find(main, cls);    if (el) p1mn.appendChild(el); });
+      p2Sidebar.forEach(cls => { const el = find(sidebar, cls); if (el) p2sb.appendChild(el); });
+      p2Main.forEach(cls =>    { const el = find(main, cls);    if (el) p2mn.appendChild(el); });
 
       page1.appendChild(p1sb);
       page1.appendChild(p1mn);
       page2.appendChild(p2sb);
       page2.appendChild(p2mn);
 
-      // Hide original sidebar/main, inject page containers
-      sidebar.style.display = 'none';
-      main.style.display = 'none';
       activeBody.appendChild(page1);
       activeBody.appendChild(page2);
+      document.body.classList.add('is-printing');
 
-      // Print
+      // Store cleanup function
+      printCleanup = () => {
+        // Move sections back
+        p1Sidebar.forEach(cls => { const el = p1sb.querySelector('.' + cls); if (el) sidebar.appendChild(el); });
+        p1Main.forEach(cls =>    { const el = p1mn.querySelector('.' + cls); if (el) main.appendChild(el); });
+        p2Sidebar.forEach(cls => { const el = p2sb.querySelector('.' + cls); if (el) sidebar.appendChild(el); });
+        p2Main.forEach(cls =>    { const el = p2mn.querySelector('.' + cls); if (el) main.appendChild(el); });
+
+        // Restore original order
+        sidebarOrder.forEach(cls => { const el = sidebar.querySelector('.' + cls); if (el) sidebar.appendChild(el); });
+        mainOrder.forEach(cls =>    { const el = main.querySelector('.' + cls); if (el) main.appendChild(el); });
+
+        page1.remove();
+        page2.remove();
+        document.body.classList.remove('is-printing');
+        printCleanup = null;
+      };
+    }
+
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      setupPrintLayout();
       window.print();
+    });
 
-      // Revert: move sections back
-      // Page 1 sidebar sections back to sidebar
-      p1SidebarSections.forEach(cls => {
-        const el = p1sb.querySelector('.' + cls);
-        if (el) sidebar.appendChild(el);
-      });
-      p1MainSections.forEach(cls => {
-        const el = p1mn.querySelector('.' + cls);
-        if (el) main.appendChild(el);
-      });
-      p2SidebarSections.forEach(cls => {
-        const el = p2sb.querySelector('.' + cls);
-        if (el) sidebar.appendChild(el);
-      });
-      p2MainSections.forEach(cls => {
-        const el = p2mn.querySelector('.' + cls);
-        if (el) main.appendChild(el);
-      });
-
-      // Re-order sections back to their original order in sidebar
-      const sidebarOrder = ['cv-sec--contact', 'cv-sec--skills', 'cv-sec--tools', 'cv-sec--languages', 'cv-sec--certificates', 'cv-sec--volunteer', 'cv-sec--workshops', 'cv-sec--awards'];
-      sidebarOrder.forEach(cls => {
-        const el = sidebar.querySelector('.' + cls);
-        if (el) sidebar.appendChild(el);
-      });
-      const mainOrder = ['cv-sec--summary', 'cv-sec--work', 'cv-sec--education', 'cv-sec--projects'];
-      mainOrder.forEach(cls => {
-        const el = main.querySelector('.' + cls);
-        if (el) main.appendChild(el);
-      });
-
-      // Remove temp containers and show originals
-      page1.remove();
-      page2.remove();
-      sidebar.style.display = '';
-      main.style.display = '';
+    // Revert layout after print dialog closes
+    window.addEventListener('afterprint', () => {
+      if (printCleanup) printCleanup();
     });
   </script>
 </body>
