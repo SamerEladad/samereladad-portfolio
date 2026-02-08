@@ -49,8 +49,8 @@
       border-bottom: 1px solid #ccc;
     }
     .cv-header__photo {
-      width: 88px;
-      height: 88px;
+      width: 105px;
+      height: 105px;
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
@@ -287,16 +287,20 @@
        PRINT — each card becomes one A4 page
        ════════════════════════════════════════ */
     @media print {
-      body { background: #fff; padding: 0; margin: 0; }
+      html, body { height: auto; background: #fff; padding: 0; margin: 0; }
       .cv-wrapper { gap: 0; }
       .cv-card {
         border: none;
         border-radius: 0;
         box-shadow: none;
         width: 100%;
+        height: 100vh;
         min-height: 0;
+        overflow: hidden;
         page-break-after: always;
         break-after: page;
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
       .cv-card:last-child {
         page-break-after: avoid;
