@@ -1264,34 +1264,53 @@
       document.body.appendChild(iframe);
 
       try {
+        console.log('Loading print page:', printFile);
+        
         // 2 — Wait for iframe to fully load
         await new Promise((resolve, reject) => {
           iframe.onload = resolve;
           iframe.onerror = reject;
           iframe.src = printFile;
         });
+        console.log('Iframe loaded');
 
         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
         const iframeWin = iframe.contentWindow;
 
-        // 3 — Wait for html2canvas to be available inside the iframe
-        await new Promise(r => {
-          const check = () => iframeWin.html2canvas ? r() : setTimeout(check, 50);
+        // 3 — Wait for html2canvas to be available inside the iframe (with timeout)
+        console.log('Waiting for html2canvas...');
+        await new Promise((resolve, reject) => {
+          let attempts = 0;
+          const check = () => {
+            attempts++;
+            if (iframeWin.html2canvas) {
+              console.log('html2canvas found after', attempts, 'attempts');
+              resolve();
+            } else if (attempts > 100) {
+              reject(new Error('html2canvas not found after 5 seconds'));
+            } else {
+              setTimeout(check, 50);
+            }
+          };
           check();
         });
 
         // 4 — Wait for fonts + images inside the iframe
+        console.log('Waiting for fonts and images...');
         if (iframeDoc.fonts && iframeDoc.fonts.ready) await iframeDoc.fonts.ready;
         const imgs = iframeDoc.querySelectorAll('img');
         await Promise.all([...imgs].map(img =>
           img.complete ? Promise.resolve() : new Promise(r => { img.onload = r; img.onerror = r; })
         ));
-        await new Promise(r => setTimeout(r, 400));
+        await new Promise(r => setTimeout(r, 500));
+        console.log('Assets ready');
 
         // 5 — Capture each card using the iframe's own html2canvas
         const cards = iframeDoc.querySelectorAll('.cv-card');
+        console.log('Found', cards.length, 'cards to capture');
         const canvases = [];
         for (const card of cards) {
+          console.log('Capturing card', card.id);
           const canvas = await iframeWin.html2canvas(card, {
             scale: 2,
             useCORS: true,
@@ -1301,9 +1320,11 @@
             windowWidth: 794
           });
           canvases.push(canvas);
+          console.log('Card captured:', canvas.width, 'x', canvas.height);
         }
 
         // 6 — Build a 2-page A4 PDF with jsPDF
+        console.log('Building PDF...');
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
         const pageW = 210;
@@ -1315,10 +1336,11 @@
           pdf.addImage(imgData, 'PNG', 0, 0, pageW, pageH);
         });
 
+        console.log('Saving PDF:', filename);
         pdf.save(filename);
       } catch (err) {
         console.error('PDF generation failed:', err);
-        alert('PDF generation failed. Please try again.');
+        alert('PDF generation failed: ' + err.message);
       } finally {
         iframe.remove();
         btn.disabled = false;
