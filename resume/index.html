@@ -15,8 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
 
-  <!-- html2pdf.js — captures DOM as-is and exports to PDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js" defer></script>
+  <!-- html2canvas + jsPDF for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
 
   <style>
     /* ════════════════════════════════════════════════════════════════════
@@ -1230,8 +1231,7 @@
       btn.addEventListener("click", () => setLang(btn.dataset.setLang));
     });
 
-    // ── Download PDF via html2pdf.js ──
-    // Captures the CV card exactly as it looks on screen
+    // ── Download PDF via hidden iframe → html2canvas → jsPDF ──
     document.getElementById("downloadBtn").addEventListener("click", async () => {
       const btn = document.getElementById("downloadBtn");
       const origHTML = btn.innerHTML;
@@ -1239,81 +1239,59 @@
       btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Generating…';
 
       try {
-        // Clone the card so we can style it for PDF without affecting the page
-        const card = document.querySelector('.cv-card');
-        const clone = card.cloneNode(true);
+        const printFile = currentLang === 'de' ? 'print-de.html' : 'print-en.html';
+        const filename  = currentLang === 'de' ? 'Samer_Eladad_Lebenslauf.pdf' : 'Samer_Eladad_CV.pdf';
 
-        // Remove the inactive language from the clone
-        const hideLang = currentLang === 'de' ? 'en' : 'de';
-        clone.querySelectorAll('[data-lang="' + hideLang + '"]').forEach(el => el.remove());
-        // Make sure the active lang elements are visible
-        clone.querySelectorAll('[data-lang="' + currentLang + '"]').forEach(el => {
-          el.style.display = '';
+        // 1 — Load print page in a hidden iframe
+        const iframe = document.createElement('iframe');
+        iframe.style.cssText = 'position:fixed;left:-9999px;top:0;width:900px;height:3000px;border:none;';
+        document.body.appendChild(iframe);
+
+        await new Promise((resolve, reject) => {
+          iframe.onload = resolve;
+          iframe.onerror = reject;
+          iframe.src = printFile;
         });
-        // Ensure the active cv-body shows as grid
-        const activeBody = clone.querySelector('.cv-body[data-lang="' + currentLang + '"]');
-        if (activeBody) activeBody.style.display = 'grid';
 
-        // Create an off-screen container with light theme for PDF
-        const container = document.createElement('div');
-        container.style.cssText = 'position:fixed;left:-9999px;top:0;width:850px;';
-        container.appendChild(clone);
+        // 2 — Wait a beat for fonts / images to settle
+        await new Promise(r => setTimeout(r, 800));
 
-        // Apply light/white styles to the clone for PDF
-        clone.style.cssText = 'background:#fff;color:#1a1a1a;border:none;border-radius:0;box-shadow:none;';
-        // Force all text in clone to dark
-        clone.querySelectorAll('*').forEach(el => {
-          const cs = el.classList;
-          if (cs.contains('cv-job__date') || cs.contains('cv-project__date') ||
-              cs.contains('cv-edu__meta') || cs.contains('cv-cert__meta') ||
-              cs.contains('cv-volunteer__date') || cs.contains('cv-award__meta') ||
-              cs.contains('cv-edu__coursework') || cs.contains('cv-header__role')) {
-            el.style.color = '#555';
-          } else {
-            el.style.color = '#1a1a1a';
-          }
+        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const cards = iframeDoc.querySelectorAll('.cv-card');
+
+        // 3 — Capture each card as a canvas
+        const canvases = [];
+        for (const card of cards) {
+          const canvas = await html2canvas(card, {
+            scale: 2,
+            useCORS: true,
+            letterRendering: true,
+            backgroundColor: '#ffffff',
+            windowWidth: 900
+          });
+          canvases.push(canvas);
+        }
+
+        // 4 — Build a 2-page A4 PDF with jsPDF
+        const { jsPDF } = window.jspdf || {};
+        const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+        const pageW = 210;  // A4 mm
+        const pageH = 297;
+
+        canvases.forEach((canvas, i) => {
+          if (i > 0) pdf.addPage();
+          const imgData = canvas.toDataURL('image/png');
+          // Scale image to fit A4 width with small margins
+          const margin = 8;                                  // mm
+          const usableW = pageW - margin * 2;                // mm
+          const ratio   = canvas.height / canvas.width;
+          const imgH    = usableW * ratio;
+          const topY    = Math.max(margin, (pageH - imgH) / 2);  // vertically center if short
+          pdf.addImage(imgData, 'PNG', margin, topY, usableW, imgH);
         });
-        // Accent elements keep dark color
-        clone.querySelectorAll('.cv-section__title').forEach(el => {
-          el.style.color = '#1a1a1a';
-          el.style.borderBottomColor = '#ccc';
-        });
-        clone.querySelectorAll('.cv-header__photo').forEach(el => {
-          el.style.borderColor = '#ccc';
-        });
-        // Links
-        clone.querySelectorAll('a').forEach(el => {
-          el.style.color = '#1a1a1a';
-          el.style.textDecoration = 'none';
-        });
-        // Bullet colors
-        const bulletStyle = document.createElement('style');
-        bulletStyle.textContent = `
-          .cv-job__bullets li::before,
-          .cv-project__bullets li::before,
-          .cv-workshop-list li::before { color: #1a1a1a !important; }
-          .cv-sidebar { border-right-color: #ccc !important; }
-          .cv-header { border-bottom-color: #ccc !important; }
-          .cv-section__title { border-bottom-color: #ccc !important; color: #1a1a1a !important; }
-        `;
-        clone.prepend(bulletStyle);
 
-        document.body.appendChild(container);
-
-        const filename = currentLang === 'de'
-          ? 'Samer_Eladad_Lebenslauf.pdf'
-          : 'Samer_Eladad_CV.pdf';
-
-        await html2pdf().set({
-          margin:       [10, 10, 10, 10],
-          filename:     filename,
-          image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas:  { scale: 2, useCORS: true, letterRendering: true, width: 850 },
-          jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
-          pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
-        }).from(clone).save();
-
-        container.remove();
+        pdf.save(filename);
+        iframe.remove();
       } catch (err) {
         console.error('PDF generation failed:', err);
         alert('PDF generation failed. Please try again.');

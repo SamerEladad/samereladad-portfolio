@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CV Print — English</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Nunito Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: #fff;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+      padding: 0;
+      margin: 0;
+    }
+    a { color: #1a1a1a; text-decoration: none; }
+
+    .cv-wrapper {
+      width: 794px;   /* A4 width at 96dpi minus margins */
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 0;
+    }
+
+    .cv-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* ── HEADER ── */
+    .cv-header {
+      padding: 28px 36px 18px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    .cv-header__photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid #ccc;
+    }
+    .cv-header__text {
+      flex: 1;
+      min-width: 0;
+      text-align: center;
+    }
+    .cv-header__name {
+      font-family: 'PT Sans Caption', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      margin-bottom: 3px;
+    }
+    .cv-header__role {
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #555;
+    }
+
+    /* ── TWO-COLUMN BODY ── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+    }
+    .cv-sidebar {
+      padding: 28px 22px 32px;
+      border-right: 1px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .cv-main {
+      padding: 28px 32px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ── SECTION HEADINGS ── */
+    .cv-section__title {
+      font-family: 'PT Sans Caption', sans-serif;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    /* ── CONTACT ── */
+    .cv-contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .cv-contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: #1a1a1a;
+      line-height: 1.5;
+    }
+    .cv-contact-list .icon {
+      flex-shrink: 0;
+      width: 13px;
+      height: 13px;
+      opacity: .55;
+    }
+
+    /* ── SKILLS / TOOLS / LANGUAGES ── */
+    .cv-skill-list, .cv-lang-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .cv-skill-list li, .cv-lang-list li {
+      font-size: 11px;
+      color: #1a1a1a;
+      line-height: 1.55;
+    }
+    .cv-lang-list strong { font-weight: 700; }
+
+    /* ── SUMMARY ── */
+    .cv-summary p {
+      font-size: 11px;
+      line-height: 1.65;
+      color: #1a1a1a;
+    }
+    .cv-summary strong { font-weight: 700; }
+
+    /* ── WORK EXPERIENCE ── */
+    .cv-jobs { display: flex; flex-direction: column; gap: 20px; }
+    .cv-job__company {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      color: #1a1a1a;
+    }
+    .cv-job__meta {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 1px;
+    }
+    .cv-job__title { font-size: 11px; font-weight: 700; color: #1a1a1a; }
+    .cv-job__date { font-size: 10.5px; color: #555; margin-left: auto; }
+    .cv-job__sub {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #555;
+      font-style: italic;
+      margin-top: 0;
+    }
+    .cv-job__bullets {
+      list-style: none;
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .cv-job__bullets li {
+      font-size: 11px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      padding-left: 14px;
+      position: relative;
+    }
+    .cv-job__bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1a1a1a;
+      font-weight: 700;
+    }
+    .cv-job__bullets strong { font-weight: 700; }
+
+    /* ── EDUCATION ── */
+    .cv-edu-list { display: flex; flex-direction: column; gap: 18px; }
+    .cv-edu__school {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      color: #1a1a1a;
+    }
+    .cv-edu__degree { font-size: 11px; font-weight: 700; color: #1a1a1a; margin-top: 1px; }
+    .cv-edu__meta { font-size: 10.5px; color: #555; margin-top: 1px; }
+    .cv-edu__grade { font-size: 11px; color: #1a1a1a; margin-top: 2px; }
+    .cv-edu__coursework { font-size: 10.5px; color: #555; margin-top: 3px; line-height: 1.5; }
+
+    /* ── PROJECTS ── */
+    .cv-projects { display: flex; flex-direction: column; gap: 18px; }
+    .cv-project__header { display: flex; align-items: baseline; gap: 8px; }
+    .cv-project__name {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      color: #1a1a1a;
+    }
+    .cv-project__date { font-size: 10.5px; color: #555; margin-left: auto; }
+    .cv-project__bullets {
+      list-style: none;
+      margin-top: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .cv-project__bullets li {
+      font-size: 11px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      padding-left: 14px;
+      position: relative;
+    }
+    .cv-project__bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1a1a1a;
+      font-weight: 700;
+    }
+
+    /* ── CERTIFICATES ── */
+    .cv-certs { display: flex; flex-direction: column; gap: 14px; }
+    .cv-cert__name { font-size: 11px; font-weight: 700; color: #1a1a1a; }
+    .cv-cert__sub { font-size: 10.5px; font-weight: 700; color: #1a1a1a; }
+    .cv-cert__meta { font-size: 10.5px; color: #555; margin-top: 1px; }
+
+    /* ── VOLUNTEER / WORKSHOPS / AWARDS ── */
+    .cv-volunteer__org { font-size: 11px; font-weight: 700; color: #1a1a1a; }
+    .cv-volunteer__date { font-size: 10.5px; color: #555; }
+    .cv-volunteer__role { font-size: 11px; font-weight: 700; color: #1a1a1a; margin-top: 1px; }
+    .cv-workshop-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .cv-workshop-list li {
+      font-size: 11px;
+      line-height: 1.55;
+      color: #1a1a1a;
+      padding-left: 14px;
+      position: relative;
+    }
+    .cv-workshop-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1a1a1a;
+      font-weight: 700;
+    }
+    .cv-award__name { font-size: 11px; color: #1a1a1a; }
+    .cv-award__name strong { font-weight: 700; }
+    .cv-award__meta { font-size: 10.5px; color: #555; margin-top: 1px; }
+  </style>
+</head>
+<body>
+  <div class="cv-wrapper">
+
+    <!-- ═══════════ CARD 1 — Page 1 ═══════════ -->
+    <div class="cv-card" id="card1">
+      <div class="cv-header">
+        <img class="cv-header__photo" src="../assets/images/headshot-circle.png" alt="Portrait of Samer Eladad" />
+        <div class="cv-header__text">
+          <h1 class="cv-header__name">Samer Eladad</h1>
+          <p class="cv-header__role">Solutions Engineer</p>
+        </div>
+      </div>
+      <div class="cv-body">
+        <aside class="cv-sidebar">
+          <section>
+            <h2 class="cv-section__title">Contact</h2>
+            <ul class="cv-contact-list">
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <a href="tel:+491747900400">+49 174 7900400</a>
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <a href="mailto:samereladad@gmail.com">samereladad@gmail.com</a>
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                <a href="https://samereladad.cv" target="_blank" rel="noreferrer">samereladad.cv</a>
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                <a href="https://github.com/samereladad" target="_blank" rel="noreferrer">github.com/samereladad</a>
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                <a href="https://linkedin.com/in/samereladad" target="_blank" rel="noreferrer">linkedin.com/in/samereladad</a>
+              </li>
+              <li>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Duisburg, Germany
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2 class="cv-section__title">Technical Skills</h2>
+            <ul class="cv-skill-list">
+              <li>Data Analysis &amp; Modeling</li>
+              <li>Business Intelligence &amp; Reporting</li>
+              <li>Data &amp; Workflow Automation</li>
+              <li>ERP &amp; System Integration</li>
+              <li>AI Engineering &amp; Integration</li>
+              <li>Technical Documentation</li>
+              <li>Remote Collaboration</li>
+            </ul>
+          </section>
+          <section>
+            <h2 class="cv-section__title">Tools &amp; Platforms</h2>
+            <ul class="cv-skill-list">
+              <li>Python, SQL, Java, JavaScript (React)</li>
+              <li>Power BI (DAX, data modeling)</li>
+              <li>Azure, AWS, Cloudflare</li>
+              <li>REST APIs</li>
+              <li>Infor, Dynamics 365 Business Central</li>
+              <li>Salesforce (CRM)</li>
+              <li>Git</li>
+              <li>Jira, Confluence, SharePoint</li>
+            </ul>
+          </section>
+          <section>
+            <h2 class="cv-section__title">Languages</h2>
+            <ul class="cv-lang-list">
+              <li><strong>English</strong> – Fluent</li>
+              <li><strong>German</strong> – Fluent</li>
+              <li><strong>Arabic</strong> – Native</li>
+            </ul>
+          </section>
+        </aside>
+        <main class="cv-main">
+          <section class="cv-summary">
+            <h2 class="cv-section__title">Summary</h2>
+            <p>Solutions Engineer with hands-on ownership of <strong>ERP</strong> systems, data engineering, and process automation. Skilled in <strong>Python</strong>, <strong>SQL</strong>, and <strong>Power BI</strong>, delivering scalable solutions that improve operational efficiency and data visibility. Experienced in international, remote-ready projects, <strong>AI solutions</strong>, and cross-functional teams. Focused on translating business needs into measurable technical impact.</p>
+          </section>
+          <section>
+            <h2 class="cv-section__title">Work Experience</h2>
+            <div class="cv-jobs">
+              <div class="cv-job">
+                <div class="cv-job__company">Ei Electronics KG</div>
+                <div class="cv-job__meta">
+                  <span class="cv-job__title">Solutions Engineer</span>
+                  <span class="cv-job__date">December 2024 – Present</span>
+                </div>
+                <ul class="cv-job__bullets">
+                  <li>Own and operate <strong>Infor</strong> and <strong>Dynamics 365</strong> ERP systems across three entities, leading full setup and go-live of an international subsidiary while acting as sole ERP owner and technical liaison.</li>
+                  <li>Design and implement <strong>Power BI</strong> data models and dashboards (<strong>DAX</strong>, <strong>SQL</strong>), performing end-to-end <strong>data engineering</strong> from cleaning to presentation, improving reporting accuracy and automating weekly reports.</li>
+                  <li>Automate key <strong>business processes</strong> (e.g., OCR-based order workflows, invoice posting) and maintain system documentation, security roles, and user enablement using <strong>Confluence</strong> and <strong>SharePoint</strong>.</li>
+                </ul>
+              </div>
+              <div class="cv-job">
+                <div class="cv-job__company">Mercedes-Benz</div>
+                <div class="cv-job__meta">
+                  <span class="cv-job__title">Intern &amp; Bachelor Thesis</span>
+                  <span class="cv-job__date">October 2023 – September 2024</span>
+                </div>
+                <div class="cv-job__sub">Information Office Production &amp; Logistics</div>
+                <ul class="cv-job__bullets">
+                  <li>Identified structural inefficiencies in <strong>system documentation</strong> during my internship and translated them into the foundation of my Bachelor's thesis.</li>
+                  <li>Developed an <strong>AI-based prototype</strong> on <strong>Azure</strong> to automate and enhance system documentation, projected to <strong>increase efficiency by 30%</strong> and <strong>reduce related costs by 40%</strong>.</li>
+                  <li>Improved <strong>project communication</strong> and task management by integrating <strong>ServiceNow</strong>, <strong>Mural</strong>, and Project management frameworks such as <strong>Jira</strong>.</li>
+                </ul>
+              </div>
+              <div class="cv-job">
+                <div class="cv-job__company">METRO Markets</div>
+                <div class="cv-job__meta">
+                  <span class="cv-job__title">Seller Support (Working Student)</span>
+                  <span class="cv-job__date">March 2022 – September 2023</span>
+                </div>
+                <ul class="cv-job__bullets">
+                  <li>Supported the company's <strong>international expansion</strong> into Italy, Portugal, Netherlands, and France.</li>
+                  <li>Built <strong>Power BI</strong> dashboards in collaboration with BI team for seller and product analytics.</li>
+                  <li>Contributed to <strong>25% year-over-year</strong> revenue growth for a key customer through data-driven insights and operational support.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- ═══════════ CARD 2 — Page 2 ═══════════ -->
+    <div class="cv-card" id="card2">
+      <div class="cv-body">
+        <aside class="cv-sidebar">
+          <section>
+            <h2 class="cv-section__title">Certificates</h2>
+            <div class="cv-certs">
+              <div class="cv-cert">
+                <div class="cv-cert__name">Digital Shaper</div>
+                <div class="cv-cert__sub">(AI &amp; Deep Learning)</div>
+                <div class="cv-cert__meta">TechLabs | Germany, Sep 2024</div>
+              </div>
+              <div class="cv-cert">
+                <div class="cv-cert__name">Digital Shaper</div>
+                <div class="cv-cert__sub">(Data Science)</div>
+                <div class="cv-cert__meta">TechLabs | Germany, Apr 2024</div>
+              </div>
+              <div class="cv-cert">
+                <div class="cv-cert__name">Full Stack Developer</div>
+                <div class="cv-cert__meta">Udacity | UAE, Aug 2018</div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2 class="cv-section__title">Volunteer Experience</h2>
+            <div class="cv-volunteer">
+              <div class="cv-volunteer__org">TechLabs Global</div>
+              <div class="cv-volunteer__date">2024 – 2025</div>
+              <div class="cv-volunteer__role">Growth Acceleration Manager</div>
+            </div>
+          </section>
+          <section>
+            <h2 class="cv-section__title">Workshops</h2>
+            <ul class="cv-workshop-list">
+              <li>Microsoft Dynamics 365 Business Central</li>
+              <li>AI Governance &amp; Ideation</li>
+            </ul>
+          </section>
+          <section>
+            <h2 class="cv-section__title">Awards</h2>
+            <div>
+              <div class="cv-award__name"><strong>Robotics Race</strong> – First Place</div>
+              <div class="cv-award__meta">Hochschule Bochum | Germany, 2021</div>
+            </div>
+          </section>
+        </aside>
+        <main class="cv-main">
+          <section>
+            <h2 class="cv-section__title">Education</h2>
+            <div class="cv-edu-list">
+              <div class="cv-edu">
+                <div class="cv-edu__school">Bochum University of Applied Sciences</div>
+                <div class="cv-edu__degree">Bachelor of Science in Business Informatics</div>
+                <div class="cv-edu__meta">Bochum, Germany &nbsp;|&nbsp; October 2021 – October 2024</div>
+                <div class="cv-edu__grade"><strong>Final Grade:</strong> 2.19 (Good – German grading system)</div>
+                <div class="cv-edu__coursework">Relevant Coursework: Data Science, Software Engineering, Python, Java, Algorithms, Artificial Intelligence</div>
+              </div>
+              <div class="cv-edu">
+                <div class="cv-edu__school">Rheinisches Studienkolleg</div>
+                <div class="cv-edu__degree">Business and Mathematics College Course</div>
+                <div class="cv-edu__meta">Bonn, Germany &nbsp;|&nbsp; January 2017 – November 2017</div>
+                <div class="cv-edu__grade"><strong>Final Grade:</strong> 1.3 (Very Good – German grading system)</div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h2 class="cv-section__title">Projects</h2>
+            <div class="cv-projects">
+              <div class="cv-project">
+                <div class="cv-project__header">
+                  <span class="cv-project__name">AI Social Media Content Engine</span>
+                  <span class="cv-project__date">January 2026</span>
+                </div>
+                <ul class="cv-project__bullets">
+                  <li>Built a social media content creation tool using the Gemini API and Cloudflare KV for storage, deployed on a custom domain.</li>
+                  <li>Created an initial mock-up with Lovable, then implemented the final version with React and serverless APIs.</li>
+                </ul>
+              </div>
+              <div class="cv-project">
+                <div class="cv-project__header">
+                  <span class="cv-project__name">Word of the Day Bot</span>
+                  <span class="cv-project__date">April 2024</span>
+                </div>
+                <ul class="cv-project__bullets">
+                  <li>Created a bilingual word library with translations, examples, and transliterations, organized into chapters.</li>
+                  <li>Built a Cloudflare Worker connected to the Telegram Bot API to publish a daily word and avoid repetitions.</li>
+                </ul>
+              </div>
+              <div class="cv-project">
+                <div class="cv-project__header">
+                  <span class="cv-project__name">Cinemalytics</span>
+                  <span class="cv-project__date">April 2024</span>
+                </div>
+                <ul class="cv-project__bullets">
+                  <li>Built a machine learning-driven movie recommendation platform for producers to choose optimal streaming platforms, using <strong>Python</strong> and <strong>SQL</strong>.</li>
+                  <li>Applied models such as <strong>Random Forest</strong> to analyze genre-platform performance and optimize placement decisions.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
