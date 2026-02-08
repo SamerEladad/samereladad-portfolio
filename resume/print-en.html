@@ -100,6 +100,144 @@
       gap: 32px;
     }
 
+    /* ── TOOLBAR ── */
+    .print-toolbar {
+      width: 794px;
+      margin: 0 auto 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .print-toolbar__group {
+      display: flex;
+      gap: 8px;
+    }
+    .print-toolbar__group a {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid #555;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #222;
+      background: #fff;
+      transition: background .15s, border-color .15s, color .15s;
+      cursor: pointer;
+    }
+    .print-toolbar__group a:hover {
+      border-color: #111;
+      color: #111;
+    }
+    .print-toolbar__group a.lang-btn--active {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+    .theme-toggle {
+      padding: 6px 18px;
+      border-radius: 999px;
+      border: 1px solid #555;
+      background: #fff;
+      color: #222;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .theme-toggle:hover {
+      border-color: #111;
+      color: #111;
+    }
+
+    /* ── DARK MODE ── */
+    body.dark-theme {
+      background: #060606;
+      color: #f4f4f4;
+    }
+    body.dark-theme .print-toolbar__group a {
+      background: #1a1a1a;
+      border-color: #666;
+      color: #f4f4f4;
+    }
+    body.dark-theme .print-toolbar__group a:hover {
+      border-color: #aaa;
+    }
+    body.dark-theme .print-toolbar__group a.lang-btn--active {
+      background: #f4f4f4;
+      color: #111;
+      border-color: #f4f4f4;
+    }
+    body.dark-theme .theme-toggle {
+      background: #1a1a1a;
+      border-color: #666;
+      color: #f4f4f4;
+    }
+    body.dark-theme .theme-toggle:hover {
+      border-color: #aaa;
+    }
+    body.dark-theme .cv-card {
+      background: #111;
+      border-color: #333;
+      color: #f4f4f4;
+    }
+    body.dark-theme .cv-header {
+      border-bottom-color: #333;
+    }
+    body.dark-theme .cv-header__photo {
+      border-color: #333;
+    }
+    body.dark-theme .cv-sidebar {
+      border-right-color: #333;
+    }
+    body.dark-theme .cv-section__title {
+      color: #f4f4f4;
+      border-color: #333;
+    }
+    body.dark-theme .cv-contact-list li,
+    body.dark-theme .cv-skill-list li,
+    body.dark-theme .cv-lang-list li,
+    body.dark-theme .cv-summary p,
+    body.dark-theme .cv-job__bullets li,
+    body.dark-theme .cv-project__bullets li,
+    body.dark-theme .cv-workshop-list li,
+    body.dark-theme .cv-job__title,
+    body.dark-theme .cv-edu__degree,
+    body.dark-theme .cv-edu__grade,
+    body.dark-theme .cv-cert__sub,
+    body.dark-theme .cv-volunteer__role,
+    body.dark-theme .cv-award__name {
+      color: #f4f4f4;
+    }
+    body.dark-theme .cv-job__company,
+    body.dark-theme .cv-project__name,
+    body.dark-theme .cv-edu__school,
+    body.dark-theme .cv-cert__name,
+    body.dark-theme .cv-volunteer__org {
+      color: #fefefe;
+    }
+    body.dark-theme .cv-job__date,
+    body.dark-theme .cv-project__date,
+    body.dark-theme .cv-cert__meta,
+    body.dark-theme .cv-award__meta,
+    body.dark-theme .cv-edu__meta,
+    body.dark-theme .cv-edu__coursework,
+    body.dark-theme .cv-volunteer__date,
+    body.dark-theme .cv-job__sub {
+      color: #aaa;
+    }
+    body.dark-theme .card-dl {
+      background: #1a1a1a;
+      border-color: #555;
+    }
+    body.dark-theme .card-dl:hover {
+      background: #222;
+    }
+    body.dark-theme .card-dl svg {
+      stroke: #f4f4f4;
+    }
+
     #card2 .cv-sidebar {
       gap: 46px;
       padding-top: 48px;
@@ -330,6 +468,7 @@
     @media print {
       html, body { height: auto; background: #fff; padding: 0; margin: 0; }
       .card-dl { display: none !important; }
+      .print-toolbar { display: none !important; }
       .cv-wrapper { gap: 0; }
       .cv-card {
         border: none;
@@ -358,6 +497,13 @@
 </head>
 <body>
   <div class="cv-wrapper">
+    <div class="print-toolbar">
+      <div class="print-toolbar__group">
+        <a class="lang-btn lang-btn--active" href="print-en.html" aria-label="View English print CV">English</a>
+        <a class="lang-btn" href="print-de.html" aria-label="View German print CV">Deutsch</a>
+      </div>
+      <button class="theme-toggle" id="printThemeToggle" type="button" aria-pressed="false">Dark mode</button>
+    </div>
 
     <!-- ═══════════ CARD 1 — Page 1 ═══════════ -->
     <div class="card-wrap">
@@ -634,6 +780,28 @@
           btn.style.pointerEvents = '';
         }
       });
+    });
+
+    // Theme toggle
+    const printThemeToggle = document.getElementById('printThemeToggle');
+    const updateToggleLabel = isDark => {
+      if (!printThemeToggle) return;
+      printThemeToggle.textContent = isDark ? 'Light mode' : 'Dark mode';
+      printThemeToggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    };
+    const applyPrintTheme = theme => {
+      const activeTheme = theme === 'dark' ? 'dark' : 'light';
+      document.body.classList.toggle('dark-theme', activeTheme === 'dark');
+      updateToggleLabel(activeTheme === 'dark');
+      try { localStorage.setItem('resumePrintTheme', activeTheme); } catch (err) { /* ignore */ }
+    };
+    const storedTheme = (() => {
+      try { return localStorage.getItem('resumePrintTheme'); } catch (err) { return null; }
+    })();
+    applyPrintTheme(storedTheme === 'dark' ? 'dark' : 'light');
+    printThemeToggle?.addEventListener('click', () => {
+      const next = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+      applyPrintTheme(next);
     });
   </script>
 </body>
