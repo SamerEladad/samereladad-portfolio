@@ -636,12 +636,38 @@
       .cv-header__role { font-size: 11px; letter-spacing: 3px; }
 
       .cv-body { grid-template-columns: 1fr; }
-      .cv-sidebar {
-        border-right: none;
-        border-bottom: 1px solid var(--divider);
-        padding: 24px 24px 28px;
+      /* Let individual sections become direct grid children for reordering */
+      .cv-sidebar, .cv-main {
+        display: contents;
       }
-      .cv-main { padding: 24px 24px 32px; }
+      /* Remove sidebar border that no longer applies with display:contents */
+      .cv-sidebar > section,
+      .cv-main > section {
+        padding: 0 24px;
+      }
+      /* Add spacing + top border between sections */
+      .cv-body > .cv-sidebar > section,
+      .cv-body > .cv-main > section {
+        padding-top: 24px;
+        padding-bottom: 4px;
+      }
+      /* First visible section gets no top border */
+      .cv-sec--contact { padding-top: 28px !important; }
+
+      /* ── Mobile section order ── */
+      .cv-sec--contact      { order: 1; }
+      .cv-sec--summary      { order: 2; }
+      .cv-sec--work         { order: 3; }
+      .cv-sec--skills       { order: 4; }
+      .cv-sec--tools        { order: 5; }
+      .cv-sec--languages    { order: 6; }
+      .cv-sec--education    { order: 7; }
+      .cv-sec--projects     { order: 8; }
+      .cv-sec--certificates { order: 9; }
+      .cv-sec--volunteer    { order: 10; }
+      .cv-sec--workshops    { order: 11; }
+      .cv-sec--awards       { order: 12; padding-bottom: 28px !important; }
+
       .cv-card { border-radius: 12px; }
       .cv-wrapper { margin: 20px auto 48px; padding: 0 12px; }
 
@@ -698,16 +724,53 @@
       .cv-header__name { color: #1a1a1a; font-size: 24px; }
       .cv-header__role { color: #555; }
 
+      /* ── Two-column grid for print ── */
       .cv-body {
-        grid-template-columns: 230px 1fr;
+        display: block !important;
+        grid-template-columns: none;
       }
-      .cv-sidebar {
+      .cv-sidebar, .cv-main {
+        display: contents;
+      }
+
+      /* ── Page 1 wrapper ── */
+      .cv-page-1 {
+        display: grid;
+        grid-template-columns: 230px 1fr;
+        grid-template-rows: auto;
+      }
+      /* ── Page 2 wrapper ── */
+      .cv-page-2 {
+        break-before: page;
+        display: grid;
+        grid-template-columns: 230px 1fr;
+        grid-template-rows: auto;
+      }
+
+      .cv-page-1__sidebar {
         padding: 16px 16px 20px 0;
         border-right: 1px solid #bbb;
+        display: flex;
+        flex-direction: column;
         gap: 18px;
       }
-      .cv-main {
+      .cv-page-1__main {
         padding: 16px 0 20px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .cv-page-2__sidebar {
+        padding: 16px 16px 20px 0;
+        border-right: 1px solid #bbb;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .cv-page-2__main {
+        padding: 16px 0 20px 24px;
+        display: flex;
+        flex-direction: column;
         gap: 18px;
       }
 
@@ -755,11 +818,11 @@
           <button class="lang-toggle__btn" data-set-lang="de" role="radio" aria-checked="false">DE</button>
         </div>
 
-        <a class="btn btn--ghost" id="downloadBtn" href="../assets/[English]Samer_Eladad_CV.pdf" target="_blank" rel="noreferrer">
+        <button class="btn btn--ghost" id="downloadBtn" aria-label="Download as PDF">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span data-lang="en">Download PDF</span>
           <span data-lang="de">PDF herunterladen</span>
-        </a>
+        </button>
 
         <button class="btn btn--icon" id="themeToggle" aria-label="Toggle theme">🌙</button>
       </div>
@@ -787,7 +850,7 @@
         <!-- ── SIDEBAR ── -->
         <aside class="cv-sidebar">
 
-          <section>
+          <section class="cv-sec--contact">
             <h2 class="cv-section__title">Contact</h2>
             <ul class="cv-contact-list">
               <li>
@@ -817,7 +880,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--skills">
             <h2 class="cv-section__title">Technical Skills</h2>
             <ul class="cv-skill-list">
               <li>Data Analysis &amp; Modeling</li>
@@ -830,7 +893,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--tools">
             <h2 class="cv-section__title">Tools &amp; Platforms</h2>
             <ul class="cv-skill-list">
               <li>Python, SQL, Java, JavaScript (React)</li>
@@ -844,7 +907,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--languages">
             <h2 class="cv-section__title">Languages</h2>
             <ul class="cv-lang-list">
               <li><strong>English</strong> – Fluent</li>
@@ -853,7 +916,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--certificates">
             <h2 class="cv-section__title">Certificates</h2>
             <div class="cv-certs">
               <div class="cv-cert">
@@ -873,7 +936,7 @@
             </div>
           </section>
 
-          <section>
+          <section class="cv-sec--volunteer">
             <h2 class="cv-section__title">Volunteer Experience</h2>
             <div class="cv-volunteer">
               <div class="cv-volunteer__org">TechLabs Global</div>
@@ -882,7 +945,7 @@
             </div>
           </section>
 
-          <section>
+          <section class="cv-sec--workshops">
             <h2 class="cv-section__title">Workshops</h2>
             <ul class="cv-workshop-list">
               <li>Microsoft Dynamics 365 Business Central</li>
@@ -890,7 +953,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--awards">
             <h2 class="cv-section__title">Awards</h2>
             <div>
               <div class="cv-award__name"><strong>Robotics Race</strong> – First Place</div>
@@ -903,12 +966,12 @@
         <!-- ── MAIN ── -->
         <main class="cv-main">
 
-          <section class="cv-summary">
+          <section class="cv-summary cv-sec--summary">
             <h2 class="cv-section__title">Summary</h2>
             <p>Solutions Engineer with hands-on ownership of <strong>ERP</strong> systems, data engineering, and process automation. Skilled in <strong>Python</strong>, <strong>SQL</strong>, and <strong>Power BI</strong>, delivering scalable solutions that improve operational efficiency and data visibility. Experienced in international, remote-ready projects, <strong>AI solutions</strong>, and cross-functional teams. Focused on translating business needs into measurable technical impact.</p>
           </section>
 
-          <section>
+          <section class="cv-sec--work">
             <h2 class="cv-section__title">Work Experience</h2>
             <div class="cv-jobs">
               <div class="cv-job">
@@ -951,7 +1014,7 @@
             </div>
           </section>
 
-          <section>
+          <section class="cv-sec--education">
             <h2 class="cv-section__title">Education</h2>
             <div class="cv-edu-list">
               <div class="cv-edu">
@@ -970,7 +1033,7 @@
             </div>
           </section>
 
-          <section>
+          <section class="cv-sec--projects">
             <h2 class="cv-section__title">Projects</h2>
             <div class="cv-projects">
               <div class="cv-project">
@@ -1017,7 +1080,7 @@
         <!-- ── SIDEBAR ── -->
         <aside class="cv-sidebar">
 
-          <section>
+          <section class="cv-sec--contact">
             <h2 class="cv-section__title">Kontakt</h2>
             <ul class="cv-contact-list">
               <li>
@@ -1047,7 +1110,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--skills">
             <h2 class="cv-section__title">Fachliche Kompetenzen</h2>
             <ul class="cv-skill-list">
               <li>Datenanalyse &amp; Modellierung</li>
@@ -1060,7 +1123,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--tools">
             <h2 class="cv-section__title">Tools &amp; Plattformen</h2>
             <ul class="cv-skill-list">
               <li>Python, SQL, Java, JavaScript (React)</li>
@@ -1074,7 +1137,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--languages">
             <h2 class="cv-section__title">Sprachen</h2>
             <ul class="cv-lang-list">
               <li><strong>Englisch</strong> – Fließend</li>
@@ -1083,7 +1146,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--certificates">
             <h2 class="cv-section__title">Zertifikate</h2>
             <div class="cv-certs">
               <div class="cv-cert">
@@ -1103,7 +1166,7 @@
             </div>
           </section>
 
-          <section>
+          <section class="cv-sec--volunteer">
             <h2 class="cv-section__title">Ehrenamtliche Tätigkeit</h2>
             <div class="cv-volunteer">
               <div class="cv-volunteer__org">TechLabs Global</div>
@@ -1112,7 +1175,7 @@
             </div>
           </section>
 
-          <section>
+          <section class="cv-sec--workshops">
             <h2 class="cv-section__title">Workshops</h2>
             <ul class="cv-workshop-list">
               <li>Microsoft Dynamics 365 Business Central</li>
@@ -1120,7 +1183,7 @@
             </ul>
           </section>
 
-          <section>
+          <section class="cv-sec--awards">
             <h2 class="cv-section__title">Auszeichnungen</h2>
             <div>
               <div class="cv-award__name"><strong>Robotik Rennen</strong> – Erster Platz</div>
@@ -1133,12 +1196,12 @@
         <!-- ── MAIN ── -->
         <main class="cv-main">
 
-          <section class="cv-summary">
+          <section class="cv-summary cv-sec--summary">
             <h2 class="cv-section__title">Profil</h2>
             <p>Solutions Engineer mit praktischer Verantwortung für <strong>ERP</strong>-Systeme, Data Engineering und Prozessautomatisierung. Sicher in <strong>Python</strong>, <strong>SQL</strong> und <strong>Power BI</strong> zur Entwicklung skalierbarer Lösungen mit Fokus auf operative Effizienz und Datentransparenz. Erfahrung in internationalen, remote-fähigen Projekten, <strong>KI-Lösungen</strong> und interdisziplinären Teams. Zielgerichtet in der Übersetzung fachlicher Anforderungen in messbaren technischen Mehrwert.</p>
           </section>
 
-          <section>
+          <section class="cv-sec--work">
             <h2 class="cv-section__title">Berufserfahrung</h2>
             <div class="cv-jobs">
               <div class="cv-job">
@@ -1181,7 +1244,7 @@
             </div>
           </section>
 
-          <section>
+          <section class="cv-sec--education">
             <h2 class="cv-section__title">Ausbildung</h2>
             <div class="cv-edu-list">
               <div class="cv-edu">
@@ -1200,7 +1263,7 @@
             </div>
           </section>
 
-          <section>
+          <section class="cv-sec--projects">
             <h2 class="cv-section__title">Projekte</h2>
             <div class="cv-projects">
               <div class="cv-project">
@@ -1259,18 +1322,15 @@
     // ── Language Toggle ──
     let currentLang = "en";
     const langBtns = document.querySelectorAll("[data-set-lang]");
-    const downloadBtn = document.getElementById("downloadBtn");
 
     function setLang(lang) {
       currentLang = lang;
       if (lang === "de") {
         document.body.classList.add("lang-de");
         document.documentElement.lang = "de";
-        downloadBtn.href = "../assets/[German]Samer_Eladad_CV.pdf";
       } else {
         document.body.classList.remove("lang-de");
         document.documentElement.lang = "en";
-        downloadBtn.href = "../assets/[English]Samer_Eladad_CV.pdf";
       }
       langBtns.forEach(b => {
         const isActive = b.dataset.setLang === lang;
@@ -1283,6 +1343,112 @@
       btn.addEventListener("click", () => setLang(btn.dataset.setLang));
     });
 
+    // ── Download PDF (print-to-PDF) ──
+    // Restructure DOM into two-page layout for printing, then revert
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      // Find the active cv-body
+      const activeLang = currentLang;
+      const activeBody = document.querySelector('.cv-body[data-lang="' + activeLang + '"]');
+      if (!activeBody) return;
+
+      const sidebar = activeBody.querySelector('.cv-sidebar');
+      const main = activeBody.querySelector('.cv-main');
+
+      // Gather sections by their identifier class
+      const getSection = (parent, cls) => parent.querySelector('.' + cls);
+
+      // Page 1 sidebar: contact, skills, tools, languages
+      // Page 1 main: summary, work experience
+      // Page 2 sidebar: certificates, volunteer, workshops, awards
+      // Page 2 main: education, projects
+      const p1SidebarSections = ['cv-sec--contact', 'cv-sec--skills', 'cv-sec--tools', 'cv-sec--languages'];
+      const p1MainSections = ['cv-sec--summary', 'cv-sec--work'];
+      const p2SidebarSections = ['cv-sec--certificates', 'cv-sec--volunteer', 'cv-sec--workshops', 'cv-sec--awards'];
+      const p2MainSections = ['cv-sec--education', 'cv-sec--projects'];
+
+      // Build print layout
+      const page1 = document.createElement('div');
+      page1.className = 'cv-page-1';
+      const p1sb = document.createElement('div');
+      p1sb.className = 'cv-page-1__sidebar';
+      const p1mn = document.createElement('div');
+      p1mn.className = 'cv-page-1__main';
+
+      const page2 = document.createElement('div');
+      page2.className = 'cv-page-2';
+      const p2sb = document.createElement('div');
+      p2sb.className = 'cv-page-2__sidebar';
+      const p2mn = document.createElement('div');
+      p2mn.className = 'cv-page-2__main';
+
+      p1SidebarSections.forEach(cls => {
+        const el = getSection(sidebar, cls) || getSection(activeBody, cls);
+        if (el) p1sb.appendChild(el);
+      });
+      p1MainSections.forEach(cls => {
+        const el = getSection(main, cls) || getSection(activeBody, cls);
+        if (el) p1mn.appendChild(el);
+      });
+      p2SidebarSections.forEach(cls => {
+        const el = getSection(sidebar, cls) || getSection(activeBody, cls);
+        if (el) p2sb.appendChild(el);
+      });
+      p2MainSections.forEach(cls => {
+        const el = getSection(main, cls) || getSection(activeBody, cls);
+        if (el) p2mn.appendChild(el);
+      });
+
+      page1.appendChild(p1sb);
+      page1.appendChild(p1mn);
+      page2.appendChild(p2sb);
+      page2.appendChild(p2mn);
+
+      // Hide original sidebar/main, inject page containers
+      sidebar.style.display = 'none';
+      main.style.display = 'none';
+      activeBody.appendChild(page1);
+      activeBody.appendChild(page2);
+
+      // Print
+      window.print();
+
+      // Revert: move sections back
+      // Page 1 sidebar sections back to sidebar
+      p1SidebarSections.forEach(cls => {
+        const el = p1sb.querySelector('.' + cls);
+        if (el) sidebar.appendChild(el);
+      });
+      p1MainSections.forEach(cls => {
+        const el = p1mn.querySelector('.' + cls);
+        if (el) main.appendChild(el);
+      });
+      p2SidebarSections.forEach(cls => {
+        const el = p2sb.querySelector('.' + cls);
+        if (el) sidebar.appendChild(el);
+      });
+      p2MainSections.forEach(cls => {
+        const el = p2mn.querySelector('.' + cls);
+        if (el) main.appendChild(el);
+      });
+
+      // Re-order sections back to their original order in sidebar
+      const sidebarOrder = ['cv-sec--contact', 'cv-sec--skills', 'cv-sec--tools', 'cv-sec--languages', 'cv-sec--certificates', 'cv-sec--volunteer', 'cv-sec--workshops', 'cv-sec--awards'];
+      sidebarOrder.forEach(cls => {
+        const el = sidebar.querySelector('.' + cls);
+        if (el) sidebar.appendChild(el);
+      });
+      const mainOrder = ['cv-sec--summary', 'cv-sec--work', 'cv-sec--education', 'cv-sec--projects'];
+      mainOrder.forEach(cls => {
+        const el = main.querySelector('.' + cls);
+        if (el) main.appendChild(el);
+      });
+
+      // Remove temp containers and show originals
+      page1.remove();
+      page2.remove();
+      sidebar.style.display = '';
+      main.style.display = '';
+    });
   </script>
 </body>
 </html>
