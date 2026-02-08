@@ -300,6 +300,7 @@ body.light-theme .brand:hover {
   border: 1px solid var(--border);
 }
 .header__actions{ display:flex; flex-direction:row-reverse; align-items:center; gap:10px; }
+.header__actions .btn--ghost{ font-size:13px; padding:8px 14px; }
 
 .theme-toggle {
   background: rgba(0,0,0,.14);

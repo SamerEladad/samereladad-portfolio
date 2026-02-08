@@ -1231,7 +1231,7 @@
       btn.addEventListener("click", () => setLang(btn.dataset.setLang));
     });
 
-    // ── Download PDF via hidden iframe → html2canvas → jsPDF ──
+    // ── Download PDF via fetch + html2canvas + jsPDF ──
     document.getElementById("downloadBtn").addEventListener("click", async () => {
       const btn = document.getElementById("downloadBtn");
       const origHTML = btn.innerHTML;
@@ -1242,24 +1242,44 @@
         const printFile = currentLang === 'de' ? 'print-de.html' : 'print-en.html';
         const filename  = currentLang === 'de' ? 'Samer_Eladad_Lebenslauf.pdf' : 'Samer_Eladad_CV.pdf';
 
-        // 1 — Load print page in a hidden iframe
-        const iframe = document.createElement('iframe');
-        iframe.style.cssText = 'position:fixed;left:-9999px;top:0;width:900px;height:3000px;border:none;';
-        document.body.appendChild(iframe);
+        // 1 — Fetch the print HTML and extract the full content
+        const resp = await fetch(printFile);
+        const html = await resp.text();
 
-        await new Promise((resolve, reject) => {
-          iframe.onload = resolve;
-          iframe.onerror = reject;
-          iframe.src = printFile;
+        // 2 — Create an offscreen container and inject the full HTML
+        const container = document.createElement('div');
+        container.style.cssText = 'position:fixed;left:-9999px;top:0;z-index:-1;';
+        document.body.appendChild(container);
+
+        // Parse the fetched HTML and extract <style> + <body> content
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // Create a shadow-like isolated container with its own styles
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = 'width:794px;background:#fff;';
+
+        // Copy all <style> blocks from the print page
+        doc.querySelectorAll('style').forEach(s => {
+          const style = document.createElement('style');
+          style.textContent = s.textContent;
+          wrapper.appendChild(style);
         });
 
-        // 2 — Wait a beat for fonts / images to settle
-        await new Promise(r => setTimeout(r, 800));
+        // Copy the body content
+        wrapper.innerHTML += doc.body.innerHTML;
+        container.appendChild(wrapper);
 
-        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-        const cards = iframeDoc.querySelectorAll('.cv-card');
+        // 3 — Wait for fonts & images to load
+        await document.fonts.ready;
+        const images = wrapper.querySelectorAll('img');
+        await Promise.all([...images].map(img =>
+          img.complete ? Promise.resolve() : new Promise(r => { img.onload = r; img.onerror = r; })
+        ));
+        await new Promise(r => setTimeout(r, 300));
 
-        // 3 — Capture each card as a canvas
+        // 4 — Capture each card
+        const cards = wrapper.querySelectorAll('.cv-card');
         const canvases = [];
         for (const card of cards) {
           const canvas = await html2canvas(card, {
@@ -1267,13 +1287,14 @@
             useCORS: true,
             letterRendering: true,
             backgroundColor: '#ffffff',
-            windowWidth: 900
+            width: 794,
+            windowWidth: 794
           });
           canvases.push(canvas);
         }
 
-        // 4 — Build a 2-page A4 PDF with jsPDF
-        const { jsPDF } = window.jspdf || {};
+        // 5 — Build a 2-page A4 PDF with jsPDF
+        const { jsPDF } = window.jspdf;
         const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
         const pageW = 210;  // A4 mm
         const pageH = 297;
@@ -1281,17 +1302,14 @@
         canvases.forEach((canvas, i) => {
           if (i > 0) pdf.addPage();
           const imgData = canvas.toDataURL('image/png');
-          // Scale image to fit A4 width with small margins
-          const margin = 8;                                  // mm
-          const usableW = pageW - margin * 2;                // mm
-          const ratio   = canvas.height / canvas.width;
-          const imgH    = usableW * ratio;
-          const topY    = Math.max(margin, (pageH - imgH) / 2);  // vertically center if short
-          pdf.addImage(imgData, 'PNG', margin, topY, usableW, imgH);
+          // Fill the entire A4 page edge-to-edge
+          const ratio = canvas.height / canvas.width;
+          const imgH  = pageW * ratio;
+          pdf.addImage(imgData, 'PNG', 0, 0, pageW, Math.min(imgH, pageH));
         });
 
         pdf.save(filename);
-        iframe.remove();
+        container.remove();
       } catch (err) {
         console.error('PDF generation failed:', err);
         alert('PDF generation failed. Please try again.');
