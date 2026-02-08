@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
@@ -283,11 +284,41 @@
     .cv-award__name strong { font-weight: 700; }
     .cv-award__meta { font-size: 10.5px; color: #555; margin-top: 1px; }
 
+    /* ── Card wrapper + download button ── */
+    .card-wrap {
+      position: relative;
+      width: 794px;
+      margin: 0 auto;
+    }
+    .card-dl {
+      position: absolute;
+      top: 12px;
+      right: -52px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      background: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,.1);
+      transition: background .15s, transform .15s;
+      z-index: 10;
+    }
+    .card-dl:hover {
+      background: #f0f0f0;
+      transform: scale(1.08);
+    }
+    .card-dl svg { width: 16px; height: 16px; stroke: #333; fill: none; }
+
     /* ════════════════════════════════════════
        PRINT — each card becomes one A4 page
        ════════════════════════════════════════ */
     @media print {
       html, body { height: auto; background: #fff; padding: 0; margin: 0; }
+      .card-dl { display: none !important; }
       .cv-wrapper { gap: 0; }
       .cv-card {
         border: none;
@@ -318,6 +349,10 @@
   <div class="cv-wrapper">
 
     <!-- ═══════════ CARD 1 — Page 1 ═══════════ -->
+    <div class="card-wrap">
+    <button class="card-dl" data-card="card1" title="Download Page 1 as PNG">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
     <div class="cv-card" id="card1">
       <div class="cv-header">
         <img class="cv-header__photo" src="../assets/images/headshot-circle.png" alt="Portrait of Samer Eladad" />
@@ -442,7 +477,13 @@
       </div>
     </div>
 
+    </div><!-- /.card-wrap -->
+
     <!-- ═══════════ CARD 2 — Page 2 ═══════════ -->
+    <div class="card-wrap">
+    <button class="card-dl" data-card="card2" title="Download Page 2 as PNG">
+      <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </button>
     <div class="cv-card" id="card2">
       <div class="cv-body">
         <aside class="cv-sidebar">
@@ -546,15 +587,43 @@
       </div>
     </div>
 
+  </div><!-- /.card-wrap -->
+
   </div>
 
   <script>
-    // Auto-print when opened with ?print query param
-    if (new URLSearchParams(window.location.search).has('print')) {
-      window.addEventListener('load', () => {
-        setTimeout(() => window.print(), 400);
+    document.querySelectorAll('.card-dl').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const cardId = btn.dataset.card;
+        const card = document.getElementById(cardId);
+        if (!card) return;
+
+        btn.style.opacity = '0.4';
+        btn.style.pointerEvents = 'none';
+
+        try {
+          const canvas = await html2canvas(card, {
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#ffffff',
+            width: 794,
+            height: 1123,
+            windowWidth: 794
+          });
+
+          const link = document.createElement('a');
+          link.download = 'Samer_Eladad_CV_Page' + (cardId === 'card1' ? '1' : '2') + '.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        } catch (err) {
+          console.error('Capture failed:', err);
+          alert('Download failed. Please try again.');
+        } finally {
+          btn.style.opacity = '';
+          btn.style.pointerEvents = '';
+        }
       });
-    }
+    });
   </script>
 </body>
 </html>
