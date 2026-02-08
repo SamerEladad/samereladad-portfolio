@@ -713,7 +713,7 @@
 
         <button class="btn btn--icon" id="themeToggle" aria-label="Toggle theme">🌙</button>
 
-        <!-- Temporary: Generate PDF from cards -->
+        <!-- Temporary: Generate PDF -->
         <button class="btn btn--ghost" id="generatePdfBtn" aria-label="Generate PDF" style="border-color:var(--accent);color:var(--accent)">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <span>Generate PDF</span>
@@ -1248,8 +1248,14 @@
       btn.addEventListener("click", updateDownloadLink);
     });
 
-    // ── Temporary: Generate PDF from print page cards via hidden iframe ──
+    // ── Temporary: Generate PDF by capturing cards from print page ──
     document.getElementById("generatePdfBtn").addEventListener("click", async () => {
+      // Wait for jsPDF to be available
+      if (!window.jspdf) {
+        alert('PDF library is still loading. Please wait a moment and try again.');
+        return;
+      }
+
       const btn = document.getElementById("generatePdfBtn");
       const origHTML = btn.innerHTML;
       btn.disabled = true;
@@ -1258,59 +1264,43 @@
       const printFile = currentLang === 'de' ? 'print-de.html' : 'print-en.html';
       const filename  = currentLang === 'de' ? 'Samer_Eladad_Lebenslauf.pdf' : 'Samer_Eladad_CV.pdf';
 
-      // 1 — Create a hidden iframe and load the print page
       const iframe = document.createElement('iframe');
       iframe.style.cssText = 'position:fixed;left:-9999px;top:0;width:794px;height:2400px;border:none;';
       document.body.appendChild(iframe);
 
       try {
-        console.log('Loading print page:', printFile);
-        
-        // 2 — Wait for iframe to fully load
         await new Promise((resolve, reject) => {
           iframe.onload = resolve;
           iframe.onerror = reject;
           iframe.src = printFile;
         });
-        console.log('Iframe loaded');
 
-        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
         const iframeWin = iframe.contentWindow;
+        const iframeDoc = iframe.contentDocument || iframeWin.document;
 
-        // 3 — Wait for html2canvas to be available inside the iframe (with timeout)
-        console.log('Waiting for html2canvas...');
+        // Wait for html2canvas in iframe
         await new Promise((resolve, reject) => {
           let attempts = 0;
           const check = () => {
-            attempts++;
-            if (iframeWin.html2canvas) {
-              console.log('html2canvas found after', attempts, 'attempts');
-              resolve();
-            } else if (attempts > 100) {
-              reject(new Error('html2canvas not found after 5 seconds'));
-            } else {
-              setTimeout(check, 50);
-            }
+            if (iframeWin.html2canvas) resolve();
+            else if (++attempts > 100) reject(new Error('html2canvas timeout'));
+            else setTimeout(check, 50);
           };
           check();
         });
 
-        // 4 — Wait for fonts + images inside the iframe
-        console.log('Waiting for fonts and images...');
-        if (iframeDoc.fonts && iframeDoc.fonts.ready) await iframeDoc.fonts.ready;
+        // Wait for fonts and images
+        if (iframeDoc.fonts?.ready) await iframeDoc.fonts.ready;
         const imgs = iframeDoc.querySelectorAll('img');
         await Promise.all([...imgs].map(img =>
           img.complete ? Promise.resolve() : new Promise(r => { img.onload = r; img.onerror = r; })
         ));
         await new Promise(r => setTimeout(r, 500));
-        console.log('Assets ready');
 
-        // 5 — Capture each card using the iframe's own html2canvas
+        // Capture both cards
         const cards = iframeDoc.querySelectorAll('.cv-card');
-        console.log('Found', cards.length, 'cards to capture');
         const canvases = [];
         for (const card of cards) {
-          console.log('Capturing card', card.id);
           const canvas = await iframeWin.html2canvas(card, {
             scale: 2,
             useCORS: true,
@@ -1320,23 +1310,18 @@
             windowWidth: 794
           });
           canvases.push(canvas);
-          console.log('Card captured:', canvas.width, 'x', canvas.height);
         }
 
-        // 6 — Build a 2-page A4 PDF with jsPDF
-        console.log('Building PDF...');
+        // Build PDF with parent window's jsPDF
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
-        const pageW = 210;
-        const pageH = 297;
 
         canvases.forEach((canvas, i) => {
           if (i > 0) pdf.addPage();
           const imgData = canvas.toDataURL('image/png');
-          pdf.addImage(imgData, 'PNG', 0, 0, pageW, pageH);
+          pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
         });
 
-        console.log('Saving PDF:', filename);
         pdf.save(filename);
       } catch (err) {
         console.error('PDF generation failed:', err);
