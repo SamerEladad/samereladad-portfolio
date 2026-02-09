@@ -704,7 +704,7 @@
           <button class="lang-toggle__btn" data-set-lang="de" role="radio" aria-checked="false">DE</button>
         </div>
 
-        <a class="btn btn--ghost" id="downloadBtn" href="../assets/[English]Samer_Eladad_CV.pdf" target="_blank" aria-label="Download as PDF">
+        <a class="btn btn--ghost" id="downloadBtn" href="../assets/cv/Samer-Eladad-CV-EN.pdf" download aria-label="Download as PDF">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span data-lang="en">Download PDF</span>
           <span data-lang="de">PDF herunterladen</span>
@@ -1233,10 +1233,11 @@
     function updateDownloadLink() {
       const link = document.getElementById("downloadBtn");
       link.href = currentLang === 'de'
-        ? '../assets/[German]Samer_Eladad_CV.pdf'
-        : '../assets/[English]Samer_Eladad_CV.pdf';
+        ? '../assets/cv/Samer-Eladad-CV-DE.pdf'
+        : '../assets/cv/Samer-Eladad-CV-EN.pdf';
     }
-    // Hook into language toggle
+    // Hook into language toggle and update on initial load
+    updateDownloadLink();
     langBtns.forEach(btn => {
       btn.addEventListener("click", updateDownloadLink);
     });

@@ -1,0 +1,63 @@
+name: Generate CV PDFs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'resume/print-en.html'
+      - 'resume/print-de.html'
+      - 'scripts/generate-pdf.js'
+      - '.github/workflows/generate-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-pdfs:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Generate PDFs
+        run: npm run generate-pdf
+
+      - name: Check if PDFs were generated
+        run: |
+          ls -lh assets/cv/
+          if [ ! -f "assets/cv/Samer-Eladad-CV-EN.pdf" ]; then
+            echo "❌ English PDF not found"
+            exit 1
+          fi
+          if [ ! -f "assets/cv/Samer-Eladad-CV-DE.pdf" ]; then
+            echo "❌ German PDF not found"
+            exit 1
+          fi
+          echo "✅ Both PDFs generated successfully"
+
+      - name: Commit and push PDFs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/cv/*.pdf
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update CV PDFs [skip ci]"
+            git push
+          fi

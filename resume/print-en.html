@@ -475,18 +475,29 @@
        PRINT — each card becomes one A4 page
        ════════════════════════════════════════ */
     @media print {
-      html, body { height: auto; background: #fff; padding: 0; margin: 0; }
+      html, body {
+        height: auto;
+        background: #fff;
+        padding: 0;
+        margin: 0;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
       .card-dl { display: none !important; }
       .print-toolbar { display: none !important; }
-      .cv-wrapper { gap: 0; }
+      .cv-wrapper {
+        gap: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
       .cv-card {
         border: none;
         border-radius: 0;
         box-shadow: none;
         width: 100%;
-        height: 100vh;
+        height: auto;
         min-height: 0;
-        overflow: hidden;
         page-break-after: always;
         break-after: page;
         page-break-inside: avoid;
@@ -500,7 +511,7 @@
 
     @page {
       size: A4 portrait;
-      margin: 0;
+      margin: 10mm 12mm;
     }
   </style>
 </head>
