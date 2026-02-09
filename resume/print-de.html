@@ -247,12 +247,6 @@
       stroke: #f4f4f4;
     }
 
-    /* Minimize top padding on page 1 */
-    #card1 .cv-header {
-      padding: 4px 42px 20px;
-    }
-
-    /* Page 2: keep original spacing */
     #card2 .cv-sidebar {
       gap: 46px;
       padding-top: 48px;
@@ -512,6 +506,10 @@
       .cv-card:last-child {
         page-break-after: avoid;
         break-after: avoid;
+      }
+      /* Minimize top padding on page 1 in PDF only */
+      #card1 .cv-header {
+        padding: 4px 42px 20px;
       }
     }
 
