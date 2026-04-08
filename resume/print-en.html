@@ -249,11 +249,10 @@
 
     #card2 .cv-sidebar {
       gap: 46px;
-      padding-top: 48px;
     }
 
     #card2 .cv-main {
-      padding-top: 48px;
+      padding-top: 32px;
     }
 
     /* ── SECTION HEADINGS ── */
@@ -320,6 +319,8 @@
     .cv-project {
       border-left: 3px solid #1a1a1a;
       padding-left: 12px;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
     .cv-job__company {
       font-size: 12px;
@@ -514,9 +515,15 @@
         page-break-after: avoid;
         break-after: avoid;
       }
-      /* Minimize top padding on page 1 in PDF only */
+      /* Keep balanced whitespace around the photo in PDF output */
       #card1 .cv-header {
-        padding: 2px 42px 14px;
+        padding: 28px 42px;
+      }
+
+      #card1 .cv-job--metro,
+      #card2 .cv-job--metro {
+        page-break-inside: avoid;
+        break-inside: avoid;
       }
     }
 
@@ -656,18 +663,6 @@
                   <li>Standardized project communication and task tracking using <strong>ServiceNow</strong>, <strong>Mural</strong>, and <strong>Jira</strong>.</li>
                 </ul>
               </div>
-              <div class="cv-job">
-                <div class="cv-job__company">METRO Markets</div>
-                <div class="cv-job__meta">
-                  <span class="cv-job__title">Seller Support (Working Student)</span>
-                  <span class="cv-job__date">March 2022 – September 2023</span>
-                </div>
-                <ul class="cv-job__bullets">
-                  <li>Supported ERP and process readiness for international operations in Italy, Portugal, Netherlands, and France.</li>
-                  <li>Built <strong>Power BI</strong> dashboards in collaboration with BI team for seller and product analytics.</li>
-                  <li>Supported seller and product analytics for a key customer through reporting, data-driven insights, and operational support.</li>
-                </ul>
-              </div>
             </div>
           </section>
         </main>
@@ -727,6 +722,23 @@
           </section>
         </aside>
         <main class="cv-main">
+          <section>
+            <h2 class="cv-section__title">Work Experience</h2>
+            <div class="cv-jobs">
+              <div class="cv-job cv-job--metro">
+                <div class="cv-job__company">METRO Markets</div>
+                <div class="cv-job__meta">
+                  <span class="cv-job__title">Seller Support (Working Student)</span>
+                  <span class="cv-job__date">March 2022 – September 2023</span>
+                </div>
+                <ul class="cv-job__bullets">
+                  <li>Supported ERP and process readiness for international operations in Italy, Portugal, Netherlands, and France.</li>
+                  <li>Built <strong>Power BI</strong> dashboards in collaboration with BI team for seller and product analytics.</li>
+                  <li>Supported seller and product analytics for a key customer through reporting, data-driven insights, and operational support.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
           <section>
             <h2 class="cv-section__title">Education</h2>
             <div class="cv-edu-list">
