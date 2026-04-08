@@ -517,13 +517,17 @@
       }
       /* Keep balanced whitespace around the photo in PDF output */
       #card1 .cv-header {
-        padding: 28px 42px;
+        padding: 24px 42px;
       }
 
-      #card1 .cv-job--metro,
-      #card2 .cv-job--metro {
+      #card1 .cv-section--languages {
         page-break-inside: avoid;
         break-inside: avoid;
+      }
+
+      #card1 .cv-sidebar .cv-skill-list li,
+      #card1 .cv-sidebar .cv-lang-list li {
+        font-size: 11.7px;
       }
     }
 
@@ -610,7 +614,7 @@
               <li>Jira, Confluence, SharePoint</li>
             </ul>
           </section>
-          <section>
+          <section class="cv-section--languages">
             <h2 class="cv-section__title">Sprachen</h2>
             <ul class="cv-lang-list">
               <li><strong>Englisch</strong> – Fließend</li>
@@ -659,6 +663,18 @@
                   <li>Im Praktikum strukturelle Ineffizienzen in der <strong>Systemdokumentation</strong> identifiziert und daraus die Grundlage für meine Bachelorarbeit entwickelt.</li>
                   <li>Entwicklung eines <strong>KI-basierten Prototyps</strong> auf <strong>Azure</strong> zur Automatisierung und Verbesserung der Systemdokumentation, basierend auf im Praktikum identifizierten Ineffizienzen im Workflow.</li>
                   <li>Standardisierung von Projektkommunikation und Aufgabenverfolgung mit <strong>ServiceNow</strong>, <strong>Mural</strong> und <strong>Jira</strong>.</li>
+                </ul>
+              </div>
+              <div class="cv-job">
+                <div class="cv-job__company">METRO Markets</div>
+                <div class="cv-job__meta">
+                  <span class="cv-job__title">Seller Support (Werkstudent)</span>
+                  <span class="cv-job__date">März 2022 – September 2023</span>
+                </div>
+                <ul class="cv-job__bullets">
+                  <li>Unterstützte ERP- und Prozess-Readiness für internationale Aktivitäten in Italien, Portugal, den Niederlanden und Frankreich.</li>
+                  <li>Erstellung von <strong>Power BI</strong>-Dashboards in Zusammenarbeit mit dem BI-Team für Verkäufer- und Produktanalysen.</li>
+                  <li>Unterstützte Seller- und Produktanalysen für einen Schlüsselkunden durch Reporting, datenbasierte Erkenntnisse und operativen Support.</li>
                 </ul>
               </div>
             </div>
@@ -720,23 +736,6 @@
           </section>
         </aside>
         <main class="cv-main">
-          <section>
-            <h2 class="cv-section__title">Berufserfahrung</h2>
-            <div class="cv-jobs">
-              <div class="cv-job cv-job--metro">
-                <div class="cv-job__company">METRO Markets</div>
-                <div class="cv-job__meta">
-                  <span class="cv-job__title">Seller Support (Werkstudent)</span>
-                  <span class="cv-job__date">März 2022 – September 2023</span>
-                </div>
-                <ul class="cv-job__bullets">
-                  <li>Unterstützte ERP- und Prozess-Readiness für internationale Aktivitäten in Italien, Portugal, den Niederlanden und Frankreich.</li>
-                  <li>Erstellung von <strong>Power BI</strong>-Dashboards in Zusammenarbeit mit dem BI-Team für Verkäufer- und Produktanalysen.</li>
-                  <li>Unterstützte Seller- und Produktanalysen für einen Schlüsselkunden durch Reporting, datenbasierte Erkenntnisse und operativen Support.</li>
-                </ul>
-              </div>
-            </div>
-          </section>
           <section>
             <h2 class="cv-section__title">Ausbildung</h2>
             <div class="cv-edu-list">
