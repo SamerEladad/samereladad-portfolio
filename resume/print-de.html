@@ -252,7 +252,7 @@
     }
 
     #card2 .cv-main {
-      padding-top: 0;
+      padding-top: 32px;
     }
 
     /* ── SECTION HEADINGS ── */
@@ -515,28 +515,15 @@
         page-break-after: avoid;
         break-after: avoid;
       }
-      /* Match header spacing to web CV balance on page 1 */
+      /* Keep balanced whitespace around the photo in PDF output */
       #card1 .cv-header {
-        padding: 32px 48px 36px;
+        padding: 28px 42px;
       }
 
-      #card1 .cv-header__photo {
-        width: 124px;
-        height: 124px;
-        margin-left: 32px;
-        margin-right: 20px;
-      }
-
-      #card1 .cv-section--languages,
       #card1 .cv-job--metro,
       #card2 .cv-job--metro {
         page-break-inside: avoid;
         break-inside: avoid;
-      }
-
-      #card1 .cv-sidebar .cv-skill-list li,
-      #card1 .cv-sidebar .cv-lang-list li {
-        font-size: 11.7px;
       }
     }
 
@@ -623,7 +610,7 @@
               <li>Jira, Confluence, SharePoint</li>
             </ul>
           </section>
-          <section class="cv-section--languages">
+          <section>
             <h2 class="cv-section__title">Sprachen</h2>
             <ul class="cv-lang-list">
               <li><strong>Englisch</strong> – Fließend</li>
