@@ -43,7 +43,7 @@
 
     /* ── HEADER ── */
     .cv-header {
-      padding: 36px 42px 22px;
+      padding: 36px 42px 36px;
       display: flex;
       align-items: center;
       gap: 24px;
@@ -314,7 +314,7 @@
     .cv-summary strong { font-weight: 700; }
 
     /* ── WORK EXPERIENCE ── */
-    .cv-jobs { display: flex; flex-direction: column; gap: 24px; }
+    .cv-jobs { display: flex; flex-direction: column; gap: 26px; }
     .cv-job,
     .cv-edu,
     .cv-project {
@@ -335,7 +335,8 @@
       gap: 4px;
       margin-top: 1px;
     }
-    .cv-job__title { font-size: 11px; font-weight: 700; color: #1a1a1a; }
+    .cv-job__bullets + .cv-job__meta { margin-top: 10px; }
+    .cv-job__title { font-size: 12px; font-weight: 700; color: #1a1a1a; letter-spacing: .15px; }
     .cv-job__date { font-size: 10.5px; color: #555; margin-left: auto; }
     .cv-job__sub {
       font-size: 10.5px;
@@ -515,7 +516,7 @@
       }
       /* Minimize top padding on page 1 in PDF only */
       #card1 .cv-header {
-        padding: 4px 42px 20px;
+        padding: 2px 42px 14px;
       }
     }
 
@@ -624,13 +625,22 @@
               <div class="cv-job">
                 <div class="cv-job__company">Ei Electronics KG</div>
                 <div class="cv-job__meta">
-                  <span class="cv-job__title">Solutions Engineer</span>
-                  <span class="cv-job__date">December 2024 – Present</span>
+                  <span class="cv-job__title">Solutions Engineer (Data &amp; AI)</span>
+                  <span class="cv-job__date">March 2026 – Present</span>
                 </div>
                 <ul class="cv-job__bullets">
-                  <li>Manage and support <strong>Infor</strong> and <strong>Dynamics 365</strong> ERP operations across three entities, coordinating setup and go-live activities for an international subsidiary as the primary internal technical contact.</li>
-                  <li>Design and implement <strong>Power BI</strong> data models and dashboards (<strong>DAX</strong>, <strong>SQL</strong>), performing end-to-end <strong>data engineering</strong> from cleaning to presentation, improving data consistency and automating weekly reports.</li>
-                  <li>Automate key <strong>business processes</strong> (e.g., OCR-based order workflows, invoice posting) and maintain system documentation, security roles, and user enablement using <strong>Confluence</strong> and <strong>SharePoint</strong>.</li>
+                  <li>Drive process automation initiatives across departments using <strong>n8n</strong> and <strong>Power Automate</strong>.</li>
+                  <li>Design and implement agentic <strong>AI</strong> solutions with <strong>Microsoft Copilot Studio</strong> across business functions, representing AI topics within IT.</li>
+                  <li>Engineer <strong>Power BI</strong> data models and dashboards (<strong>DAX</strong>, <strong>SQL</strong>) and perform end-to-end <strong>data engineering</strong> from cleaning and transformation to presentation, improving data consistency and automating weekly reports.</li>
+                </ul>
+                <div class="cv-job__meta">
+                  <span class="cv-job__title">Solutions Engineer (ERP)</span>
+                  <span class="cv-job__date">December 2024 – March 2026</span>
+                </div>
+                <ul class="cv-job__bullets">
+                  <li>Managed and supported <strong>Infor</strong> and <strong>Dynamics 365</strong> ERP operations across three entities, acting as the primary internal technical contact for setup and go-live activities for an international subsidiary.</li>
+                  <li>Automated key <strong>business processes</strong> (e.g., OCR-based order workflows and invoice posting) and maintained system documentation, security roles, and user enablement in <strong>Confluence</strong> and <strong>SharePoint</strong>.</li>
+                  <li>Developed and maintained <strong>REST API</strong> integrations between the ERP environment and internal and external services and endpoints.</li>
                 </ul>
               </div>
               <div class="cv-job">

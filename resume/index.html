@@ -265,7 +265,7 @@
        CV HEADER (Photo + Name + Title)
        ════════════════════════════════════════════════════════════════════ */
     .cv-header {
-      padding: 36px 48px 24px;
+      padding: 32px 48px 32px;
       display: flex;
       align-items: center;
       gap: 24px;
@@ -409,7 +409,7 @@
     .cv-jobs {
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 24px;
     }
     .cv-job,
     .cv-edu,
@@ -431,10 +431,14 @@
       gap: 4px;
       margin-top: 2px;
     }
+    .cv-job__bullets + .cv-job__meta {
+      margin-top: 10px;
+    }
     .cv-job__title {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--text);
+      letter-spacing: .2px;
     }
     .cv-job__date {
       font-size: 12px;
@@ -870,13 +874,22 @@
               <div class="cv-job">
                 <div class="cv-job__company">Ei Electronics KG</div>
                 <div class="cv-job__meta">
-                  <span class="cv-job__title">Solutions Engineer</span>
-                  <span class="cv-job__date">December 2024 – Present</span>
+                  <span class="cv-job__title">Solutions Engineer (Data &amp; AI)</span>
+                  <span class="cv-job__date">March 2026 – Present</span>
                 </div>
                 <ul class="cv-job__bullets">
-                  <li>Manage and support <strong>Infor</strong> and <strong>Dynamics 365</strong> ERP operations across three entities, coordinating setup and go-live activities for an international subsidiary as the primary internal technical contact.</li>
-                  <li>Design and implement <strong>Power BI</strong> data models and dashboards (<strong>DAX</strong>, <strong>SQL</strong>), performing end-to-end <strong>data engineering</strong> from cleaning to presentation, improving data consistency and automating weekly reports.</li>
-                  <li>Automate key <strong>business processes</strong> (e.g., OCR-based order workflows, invoice posting) and maintain system documentation, security roles, and user enablement using <strong>Confluence</strong> and <strong>SharePoint</strong>.</li>
+                  <li>Drive process automation initiatives across departments using <strong>n8n</strong> and <strong>Power Automate</strong>.</li>
+                  <li>Design and implement agentic <strong>AI</strong> solutions with <strong>Microsoft Copilot Studio</strong> across business functions, representing AI topics within IT.</li>
+                  <li>Engineer <strong>Power BI</strong> data models and dashboards (<strong>DAX</strong>, <strong>SQL</strong>) and perform end-to-end <strong>data engineering</strong> from cleaning and transformation to presentation, improving data consistency and automating weekly reports.</li>
+                </ul>
+                <div class="cv-job__meta">
+                  <span class="cv-job__title">Solutions Engineer (ERP)</span>
+                  <span class="cv-job__date">December 2024 – March 2026</span>
+                </div>
+                <ul class="cv-job__bullets">
+                  <li>Managed and supported <strong>Infor</strong> and <strong>Dynamics 365</strong> ERP operations across three entities, acting as the primary internal technical contact for setup and go-live activities for an international subsidiary.</li>
+                  <li>Automated key <strong>business processes</strong> (e.g., OCR-based order workflows and invoice posting) and maintained system documentation, security roles, and user enablement in <strong>Confluence</strong> and <strong>SharePoint</strong>.</li>
+                  <li>Developed and maintained <strong>REST API</strong> integrations between the ERP environment and internal and external services and endpoints.</li>
                 </ul>
               </div>
               <div class="cv-job">
@@ -1100,13 +1113,22 @@
               <div class="cv-job">
                 <div class="cv-job__company">Ei Electronics KG</div>
                 <div class="cv-job__meta">
-                  <span class="cv-job__title">Solutions Engineer</span>
-                  <span class="cv-job__date">Dezember 2024 – Heute</span>
+                  <span class="cv-job__title">Solutions Engineer (Data &amp; AI)</span>
+                  <span class="cv-job__date">März 2026 – Heute</span>
                 </div>
                 <ul class="cv-job__bullets">
-                  <li>Betreue und unterstütze den Betrieb von <strong>Infor</strong>- und <strong>Dynamics 365</strong>-ERP-Systemen über drei Gesellschaften hinweg und koordiniere Setup- und Go-live-Aktivitäten für eine internationale Tochtergesellschaft als primärer interner technischer Ansprechpartner.</li>
-                  <li>Entwicklung von <strong>Power-BI</strong>-Datenmodellen und Dashboards (<strong>DAX</strong>, <strong>SQL</strong>) mit End-to-End-Datenaufbereitung, zur Verbesserung der Datenkonsistenz und Automatisierung regelmäßiger Berichte.</li>
-                  <li>Automatisierung zentraler <strong>Geschäftsprozesse</strong> (z.&nbsp;B. OCR-Bestellworkflows, Rechnungsbuchungen) sowie Pflege klarer Systemdokumentation, Rollen und Nutzerbefähigung mit <strong>Confluence</strong> und <strong>SharePoint</strong>.</li>
+                  <li>Umsetzung von Prozessautomatisierungen über verschiedene Fachbereiche hinweg mit <strong>n8n</strong> und <strong>Power Automate</strong>.</li>
+                  <li>Konzeption und Implementierung agentischer <strong>KI</strong>-Lösungen mit <strong>Microsoft Copilot Studio</strong> für unterschiedliche Abteilungen; Vertretung der KI-Themen innerhalb der IT.</li>
+                  <li>Entwicklung von <strong>Power-BI</strong>-Datenmodellen und Dashboards (<strong>DAX</strong>, <strong>SQL</strong>) sowie End-to-End-<strong>Data Engineering</strong> von Datenbereinigung und Transformation bis zur Visualisierung, zur Verbesserung der Datenkonsistenz und Automatisierung wöchentlicher Reports.</li>
+                </ul>
+                <div class="cv-job__meta">
+                  <span class="cv-job__title">Solutions Engineer (ERP)</span>
+                  <span class="cv-job__date">Dezember 2024 – März 2026</span>
+                </div>
+                <ul class="cv-job__bullets">
+                  <li>Betreuung und Support der <strong>Infor</strong>- und <strong>Dynamics 365</strong>-ERP-Landschaften über drei Gesellschaften hinweg sowie zentrale technische Ansprechperson für Setup- und Go-live-Aktivitäten einer internationalen Tochtergesellschaft.</li>
+                  <li>Automatisierung zentraler Geschäftsprozesse (z. B. OCR-basierte Auftragsworkflows und Rechnungsbuchung) sowie Pflege von Systemdokumentation, Sicherheitsrollen und User Enablement in <strong>Confluence</strong> und <strong>SharePoint</strong>.</li>
+                  <li>Entwicklung und Betreuung von <strong>REST-API</strong>-Integrationen zwischen dem ERP-System und weiteren internen bzw. externen Services und Endpunkten.</li>
                 </ul>
               </div>
               <div class="cv-job">

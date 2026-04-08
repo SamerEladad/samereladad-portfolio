@@ -43,7 +43,7 @@
 
     /* ── HEADER ── */
     .cv-header {
-      padding: 36px 42px 22px;
+      padding: 36px 42px 36px;
       display: flex;
       align-items: center;
       gap: 24px;
@@ -314,7 +314,7 @@
     .cv-summary strong { font-weight: 700; }
 
     /* ── WORK EXPERIENCE ── */
-    .cv-jobs { display: flex; flex-direction: column; gap: 24px; }
+    .cv-jobs { display: flex; flex-direction: column; gap: 26px; }
     .cv-job,
     .cv-edu,
     .cv-project {
@@ -335,7 +335,8 @@
       gap: 4px;
       margin-top: 1px;
     }
-    .cv-job__title { font-size: 11px; font-weight: 700; color: #1a1a1a; }
+    .cv-job__bullets + .cv-job__meta { margin-top: 10px; }
+    .cv-job__title { font-size: 12px; font-weight: 700; color: #1a1a1a; letter-spacing: .15px; }
     .cv-job__date { font-size: 10.5px; color: #555; margin-left: auto; }
     .cv-job__sub {
       font-size: 10.5px;
@@ -515,7 +516,7 @@
       }
       /* Minimize top padding on page 1 in PDF only */
       #card1 .cv-header {
-        padding: 4px 42px 20px;
+        padding: 2px 42px 14px;
       }
     }
 
@@ -622,13 +623,22 @@
               <div class="cv-job">
                 <div class="cv-job__company">Ei Electronics KG</div>
                 <div class="cv-job__meta">
-                  <span class="cv-job__title">Solutions Engineer</span>
-                  <span class="cv-job__date">Dezember 2024 – Heute</span>
+                  <span class="cv-job__title">Solutions Engineer (Data &amp; AI)</span>
+                  <span class="cv-job__date">März 2026 – Heute</span>
                 </div>
                 <ul class="cv-job__bullets">
-                  <li>Betreue und unterstütze den Betrieb von <strong>Infor</strong>- und <strong>Dynamics 365</strong>-ERP-Systemen über drei Gesellschaften hinweg und koordiniere Setup- und Go-live-Aktivitäten für eine internationale Tochtergesellschaft als primärer interner technischer Ansprechpartner.</li>
-                  <li>Konzeption und Umsetzung von <strong>Power BI</strong>-Datenmodellen und Dashboards (<strong>DAX</strong>, <strong>SQL</strong>) mit durchgängigem <strong>Data Engineering</strong> von der Bereinigung bis zur Präsentation – inklusive automatisierter Wochenberichte.</li>
-                  <li>Automatisierung zentraler <strong>Geschäftsprozesse</strong> (z. B. OCR-basierte Auftragsworkflows, Rechnungsbuchung) sowie Pflege der Systemdokumentation, Sicherheitsrollen und User Enablement über <strong>Confluence</strong> und <strong>SharePoint</strong>.</li>
+                  <li>Umsetzung von Prozessautomatisierungen über verschiedene Fachbereiche hinweg mit <strong>n8n</strong> und <strong>Power Automate</strong>.</li>
+                  <li>Konzeption und Implementierung agentischer <strong>KI</strong>-Lösungen mit <strong>Microsoft Copilot Studio</strong> für unterschiedliche Abteilungen; Vertretung der KI-Themen innerhalb der IT.</li>
+                  <li>Entwicklung von <strong>Power-BI</strong>-Datenmodellen und Dashboards (<strong>DAX</strong>, <strong>SQL</strong>) sowie End-to-End-<strong>Data Engineering</strong> von Datenbereinigung und Transformation bis zur Visualisierung, zur Verbesserung der Datenkonsistenz und Automatisierung wöchentlicher Reports.</li>
+                </ul>
+                <div class="cv-job__meta">
+                  <span class="cv-job__title">Solutions Engineer (ERP)</span>
+                  <span class="cv-job__date">Dezember 2024 – März 2026</span>
+                </div>
+                <ul class="cv-job__bullets">
+                  <li>Betreuung und Support der <strong>Infor</strong>- und <strong>Dynamics 365</strong>-ERP-Landschaften über drei Gesellschaften hinweg sowie zentrale technische Ansprechperson für Setup- und Go-live-Aktivitäten einer internationalen Tochtergesellschaft.</li>
+                  <li>Automatisierung zentraler Geschäftsprozesse (z. B. OCR-basierte Auftragsworkflows und Rechnungsbuchung) sowie Pflege von Systemdokumentation, Sicherheitsrollen und User Enablement in <strong>Confluence</strong> und <strong>SharePoint</strong>.</li>
+                  <li>Entwicklung und Betreuung von <strong>REST-API</strong>-Integrationen zwischen dem ERP-System und weiteren internen bzw. externen Services und Endpunkten.</li>
                 </ul>
               </div>
               <div class="cv-job">
