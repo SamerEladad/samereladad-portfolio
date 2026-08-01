@@ -87,6 +87,7 @@
 
 <body>
   <div class="bg" aria-hidden="true">
+    <div class="bg__aurora"></div>
     <div class="bg__grid"></div>
     <div class="bg__glow"></div>
   </div>
@@ -121,18 +122,26 @@
   <main class="page">
 
     <!-- HERO -->
-    <section class="container hero">
+    <div class="hero-stage">
+      <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <section class="container hero">
       <div class="hero__content reveal">
         <span class="hero__status">
           <span class="hero__status-dot" aria-hidden="true"></span>
           Solutions Engineer @ Ei Electronics
         </span>
 
-        <h1 class="h-display">I build the <span class="tint">systems</span> that keep business running.</h1>
+        <h1 class="h-display" data-split>I build the <span class="tint">systems</span> that keep business running.</h1>
 
         <p class="lead">
           ERP platforms, data pipelines, dashboards, and automation — designed end-to-end and delivered with clear ownership. I bridge the gap between what the business needs and what technology can do.
         </p>
+
+        <div class="hero__console" id="heroConsole" aria-hidden="true"
+             data-phrases='["deploying Business Central to a new market…","modeling 14M rows into a Power BI semantic layer","automating invoice capture with OCR + Copilot","wiring REST endpoints between ERP and warehouse","shipping the dashboard finance actually opens"]'>
+          <span class="hero__console-prompt">~$</span>
+          <span class="hero__console-text"></span><span class="caret"></span>
+        </div>
 
         <div class="hero__actions">
           <a class="btn btn--primary" href="./contact/">
@@ -157,6 +166,37 @@
         </div>
         <figcaption class="hero__figcaption">Duisburg, DE — 51.43°N</figcaption>
       </figure>
+      </section>
+    </div>
+
+    <!-- TOOL MARQUEE -->
+    <section class="marquee reveal" aria-label="Tools and platforms I work with">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span class="marquee__item">Dynamics 365</span>
+          <span class="marquee__item">Power BI</span>
+          <span class="marquee__item">Infor ERP</span>
+          <span class="marquee__item">Azure OpenAI</span>
+          <span class="marquee__item">Python</span>
+          <span class="marquee__item">SQL</span>
+          <span class="marquee__item">DAX</span>
+          <span class="marquee__item">Copilot Studio</span>
+          <span class="marquee__item">REST APIs</span>
+          <span class="marquee__item">Power Automate</span>
+        </div>
+        <div class="marquee__group" aria-hidden="true">
+          <span class="marquee__item">Dynamics 365</span>
+          <span class="marquee__item">Power BI</span>
+          <span class="marquee__item">Infor ERP</span>
+          <span class="marquee__item">Azure OpenAI</span>
+          <span class="marquee__item">Python</span>
+          <span class="marquee__item">SQL</span>
+          <span class="marquee__item">DAX</span>
+          <span class="marquee__item">Copilot Studio</span>
+          <span class="marquee__item">REST APIs</span>
+          <span class="marquee__item">Power Automate</span>
+        </div>
+      </div>
     </section>
 
     <!-- STATS -->
@@ -182,7 +222,7 @@
     </section>
 
     <!-- WHAT I DO -->
-    <section class="container section reveal">
+    <section class="container section reveal" data-num="01">
       <div class="section__head">
         <span class="kicker"><span class="kicker__num">01</span> What I do</span>
         <h2 class="h-section">Two perspectives, one job: make it work.</h2>
@@ -190,17 +230,17 @@
       </div>
 
       <div class="features">
-        <div class="feature">
+        <div class="feature fx-spot">
           <span class="feature__num">/01</span>
           <h3 class="feature__title">End-to-end systems thinking</h3>
           <p class="feature__desc">ERP, data pipelines, reporting, and automation are one interconnected machine. Seeing the whole of it lets me fix root causes, not symptoms.</p>
         </div>
-        <div class="feature">
+        <div class="feature fx-spot">
           <span class="feature__num">/02</span>
           <h3 class="feature__title">The business–technical bridge</h3>
           <p class="feature__desc">I translate requirements between stakeholders and developers — keeping both sides aligned and cutting the cost of miscommunication.</p>
         </div>
-        <div class="feature">
+        <div class="feature fx-spot">
           <span class="feature__num">/03</span>
           <h3 class="feature__title">Ownership &amp; execution</h3>
           <p class="feature__desc">Took over ERP responsibility on short notice and managed an international go-live within my first year. Undefined problems are where I do my best work.</p>
@@ -209,7 +249,7 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section class="container section reveal">
+    <section class="container section reveal" data-num="02">
       <div class="section__head">
         <span class="kicker"><span class="kicker__num">02</span> Experience</span>
         <h2 class="h-section">Where I've delivered.</h2>
@@ -251,24 +291,24 @@
     </section>
 
     <!-- IMPACT -->
-    <section class="container section reveal">
+    <section class="container section reveal" data-num="03">
       <div class="section__head">
         <span class="kicker"><span class="kicker__num">03</span> Impact</span>
         <h2 class="h-section">Results you can count.</h2>
       </div>
 
       <div class="metrics">
-        <div class="metric-card">
+        <div class="metric-card fx-spot">
           <span class="metric-card__org">Ei Electronics</span>
           <div class="metric-card__value"><span data-count="3">0</span><span class="unit">ERP systems</span></div>
           <p class="metric-card__desc">Primary internal technical contact for ERP operations across three entities, including Dynamics 365 setup and international go-live support.</p>
         </div>
-        <div class="metric-card">
+        <div class="metric-card fx-spot">
           <span class="metric-card__org">Mercedes-Benz</span>
           <div class="metric-card__value"><span data-count="25">0</span>%<span class="unit">time saved</span></div>
           <p class="metric-card__desc">Documentation effort reduced through AI-supported workflows built on Azure OpenAI.</p>
         </div>
-        <div class="metric-card">
+        <div class="metric-card fx-spot">
           <span class="metric-card__org">METRO Markets</span>
           <div class="metric-card__value"><span data-count="5">0</span><span class="unit">countries</span></div>
           <p class="metric-card__desc">BI dashboards supporting marketplace expansion across Italy, Spain, Portugal, the Netherlands, and France.</p>
@@ -292,7 +332,7 @@
 
     <!-- CTA -->
     <section class="container section reveal">
-      <div class="cta">
+      <div class="cta fx-spot">
         <span class="kicker kicker--bare">Open to conversations</span>
         <h2 class="cta__title">Let's build something together.</h2>
         <p class="cta__text">Looking for someone who can bridge business and technology? I'd like to hear what you're working on.</p>
@@ -338,5 +378,6 @@
   </button>
 
   <script src="./scripts/main.js"></script>
+  <script src="./scripts/fx.js"></script>
 </body>
 </html>

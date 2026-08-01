@@ -43,6 +43,7 @@
 
 <body>
   <div class="bg" aria-hidden="true">
+    <div class="bg__aurora"></div>
     <div class="bg__grid"></div>
     <div class="bg__glow"></div>
   </div>
@@ -86,7 +87,7 @@
       </div>
       <div class="container page-hero__content reveal">
         <span class="kicker"><span class="kicker__num">03</span> About</span>
-        <h1 class="h-display">Systems, data, and the <span class="tint">people</span> in between.</h1>
+        <h1 class="h-display" data-split>Systems, data, and the <span class="tint">people</span> in between.</h1>
         <p class="lead">
           Business Informatics graduate with hands-on experience in ERP systems, data engineering, and process automation. I design scalable solutions that improve operational efficiency and data visibility — bridging technical implementation and business impact.
         </p>
@@ -102,7 +103,7 @@
     </section>
 
     <!-- EXPERIENCE TIMELINE -->
-    <section class="container section reveal">
+    <section class="container section reveal" data-num="01">
       <div class="section__head">
         <span class="kicker"><span class="kicker__num">01</span> Experience</span>
         <h2 class="h-section">Track record.</h2>
@@ -143,7 +144,7 @@
     </section>
 
     <!-- EDUCATION -->
-    <section class="container section reveal">
+    <section class="container section reveal" data-num="02">
       <div class="section__head">
         <span class="kicker"><span class="kicker__num">02</span> Education</span>
         <h2 class="h-section">Foundation.</h2>
@@ -173,7 +174,7 @@
     </section>
 
     <!-- CERTIFICATIONS -->
-    <section class="container section reveal">
+    <section class="container section reveal" data-num="03">
       <div class="section__head">
         <span class="kicker"><span class="kicker__num">03</span> Certifications &amp; Training</span>
         <h2 class="h-section">Always in training.</h2>
@@ -214,14 +215,14 @@
     </section>
 
     <!-- SKILLS -->
-    <section class="container section reveal">
+    <section class="container section reveal" data-num="04">
       <div class="section__head">
         <span class="kicker"><span class="kicker__num">04</span> Skills &amp; Tools</span>
         <h2 class="h-section">The toolkit.</h2>
       </div>
 
       <div class="skillgroups">
-        <div class="skillgroup">
+        <div class="skillgroup fx-spot">
           <h3 class="skillgroup__title">Core skills</h3>
           <div class="tags">
             <span class="tag">Data Analysis &amp; Modeling</span>
@@ -232,7 +233,7 @@
             <span class="tag">Technical Documentation</span>
           </div>
         </div>
-        <div class="skillgroup">
+        <div class="skillgroup fx-spot">
           <h3 class="skillgroup__title">Tools &amp; platforms</h3>
           <div class="tags">
             <span class="tag">Python</span>
@@ -249,22 +250,22 @@
     </section>
 
     <!-- LANGUAGES -->
-    <section class="container section reveal">
+    <section class="container section reveal" data-num="05">
       <div class="section__head">
         <span class="kicker"><span class="kicker__num">05</span> Languages</span>
         <h2 class="h-section">Three languages, zero friction.</h2>
       </div>
 
       <div class="langs">
-        <div class="lang">
+        <div class="lang fx-spot">
           <span class="lang__name">Arabic</span>
           <span class="lang__level">Native</span>
         </div>
-        <div class="lang">
+        <div class="lang fx-spot">
           <span class="lang__name">English</span>
           <span class="lang__level">Fluent</span>
         </div>
-        <div class="lang">
+        <div class="lang fx-spot">
           <span class="lang__name">German</span>
           <span class="lang__level">Fluent</span>
         </div>
@@ -272,7 +273,7 @@
     </section>
 
     <!-- VOLUNTEERING & AWARDS -->
-    <section class="container section reveal">
+    <section class="container section reveal" data-num="06">
       <div class="section__head">
         <span class="kicker"><span class="kicker__num">06</span> Volunteering &amp; Awards</span>
         <h2 class="h-section">Beyond the job description.</h2>
@@ -296,7 +297,7 @@
 
     <!-- CTA -->
     <section class="container section reveal">
-      <div class="cta">
+      <div class="cta fx-spot">
         <span class="kicker kicker--bare">Next step</span>
         <h2 class="cta__title">The full story fits on two pages.</h2>
         <p class="cta__text">The CV is available in English and German — generated straight from this site, always up to date.</p>
@@ -342,5 +343,6 @@
   </button>
 
   <script src="../scripts/main.js"></script>
+  <script src="../scripts/fx.js"></script>
 </body>
 </html>

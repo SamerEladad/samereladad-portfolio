@@ -31,6 +31,11 @@
   --grid-line: rgba(255,255,255,.028);
   --photo-tint: rgba(10,13,18,.55);
 
+  /* gradient trio — used for aurora, gradient text, primary buttons */
+  --grad-a: #5c9bff;
+  --grad-b: #8b5cf6;
+  --grad-c: #22d3ee;
+
   /* ── Type ──────────────────────────────────────────────────────────── */
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-display: "Inter Tight", var(--font-sans);
@@ -71,6 +76,10 @@ body.light-theme{
 
   --grid-line: rgba(16,24,40,.035);
   --photo-tint: rgba(246,247,249,.28);
+
+  --grad-a: #2563eb;
+  --grad-b: #7c3aed;
+  --grad-c: #0891b2;
 }
 
 /* ── Reset ───────────────────────────────────────────────────────────── */
@@ -117,6 +126,51 @@ button{ font-family:inherit; }
   position:absolute;
   inset:0;
   background: radial-gradient(900px 480px at 50% -8%, var(--accent-dim), transparent 70%);
+}
+
+/* ── Aurora: slow-breathing gradient blobs ───────────────────────────── */
+.bg__aurora{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+.bg__aurora::before,
+.bg__aurora::after{
+  content:"";
+  position:absolute;
+  width: 46vw;
+  height: 46vw;
+  min-width: 480px;
+  min-height: 480px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .16;
+  will-change: transform;
+}
+.bg__aurora::before{
+  top: -18vw;
+  left: -8vw;
+  background: radial-gradient(circle at 35% 35%, var(--grad-a), transparent 65%);
+  animation: aurora-a 26s ease-in-out infinite alternate;
+}
+.bg__aurora::after{
+  top: -14vw;
+  right: -12vw;
+  background: radial-gradient(circle at 60% 40%, var(--grad-b), transparent 65%);
+  animation: aurora-b 34s ease-in-out infinite alternate;
+}
+body.light-theme .bg__aurora::before,
+body.light-theme .bg__aurora::after{ opacity: .10; }
+
+@keyframes aurora-a{
+  0%  { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(9vw, 6vh, 0) scale(1.18); }
+  100%{ transform: translate3d(-4vw, 12vh, 0) scale(.94); }
+}
+@keyframes aurora-b{
+  0%  { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(-10vw, 9vh, 0) scale(1.12); }
+  100%{ transform: translate3d(5vw, -4vh, 0) scale(1.02); }
 }
 
 /* ── Layout primitives ───────────────────────────────────────────────── */
@@ -187,8 +241,46 @@ button{ font-family:inherit; }
 .muted{ color: var(--text-2); }
 .mono{ font-family: var(--font-mono); }
 
-/* accent word inside display headline */
-.h-display .tint{ color: var(--accent); }
+/* accent word inside display headline — animated gradient ink */
+.h-display .tint{
+  background: linear-gradient(90deg, var(--grad-a), var(--grad-b), var(--grad-c), var(--grad-a));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: grad-shift 9s linear infinite;
+}
+@keyframes grad-shift{
+  to{ background-position: 300% 0; }
+}
+
+/* registered angle for rotating conic borders */
+@property --ga{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin-angle{
+  to{ --ga: 360deg; }
+}
+
+/* staggered word reveal (applied by fx.js to [data-split]) */
+[data-split] .w{
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(22px);
+  filter: blur(10px);
+  animation: word-in .7s var(--ease) forwards;
+  animation-delay: calc(var(--i, 0) * 65ms + 120ms);
+}
+@keyframes word-in{
+  to{ opacity:1; transform:none; filter:blur(0); }
+}
+/* a gradient word needs both its reveal and its ink animation */
+[data-split] .tint.w{
+  animation: word-in .7s var(--ease) forwards, grad-shift 9s linear infinite;
+  animation-delay: calc(var(--i, 0) * 65ms + 120ms), 0s;
+}
 
 /* allow selection everywhere except obvious chrome */
 input, textarea, select{ user-select:text; -webkit-user-select:text; }
@@ -196,12 +288,14 @@ input, textarea, select{ user-select:text; -webkit-user-select:text; }
 /* ── Motion: reveal on scroll ────────────────────────────────────────── */
 .reveal{
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity .7s var(--ease), transform .7s var(--ease);
+  transform: translateY(20px);
+  filter: blur(8px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease), filter .8s var(--ease);
 }
 .reveal.is-visible{
   opacity: 1;
   transform: none;
+  filter: blur(0);
 }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior:auto; }
