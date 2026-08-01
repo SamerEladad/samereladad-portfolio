@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Projects  -  Samer Eladad</title>
+  <title>Projects - Samer Eladad</title>
   <meta name="description" content="Portfolio of projects by Samer Eladad including AI documentation automation at Mercedes-Benz, ML-powered streaming analytics, secure cryptocurrency applications, and web development." />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="../styles/base.css" as="style" />
-  <link rel="preload" href="../styles/components.css" as="style" />
-  <link rel="preload" href="../scripts/main.js" as="script" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Inter+Tight:wght@500..800&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/components.css" />
@@ -27,7 +27,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Samer Eladad" />
   <meta property="og:url" content="https://samereladad.cv/projects/" />
-  <meta property="og:title" content="Projects  -  Samer Eladad" />
+  <meta property="og:title" content="Projects - Samer Eladad" />
   <meta property="og:description" content="Portfolio of projects including AI documentation automation, ML-powered analytics, and software development." />
   <meta property="og:image" content="https://samereladad.cv/assets/images/banner-og.jpg" />
   <meta property="og:image:secure_url" content="https://samereladad.cv/assets/images/banner-og.jpg" />
@@ -36,22 +36,21 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Samer Eladad - Solutions Engineer" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Projects  -  Samer Eladad" />
+  <meta name="twitter:title" content="Projects - Samer Eladad" />
   <meta name="twitter:description" content="Portfolio of projects including AI documentation automation, ML-powered analytics, and software development." />
   <meta name="twitter:image" content="https://samereladad.cv/assets/images/banner-og.jpg" />
 </head>
 
 <body>
   <div class="bg" aria-hidden="true">
-    <div class="bg__glow bg__glow--a"></div>
-    <div class="bg__glow bg__glow--b"></div>
-    <div class="bg__noise"></div>
+    <div class="bg__grid"></div>
+    <div class="bg__glow"></div>
   </div>
 
   <header class="header">
     <div class="container header__inner">
       <a class="brand" href="../" aria-label="Go to Home">
-        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__mark" aria-hidden="true">SE</span>
         <span class="brand__text">Samer Eladad</span>
       </a>
 
@@ -64,242 +63,199 @@
 
       <div class="header__actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <span class="theme-toggle__icon">🌙</span>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <a class="btn btn--ghost" href="../resume/">
-          📄 Printable CV
+        <a class="btn btn--ghost btn--cv" href="../resume/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span class="btn__label">CV</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Parallax Hero Banner -->
-  <div class="parallax-banner" aria-hidden="true">
-    <picture>
-      <source media="(max-width: 768px)" srcset="../assets/images/mobile-event-banner2-21-9.jpg" />
-      <img class="parallax-banner__img" src="../assets/images/event-banner2-21-9.jpg" alt="" />
-    </picture>
-    <div class="parallax-banner__overlay"></div>
-  </div>
-
-  <!-- Spacer to push content below banner -->
-  <div class="banner-spacer"></div>
-
   <main class="page">
-    <div class="container">
-      <div class="stack stack--xl">
 
-        <section class="card card--glow reveal card--pad" data-tilt>
-          <h1 class="h1 gradient-title">Projects</h1>
-          <p class="lead">A collection of personal and professional projects I've built and worked on - from ERP implementations and AI-powered tools to serverless bots and full-stack applications.</p>
-        </section>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="page-hero__photo" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 768px)" srcset="../assets/images/mobile-event-banner2-21-9.jpg" />
+          <img src="../assets/images/event-banner2-21-9.jpg" alt="" />
+        </picture>
+      </div>
+      <div class="container page-hero__content reveal">
+        <span class="kicker"><span class="kicker__num">02</span> Projects</span>
+        <h1 class="h-display">Built, shipped, <span class="tint">running</span>.</h1>
+        <p class="lead">Personal and professional work — from ERP implementations and AI-powered tools to serverless bots and full-stack applications.</p>
+      </div>
+    </section>
 
-        <div class="projects-grid">
-          <a href="https://github.com/SamerEladad/ask-samer-content-engine" target="_blank" rel="noreferrer" class="project-card__link">
-            <article id="content-engine" class="project-card project-card--featured reveal" data-tilt>
-              <span class="project-card__tag">Latest</span>
-              <h2 class="project-card__title">AI Social Media Content Engine</h2>
-              <p class="project-card__company">Personal Project</p>
-              <p class="project-card__desc">Full-stack AI-powered content engine that transforms raw ideas into refined content angles and complete video blueprints using Google Gemini 2.5 Pro, with inline editing, status workflows, and drag-to-reorder.</p>
-              <div class="project-card__metrics">
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">React</span>
-                  <span class="project-card__metric-label">Frontend</span>
-                </div>
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">Gemini</span>
-                  <span class="project-card__metric-label">API</span>
-                </div>
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">Edge</span>
-                  <span class="project-card__metric-label">Deploy</span>
-                </div>
-              </div>
-              <div class="project-card__chips">
-                <span class="chip">TypeScript</span>
-                <span class="chip">Cloudflare Workers</span>
-                <span class="chip">SQLite</span>
-                <span class="chip">Tailwind CSS</span>
-              </div>
-            </article>
-          </a>
+    <!-- PROJECTS GRID -->
+    <section class="container section section--flush reveal">
+      <div class="projects-grid">
 
-          <a href="https://github.com/SamerEladad/wotd-telegram" target="_blank" rel="noreferrer" class="project-card__link">
-            <article id="wotd" class="project-card reveal" data-tilt>
-              <h2 class="project-card__title">Word of the Day Bot</h2>
-              <p class="project-card__company">Personal Project</p>
-              <p class="project-card__desc">Telegram bot for daily multilingual vocabulary delivery. Pairs two languagues with curated transliterations, contextual examples, and chapter-based learning - with automatic daily delivery and duplicate tracking.</p>
-              <div class="project-card__metrics">
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">JS</span>
-                  <span class="project-card__metric-label">Runtime</span>
-                </div>
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">Cloudflare KV</span>
-                  <span class="project-card__metric-label">Storage</span>
-                </div>
-              </div>
-              <div class="project-card__chips">
-                <span class="chip">Cloudflare Workers</span>
-                <span class="chip">Telegram API</span>
-                <span class="chip">Cron Triggers</span>
-              </div>
-            </article>
-          </a>
-
-          <article id="erp-go-live" class="project-card project-card--confidential reveal" data-tilt>
-            <span class="project-card__confidential-note">🔒 Source code unavailable - proprietary project</span>
-            <h2 class="project-card__title">ERP Go-Live & Rollout</h2>
-            <p class="project-card__company">Ei Electronics</p>
-            <p class="project-card__desc">Launched Dynamics 365 Business Central for a new Polish subsidiary - configuring core ERP processes, implementing Copilot Agents, OCR-based document scanning, and automating workflows across finance and customer support.</p>
-            <div class="project-card__metrics">
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">Business Central</span>
-                <span class="project-card__metric-label">ERP</span>
-              </div>
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">Copilot</span>
-                <span class="project-card__metric-label">AI Agents</span>
-              </div>
+        <a href="https://github.com/SamerEladad/ask-samer-content-engine" target="_blank" rel="noreferrer" class="project-link cell--wide">
+          <article id="content-engine" class="project-card project-card--featured">
+            <div class="project-card__meta">
+              <span><span class="flag">Latest</span> · Personal project</span>
+              <span class="project-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
             </div>
-            <div class="project-card__chips">
-              <span class="chip">Dynamics 365</span>
-              <span class="chip">Copilot Agents</span>
-              <span class="chip">OCR</span>
-              <span class="chip">REST APIs</span>
+            <h2 class="project-card__title">AI Social Media Content Engine</h2>
+            <p class="project-card__desc">Full-stack AI-powered content engine that transforms raw ideas into refined content angles and complete video blueprints using Google Gemini 2.5 Pro — with inline editing, status workflows, and drag-to-reorder.</p>
+            <div class="project-card__tags">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Gemini API</span>
+              <span class="tag">Cloudflare Workers</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Tailwind CSS</span>
             </div>
           </article>
+        </a>
 
-          <article id="power-bi-reporting" class="project-card project-card--confidential reveal" data-tilt>
-            <span class="project-card__confidential-note">🔒 Source code unavailable - proprietary project</span>
-            <h2 class="project-card__title">Automated Reporting & Data Modeling</h2>
-            <p class="project-card__company">Ei Electronics</p>
-            <p class="project-card__desc">Replaced manual weekly reports with an automated, dynamic Power BI solution - spanning the full analytics pipeline from data modeling and engineering to interactive dashboards integrated with Infor ERP data.</p>
-            <div class="project-card__metrics">
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">Reporting</span>
-                <span class="project-card__metric-label">Automation</span>
-              </div>
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">Power BI</span>
-                <span class="project-card__metric-label">Analytics</span>
-              </div>
+        <a href="https://github.com/SamerEladad/wotd-telegram" target="_blank" rel="noreferrer" class="project-link">
+          <article id="wotd" class="project-card">
+            <div class="project-card__meta">
+              <span>Personal project</span>
+              <span class="project-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
             </div>
-            <div class="project-card__chips">
-              <span class="chip">Power BI</span>
-              <span class="chip">Data Modeling</span>
-              <span class="chip">Data Engineering</span>
-              <span class="chip">Infor ERP</span>
+            <h2 class="project-card__title">Word of the Day Bot</h2>
+            <p class="project-card__desc">Telegram bot for daily multilingual vocabulary delivery. Pairs two languages with curated transliterations, contextual examples, and chapter-based learning — automatic daily delivery with duplicate tracking.</p>
+            <div class="project-card__tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Cloudflare KV</span>
+              <span class="tag">Telegram API</span>
+              <span class="tag">Cron Triggers</span>
             </div>
           </article>
+        </a>
 
-          <article id="ai-doc" class="project-card project-card--confidential reveal" data-tilt>
-            <span class="project-card__confidential-note">🔒 Source code unavailable - proprietary project</span>
-            <h2 class="project-card__title">AI Documentation Assistant</h2>
-            <p class="project-card__company">Mercedes-Benz</p>
-            <p class="project-card__desc">Developed an Azure AI prototype to automate and improve internal system documentation workflows in a large enterprise environment. Standardized project communication and task tracking using ServiceNow, Mural, and Jira.</p>
-            <div class="project-card__metrics">
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">Workflow</span>
-                <span class="project-card__metric-label">Automation</span>
-              </div>
-              <div class="project-card__metric">
-                <span class="project-card__metric-value">Azure AI</span>
-                <span class="project-card__metric-label">Prototype</span>
-              </div>
-            </div>
-            <div class="project-card__chips">
-              <span class="chip">Azure OpenAI</span>
-              <span class="chip">ServiceNow</span>
-            </div>
-          </article>
-
-          <a href="https://github.com/SamerEladad/Cinemalytics" target="_blank" rel="noreferrer" class="project-card__link">
-            <article id="cinemalytics" class="project-card reveal" data-tilt>
-              <h2 class="project-card__title">Cinemalytics</h2>
-              <p class="project-card__company">TechLabs Project</p>
-              <p class="project-card__desc">Machine learning platform helping film producers identify optimal streaming platforms using data-driven insights. Built with Python and SQL, combining analytics, ML, and visualization.</p>
-              <div class="project-card__metrics">
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">Python</span>
-                  <span class="project-card__metric-label">Full Stack</span>
-                </div>
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">SQL</span>
-                  <span class="project-card__metric-label">Data</span>
-                </div>
-              </div>
-              <div class="project-card__chips">
-                <span class="chip">Machine Learning</span>
-                <span class="chip">Data Visualization</span>
-              </div>
-            </article>
-          </a>
-
-          <a href="https://github.com/SamerEladad/Bitcoin-Wallet" target="_blank" rel="noreferrer" class="project-card__link">
-            <article id="wallet" class="project-card reveal" data-tilt>
-              <h2 class="project-card__title">Bitcoin Wallet</h2>
-              <p class="project-card__company">University Project</p>
-              <p class="project-card__desc">Secure Bitcoin wallet developed as a university project with a focus on cryptographic key management and transaction safety. Implemented core wallet functionality using Java with an emphasis on security best practices.</p>
-              <div class="project-card__metrics">
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">Java</span>
-                  <span class="project-card__metric-label">Full Stack</span>
-                </div>
-              </div>
-              <div class="project-card__chips">
-                <span class="chip">Cryptography</span>
-                <span class="chip">Security</span>
-              </div>
-            </article>
-          </a>
-
-          <a href="https://github.com/SamerEladad/myTranslate" target="_blank" rel="noreferrer" class="project-card__link">
-            <article id="mytranslate" class="project-card reveal" data-tilt>
-              <h2 class="project-card__title">myTRANSLATE</h2>
-              <p class="project-card__company">University Project</p>
-              <p class="project-card__desc">Web application enabling researchers to request expert translations for scientific documents. Built with JavaScript, focusing on responsive design and REST-based communication.</p>
-              <div class="project-card__metrics">
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">JS</span>
-                  <span class="project-card__metric-label">Frontend</span>
-                </div>
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">HTML</span>
-                  <span class="project-card__metric-label">Structure</span>
-                </div>
-                <div class="project-card__metric">
-                  <span class="project-card__metric-value">CSS</span>
-                  <span class="project-card__metric-label">Styling</span>
-                </div>
-              </div>
-              <div class="project-card__chips">
-                <span class="chip">REST API</span>
-                <span class="chip">Responsive Design</span>
-              </div>
-            </article>
-          </a>
-        </div>
-
-        <footer class="footer reveal">
-          <div class="footer__inner">
-            <span class="muted">© <span id="year"></span> Samer Eladad</span>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="../">Home</a>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="../about/">About</a>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="../contact/">Contact</a>
+        <article id="erp-go-live" class="project-card">
+          <div class="project-card__meta">
+            <span>Ei Electronics</span>
+            <span>[ Proprietary ]</span>
           </div>
-        </footer>
+          <h2 class="project-card__title">ERP Go-Live &amp; Rollout</h2>
+          <p class="project-card__desc">Launched Dynamics 365 Business Central for a new Polish subsidiary — configuring core ERP processes, implementing Copilot Agents, OCR-based document scanning, and automating workflows across finance and customer support.</p>
+          <div class="project-card__tags">
+            <span class="tag">Dynamics 365</span>
+            <span class="tag">Copilot Agents</span>
+            <span class="tag">OCR</span>
+            <span class="tag">REST APIs</span>
+          </div>
+        </article>
+
+        <article id="power-bi-reporting" class="project-card">
+          <div class="project-card__meta">
+            <span>Ei Electronics</span>
+            <span>[ Proprietary ]</span>
+          </div>
+          <h2 class="project-card__title">Automated Reporting &amp; Data Modeling</h2>
+          <p class="project-card__desc">Replaced manual weekly reports with an automated, dynamic Power BI solution — spanning the full analytics pipeline from data modeling and engineering to interactive dashboards integrated with Infor ERP data.</p>
+          <div class="project-card__tags">
+            <span class="tag">Power BI</span>
+            <span class="tag">Data Modeling</span>
+            <span class="tag">Data Engineering</span>
+            <span class="tag">Infor ERP</span>
+          </div>
+        </article>
+
+        <article id="ai-doc" class="project-card">
+          <div class="project-card__meta">
+            <span>Mercedes-Benz</span>
+            <span>[ Proprietary ]</span>
+          </div>
+          <h2 class="project-card__title">AI Documentation Assistant</h2>
+          <p class="project-card__desc">Azure AI prototype automating and improving internal system documentation workflows in a large enterprise environment. Standardized project communication and task tracking using ServiceNow, Mural, and Jira.</p>
+          <div class="project-card__tags">
+            <span class="tag">Azure OpenAI</span>
+            <span class="tag">ServiceNow</span>
+            <span class="tag">Jira</span>
+          </div>
+        </article>
+
+        <a href="https://github.com/SamerEladad/Cinemalytics" target="_blank" rel="noreferrer" class="project-link">
+          <article id="cinemalytics" class="project-card">
+            <div class="project-card__meta">
+              <span>TechLabs project</span>
+              <span class="project-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+            </div>
+            <h2 class="project-card__title">Cinemalytics</h2>
+            <p class="project-card__desc">Machine learning platform helping film producers identify optimal streaming platforms using data-driven insights. Built with Python and SQL, combining analytics, ML, and visualization.</p>
+            <div class="project-card__tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Data Visualization</span>
+            </div>
+          </article>
+        </a>
+
+        <a href="https://github.com/SamerEladad/Bitcoin-Wallet" target="_blank" rel="noreferrer" class="project-link">
+          <article id="wallet" class="project-card">
+            <div class="project-card__meta">
+              <span>University project</span>
+              <span class="project-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+            </div>
+            <h2 class="project-card__title">Bitcoin Wallet</h2>
+            <p class="project-card__desc">Secure Bitcoin wallet with a focus on cryptographic key management and transaction safety. Core wallet functionality implemented in Java with an emphasis on security best practices.</p>
+            <div class="project-card__tags">
+              <span class="tag">Java</span>
+              <span class="tag">Cryptography</span>
+              <span class="tag">Security</span>
+            </div>
+          </article>
+        </a>
+
+        <a href="https://github.com/SamerEladad/myTranslate" target="_blank" rel="noreferrer" class="project-link">
+          <article id="mytranslate" class="project-card">
+            <div class="project-card__meta">
+              <span>University project</span>
+              <span class="project-card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+            </div>
+            <h2 class="project-card__title">myTRANSLATE</h2>
+            <p class="project-card__desc">Web application enabling researchers to request expert translations for scientific documents. Built with JavaScript, focusing on responsive design and REST-based communication.</p>
+            <div class="project-card__tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">REST API</span>
+              <span class="tag">Responsive Design</span>
+            </div>
+          </article>
+        </a>
 
       </div>
-    </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container footer">
+      <div class="footer__inner">
+        <span class="footer__brand">© <span id="year"></span> Samer Eladad — Duisburg, DE</span>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a class="footer__link" href="../">Home</a>
+          <a class="footer__link" href="../about/">About</a>
+          <a class="footer__link" href="../contact/">Contact</a>
+          <a class="footer__link" href="../resume/">CV</a>
+        </nav>
+        <div class="footer__social">
+          <a class="footer__icon" href="https://github.com/samereladad" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13v3.16c0 .31.21.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+          <a class="footer__icon" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </a>
+          <a class="footer__icon" href="mailto:samer.eladad@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
   </main>
 
-  <!-- Scroll to top button -->
+  <!-- Scroll to top -->
   <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
-    <span class="scroll-to-top__icon">↑</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
   </button>
 
   <script src="../scripts/main.js"></script>

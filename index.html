@@ -6,11 +6,10 @@
   <title>Samer Eladad - Solutions Engineer</title>
   <meta name="description" content="Solutions Engineer specializing in ERP systems, data engineering, Power BI, and process automation. Based in Germany with experience at Mercedes-Benz, Ei Electronics, and METRO Markets." />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="./styles/base.css" as="style" />
-  <link rel="preload" href="./styles/components.css" as="style" />
-  <link rel="preload" href="./scripts/main.js" as="script" />
-  <link rel="preload" href="./assets/images/headshot.jpg" as="image" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Inter+Tight:wght@500..800&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./styles/base.css" />
   <link rel="stylesheet" href="./styles/components.css" />
@@ -86,26 +85,16 @@
   </script>
 </head>
 
-<body style="--page-texture: url('./assets/images/event-banner-21-9.jpg');">
+<body>
   <div class="bg" aria-hidden="true">
-    <div class="bg__glow bg__glow--a"></div>
-    <div class="bg__glow bg__glow--b"></div>
-    <div class="bg__noise"></div>
-  </div>
-
-  <!-- Parallax Hero Banner -->
-  <div class="parallax-banner" aria-hidden="true">
-    <picture>
-      <source media="(max-width: 768px)" srcset="./assets/images/mobile-event-banner-21-9.jpg" />
-      <img class="parallax-banner__img" src="./assets/images/event-banner-21-9.jpg" alt="" />
-    </picture>
-    <div class="parallax-banner__overlay"></div>
+    <div class="bg__grid"></div>
+    <div class="bg__glow"></div>
   </div>
 
   <header class="header">
     <div class="container header__inner">
       <a class="brand" href="./" aria-label="Go to Home">
-        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__mark" aria-hidden="true">SE</span>
         <span class="brand__text">Samer Eladad</span>
       </a>
 
@@ -118,224 +107,234 @@
 
       <div class="header__actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <span class="theme-toggle__icon">🌙</span>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <a class="btn btn--ghost" href="./resume/">
-          📄 Printable CV
+        <a class="btn btn--ghost btn--cv" href="./resume/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span class="btn__label">CV</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Spacer to push content below banner -->
-  <div class="banner-spacer"></div>
-
   <main class="page">
-    <div class="container">
-      <div class="stack stack--xl">
 
-        <!-- HERO with animated gradient border -->
-        <section class="card card--glow reveal" data-tilt>
-          <div class="hero">
-            <div class="hero__photo">
-              <div class="media hero__square hero__square--float">
-                <img
-                  src="./assets/images/headshot.jpg"
-                  alt="Portrait of Samer Eladad"
-                  class="hero__img"
-                  loading="eager"
-                />
-                <div class="hero__photo-glow"></div>
-              </div>
-            </div>
+    <!-- HERO -->
+    <section class="container hero">
+      <div class="hero__content reveal">
+        <span class="hero__status">
+          <span class="hero__status-dot" aria-hidden="true"></span>
+          Solutions Engineer @ Ei Electronics
+        </span>
 
-            <div>
-              <h1 class="h1 hero__title">Solutions Engineer</h1>
-              <p class="lead">
-                I design scalable solutions across ERP systems, data engineering, and process automation-delivering business impact through clear ownership and cross-functional collaboration.
-              </p>
+        <h1 class="h-display">I build the <span class="tint">systems</span> that keep business running.</h1>
 
-              <div class="hero__actions">
-                <a class="btn btn--primary" href="./contact/">Get in touch</a>
-                <a class="btn btn--ghost" href="./projects/">View projects</a>
-              </div>
+        <p class="lead">
+          ERP platforms, data pipelines, dashboards, and automation — designed end-to-end and delivered with clear ownership. I bridge the gap between what the business needs and what technology can do.
+        </p>
 
-              <div class="chips" aria-label="Core competencies">
-                <span class="chip">ERP Systems</span>
-                <span class="chip">Data Engineering</span>
-                <span class="chip">Power BI</span>
-                <span class="chip">Process Automation</span>
-                <span class="chip">AI Prototyping</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="./contact/">
+            Get in touch
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="./projects/">View projects</a>
+        </div>
 
-        <!-- ANIMATED STATS -->
-        <section class="stats-row reveal">
-          <div class="stat" data-tilt>
-            <span class="stat__number" data-count="4">0</span><span class="stat__suffix">+</span>
-            <span class="stat__label">Years Experience</span>
-          </div>
-          <div class="stat" data-tilt>
-            <span class="stat__number" data-count="8">0</span><span class="stat__suffix">+</span>
-            <span class="stat__label">Markets Served</span>
-          </div>
-          <div class="stat" data-tilt>
-            <span class="stat__number" data-count="6">0</span><span class="stat__suffix">+</span>
-            <span class="stat__label">Projects Shipped</span>
-          </div>
-          <div class="stat" data-tilt>
-            <span class="stat__number" data-count="3">0</span><span class="stat__suffix"></span>
-            <span class="stat__label">ERP Systems Managed</span>
-          </div>
-        </section>
-
-        <!-- VALUE -->
-        <section class="card reveal card--pad" data-tilt>
-          <h2 class="h2">What I bring to the table</h2>
-          <p class="lead">
-            Business Informatics gave me a dual perspective-technical depth and business acumen. I connect systems, teams, and processes to deliver results that matter.
-          </p>
-
-          <div class="grid2" style="margin-top:14px;">
-            <div class="panel">
-              <div class="panel__title">Problem-Solving & Systems Thinking</div>
-              <ul class="bullets">
-                <li><strong>End-to-end visibility:</strong> I understand how ERP, data pipelines, reporting, and automation interconnect-allowing me to identify root causes, not just symptoms.</li>
-                <li><strong>Business-technical bridge:</strong> I translate requirements between stakeholders and developers, ensuring alignment and reducing miscommunication.</li>
-                <li><strong>Ownership-driven:</strong> I proactively identify gaps and drive initiatives from problem definition through implementation.</li>
-              </ul>
-            </div>
-
-            <div class="panel">
-              <div class="panel__title">Adaptability & Execution</div>
-              <ul class="bullets">
-                <li><strong>Productive from day one:</strong> Took over ERP ownership on short notice and managed the launch of an international subsidiary within my first year.</li>
-                <li><strong>Comfortable with challenges:</strong> I thrive when the path isn't clear. New tools, new industries, undefined problems-I figure it out and deliver.</li>
-                <li><strong>Business-wide perspective:</strong> Finance, logistics, e-commerce, manufacturing-I see how the whole machine works, not just my part of it.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- BRANDS -->
-        <section class="card reveal card--pad" data-tilt>
-          <h2 class="h2">Where I've delivered impact</h2>
-          <p class="lead">
-            International experience across automotive, electronics, and e-commerce-building solutions that scale.
-          </p>
-
-          <div class="company-grid" style="margin-top:18px;">
-            <div class="company-card company-card--featured" data-tilt>
-              <div class="company-card__logo">
-                <img src="./assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
-              </div>
-              <div class="company-card__info">
-                <span class="company-card__role">Solutions Engineer</span>
-                <span class="company-card__name">Ei Electronics</span>
-                <span class="company-card__period">Dec 2024 - Present</span>
-              </div>
-              <div class="company-card__tag">Current</div>
-            </div>
-
-            <div class="company-card" data-tilt>
-              <div class="company-card__logo">
-                <img src="./assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
-              </div>
-              <div class="company-card__info">
-                <span class="company-card__role">Intern & Bachelor Thesis</span>
-                <span class="company-card__name">Mercedes-Benz</span>
-                <span class="company-card__period">Oct 2023 - Sep 2024</span>
-              </div>
-            </div>
-
-            <div class="company-card" data-tilt>
-              <div class="company-card__logo">
-                <img src="./assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
-              </div>
-              <div class="company-card__info">
-                <span class="company-card__role">Working Student</span>
-                <span class="company-card__name">METRO Markets</span>
-                <span class="company-card__period">Mar 2022 - Sep 2023</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- HIGHLIGHTS -->
-        <section class="reveal">
-          <div class="section-header" style="margin-bottom:18px;">
-            <h2 class="h2">Key achievements</h2>
-          </div>
-
-          <div class="impact-grid">
-            <div class="impact-card impact-card--hero" data-tilt>
-              <span class="impact-card__label">Ei Electronics</span>
-              <div class="impact-card__metric">
-                <span class="impact-card__number" data-count="3">0</span>
-                <span class="impact-card__unit">ERP systems</span>
-              </div>
-              <p class="impact-card__desc">Primary internal technical contact for ERP operations across three entities, including Dynamics 365 setup and international go-live support.</p>
-            </div>
-
-            <div class="impact-card" data-tilt>
-              <span class="impact-card__label">Mercedes-Benz</span>
-              <div class="impact-card__metric">
-                <span class="impact-card__number" data-count="25">0</span><span class="impact-card__percent">%</span>
-                <span class="impact-card__unit">Time saved</span>
-              </div>
-              <p class="impact-card__desc">Through AI-supported documentation workflows.</p>
-            </div>
-
-            <div class="impact-card" data-tilt>
-              <span class="impact-card__label">METRO Markets</span>
-              <div class="impact-card__metric">
-                <span class="impact-card__number" data-count="5">0</span>
-                <span class="impact-card__unit">countries expanded</span>
-              </div>
-              <p class="impact-card__desc">BI dashboards supporting market expansion across Europe.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta reveal" data-tilt>
-          <div class="cta__content">
-            <h2 class="cta__title">Let's build something together</h2>
-            <p class="cta__text">
-              Looking for someone who can bridge business and technology? Let's talk.
-            </p>
-            <div class="cta__actions">
-              <a class="btn btn--primary btn--lg" href="./contact/">Get in touch</a>
-              <a class="btn btn--ghost btn--lg" href="./projects/">View projects</a>
-            </div>
-          </div>
-          <div class="cta__decoration" aria-hidden="true">
-            <div class="cta__orb cta__orb--1"></div>
-            <div class="cta__orb cta__orb--2"></div>
-          </div>
-        </section>
-
-        <footer class="footer reveal">
-          <div class="footer__inner">
-            <span class="muted">© <span id="year"></span> Samer Eladad</span>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="./projects/">Projects</a>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="./about/">About</a>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="./contact/">Contact</a>
-          </div>
-        </footer>
-
+        <div class="tags" aria-label="Core competencies">
+          <span class="tag">ERP Systems</span>
+          <span class="tag">Data Engineering</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Process Automation</span>
+          <span class="tag">AI Prototyping</span>
+        </div>
       </div>
-    </div>
+
+      <figure class="hero__figure reveal">
+        <div class="hero__frame">
+          <img src="./assets/images/headshot.jpg" alt="Portrait of Samer Eladad" loading="eager" />
+        </div>
+        <figcaption class="hero__figcaption">Duisburg, DE — 51.43°N</figcaption>
+      </figure>
+    </section>
+
+    <!-- STATS -->
+    <section class="container reveal" aria-label="Key numbers">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat__value"><span data-count="4">0</span><span class="suffix">+</span></span>
+          <span class="stat__label">Years experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value"><span data-count="8">0</span><span class="suffix">+</span></span>
+          <span class="stat__label">Markets served</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value"><span data-count="6">0</span><span class="suffix">+</span></span>
+          <span class="stat__label">Projects shipped</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value"><span data-count="3">0</span></span>
+          <span class="stat__label">ERP systems managed</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT I DO -->
+    <section class="container section reveal">
+      <div class="section__head">
+        <span class="kicker"><span class="kicker__num">01</span> What I do</span>
+        <h2 class="h-section">Two perspectives, one job: make it work.</h2>
+        <p class="lead">Business Informatics gave me a dual lens — technical depth and business acumen. I connect systems, teams, and processes to deliver results that matter.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <span class="feature__num">/01</span>
+          <h3 class="feature__title">End-to-end systems thinking</h3>
+          <p class="feature__desc">ERP, data pipelines, reporting, and automation are one interconnected machine. Seeing the whole of it lets me fix root causes, not symptoms.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__num">/02</span>
+          <h3 class="feature__title">The business–technical bridge</h3>
+          <p class="feature__desc">I translate requirements between stakeholders and developers — keeping both sides aligned and cutting the cost of miscommunication.</p>
+        </div>
+        <div class="feature">
+          <span class="feature__num">/03</span>
+          <h3 class="feature__title">Ownership &amp; execution</h3>
+          <p class="feature__desc">Took over ERP responsibility on short notice and managed an international go-live within my first year. Undefined problems are where I do my best work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="container section reveal">
+      <div class="section__head">
+        <span class="kicker"><span class="kicker__num">02</span> Experience</span>
+        <h2 class="h-section">Where I've delivered.</h2>
+        <p class="lead">International work across automotive, electronics, and e-commerce — building solutions that scale.</p>
+      </div>
+
+      <div class="xp">
+        <div class="xp__row">
+          <div class="xp__logo"><img src="./assets/logos/ei-electronics.png" alt="Ei Electronics logo" loading="lazy" /></div>
+          <div class="xp__who">
+            <span class="xp__company">Ei Electronics</span>
+            <span class="xp__role">Solutions Engineer</span>
+            <span class="xp__badge">Current</span>
+          </div>
+          <p class="xp__desc">Primary technical contact for ERP operations across three entities — Infor and Dynamics 365 — including an international subsidiary go-live, Power BI reporting, and workflow automation.</p>
+          <span class="xp__period">2024 — now</span>
+        </div>
+
+        <div class="xp__row">
+          <div class="xp__logo"><img src="./assets/logos/mercedes-benz.png" alt="Mercedes-Benz logo" loading="lazy" /></div>
+          <div class="xp__who">
+            <span class="xp__company">Mercedes-Benz</span>
+            <span class="xp__role">Intern &amp; Bachelor Thesis</span>
+          </div>
+          <p class="xp__desc">Built an Azure AI prototype automating internal system documentation workflows; standardized project communication across ServiceNow, Mural, and Jira.</p>
+          <span class="xp__period">2023 — 24</span>
+        </div>
+
+        <div class="xp__row">
+          <div class="xp__logo"><img src="./assets/logos/metro.png" alt="METRO Markets logo" loading="lazy" /></div>
+          <div class="xp__who">
+            <span class="xp__company">METRO Markets</span>
+            <span class="xp__role">Working Student — BI</span>
+          </div>
+          <p class="xp__desc">Power BI dashboards supporting ERP and process readiness for marketplace expansion across five European countries.</p>
+          <span class="xp__period">2022 — 23</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="container section reveal">
+      <div class="section__head">
+        <span class="kicker"><span class="kicker__num">03</span> Impact</span>
+        <h2 class="h-section">Results you can count.</h2>
+      </div>
+
+      <div class="metrics">
+        <div class="metric-card">
+          <span class="metric-card__org">Ei Electronics</span>
+          <div class="metric-card__value"><span data-count="3">0</span><span class="unit">ERP systems</span></div>
+          <p class="metric-card__desc">Primary internal technical contact for ERP operations across three entities, including Dynamics 365 setup and international go-live support.</p>
+        </div>
+        <div class="metric-card">
+          <span class="metric-card__org">Mercedes-Benz</span>
+          <div class="metric-card__value"><span data-count="25">0</span>%<span class="unit">time saved</span></div>
+          <p class="metric-card__desc">Documentation effort reduced through AI-supported workflows built on Azure OpenAI.</p>
+        </div>
+        <div class="metric-card">
+          <span class="metric-card__org">METRO Markets</span>
+          <div class="metric-card__value"><span data-count="5">0</span><span class="unit">countries</span></div>
+          <p class="metric-card__desc">BI dashboards supporting marketplace expansion across Italy, Spain, Portugal, the Netherlands, and France.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY PHOTO BAND -->
+    <section class="container section reveal">
+      <div class="photoband">
+        <picture>
+          <source media="(max-width: 768px)" srcset="./assets/images/mobile-event-banner-21-9.jpg" />
+          <img src="./assets/images/event-banner-21-9.jpg" alt="Samer speaking at a tech community event" loading="lazy" />
+        </picture>
+        <div class="photoband__caption">
+          <span>// off the clock — talks, meetups &amp; tech community</span>
+          <span class="dim">TechLabs · Düsseldorf</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container section reveal">
+      <div class="cta">
+        <span class="kicker kicker--bare">Open to conversations</span>
+        <h2 class="cta__title">Let's build something together.</h2>
+        <p class="cta__text">Looking for someone who can bridge business and technology? I'd like to hear what you're working on.</p>
+        <div class="cta__actions">
+          <a class="btn btn--primary btn--lg" href="./contact/">
+            Get in touch
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="./resume/">View CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container footer">
+      <div class="footer__inner">
+        <span class="footer__brand">© <span id="year"></span> Samer Eladad — Duisburg, DE</span>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a class="footer__link" href="./projects/">Projects</a>
+          <a class="footer__link" href="./about/">About</a>
+          <a class="footer__link" href="./contact/">Contact</a>
+          <a class="footer__link" href="./resume/">CV</a>
+        </nav>
+        <div class="footer__social">
+          <a class="footer__icon" href="https://github.com/samereladad" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13v3.16c0 .31.21.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+          <a class="footer__icon" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </a>
+          <a class="footer__icon" href="mailto:samer.eladad@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
   </main>
 
-  <!-- Scroll to top button -->
+  <!-- Scroll to top -->
   <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
-    <span class="scroll-to-top__icon">↑</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
   </button>
 
   <script src="./scripts/main.js"></script>

@@ -6,10 +6,10 @@
   <title>About - Samer Eladad</title>
   <meta name="description" content="Business Informatics graduate and Solutions Engineer with experience in ERP systems (Infor, Dynamics 365), Power BI, data engineering, and AI prototyping. Based in Duisburg, Germany." />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="../styles/base.css" as="style" />
-  <link rel="preload" href="../styles/components.css" as="style" />
-  <link rel="preload" href="../scripts/main.js" as="script" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Inter+Tight:wght@500..800&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/components.css" />
@@ -43,15 +43,14 @@
 
 <body>
   <div class="bg" aria-hidden="true">
-    <div class="bg__glow bg__glow--a"></div>
-    <div class="bg__glow bg__glow--b"></div>
-    <div class="bg__noise"></div>
+    <div class="bg__grid"></div>
+    <div class="bg__glow"></div>
   </div>
 
   <header class="header">
     <div class="container header__inner">
       <a class="brand" href="../" aria-label="Go to Home">
-        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__mark" aria-hidden="true">SE</span>
         <span class="brand__text">Samer Eladad</span>
       </a>
 
@@ -64,279 +63,282 @@
 
       <div class="header__actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <span class="theme-toggle__icon">🌙</span>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <a class="btn btn--ghost" href="../resume/">
-          📄 Printable CV
+        <a class="btn btn--ghost btn--cv" href="../resume/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span class="btn__label">CV</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Parallax Hero Banner -->
-  <div class="parallax-banner" aria-hidden="true">
-    <picture>
-      <source media="(max-width: 768px)" srcset="../assets/images/mobile-event-banner3-21-9.jpg" />
-      <img class="parallax-banner__img" src="../assets/images/event-banner3-21-9.jpg" alt="" />
-    </picture>
-    <div class="parallax-banner__overlay"></div>
-  </div>
-
-  <!-- Spacer to push content below banner -->
-  <div class="banner-spacer"></div>
-
   <main class="page">
-    <div class="container">
-      <div class="stack stack--xl">
 
-        <section class="card card--glow reveal card--pad" data-tilt>
-          <h1 class="h1 gradient-title">About</h1>
-          <p class="lead">
-            Business Informatics graduate with hands-on experience in ERP systems, data engineering, and process automation. I design scalable solutions that improve operational efficiency and data visibility-bridging the gap between technical implementation and business impact.
-          </p>
-          <div class="chips" aria-label="Technical skills">
-            <span class="chip">Python</span>
-            <span class="chip">SQL</span>
-            <span class="chip">Power BI (DAX)</span>
-            <span class="chip">Infor / Dynamics 365</span>
-            <span class="chip">Azure OpenAI</span>
-            <span class="chip">API Integration</span>
-          </div>
-        </section>
-
-        <section class="card reveal card--pad" data-tilt>
-          <h2 class="h2">Experience</h2>
-          <p class="lead">
-            Track record of delivering measurable impact across international projects in automotive, electronics, and e-commerce.
-          </p>
-
-          <div class="stack" style="margin-top:20px;">
-            <div class="experience-entry">
-              <div class="experience-entry__logo">
-                <img src="../assets/logos/ei-electronics.png" alt="Ei Electronics" loading="lazy" />
-              </div>
-              <div class="experience-entry__content">
-                <div class="experience-entry__header">
-                  <span class="experience-entry__company">Ei Electronics</span>
-                  <span class="experience-entry__role">Solutions Engineer</span>
-                  <span class="experience-entry__period">Dec 2024 – Present</span>
-                </div>
-                <p class="experience-entry__desc">Manage and support Infor and Dynamics 365 ERP operations across three entities, coordinating setup and go-live activities for an international subsidiary as the primary internal technical contact. Design Power BI dashboards and automate business processes including OCR workflows.</p>
-              </div>
-            </div>
-
-            <div class="experience-entry">
-              <div class="experience-entry__logo">
-                <img src="../assets/logos/mercedes-benz.png" alt="Mercedes-Benz" loading="lazy" />
-              </div>
-              <div class="experience-entry__content">
-                <div class="experience-entry__header">
-                  <span class="experience-entry__company">Mercedes-Benz</span>
-                  <span class="experience-entry__role">Intern & Bachelor Thesis</span>
-                  <span class="experience-entry__period">Oct 2023 – Sep 2024</span>
-                </div>
-                <p class="experience-entry__desc">Developed an Azure AI prototype to automate and improve system documentation workflows. Standardized project communication and task tracking using ServiceNow, Mural, and Jira.</p>
-              </div>
-            </div>
-
-            <div class="experience-entry">
-              <div class="experience-entry__logo">
-                <img src="../assets/logos/metro.png" alt="METRO Markets" loading="lazy" />
-              </div>
-              <div class="experience-entry__content">
-                <div class="experience-entry__header">
-                  <span class="experience-entry__company">METRO Markets</span>
-                  <span class="experience-entry__role">Working Student - BI</span>
-                  <span class="experience-entry__period">Mar 2022 – Sep 2023</span>
-                </div>
-                <p class="experience-entry__desc">Built Power BI dashboards supporting ERP and process readiness for international operations in Italy, Spain, Portugal, Netherlands, and France. Supported seller and product analytics for a key customer through reporting, data-driven insights, and operational support.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="card reveal card--pad" data-tilt>
-          <h2 class="h2">Education</h2>
-
-          <div class="stack" style="margin-top:20px;">
-            <div class="experience-entry">
-              <div class="experience-entry__logo">
-                <img src="../assets/logos/hsbo.png" alt="Hochschule Bochum" loading="lazy" />
-              </div>
-              <div class="experience-entry__content">
-                <div class="experience-entry__header">
-                  <span class="experience-entry__company">Bochum University of Applied Sciences</span>
-                  <span class="experience-entry__role">B.Sc. Business Informatics</span>
-                  <span class="experience-entry__period">Oct 2021 – Oct 2024</span>
-                </div>
-                <p class="experience-entry__desc">Final Grade: 2.19 (Good) • Coursework: Data Science, Software Engineering, Python, Java, AI, Algorithms</p>
-              </div>
-            </div>
-
-            <div class="experience-entry">
-              <div class="experience-entry__logo">
-                <img src="../assets/logos/studienkolleg.png" alt="Rheinisches Studienkolleg" loading="lazy" />
-              </div>
-              <div class="experience-entry__content">
-                <div class="experience-entry__header">
-                  <span class="experience-entry__company">Rheinisches Studienkolleg</span>
-                  <span class="experience-entry__role">Business & Mathematics Preparatory</span>
-                  <span class="experience-entry__period">Jan 2017 – Nov 2017</span>
-                </div>
-                <p class="experience-entry__desc">Final Grade: 1.3 (Very Good)</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="card reveal card--pad" data-tilt>
-          <h2 class="h2">Certifications & Training</h2>
-
-          <div class="cert-grid">
-            <div class="cert-card">
-              <span class="cert-card__type">Certificate</span>
-              <span class="cert-card__title">Digital Shaper</span>
-              <span class="cert-card__focus">AI & Deep Learning</span>
-              <span class="cert-card__issuer">TechLabs</span>
-              <span class="cert-card__date">Sep 2024</span>
-            </div>
-            <div class="cert-card">
-              <span class="cert-card__type">Certificate</span>
-              <span class="cert-card__title">Digital Shaper</span>
-              <span class="cert-card__focus">Data Science</span>
-              <span class="cert-card__issuer">TechLabs</span>
-              <span class="cert-card__date">Apr 2024</span>
-            </div>
-            <div class="cert-card">
-              <span class="cert-card__type">Certificate</span>
-              <span class="cert-card__title">Full Stack Developer</span>
-              <span class="cert-card__focus">Nanodegree</span>
-              <span class="cert-card__issuer">Udacity</span>
-              <span class="cert-card__date">Aug 2018</span>
-            </div>
-            <div class="cert-card cert-card--workshop">
-              <span class="cert-card__type cert-card__type--workshop">Workshop</span>
-              <span class="cert-card__title">Dynamics 365 BC</span>
-              <span class="cert-card__focus">Business Central</span>
-              <span class="cert-card__issuer">Microsoft</span>
-              <span class="cert-card__date">2024</span>
-            </div>
-            <div class="cert-card cert-card--workshop">
-              <span class="cert-card__type cert-card__type--workshop">Workshop</span>
-              <span class="cert-card__title">AI Governance</span>
-              <span class="cert-card__focus">Ideation & Strategy</span>
-              <span class="cert-card__issuer">Corporate Training</span>
-              <span class="cert-card__date">2024</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="card reveal card--pad" data-tilt>
-          <h2 class="h2">Skills & Tools</h2>
-          <div class="grid2" style="margin-top:12px;">
-            <div>
-              <p style="font-weight:600; margin-bottom:8px;">Core Skills</p>
-              <div class="chips">
-                <span class="chip">Data Analysis & Modeling</span>
-                <span class="chip">Business Intelligence</span>
-                <span class="chip">Process Automation</span>
-                <span class="chip">ERP Integration</span>
-                <span class="chip">AI Prototyping</span>
-                <span class="chip">Technical Documentation</span>
-              </div>
-            </div>
-            <div>
-              <p style="font-weight:600; margin-bottom:8px;">Tools & Platforms</p>
-              <div class="chips">
-                <span class="chip">Python</span>
-                <span class="chip">SQL</span>
-                <span class="chip">Power BI (DAX)</span>
-                <span class="chip">Azure</span>
-                <span class="chip">REST APIs</span>
-                <span class="chip">Git</span>
-                <span class="chip">Jira</span>
-                <span class="chip">Confluence</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="card reveal card--pad" data-tilt>
-          <h2 class="h2">Languages</h2>
-          <div class="languages-grid">
-            <div class="language-card">
-              <div class="language-card__header">
-                <span class="language-card__flag">🇪🇬</span>
-                <span class="language-card__name">Arabic</span>
-              </div>
-              <span class="language-card__level">Native</span>
-              <div class="language-card__bar">
-                <div class="language-card__fill" style="width:100%"></div>
-              </div>
-            </div>
-            <div class="language-card">
-              <div class="language-card__header">
-                <span class="language-card__flag">🇬🇧</span>
-                <span class="language-card__name">English</span>
-              </div>
-              <span class="language-card__level">Fluent</span>
-              <div class="language-card__bar">
-                <div class="language-card__fill" style="width:100%"></div>
-              </div>
-            </div>
-            <div class="language-card">
-              <div class="language-card__header">
-                <span class="language-card__flag">🇩🇪</span>
-                <span class="language-card__name">German</span>
-              </div>
-              <span class="language-card__level">Fluent</span>
-              <div class="language-card__bar">
-                <div class="language-card__fill" style="width:95%"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="card reveal card--pad" data-tilt>
-          <h2 class="h2">Volunteering & Awards</h2>
-
-          <div class="cert-grid">
-            <div class="cert-card">
-              <span class="cert-card__type">Volunteer</span>
-              <span class="cert-card__title">Growth Acceleration Manager</span>
-              <span class="cert-card__focus">Events, Marketing & Partnerships</span>
-              <span class="cert-card__issuer">TechLabs Global</span>
-              <span class="cert-card__date">Jan 2024 – Jan 2025</span>
-            </div>
-            <div class="cert-card cert-card--award">
-              <span class="cert-card__type cert-card__type--award">Award</span>
-              <span class="cert-card__title">Robotics Race - 1st Place</span>
-              <span class="cert-card__focus">University-wide Competition</span>
-              <span class="cert-card__issuer">Hochschule Bochum</span>
-              <span class="cert-card__date">2021</span>
-            </div>
-          </div>
-        </section>
-
-        <footer class="footer reveal">
-          <div class="footer__inner">
-            <span class="muted">© <span id="year"></span> Samer Eladad</span>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="../">Home</a>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="../projects/">Projects</a>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="../contact/">Contact</a>
-          </div>
-        </footer>
-
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="page-hero__photo" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 768px)" srcset="../assets/images/mobile-event-banner3-21-9.jpg" />
+          <img src="../assets/images/event-banner3-21-9.jpg" alt="" />
+        </picture>
       </div>
-    </div>
+      <div class="container page-hero__content reveal">
+        <span class="kicker"><span class="kicker__num">03</span> About</span>
+        <h1 class="h-display">Systems, data, and the <span class="tint">people</span> in between.</h1>
+        <p class="lead">
+          Business Informatics graduate with hands-on experience in ERP systems, data engineering, and process automation. I design scalable solutions that improve operational efficiency and data visibility — bridging technical implementation and business impact.
+        </p>
+        <div class="tags" aria-label="Technical skills">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Power BI (DAX)</span>
+          <span class="tag">Infor / Dynamics 365</span>
+          <span class="tag">Azure OpenAI</span>
+          <span class="tag">API Integration</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE TIMELINE -->
+    <section class="container section reveal">
+      <div class="section__head">
+        <span class="kicker"><span class="kicker__num">01</span> Experience</span>
+        <h2 class="h-section">Track record.</h2>
+        <p class="lead">Measurable impact across international projects in automotive, electronics, and e-commerce.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item">
+          <span class="timeline__period">Dec 2024 —<br />Present</span>
+          <div class="timeline__logo"><img src="../assets/logos/ei-electronics.png" alt="Ei Electronics logo" loading="lazy" /></div>
+          <div class="timeline__body">
+            <span class="timeline__org">Ei Electronics</span>
+            <span class="timeline__role">Solutions Engineer</span>
+            <p class="timeline__desc">Manage and support Infor and Dynamics 365 ERP operations across three entities, coordinating setup and go-live activities for an international subsidiary as the primary internal technical contact. Design Power BI dashboards and automate business processes including OCR workflows.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <span class="timeline__period">Oct 2023 —<br />Sep 2024</span>
+          <div class="timeline__logo"><img src="../assets/logos/mercedes-benz.png" alt="Mercedes-Benz logo" loading="lazy" /></div>
+          <div class="timeline__body">
+            <span class="timeline__org">Mercedes-Benz</span>
+            <span class="timeline__role">Intern &amp; Bachelor Thesis</span>
+            <p class="timeline__desc">Developed an Azure AI prototype to automate and improve system documentation workflows. Standardized project communication and task tracking using ServiceNow, Mural, and Jira.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <span class="timeline__period">Mar 2022 —<br />Sep 2023</span>
+          <div class="timeline__logo"><img src="../assets/logos/metro.png" alt="METRO Markets logo" loading="lazy" /></div>
+          <div class="timeline__body">
+            <span class="timeline__org">METRO Markets</span>
+            <span class="timeline__role">Working Student — Business Intelligence</span>
+            <p class="timeline__desc">Built Power BI dashboards supporting ERP and process readiness for international operations in Italy, Spain, Portugal, the Netherlands, and France. Supported seller and product analytics for a key customer through reporting, data-driven insights, and operational support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="container section reveal">
+      <div class="section__head">
+        <span class="kicker"><span class="kicker__num">02</span> Education</span>
+        <h2 class="h-section">Foundation.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item">
+          <span class="timeline__period">Oct 2021 —<br />Oct 2024</span>
+          <div class="timeline__logo"><img src="../assets/logos/hsbo.png" alt="Hochschule Bochum logo" loading="lazy" /></div>
+          <div class="timeline__body">
+            <span class="timeline__org">Bochum University of Applied Sciences</span>
+            <span class="timeline__role">B.Sc. Business Informatics</span>
+            <p class="timeline__desc">Final grade: 2.19 (Good) · Coursework: Data Science, Software Engineering, Python, Java, AI, Algorithms.</p>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <span class="timeline__period">Jan 2017 —<br />Nov 2017</span>
+          <div class="timeline__logo"><img src="../assets/logos/studienkolleg.png" alt="Rheinisches Studienkolleg logo" loading="lazy" /></div>
+          <div class="timeline__body">
+            <span class="timeline__org">Rheinisches Studienkolleg</span>
+            <span class="timeline__role">Business &amp; Mathematics Preparatory</span>
+            <p class="timeline__desc">Final grade: 1.3 (Very Good).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="container section reveal">
+      <div class="section__head">
+        <span class="kicker"><span class="kicker__num">03</span> Certifications &amp; Training</span>
+        <h2 class="h-section">Always in training.</h2>
+      </div>
+
+      <div class="defrows">
+        <div class="defrow">
+          <span class="defrow__type">Certificate</span>
+          <span class="defrow__title">Digital Shaper <span class="focus">— AI &amp; Deep Learning</span></span>
+          <span class="defrow__issuer">TechLabs</span>
+          <span class="defrow__date">Sep 2024</span>
+        </div>
+        <div class="defrow">
+          <span class="defrow__type">Certificate</span>
+          <span class="defrow__title">Digital Shaper <span class="focus">— Data Science</span></span>
+          <span class="defrow__issuer">TechLabs</span>
+          <span class="defrow__date">Apr 2024</span>
+        </div>
+        <div class="defrow">
+          <span class="defrow__type">Certificate</span>
+          <span class="defrow__title">Full Stack Developer <span class="focus">— Nanodegree</span></span>
+          <span class="defrow__issuer">Udacity</span>
+          <span class="defrow__date">Aug 2018</span>
+        </div>
+        <div class="defrow">
+          <span class="defrow__type defrow__type--alt">Workshop</span>
+          <span class="defrow__title">Dynamics 365 <span class="focus">— Business Central</span></span>
+          <span class="defrow__issuer">Microsoft</span>
+          <span class="defrow__date">2024</span>
+        </div>
+        <div class="defrow">
+          <span class="defrow__type defrow__type--alt">Workshop</span>
+          <span class="defrow__title">AI Governance <span class="focus">— Ideation &amp; Strategy</span></span>
+          <span class="defrow__issuer">Corporate Training</span>
+          <span class="defrow__date">2024</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="container section reveal">
+      <div class="section__head">
+        <span class="kicker"><span class="kicker__num">04</span> Skills &amp; Tools</span>
+        <h2 class="h-section">The toolkit.</h2>
+      </div>
+
+      <div class="skillgroups">
+        <div class="skillgroup">
+          <h3 class="skillgroup__title">Core skills</h3>
+          <div class="tags">
+            <span class="tag">Data Analysis &amp; Modeling</span>
+            <span class="tag">Business Intelligence</span>
+            <span class="tag">Process Automation</span>
+            <span class="tag">ERP Integration</span>
+            <span class="tag">AI Prototyping</span>
+            <span class="tag">Technical Documentation</span>
+          </div>
+        </div>
+        <div class="skillgroup">
+          <h3 class="skillgroup__title">Tools &amp; platforms</h3>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Power BI (DAX)</span>
+            <span class="tag">Azure</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Git</span>
+            <span class="tag">Jira</span>
+            <span class="tag">Confluence</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section class="container section reveal">
+      <div class="section__head">
+        <span class="kicker"><span class="kicker__num">05</span> Languages</span>
+        <h2 class="h-section">Three languages, zero friction.</h2>
+      </div>
+
+      <div class="langs">
+        <div class="lang">
+          <span class="lang__name">Arabic</span>
+          <span class="lang__level">Native</span>
+        </div>
+        <div class="lang">
+          <span class="lang__name">English</span>
+          <span class="lang__level">Fluent</span>
+        </div>
+        <div class="lang">
+          <span class="lang__name">German</span>
+          <span class="lang__level">Fluent</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOLUNTEERING & AWARDS -->
+    <section class="container section reveal">
+      <div class="section__head">
+        <span class="kicker"><span class="kicker__num">06</span> Volunteering &amp; Awards</span>
+        <h2 class="h-section">Beyond the job description.</h2>
+      </div>
+
+      <div class="defrows">
+        <div class="defrow">
+          <span class="defrow__type">Volunteer</span>
+          <span class="defrow__title">Growth Acceleration Manager <span class="focus">— Events, Marketing &amp; Partnerships</span></span>
+          <span class="defrow__issuer">TechLabs Global</span>
+          <span class="defrow__date">2024 — 2025</span>
+        </div>
+        <div class="defrow">
+          <span class="defrow__type">Award</span>
+          <span class="defrow__title">Robotics Race — 1st Place <span class="focus">— University-wide competition</span></span>
+          <span class="defrow__issuer">Hochschule Bochum</span>
+          <span class="defrow__date">2021</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container section reveal">
+      <div class="cta">
+        <span class="kicker kicker--bare">Next step</span>
+        <h2 class="cta__title">The full story fits on two pages.</h2>
+        <p class="cta__text">The CV is available in English and German — generated straight from this site, always up to date.</p>
+        <div class="cta__actions">
+          <a class="btn btn--primary btn--lg" href="../resume/">
+            View CV
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a class="btn btn--ghost btn--lg" href="../contact/">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container footer">
+      <div class="footer__inner">
+        <span class="footer__brand">© <span id="year"></span> Samer Eladad — Duisburg, DE</span>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a class="footer__link" href="../">Home</a>
+          <a class="footer__link" href="../projects/">Projects</a>
+          <a class="footer__link" href="../contact/">Contact</a>
+          <a class="footer__link" href="../resume/">CV</a>
+        </nav>
+        <div class="footer__social">
+          <a class="footer__icon" href="https://github.com/samereladad" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13v3.16c0 .31.21.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+          <a class="footer__icon" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </a>
+          <a class="footer__icon" href="mailto:samer.eladad@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
   </main>
 
-  <!-- Scroll to top button -->
+  <!-- Scroll to top -->
   <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
-    <span class="scroll-to-top__icon">↑</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
   </button>
 
   <script src="../scripts/main.js"></script>

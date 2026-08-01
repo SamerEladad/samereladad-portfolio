@@ -6,10 +6,10 @@
   <title>Contact - Samer Eladad</title>
   <meta name="description" content="Get in touch with Samer Eladad for opportunities in ERP systems, data engineering, Power BI, and process automation. Based in Duisburg, Germany." />
 
-  <!-- Preload critical resources -->
-  <link rel="preload" href="../styles/base.css" as="style" />
-  <link rel="preload" href="../styles/components.css" as="style" />
-  <link rel="preload" href="../scripts/main.js" as="script" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Inter+Tight:wght@500..800&family=JetBrains+Mono:wght@400..600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="../styles/base.css" />
   <link rel="stylesheet" href="../styles/components.css" />
@@ -43,15 +43,14 @@
 
 <body>
   <div class="bg" aria-hidden="true">
-    <div class="bg__glow bg__glow--a"></div>
-    <div class="bg__glow bg__glow--b"></div>
-    <div class="bg__noise"></div>
+    <div class="bg__grid"></div>
+    <div class="bg__glow"></div>
   </div>
 
   <header class="header">
     <div class="container header__inner">
       <a class="brand" href="../" aria-label="Go to Home">
-        <span class="brand__dot" aria-hidden="true"></span>
+        <span class="brand__mark" aria-hidden="true">SE</span>
         <span class="brand__text">Samer Eladad</span>
       </a>
 
@@ -64,50 +63,88 @@
 
       <div class="header__actions">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-          <span class="theme-toggle__icon">🌙</span>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <a class="btn btn--ghost" href="../resume/">
-          📄 Printable CV
+        <a class="btn btn--ghost btn--cv" href="../resume/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span class="btn__label">CV</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Parallax Hero Banner -->
-  <div class="parallax-banner" aria-hidden="true">
-    <picture>
-      <source media="(max-width: 768px)" srcset="../assets/images/mobile-event-banner4-21-9.jpg" />
-      <img class="parallax-banner__img" src="../assets/images/event-banner4-21-9.jpg" alt="" />
-    </picture>
-    <div class="parallax-banner__overlay"></div>
-  </div>
-
-  <!-- Spacer to push content below banner -->
-  <div class="banner-spacer"></div>
-
   <main class="page">
-    <div class="container">
-      <div class="stack stack--xl">
 
-        <section class="card card--glow reveal card--pad" data-tilt>
-          <h1 class="h1 gradient-title">Let's Connect</h1>
-          <p class="lead">
-            Whether it's a new opportunity, a collaboration, or just a conversation about technology and innovation - I'd love to hear from you.
-          </p>
-          <div class="chips" aria-label="Areas of expertise">
-            <span class="chip">ERP Systems</span>
-            <span class="chip">Data Engineering</span>
-            <span class="chip">Power BI</span>
-            <span class="chip">Process Automation</span>
-            <span class="chip">AI Projects</span>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="page-hero__photo" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 768px)" srcset="../assets/images/mobile-event-banner4-21-9.jpg" />
+          <img src="../assets/images/event-banner4-21-9.jpg" alt="" />
+        </picture>
+      </div>
+      <div class="container page-hero__content reveal">
+        <span class="kicker"><span class="kicker__num">04</span> Contact</span>
+        <h1 class="h-display">Let's <span class="tint">connect</span>.</h1>
+        <p class="lead">Whether it's a new opportunity, a collaboration, or just a conversation about technology and innovation — I'd love to hear from you.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT LAYOUT -->
+    <section class="container section section--flush reveal">
+      <div class="contact-layout">
+
+        <aside class="contact-side">
+          <div>
+            <span class="kicker">Channels</span>
+            <p class="contact-side__note" style="margin-top:14px;">Direct is fastest — pick whichever channel suits you. I usually reply within a day.</p>
           </div>
-        </section>
 
-        <section class="card reveal card--pad" data-tilt>
-          <header class="card__head">
-            <h2 class="h2">Send a message</h2>
-            <p class="muted">Leave a message and I'll get back to you as soon as possible.</p>
-          </header>
+          <div>
+            <a class="channel" href="mailto:samer.eladad@gmail.com">
+              <span class="channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <span>
+                <span class="channel__label">Email</span>
+                <span class="channel__value">samer.eladad@gmail.com</span>
+              </span>
+            </a>
+            <a class="channel" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer">
+              <span class="channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+              </span>
+              <span>
+                <span class="channel__label">LinkedIn</span>
+                <span class="channel__value">linkedin.com/in/samereladad</span>
+              </span>
+            </a>
+            <a class="channel" href="https://github.com/samereladad" target="_blank" rel="noreferrer">
+              <span class="channel__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13v3.16c0 .31.21.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              </span>
+              <span>
+                <span class="channel__label">GitHub</span>
+                <span class="channel__value">github.com/samereladad</span>
+              </span>
+            </a>
+          </div>
+
+          <div class="tags" aria-label="Areas of expertise">
+            <span class="tag">ERP Systems</span>
+            <span class="tag">Data Engineering</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Process Automation</span>
+            <span class="tag">AI Projects</span>
+          </div>
+        </aside>
+
+        <div class="form-panel">
+          <div style="margin-bottom: 22px;">
+            <h2 class="h-sub">Send a message</h2>
+            <p class="muted" style="margin: 6px 0 0; font-size: 14px;">Leave a message and I'll get back to you as soon as possible.</p>
+          </div>
 
           <form
             id="contactForm"
@@ -150,52 +187,46 @@
               <span class="check__text">I am not a robot.</span>
             </label>
 
-            <button class="btn btn--primary btn--lg" type="submit">Send Message</button>
+            <button class="btn btn--primary btn--lg" type="submit">
+              Send message
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
             <div id="formStatus" class="status" role="status" aria-live="polite"></div>
           </form>
-        </section>
-
-        <!-- Direct Contact Section -->
-        <section class="card reveal card--pad" data-tilt>
-          <p class="direct-contact__intro">Prefer a different channel?</p>
-          <div class="contact-cards contact-cards--inline">
-            <a class="contact-card" href="mailto:samer.eladad@gmail.com" data-tilt>
-              <span class="contact-card__icon">✉️</span>
-              <span class="contact-card__label">Email</span>
-              <span class="contact-card__value">samer.eladad@gmail.com</span>
-            </a>
-            <a class="contact-card" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer" data-tilt>
-              <span class="contact-card__icon">💼</span>
-              <span class="contact-card__label">LinkedIn</span>
-              <span class="contact-card__value">linkedin.com/in/samereladad</span>
-            </a>
-            <a class="contact-card" href="https://github.com/samereladad" target="_blank" rel="noreferrer" data-tilt>
-              <span class="contact-card__icon">🐙</span>
-              <span class="contact-card__label">GitHub</span>
-              <span class="contact-card__value">github.com/samereladad</span>
-            </a>
-          </div>
-        </section>
-
-        <footer class="footer reveal">
-          <div class="footer__inner">
-            <span class="muted">© <span id="year"></span> Samer Eladad</span>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="../">Home</a>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="../projects/">Projects</a>
-            <span class="footer__dot" aria-hidden="true">•</span>
-            <a class="muted link" href="../about/">About</a>
-          </div>
-        </footer>
+        </div>
 
       </div>
-    </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container footer">
+      <div class="footer__inner">
+        <span class="footer__brand">© <span id="year"></span> Samer Eladad — Duisburg, DE</span>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a class="footer__link" href="../">Home</a>
+          <a class="footer__link" href="../projects/">Projects</a>
+          <a class="footer__link" href="../about/">About</a>
+          <a class="footer__link" href="../resume/">CV</a>
+        </nav>
+        <div class="footer__social">
+          <a class="footer__icon" href="https://github.com/samereladad" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.75.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13v3.16c0 .31.21.67.8.55A10.52 10.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+          <a class="footer__icon" href="https://www.linkedin.com/in/samereladad/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45z"/></svg>
+          </a>
+          <a class="footer__icon" href="mailto:samer.eladad@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
   </main>
 
-  <!-- Scroll to top button -->
+  <!-- Scroll to top -->
   <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
-    <span class="scroll-to-top__icon">↑</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
   </button>
 
   <script src="../scripts/main.js"></script>
