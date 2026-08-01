@@ -206,7 +206,12 @@
     }
     .btn--icon:hover {
       transform: translateY(-1px);
+      border-color: var(--accent);
     }
+    .btn--icon svg { width: 15px; height: 15px; }
+    .btn--icon .icon-sun { display: none; }
+    body.light-theme .btn--icon .icon-sun { display: block; }
+    body.light-theme .btn--icon .icon-moon { display: none; }
 
     /* Language toggle pill */
     .lang-toggle {
@@ -719,7 +724,10 @@
           <span data-lang="de">PDF herunterladen</span>
         </a>
 
-        <button class="btn btn--icon" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <button class="btn btn--icon" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
       </div>
     </div>
   </div>
@@ -770,7 +778,7 @@
               </li>
               <li>
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Duisburg, Germany
+                Düsseldorf, Germany
               </li>
             </ul>
           </section>
@@ -814,6 +822,10 @@
           <section class="cv-sec--certificates">
             <h2 class="cv-section__title">Certificates</h2>
             <div class="cv-certs">
+              <div class="cv-cert">
+                <div class="cv-cert__name">AI Automation Specialist</div>
+                <div class="cv-cert__meta">Digital Beat GmbH | Germany, Jun 2026</div>
+              </div>
               <div class="cv-cert">
                 <div class="cv-cert__name">Digital Shaper</div>
                 <div class="cv-cert__sub">(AI &amp; Deep Learning)</div>
@@ -942,6 +954,16 @@
             <div class="cv-projects">
               <div class="cv-project">
                 <div class="cv-project__header">
+                  <span class="cv-project__name">Bonus Calculator (Ei Electronics)</span>
+                  <span class="cv-project__date">2026</span>
+                </div>
+                <ul class="cv-project__bullets">
+                  <li>Built a <strong>React</strong> web application connected to the ERP system through a <strong>MySQL</strong> database to automate high-level accounting calculations.</li>
+                  <li>Delivered a KPI dashboard and reporting layer supporting management decisions, including data-driven price recommendations.</li>
+                </ul>
+              </div>
+              <div class="cv-project">
+                <div class="cv-project__header">
                   <span class="cv-project__name">AI Social Media Content Engine</span>
                   <span class="cv-project__date">January 2026</span>
                 </div>
@@ -1009,7 +1031,7 @@
               </li>
               <li>
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Duisburg, Deutschland
+                Düsseldorf, Deutschland
               </li>
             </ul>
           </section>
@@ -1053,6 +1075,10 @@
           <section class="cv-sec--certificates">
             <h2 class="cv-section__title">Zertifikate</h2>
             <div class="cv-certs">
+              <div class="cv-cert">
+                <div class="cv-cert__name">AI Automation Specialist</div>
+                <div class="cv-cert__meta">Digital Beat GmbH | Deutschland, Jun 2026</div>
+              </div>
               <div class="cv-cert">
                 <div class="cv-cert__name">Digital Shaper</div>
                 <div class="cv-cert__sub">(AI &amp; Deep Learning)</div>
@@ -1181,6 +1207,16 @@
             <div class="cv-projects">
               <div class="cv-project">
                 <div class="cv-project__header">
+                  <span class="cv-project__name">Bonus Calculator (Ei Electronics)</span>
+                  <span class="cv-project__date">2026</span>
+                </div>
+                <ul class="cv-project__bullets">
+                  <li>Entwicklung einer <strong>React</strong>-Webanwendung, die über eine <strong>MySQL</strong>-Datenbank an das ERP-System angebunden ist und buchhalterische Berechnungen automatisiert.</li>
+                  <li>Umsetzung eines KPI-Dashboards und Reportings als Entscheidungsgrundlage für das Management – inklusive datenbasierter Preisempfehlungen.</li>
+                </ul>
+              </div>
+              <div class="cv-project">
+                <div class="cv-project__header">
                   <span class="cv-project__name">AI Social Media Content Engine</span>
                   <span class="cv-project__date">Januar 2026</span>
                 </div>
@@ -1224,12 +1260,10 @@
     const savedTheme = localStorage.getItem("theme") || "dark";
     if (savedTheme === "light") {
       document.body.classList.add("light-theme");
-      themeToggle.textContent = "☀️";
     }
     themeToggle.addEventListener("click", () => {
       const isLight = document.body.classList.toggle("light-theme");
       localStorage.setItem("theme", isLight ? "light" : "dark");
-      themeToggle.textContent = isLight ? "☀️" : "🌙";
     });
 
     // ── Language Toggle ──
