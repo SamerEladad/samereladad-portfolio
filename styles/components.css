@@ -427,7 +427,7 @@ body.light-theme .photoband::after{
 /* ═══ PAGE HERO (subpages) ═════════════════════════════════════════════ */
 .page-hero{
   position: relative;
-  padding: clamp(56px, 9vh, 96px) 0 clamp(36px, 5vh, 56px);
+  padding: clamp(78px, 12vh, 132px) 0 clamp(44px, 6vh, 72px);
   overflow: hidden;
 }
 .page-hero__photo{
@@ -435,20 +435,69 @@ body.light-theme .photoband::after{
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  overflow: hidden;
+}
+.page-hero__photo picture{
+  display: block;
+  height: 100%;
+  will-change: transform;
 }
 .page-hero__photo img{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 32%;
-  filter: grayscale(1) contrast(1.05) brightness(.8);
-  opacity: .16;
-  mask-image: linear-gradient(180deg, black 0%, transparent 96%);
-  -webkit-mask-image: linear-gradient(180deg, black 0%, transparent 96%);
+  object-position: center 28%;
+  filter: grayscale(1) contrast(1.1) brightness(.92);
+  opacity: .5;
+  transform: scale(1.04);
 }
-body.light-theme .page-hero__photo img{ opacity: .1; filter: grayscale(1) contrast(1.0) brightness(1.05); }
+body.light-theme .page-hero__photo img{
+  opacity: .46;
+  filter: grayscale(1) contrast(1.06) brightness(1.02);
+}
+/* the light background swallows the photo faster — ease the scrim */
+body.light-theme .page-hero__photo::after{
+  background:
+    linear-gradient(90deg,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 84%, transparent) 32%,
+      color-mix(in srgb, var(--bg) 34%, transparent) 62%,
+      transparent 100%),
+    linear-gradient(180deg,
+      var(--bg) 0%,
+      transparent 26%,
+      transparent 60%,
+      var(--bg) 100%);
+}
+/* accent duotone over the photo */
+.page-hero__photo::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  mix-blend-mode: color;
+  opacity: .32;
+}
+/* scrim: solid behind the text column, clearing toward the right,
+   with the photo dissolving into the page at top and bottom */
+.page-hero__photo::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 88%, transparent) 30%,
+      color-mix(in srgb, var(--bg) 46%, transparent) 58%,
+      color-mix(in srgb, var(--bg) 18%, transparent) 100%),
+    linear-gradient(180deg,
+      var(--bg) 0%,
+      transparent 26%,
+      transparent 58%,
+      var(--bg) 100%);
+}
 .page-hero__content > * + *{ margin-top: 18px; }
-.page-hero .lead{ max-width: 66ch; }
+.page-hero .lead{ max-width: 62ch; }
 
 /* ═══ NUMBERED FEATURE COLUMNS ═════════════════════════════════════════ */
 .features{
@@ -1317,6 +1366,20 @@ a.project-link:hover .project-card__arrow{
 }
 
 @media (max-width: 700px){
+  /* text spans the full width on mobile — lean on a vertical scrim so the
+     photo still reads without sitting under the copy */
+  .page-hero__photo img{ opacity: .42; object-position: center 24%; }
+  body.light-theme .page-hero__photo img{ opacity: .28; }
+  .page-hero__photo::after,
+  body.light-theme .page-hero__photo::after{
+    background:
+      linear-gradient(180deg,
+        var(--bg) 0%,
+        color-mix(in srgb, var(--bg) 26%, transparent) 16%,
+        color-mix(in srgb, var(--bg) 70%, transparent) 42%,
+        color-mix(in srgb, var(--bg) 94%, transparent) 68%,
+        var(--bg) 100%);
+  }
   .section[data-num]::before{ font-size: 88px; opacity: .35; }
   .marquee__track{ animation-duration: 26s; }
   .hero__console{ font-size: 12px; }

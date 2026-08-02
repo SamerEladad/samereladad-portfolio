@@ -384,7 +384,7 @@
     .cv-edu__coursework { font-size: 10.5px; color: #555; margin-top: 3px; line-height: 1.5; }
 
     /* ── PROJECTS ── */
-    .cv-projects { display: flex; flex-direction: column; gap: 24px; }
+    .cv-projects { display: flex; flex-direction: column; gap: 13px; }
     .cv-project__header { display: flex; align-items: baseline; gap: 8px; }
     .cv-project__name {
       font-size: 12px;
@@ -396,14 +396,14 @@
     .cv-project__date { font-size: 10.5px; color: #555; margin-left: auto; }
     .cv-project__bullets {
       list-style: none;
-      margin-top: 6px;
+      margin-top: 4px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
     }
     .cv-project__bullets li {
       font-size: 12px;
-      line-height: 1.65;
+      line-height: 1.5;
       color: #1a1a1a;
       padding-left: 14px;
       position: relative;
@@ -767,11 +767,21 @@
               <div class="cv-project">
                 <div class="cv-project__header">
                   <span class="cv-project__name">Bonus Calculator (Ei Electronics)</span>
-                  <span class="cv-project__date">2026</span>
+                  <span class="cv-project__date">July 2026</span>
                 </div>
                 <ul class="cv-project__bullets">
                   <li>Built a <strong>React</strong> web application connected to the ERP system through a <strong>MySQL</strong> database to automate high-level accounting calculations.</li>
                   <li>Delivered a KPI dashboard and reporting layer supporting management decisions, including data-driven price recommendations.</li>
+                </ul>
+              </div>
+              <div class="cv-project">
+                <div class="cv-project__header">
+                  <span class="cv-project__name">Invoice Format Converter (Ei Electronics)</span>
+                  <span class="cv-project__date">June 2026</span>
+                </div>
+                <ul class="cv-project__bullets">
+                  <li>Built a <strong>Python</strong> desktop application, packaged as an executable with a simple UI, that converts invoices from PDF into the <strong>XML</strong> format required by the ERP system.</li>
+                  <li>Automated extraction and validation with <strong>pandas</strong> to work around an ERP format limitation while keeping every document within defined process criteria.</li>
                 </ul>
               </div>
               <div class="cv-project">

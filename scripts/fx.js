@@ -236,7 +236,7 @@
   // ────────────────────────────────────────────────────────────────────────
   // 5. Photo band parallax
   // ────────────────────────────────────────────────────────────────────────
-  const bands = [...document.querySelectorAll(".photoband picture")];
+  const bands = [...document.querySelectorAll(".photoband picture, .page-hero__photo picture")];
   if (bands.length && !reduced) {
     let ticking = false;
 
@@ -246,7 +246,11 @@
         const r = band.parentElement.getBoundingClientRect();
         if (r.bottom < -100 || r.top > vh + 100) continue;
         const progress = (r.top + r.height / 2 - vh / 2) / vh;
-        band.style.transform = `translate3d(0, ${(progress * -26).toFixed(2)}px, 0) scale(1.09)`;
+        // page-hero photos already carry a crop scale on the <img>, so they
+        // need less overscale here than the standalone photo bands
+        const hero = band.parentElement.classList.contains("page-hero__photo");
+        const shift = (progress * (hero ? -18 : -26)).toFixed(2);
+        band.style.transform = `translate3d(0, ${shift}px, 0) scale(${hero ? 1.05 : 1.09})`;
       }
       ticking = false;
     };
