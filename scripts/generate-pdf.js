@@ -65,16 +65,16 @@ async function generatePDFs() {
       await browserPage.evaluate(() => document.fonts.ready);
 
       // Generate PDF with print media emulation
+      // Margins are ZERO on purpose. The print stylesheet declares
+      // `@page { margin: 0 }` and the visual margin comes from .cv-card's own
+      // padding. Setting a margin here as well made Chromium lay the page out
+      // at one width and paint it at another, pushing right-aligned dates and
+      // locations off the right edge of the paper.
       await browserPage.pdf({
         path: outputPath,
         format: 'A4',
         printBackground: true,
-        margin: {
-          top: '10mm',
-          right: '12mm',
-          bottom: '10mm',
-          left: '12mm'
-        },
+        margin: { top: '0', right: '0', bottom: '0', left: '0' },
         preferCSSPageSize: false
       });
 

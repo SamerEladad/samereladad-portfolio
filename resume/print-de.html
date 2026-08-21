@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Samer Eladad – Lebenslauf – AI &amp; Data Engineer</title>
+  <title>Samer Eladad – Lebenslauf – Solutions Engineer</title>
   <meta name="author" content="Samer Eladad" />
-  <meta name="description" content="Lebenslauf von Samer Eladad — AI &amp; Data Engineer mit Schwerpunkt agentische KI, Data Engineering, Power BI und Prozessautomatisierung." />
+  <meta name="description" content="Lebenslauf von Samer Eladad, Solutions Engineer mit Schwerpunkt KI-Automatisierung, Data Engineering, Power BI und Prozessautomatisierung." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
@@ -37,7 +37,7 @@
       background: #fff;
       border: 1px solid #ccc;
       border-radius: 12px;
-      padding: 44px 46px;
+      padding: 38px 46px;   /* 10mm top/bottom, 12mm sides, at 96dpi */
       display: flex;
       flex-direction: column;
       gap: 18px;
@@ -188,13 +188,22 @@
       .card-wrap { width: 100%; }
       .cv-card {
         border: none; border-radius: 0; box-shadow: none;
-        width: 100%; height: auto; min-height: 0; padding: 0;
+        width: 100%; height: auto; min-height: 0;
         page-break-after: always; break-after: page;
       }
-      .cv-card:last-child { page-break-after: avoid; break-after: avoid; }
+      /* Only the final card may end without a forced break. Must be scoped to
+         the last .card-wrap: every .cv-card is the last child of its own
+         wrapper, so a :last-child rule here would match both and silently
+         cancel the page break between page 1 and page 2. */
+      .card-wrap:last-child .cv-card { page-break-after: auto; break-after: auto; }
     }
 
-    @page { size: A4 portrait; margin: 10mm 12mm; }
+    /* Page margins live in ONE place only. Declaring them here AND in
+       page.pdf({margin}) made layout width and paper width disagree, which
+       clipped right-aligned dates and locations off the right edge. The paper
+       is now edge-to-edge A4 (794px @96dpi) and .cv-card's own padding supplies
+       the visual margin, so screen and PDF are pixel-identical. */
+    @page { size: A4 portrait; margin: 0; }
   </style>
 </head>
 <body>
@@ -216,8 +225,8 @@
 
       <header class="cv-header">
         <h1 class="cv-header__name">Samer Eladad</h1>
-        <p class="cv-header__role">AI &amp; Data Engineer</p>
-        <p class="cv-header__keywords">Agentische KI &middot; Data Engineering &middot; Business Intelligence &middot; Prozessautomatisierung</p>
+        <p class="cv-header__role">Solutions Engineer</p>
+        <p class="cv-header__keywords">KI-Automatisierung &middot; Data Engineering &middot; Business Intelligence &middot; Prozessautomatisierung</p>
         <p class="cv-header__contact">
           Düsseldorf, Deutschland &middot; <a href="tel:+491747900400">+49 174 7900400</a> &middot; <a href="mailto:samer.eladad@gmail.com">samer.eladad@gmail.com</a><br />
           <a href="https://linkedin.com/in/samereladad">linkedin.com/in/samereladad</a> &middot; <a href="https://github.com/samereladad">github.com/samereladad</a> &middot; <a href="https://samereladad.cv">samereladad.cv</a>
@@ -226,13 +235,13 @@
 
       <section class="cv-summary">
         <h2 class="cv-section__title">Profil</h2>
-        <p><strong>AI &amp; Data Engineer</strong> mit <strong>über 4 Jahren Erfahrung</strong> in Data Engineering, Business Intelligence und Prozessautomatisierung in internationalen, ERP-integrierten Umgebungen. Entwickelt agentische KI-Lösungen mit <strong>Microsoft Copilot Studio</strong> und <strong>Azure OpenAI</strong>, <strong>Power-BI</strong>-Datenmodelle und Dashboards (<strong>DAX</strong>, <strong>SQL</strong>) sowie eigene <strong>Python</strong>- und <strong>JavaScript</strong>-Anwendungen, die manuelle Geschäftsprozesse ersetzen. Vertritt die KI-Themen innerhalb der IT; Erfahrung mit <strong>Dynamics 365 Business Central</strong> und <strong>Infor</strong>. Erfahren in remote arbeitenden, interdisziplinären Teams.</p>
+        <p><strong>Solutions Engineer</strong> mit <strong>über 4 Jahren Erfahrung</strong> und Schwerpunkt auf <strong>KI-Automatisierung</strong>, <strong>Data Engineering</strong> und <strong>Business Intelligence</strong> in internationalen, ERP-integrierten Umgebungen. Entwickelt KI-Automatisierungslösungen mit <strong>Microsoft Copilot Studio</strong> und <strong>Azure OpenAI</strong>, <strong>Power-BI</strong>-Datenmodelle und Dashboards (<strong>DAX</strong>, <strong>SQL</strong>) sowie eigene <strong>Python</strong>- und <strong>JavaScript</strong>-Anwendungen, die manuelle Geschäftsprozesse ersetzen. Vertritt die KI-Themen innerhalb der IT; Erfahrung mit <strong>Dynamics 365 Business Central</strong> und <strong>Infor</strong>. Erfahren in remote arbeitenden, interdisziplinären Teams.</p>
       </section>
 
       <section class="cv-skills">
         <h2 class="cv-section__title">Technische Kenntnisse</h2>
         <ul class="cv-skills-list">
-          <li><strong>KI &amp; Automatisierung:</strong> Agentische KI, Microsoft Copilot Studio, Azure OpenAI, Prompt Engineering, Power Automate, OCR-Workflow-Automatisierung, Machine Learning</li>
+          <li><strong>KI &amp; Automatisierung:</strong> Microsoft Copilot Studio, Azure OpenAI, KI-Agenten, Prompt Engineering, Power Automate, OCR-Workflow-Automatisierung, Machine Learning</li>
           <li><strong>Daten &amp; BI:</strong> Power BI, DAX, Datenmodellierung, ETL &amp; Datentransformation, Dashboard-Design, KPI- &amp; Reporting-Automatisierung</li>
           <li><strong>Programmierung:</strong> Python (pandas), SQL, JavaScript (React, Node.js), Java</li>
           <li><strong>Daten, Cloud &amp; Integration:</strong> MySQL, REST-APIs, Systemintegration, Microsoft Azure, AWS, Cloudflare, Git</li>
@@ -254,7 +263,7 @@
               <span class="cv-entry__date">März 2026 – Heute</span>
             </div>
             <ul class="cv-bullets">
-              <li>Konzeption und Implementierung agentischer <strong>KI</strong>-Lösungen mit <strong>Microsoft Copilot Studio</strong>: <strong>fünf Agenten</strong> umgesetzt, mehrere davon für <strong>über 50 Mitarbeitende</strong> ausgerollt; Vertretung der KI-Themen innerhalb der IT.</li>
+              <li>Konzeption und Implementierung von <strong>KI-Automatisierungslösungen</strong> mit <strong>Microsoft Copilot Studio</strong>: <strong>fünf Agenten</strong> umgesetzt, mehrere davon für <strong>über 50 Mitarbeitende</strong> ausgerollt; Vertretung der KI-Themen innerhalb der IT.</li>
               <li>Entwicklung von <strong>drei Power-BI-Dashboards</strong>, die ERP- und externe Kundendaten verbinden, inklusive End-to-End-<strong>Data-Engineering</strong> von Extraktion und Bereinigung über Modellierung (<strong>DAX</strong>, <strong>SQL</strong>) bis zur Veröffentlichung.</li>
               <li>Automatisierung wiederkehrender Reportings und abteilungsübergreifender Prozesse mit <strong>Power Automate</strong> und eigenen <strong>Node.js</strong>-Anwendungen – bei einem Management-Report entfallen dadurch rund <strong>2 Stunden manuelle Aufbereitung pro Woche</strong>.</li>
             </ul>
@@ -319,7 +328,7 @@
         <div class="cv-entries">
           <div class="cv-entry">
             <div class="cv-entry__head">
-              <span class="cv-entry__org">Bonus Calculator — Ei Electronics</span>
+              <span class="cv-entry__org">Bonus Calculator (Ei Electronics)</span>
               <span class="cv-entry__date">Juli 2026</span>
             </div>
             <ul class="cv-bullets">
@@ -329,7 +338,7 @@
           </div>
           <div class="cv-entry">
             <div class="cv-entry__head">
-              <span class="cv-entry__org">Invoice Format Converter — Ei Electronics</span>
+              <span class="cv-entry__org">Invoice Format Converter (Ei Electronics)</span>
               <span class="cv-entry__date">Juni 2026</span>
             </div>
             <ul class="cv-bullets">
@@ -376,24 +385,24 @@
       <section>
         <h2 class="cv-section__title">Zertifikate &amp; Weiterbildung</h2>
         <ul class="cv-compact">
-          <li><strong>AI Automation Specialist</strong> — Digital Beat GmbH, Deutschland <span class="meta">(Jun 2026)</span></li>
-          <li><strong>Digital Shaper — KI &amp; Deep Learning</strong> — TechLabs, Deutschland <span class="meta">(Sep 2024)</span></li>
-          <li><strong>Digital Shaper — Data Science</strong> — TechLabs, Deutschland <span class="meta">(Apr 2024)</span></li>
-          <li><strong>Full Stack Developer</strong> — Udacity, VAE <span class="meta">(Aug 2018)</span></li>
+          <li><strong>AI Automation Specialist</strong>, Digital Beat GmbH <span class="meta">(Deutschland, Jun 2026)</span></li>
+          <li><strong>Digital Shaper (KI &amp; Deep Learning)</strong>, TechLabs <span class="meta">(Deutschland, Sep 2024)</span></li>
+          <li><strong>Digital Shaper (Data Science)</strong>, TechLabs <span class="meta">(Deutschland, Apr 2024)</span></li>
+          <li><strong>Full Stack Developer</strong>, Udacity <span class="meta">(VAE, Aug 2018)</span></li>
           <li><span class="meta">Besuchte Workshops: Microsoft Dynamics 365 Business Central; KI-Governance &amp; Ideation</span></li>
         </ul>
       </section>
 
       <section>
         <h2 class="cv-section__title">Sprachen</h2>
-        <p class="cv-inline"><strong>Deutsch</strong> — Fließend &nbsp;&middot;&nbsp; <strong>Englisch</strong> — Fließend &nbsp;&middot;&nbsp; <strong>Arabisch</strong> — Muttersprache</p>
+        <p class="cv-inline"><strong>Deutsch</strong> – Fließend &nbsp;&middot;&nbsp; <strong>Englisch</strong> – Fließend &nbsp;&middot;&nbsp; <strong>Arabisch</strong> – Muttersprache</p>
       </section>
 
       <section>
         <h2 class="cv-section__title">Ehrenamt &amp; Auszeichnungen</h2>
         <ul class="cv-compact">
-          <li><strong>Growth Acceleration Manager</strong>, TechLabs Global <span class="meta">(2024 – 2025)</span> — Planung und Durchführung von Präsenz-Community-Events, u.&nbsp;a. des Digital Shaper Summit.</li>
-          <li><strong>Robotics Race, Erster Platz</strong> — Hochschule Bochum, Deutschland <span class="meta">(2021)</span></li>
+          <li><strong>Growth Acceleration Manager</strong>, TechLabs Global <span class="meta">(2024 – 2025)</span>. Planung und Durchführung von Präsenz-Community-Events, u.&nbsp;a. des Digital Shaper Summit.</li>
+          <li><strong>Robotics Race, Erster Platz</strong>, Hochschule Bochum <span class="meta">(Deutschland, 2021)</span></li>
         </ul>
       </section>
 

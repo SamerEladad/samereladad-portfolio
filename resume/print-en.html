@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Samer Eladad – CV – AI &amp; Data Engineer</title>
+  <title>Samer Eladad – CV – Solutions Engineer</title>
   <meta name="author" content="Samer Eladad" />
-  <meta name="description" content="CV of Samer Eladad — AI &amp; Data Engineer specializing in agentic AI, data engineering, Power BI, and process automation." />
+  <meta name="description" content="CV of Samer Eladad, Solutions Engineer specializing in AI automation, data engineering, Power BI, and process automation." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
@@ -37,7 +37,7 @@
       background: #fff;
       border: 1px solid #ccc;
       border-radius: 12px;
-      padding: 44px 46px;
+      padding: 38px 46px;   /* 10mm top/bottom, 12mm sides, at 96dpi */
       display: flex;
       flex-direction: column;
       gap: 18px;
@@ -188,13 +188,22 @@
       .card-wrap { width: 100%; }
       .cv-card {
         border: none; border-radius: 0; box-shadow: none;
-        width: 100%; height: auto; min-height: 0; padding: 0;
+        width: 100%; height: auto; min-height: 0;
         page-break-after: always; break-after: page;
       }
-      .cv-card:last-child { page-break-after: avoid; break-after: avoid; }
+      /* Only the final card may end without a forced break. Must be scoped to
+         the last .card-wrap: every .cv-card is the last child of its own
+         wrapper, so a :last-child rule here would match both and silently
+         cancel the page break between page 1 and page 2. */
+      .card-wrap:last-child .cv-card { page-break-after: auto; break-after: auto; }
     }
 
-    @page { size: A4 portrait; margin: 10mm 12mm; }
+    /* Page margins live in ONE place only. Declaring them here AND in
+       page.pdf({margin}) made layout width and paper width disagree, which
+       clipped right-aligned dates and locations off the right edge. The paper
+       is now edge-to-edge A4 (794px @96dpi) and .cv-card's own padding supplies
+       the visual margin, so screen and PDF are pixel-identical. */
+    @page { size: A4 portrait; margin: 0; }
   </style>
 </head>
 <body>
@@ -216,8 +225,8 @@
 
       <header class="cv-header">
         <h1 class="cv-header__name">Samer Eladad</h1>
-        <p class="cv-header__role">AI &amp; Data Engineer</p>
-        <p class="cv-header__keywords">Agentic AI &middot; Data Engineering &middot; Business Intelligence &middot; Process Automation</p>
+        <p class="cv-header__role">Solutions Engineer</p>
+        <p class="cv-header__keywords">AI Automation &middot; Data Engineering &middot; Business Intelligence &middot; Process Automation</p>
         <p class="cv-header__contact">
           Düsseldorf, Germany &middot; <a href="tel:+491747900400">+49 174 7900400</a> &middot; <a href="mailto:samer.eladad@gmail.com">samer.eladad@gmail.com</a><br />
           <a href="https://linkedin.com/in/samereladad">linkedin.com/in/samereladad</a> &middot; <a href="https://github.com/samereladad">github.com/samereladad</a> &middot; <a href="https://samereladad.cv">samereladad.cv</a>
@@ -226,13 +235,13 @@
 
       <section class="cv-summary">
         <h2 class="cv-section__title">Summary</h2>
-        <p><strong>AI &amp; Data Engineer</strong> with <strong>4+ years</strong> of experience across data engineering, business intelligence, and process automation in international, ERP-integrated environments. Builds agentic AI solutions with <strong>Microsoft Copilot Studio</strong> and <strong>Azure OpenAI</strong>, <strong>Power BI</strong> data models and dashboards (<strong>DAX</strong>, <strong>SQL</strong>), and custom <strong>Python</strong> and <strong>JavaScript</strong> applications that replace manual business processes. Represents AI topics within IT at Ei Electronics across <strong>Dynamics 365 Business Central</strong> and <strong>Infor</strong> landscapes. Fluent in English and German; experienced in remote, cross-functional teams.</p>
+        <p><strong>Solutions Engineer</strong> with <strong>4+ years</strong> of experience, focused on <strong>AI automation</strong>, <strong>data engineering</strong>, and <strong>business intelligence</strong> in international, ERP-integrated environments. Builds AI automation solutions with <strong>Microsoft Copilot Studio</strong> and <strong>Azure OpenAI</strong>, <strong>Power BI</strong> data models and dashboards (<strong>DAX</strong>, <strong>SQL</strong>), and custom <strong>Python</strong> and <strong>JavaScript</strong> applications that replace manual business processes. Represents AI topics within IT at Ei Electronics across <strong>Dynamics 365 Business Central</strong> and <strong>Infor</strong> landscapes. Fluent in English and German; experienced in remote, cross-functional teams.</p>
       </section>
 
       <section class="cv-skills">
         <h2 class="cv-section__title">Technical Skills</h2>
         <ul class="cv-skills-list">
-          <li><strong>AI &amp; Automation:</strong> Agentic AI, Microsoft Copilot Studio, Azure OpenAI, Prompt Engineering, Power Automate, OCR Workflow Automation, Machine Learning</li>
+          <li><strong>AI &amp; Automation:</strong> Microsoft Copilot Studio, Azure OpenAI, AI Agents, Prompt Engineering, Power Automate, OCR Workflow Automation, Machine Learning</li>
           <li><strong>Data &amp; BI:</strong> Power BI, DAX, Data Modeling, ETL &amp; Data Transformation, Dashboard Design, KPI &amp; Reporting Automation</li>
           <li><strong>Programming:</strong> Python (pandas), SQL, JavaScript (React, Node.js), Java</li>
           <li><strong>Data, Cloud &amp; Integration:</strong> MySQL, REST APIs, System Integration, Microsoft Azure, AWS, Cloudflare, Git</li>
@@ -254,7 +263,7 @@
               <span class="cv-entry__date">March 2026 – Present</span>
             </div>
             <ul class="cv-bullets">
-              <li>Design and deploy agentic <strong>AI</strong> solutions with <strong>Microsoft Copilot Studio</strong>, delivering <strong>five agents</strong> — several rolled out to <strong>50+ employees</strong> across business functions — and representing AI topics within IT.</li>
+              <li>Design and deploy <strong>AI automation</strong> solutions with <strong>Microsoft Copilot Studio</strong>, delivering <strong>five agents</strong>, several of them rolled out to <strong>50+ employees</strong> across business functions, and representing AI topics within IT.</li>
               <li>Engineer <strong>three Power BI dashboards</strong> combining ERP and external customer data, owning end-to-end <strong>data engineering</strong> from extraction and cleaning through modeling (<strong>DAX</strong>, <strong>SQL</strong>) to publication.</li>
               <li>Automate recurring reporting and cross-department processes with <strong>Power Automate</strong> and custom <strong>Node.js</strong> applications, removing roughly <strong>2 hours of manual preparation per week</strong> from a recurring management report.</li>
             </ul>
@@ -319,7 +328,7 @@
         <div class="cv-entries">
           <div class="cv-entry">
             <div class="cv-entry__head">
-              <span class="cv-entry__org">Bonus Calculator — Ei Electronics</span>
+              <span class="cv-entry__org">Bonus Calculator (Ei Electronics)</span>
               <span class="cv-entry__date">July 2026</span>
             </div>
             <ul class="cv-bullets">
@@ -329,7 +338,7 @@
           </div>
           <div class="cv-entry">
             <div class="cv-entry__head">
-              <span class="cv-entry__org">Invoice Format Converter — Ei Electronics</span>
+              <span class="cv-entry__org">Invoice Format Converter (Ei Electronics)</span>
               <span class="cv-entry__date">June 2026</span>
             </div>
             <ul class="cv-bullets">
@@ -376,24 +385,24 @@
       <section>
         <h2 class="cv-section__title">Certifications &amp; Training</h2>
         <ul class="cv-compact">
-          <li><strong>AI Automation Specialist</strong> — Digital Beat GmbH, Germany <span class="meta">(Jun 2026)</span></li>
-          <li><strong>Digital Shaper — AI &amp; Deep Learning</strong> — TechLabs, Germany <span class="meta">(Sep 2024)</span></li>
-          <li><strong>Digital Shaper — Data Science</strong> — TechLabs, Germany <span class="meta">(Apr 2024)</span></li>
-          <li><strong>Full Stack Developer</strong> — Udacity, UAE <span class="meta">(Aug 2018)</span></li>
+          <li><strong>AI Automation Specialist</strong>, Digital Beat GmbH <span class="meta">(Germany, Jun 2026)</span></li>
+          <li><strong>Digital Shaper (AI &amp; Deep Learning)</strong>, TechLabs <span class="meta">(Germany, Sep 2024)</span></li>
+          <li><strong>Digital Shaper (Data Science)</strong>, TechLabs <span class="meta">(Germany, Apr 2024)</span></li>
+          <li><strong>Full Stack Developer</strong>, Udacity <span class="meta">(UAE, Aug 2018)</span></li>
           <li><span class="meta">Workshops attended: Microsoft Dynamics 365 Business Central; AI Governance &amp; Ideation</span></li>
         </ul>
       </section>
 
       <section>
         <h2 class="cv-section__title">Languages</h2>
-        <p class="cv-inline"><strong>English</strong> — Fluent &nbsp;&middot;&nbsp; <strong>German</strong> — Fluent &nbsp;&middot;&nbsp; <strong>Arabic</strong> — Native</p>
+        <p class="cv-inline"><strong>English</strong> – Fluent &nbsp;&middot;&nbsp; <strong>German</strong> – Fluent &nbsp;&middot;&nbsp; <strong>Arabic</strong> – Native</p>
       </section>
 
       <section>
         <h2 class="cv-section__title">Volunteer Experience &amp; Awards</h2>
         <ul class="cv-compact">
-          <li><strong>Growth Acceleration Manager</strong>, TechLabs Global <span class="meta">(2024 – 2025)</span> — planned and delivered in-person community events, including the Digital Shaper Summit.</li>
-          <li><strong>Robotics Race, First Place</strong> — Hochschule Bochum, Germany <span class="meta">(2021)</span></li>
+          <li><strong>Growth Acceleration Manager</strong>, TechLabs Global <span class="meta">(2024 – 2025)</span>. Planned and delivered in-person community events, including the Digital Shaper Summit.</li>
+          <li><strong>Robotics Race, First Place</strong>, Hochschule Bochum <span class="meta">(Germany, 2021)</span></li>
         </ul>
       </section>
 
