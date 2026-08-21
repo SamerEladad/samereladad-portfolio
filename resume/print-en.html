@@ -3,534 +3,198 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CV Print — English</title>
+  <title>Samer Eladad – CV – AI &amp; Data Engineer</title>
+  <meta name="author" content="Samer Eladad" />
+  <meta name="description" content="CV of Samer Eladad — AI &amp; Data Engineer specializing in agentic AI, data engineering, Power BI, and process automation." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
     body {
       font-family: 'Nunito Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
       background: #f4f4f4;
       color: #1a1a1a;
       -webkit-font-smoothing: antialiased;
       padding: 40px 0;
-      margin: 0;
     }
     a { color: #1a1a1a; text-decoration: none; }
 
     .cv-wrapper {
-      width: 794px;   /* A4 width at 96dpi */
+      width: 794px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       gap: 60px;
-      padding: 0;
     }
 
+    /* A4 at 96dpi. Screen padding (46px) ≈ the print margin (12mm),
+       so on-screen pagination matches the generated PDF. */
     .cv-card {
       width: 794px;
-      min-height: 1123px; /* A4 height at 96dpi */
+      min-height: 1123px;
       background: #fff;
       border: 1px solid #ccc;
       border-radius: 12px;
-      overflow: hidden;
+      padding: 44px 46px;
       display: flex;
       flex-direction: column;
+      gap: 18px;
     }
 
-    /* ── HEADER ── */
-    .cv-header {
-      padding: 36px 42px 36px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      border-bottom: 1px solid #ccc;
-    }
-    .cv-header__photo {
-      width: 143px;
-      height: 143px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      border: 2px solid #ccc;
-      margin-left: 24px;
-      margin-right: 16px;
-    }
-    .cv-header__text {
-      flex: 1;
-      min-width: 0;
-      text-align: center;
-    }
+    /* ════════ HEADER ════════ */
+    .cv-header { text-align: center; padding-bottom: 14px; border-bottom: 2px solid #1a1a1a; }
     .cv-header__name {
       font-family: 'PT Sans Caption', sans-serif;
-      font-size: 27px;
+      font-size: 30px;
       font-weight: 700;
-      letter-spacing: 6px;
+      letter-spacing: 1.5px;   /* ATS-safe: wide tracking splits words on text extraction */
       text-transform: uppercase;
-      color: #1a1a1a;
-      margin-bottom: 4px;
+      line-height: 1.1;
     }
     .cv-header__role {
-      font-size: 13px;
-      letter-spacing: 5px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .6px;
       text-transform: uppercase;
-      color: #555;
+      color: #333;
+      margin-top: 5px;
     }
+    .cv-header__keywords { font-size: 11px; color: #555; margin-top: 5px; }
+    .cv-header__contact { font-size: 11px; color: #1a1a1a; margin-top: 10px; line-height: 1.75; }
 
-    /* ── TWO-COLUMN BODY ── */
-    .cv-body {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      flex: 1;
-    }
-    .cv-sidebar {
-      padding: 32px 24px 40px;
-      border-right: 1px solid #ccc;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-    .cv-main {
-      padding: 32px 36px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    /* ── TOOLBAR ── */
-    .print-toolbar {
-      width: 794px;
-      margin: 0 auto 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .print-toolbar__group {
-      display: flex;
-      gap: 8px;
-    }
-    .print-toolbar__group a {
-      padding: 6px 16px;
-      border-radius: 999px;
-      border: 1px solid #555;
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #222;
-      background: #fff;
-      transition: background .15s, border-color .15s, color .15s;
-      cursor: pointer;
-    }
-    .print-toolbar__group a:hover {
-      border-color: #111;
-      color: #111;
-    }
-    .print-toolbar__group a.lang-btn--active {
-      background: #111;
-      color: #fff;
-      border-color: #111;
-    }
-    .theme-toggle {
-      padding: 6px 18px;
-      border-radius: 999px;
-      border: 1px solid #555;
-      background: #fff;
-      color: #222;
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background .15s, color .15s, border-color .15s;
-    }
-    .theme-toggle:hover {
-      border-color: #111;
-      color: #111;
-    }
-
-    /* ── DARK MODE ── */
-    body.dark-theme {
-      background: #060606;
-      color: #f4f4f4;
-    }
-    body.dark-theme .print-toolbar__group a {
-      background: #1a1a1a;
-      border-color: #666;
-      color: #f4f4f4;
-    }
-    body.dark-theme .print-toolbar__group a:hover {
-      border-color: #aaa;
-    }
-    body.dark-theme .print-toolbar__group a.lang-btn--active {
-      background: #f4f4f4;
-      color: #111;
-      border-color: #f4f4f4;
-    }
-    body.dark-theme .theme-toggle {
-      background: #1a1a1a;
-      border-color: #666;
-      color: #f4f4f4;
-    }
-    body.dark-theme .theme-toggle:hover {
-      border-color: #aaa;
-    }
-    body.dark-theme .cv-card {
-      background: #111;
-      border-color: #333;
-      color: #f4f4f4;
-    }
-    body.dark-theme .cv-header {
-      border-bottom-color: #333;
-    }
-    body.dark-theme .cv-header__photo {
-      border-color: #333;
-    }
-    body.dark-theme .cv-header__name {
-      color: #fefefe;
-    }
-    body.dark-theme .cv-header__role {
-      color: #d5d5d5;
-    }
-    body.dark-theme a {
-      color: #6ea5ff;
-    }
-    body.dark-theme .cv-sidebar {
-      border-right-color: #333;
-    }
-    body.dark-theme .cv-section__title {
-      color: #f4f4f4;
-      border-color: #333;
-    }
-    body.dark-theme .cv-contact-list li,
-    body.dark-theme .cv-skill-list li,
-    body.dark-theme .cv-lang-list li,
-    body.dark-theme .cv-summary p,
-    body.dark-theme .cv-job__bullets li,
-    body.dark-theme .cv-project__bullets li,
-    body.dark-theme .cv-workshop-list li,
-    body.dark-theme .cv-job__title,
-    body.dark-theme .cv-edu__degree,
-    body.dark-theme .cv-edu__grade,
-    body.dark-theme .cv-cert__sub,
-    body.dark-theme .cv-volunteer__role,
-    body.dark-theme .cv-award__name {
-      color: #f4f4f4;
-    }
-    body.dark-theme .cv-job__company,
-    body.dark-theme .cv-project__name,
-    body.dark-theme .cv-edu__school,
-    body.dark-theme .cv-cert__name,
-    body.dark-theme .cv-volunteer__org {
-      color: #fefefe;
-    }
-    body.dark-theme .cv-job__date,
-    body.dark-theme .cv-project__date,
-    body.dark-theme .cv-cert__meta,
-    body.dark-theme .cv-award__meta,
-    body.dark-theme .cv-edu__meta,
-    body.dark-theme .cv-edu__coursework,
-    body.dark-theme .cv-volunteer__date,
-    body.dark-theme .cv-job__sub {
-      color: #aaa;
-    }
-    body.dark-theme .card-dl {
-      background: #1a1a1a;
-      border-color: #555;
-    }
-    body.dark-theme .card-dl:hover {
-      background: #222;
-    }
-    body.dark-theme .card-dl svg {
-      stroke: #f4f4f4;
-    }
-
-    #card2 .cv-sidebar {
-      gap: 46px;
-    }
-
-    #card2 .cv-main {
-      padding-top: 32px;
-    }
-
-    /* ── SECTION HEADINGS ── */
+    /* ════════ SECTIONS ════════ */
     .cv-section__title {
       font-family: 'PT Sans Caption', sans-serif;
-      font-size: 10px;
+      font-size: 11.5px;
       font-weight: 700;
-      letter-spacing: 3.5px;
+      letter-spacing: .8px;
       text-transform: uppercase;
       color: #1a1a1a;
-      margin-bottom: 14px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #bbb;
     }
 
-    /* ── CONTACT ── */
-    .cv-contact-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-    }
-    .cv-contact-list li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: #1a1a1a;
-      line-height: 1.55;
-    }
-    .cv-contact-list .icon {
-      flex-shrink: 0;
-      width: 13px;
-      height: 13px;
-      opacity: .55;
-    }
+    .cv-summary p { font-size: 11.5px; line-height: 1.65; }
+    .cv-summary strong, .cv-skills strong { font-weight: 700; }
 
-    /* ── SKILLS / TOOLS / LANGUAGES ── */
-    .cv-skill-list, .cv-lang-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-    .cv-skill-list li, .cv-lang-list li {
-      font-size: 12px;
-      color: #1a1a1a;
-      line-height: 1.6;
-    }
-    .cv-lang-list strong { font-weight: 700; }
+    /* ════════ SKILLS ════════ */
+    .cv-skills-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .cv-skills-list li { font-size: 11.5px; line-height: 1.5; }
 
-    /* ── SUMMARY ── */
-    .cv-summary p {
-      font-size: 12px;
-      line-height: 1.7;
-      color: #1a1a1a;
-    }
-    .cv-summary strong { font-weight: 700; }
+    /* ════════ ENTRIES ════════ */
+    .cv-entries { display: flex; flex-direction: column; gap: 12px; }
+    .cv-entry { page-break-inside: avoid; break-inside: avoid; }
+    .cv-entry__head { display: flex; align-items: baseline; gap: 8px; }
+    .cv-entry__org { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .3px; }
+    .cv-entry__loc { font-size: 10.5px; color: #555; margin-left: auto; }
+    .cv-entry__role { display: flex; align-items: baseline; gap: 8px; margin-top: 2px; }
+    .cv-entry__title { font-size: 11.5px; font-weight: 700; }
+    .cv-entry__date { font-size: 10.5px; color: #555; margin-left: auto; white-space: nowrap; }
+    .cv-entry__sub { font-size: 10.5px; font-weight: 700; font-style: italic; color: #555; }
+    .cv-bullets + .cv-entry__role { margin-top: 8px; }
 
-    /* ── WORK EXPERIENCE ── */
-    .cv-jobs { display: flex; flex-direction: column; gap: 26px; }
-    .cv-job,
-    .cv-edu,
-    .cv-project {
-      border-left: 3px solid #1a1a1a;
-      padding-left: 12px;
-      page-break-inside: avoid;
-      break-inside: avoid;
+    /* Real list markers in normal flow. The previous build used
+       position:relative + an absolutely positioned ::before, which pushed every
+       bullet into the positioned paint layer — so the PDF text layer emitted all
+       headings first and all bullets afterwards, detached from their employer. */
+    .cv-bullets {
+      list-style: disc outside;
+      padding-left: 15px;
+      margin-top: 5px;
     }
-    .cv-job__company {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .4px;
-      color: #1a1a1a;
-    }
-    .cv-job__meta {
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 1px;
-    }
-    .cv-job__bullets + .cv-job__meta { margin-top: 10px; }
-    .cv-job__title { font-size: 12px; font-weight: 700; color: #1a1a1a; letter-spacing: .15px; }
-    .cv-job__date { font-size: 10.5px; color: #555; margin-left: auto; }
-    .cv-job__sub {
-      font-size: 10.5px;
-      font-weight: 700;
-      color: #555;
-      font-style: italic;
-      margin-top: 0;
-    }
-    .cv-job__bullets {
-      list-style: none;
-      margin-top: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .cv-job__bullets li {
-      font-size: 12px;
-      line-height: 1.65;
-      color: #1a1a1a;
-      padding-left: 14px;
-      position: relative;
-    }
-    .cv-job__bullets li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #1a1a1a;
-      font-weight: 700;
-    }
-    .cv-job__bullets strong { font-weight: 700; }
+    .cv-bullets li { font-size: 11.5px; line-height: 1.5; margin-bottom: 2px; }
+    .cv-bullets li:last-child { margin-bottom: 0; }
+    .cv-bullets li::marker { color: #1a1a1a; }
+    .cv-bullets strong { font-weight: 700; }
 
-    /* ── EDUCATION ── */
-    .cv-edu-list { display: flex; flex-direction: column; gap: 24px; }
-    .cv-edu__school {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .4px;
-      color: #1a1a1a;
-    }
-    .cv-edu__degree { font-size: 11px; font-weight: 700; color: #1a1a1a; margin-top: 1px; }
-    .cv-edu__meta { font-size: 10.5px; color: #555; margin-top: 1px; }
-    .cv-edu__grade { font-size: 11px; color: #1a1a1a; margin-top: 2px; }
-    .cv-edu__coursework { font-size: 10.5px; color: #555; margin-top: 3px; line-height: 1.5; }
+    /* ════════ EDUCATION ════════ */
+    .cv-entry__degree { font-size: 11.5px; font-weight: 700; margin-top: 1px; }
+    .cv-entry__detail { font-size: 11px; margin-top: 2px; }
+    .cv-entry__meta { font-size: 10.5px; color: #555; margin-top: 2px; line-height: 1.5; }
 
-    /* ── PROJECTS ── */
-    .cv-projects { display: flex; flex-direction: column; gap: 20px; }
-    .cv-project__header { display: flex; align-items: baseline; gap: 8px; }
-    .cv-project__name {
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .4px;
-      color: #1a1a1a;
-    }
-    .cv-project__date { font-size: 10.5px; color: #555; margin-left: auto; }
-    .cv-project__bullets {
-      list-style: none;
-      margin-top: 6px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .cv-project__bullets li {
-      font-size: 12px;
-      line-height: 1.6;
-      color: #1a1a1a;
-      padding-left: 14px;
-      position: relative;
-    }
-    .cv-project__bullets li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #1a1a1a;
-      font-weight: 700;
-    }
+    /* ════════ COMPACT LISTS ════════ */
+    .cv-compact { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .cv-compact li { font-size: 11.5px; line-height: 1.5; }
+    .cv-compact .meta { color: #555; }
+    .cv-inline { font-size: 11.5px; line-height: 1.6; }
 
-    /* ── CERTIFICATES ── */
-    .cv-certs { display: flex; flex-direction: column; gap: 18px; }
-    .cv-cert__name { font-size: 11px; font-weight: 700; color: #1a1a1a; }
-    .cv-cert__sub { font-size: 10.5px; font-weight: 700; color: #1a1a1a; }
-    .cv-cert__meta { font-size: 10.5px; color: #555; margin-top: 1px; }
+    /* ════════ TOOLBAR ════════ */
+    .print-toolbar { width: 794px; margin: 0 auto 32px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .print-toolbar__group { display: flex; gap: 8px; }
+    .print-toolbar__group a, .theme-toggle {
+      padding: 6px 16px; border-radius: 999px; border: 1px solid #555;
+      font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+      color: #222; background: #fff; cursor: pointer;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .print-toolbar__group a:hover, .theme-toggle:hover { border-color: #111; color: #111; }
+    .print-toolbar__group a.lang-btn--active { background: #111; color: #fff; border-color: #111; }
 
-    /* ── VOLUNTEER / WORKSHOPS / AWARDS ── */
-    .cv-volunteer__org { font-size: 11px; font-weight: 700; color: #1a1a1a; }
-    .cv-volunteer__date { font-size: 10.5px; color: #555; }
-    .cv-volunteer__role { font-size: 11px; font-weight: 700; color: #1a1a1a; margin-top: 1px; }
-    .cv-workshop-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-    .cv-workshop-list li {
-      font-size: 12px;
-      line-height: 1.6;
-      color: #1a1a1a;
-      padding-left: 14px;
-      position: relative;
-    }
-    .cv-workshop-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #1a1a1a;
-      font-weight: 700;
-    }
-    .cv-award__name { font-size: 11px; color: #1a1a1a; }
-    .cv-award__name strong { font-weight: 700; }
-    .cv-award__meta { font-size: 10.5px; color: #555; margin-top: 1px; }
-
-    /* ── Card wrapper + download button ── */
-    .card-wrap {
-      position: relative;
-      width: 794px;
-      margin: 0 auto;
-    }
+    .card-wrap { position: relative; width: 794px; margin: 0 auto; }
     .card-dl {
-      position: absolute;
-      top: 12px;
-      right: -52px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid #ccc;
-      background: #fff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,.1);
-      transition: background .15s, transform .15s;
-      z-index: 10;
+      position: absolute; top: 12px; right: -52px; width: 36px; height: 36px;
+      border-radius: 50%; border: 1px solid #ccc; background: #fff; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,.1); transition: background .15s, transform .15s; z-index: 10;
     }
-    .card-dl:hover {
-      background: #f0f0f0;
-      transform: scale(1.08);
-    }
+    .card-dl:hover { background: #f0f0f0; transform: scale(1.08); }
     .card-dl svg { width: 16px; height: 16px; stroke: #333; fill: none; }
 
-    /* ════════════════════════════════════════
-       PRINT — each card becomes one A4 page
-       ════════════════════════════════════════ */
+    /* ════════ DARK MODE (screen only) ════════ */
+    body.dark-theme { background: #060606; color: #f4f4f4; }
+    body.dark-theme .print-toolbar__group a,
+    body.dark-theme .theme-toggle { background: #1a1a1a; border-color: #666; color: #f4f4f4; }
+    body.dark-theme .print-toolbar__group a:hover,
+    body.dark-theme .theme-toggle:hover { border-color: #aaa; }
+    body.dark-theme .print-toolbar__group a.lang-btn--active { background: #f4f4f4; color: #111; border-color: #f4f4f4; }
+    body.dark-theme .cv-card { background: #111; border-color: #333; color: #f4f4f4; }
+    body.dark-theme a { color: #6ea5ff; }
+    body.dark-theme .cv-header { border-bottom-color: #f4f4f4; }
+    body.dark-theme .cv-header__name,
+    body.dark-theme .cv-section__title,
+    body.dark-theme .cv-entry__org,
+    body.dark-theme .cv-entry__title,
+    body.dark-theme .cv-entry__degree { color: #fefefe; }
+    body.dark-theme .cv-section__title { border-color: #333; }
+    body.dark-theme .cv-header__role { color: #d5d5d5; }
+    body.dark-theme .cv-header__contact,
+    body.dark-theme .cv-summary p,
+    body.dark-theme .cv-skills-list li,
+    body.dark-theme .cv-bullets li,
+    body.dark-theme .cv-compact li,
+    body.dark-theme .cv-inline,
+    body.dark-theme .cv-entry__detail { color: #f4f4f4; }
+    body.dark-theme .cv-bullets li::marker { color: #f4f4f4; }
+    body.dark-theme .cv-header__keywords,
+    body.dark-theme .cv-entry__date,
+    body.dark-theme .cv-entry__loc,
+    body.dark-theme .cv-entry__sub,
+    body.dark-theme .cv-entry__meta,
+    body.dark-theme .cv-compact .meta { color: #aaa; }
+    body.dark-theme .card-dl { background: #1a1a1a; border-color: #555; }
+    body.dark-theme .card-dl svg { stroke: #f4f4f4; }
+
+    /* ════════ PRINT ════════ */
     @media print {
       html, body {
-        height: auto;
-        background: #fff;
-        padding: 0;
-        margin: 0;
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
+        height: auto; background: #fff; padding: 0; margin: 0;
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
       }
-      .card-dl { display: none !important; }
-      .print-toolbar { display: none !important; }
-      .cv-wrapper {
-        gap: 0;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-      }
+      .card-dl, .print-toolbar { display: none !important; }
+      .cv-wrapper { gap: 0; width: 100%; padding: 0; margin: 0; }
+      .card-wrap { width: 100%; }
       .cv-card {
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        page-break-after: always;
-        break-after: page;
-        page-break-inside: avoid;
-        break-inside: avoid;
+        border: none; border-radius: 0; box-shadow: none;
+        width: 100%; height: auto; min-height: 0; padding: 0;
+        page-break-after: always; break-after: page;
       }
-      .cv-card:last-child {
-        page-break-after: avoid;
-        break-after: avoid;
-      }
-      /* Keep balanced whitespace around the photo in PDF output */
-      #card1 .cv-header {
-        padding: 28px 42px;
-      }
-
-      #card1 .cv-job--metro,
-      #card2 .cv-job--metro {
-        page-break-inside: avoid;
-        break-inside: avoid;
-      }
+      .cv-card:last-child { page-break-after: avoid; break-after: avoid; }
     }
 
-    @page {
-      size: A4 portrait;
-      margin: 10mm 12mm;
-    }
+    @page { size: A4 portrait; margin: 10mm 12mm; }
   </style>
 </head>
 <body>
@@ -543,274 +207,198 @@
       <button class="theme-toggle" id="printThemeToggle" type="button" aria-pressed="false">Dark mode</button>
     </div>
 
-    <!-- ═══════════ CARD 1 — Page 1 ═══════════ -->
+    <!-- ═══════════ PAGE 1 ═══════════ -->
     <div class="card-wrap">
     <button class="card-dl" data-card="card1" title="Download Page 1 as PNG">
       <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
     </button>
     <div class="cv-card" id="card1">
-      <div class="cv-header">
-        <img class="cv-header__photo" src="../assets/images/headshot-circle.png" alt="Portrait of Samer Eladad" />
-        <div class="cv-header__text">
-          <h1 class="cv-header__name">Samer Eladad</h1>
-          <p class="cv-header__role">Solutions Engineer</p>
-        </div>
-      </div>
-      <div class="cv-body">
-        <aside class="cv-sidebar">
-          <section>
-            <h2 class="cv-section__title">Contact</h2>
-            <ul class="cv-contact-list">
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                <a href="tel:+491747900400">+49 174 7900400</a>
-              </li>
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <a href="mailto:samer.eladad@gmail.com">samer.eladad@gmail.com</a>
-              </li>
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                <a href="https://samereladad.cv" target="_blank" rel="noreferrer">samereladad.cv</a>
-              </li>
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                <a href="https://github.com/samereladad" target="_blank" rel="noreferrer">github.com/samereladad</a>
-              </li>
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                <a href="https://linkedin.com/in/samereladad" target="_blank" rel="noreferrer">linkedin.com/in/samereladad</a>
-              </li>
-              <li>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Düsseldorf, Germany
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2 class="cv-section__title">Technical Skills</h2>
-            <ul class="cv-skill-list">
-              <li>Data Analysis &amp; Modeling</li>
-              <li>Business Intelligence &amp; Reporting</li>
-              <li>Data &amp; Workflow Automation</li>
-              <li>ERP &amp; System Integration</li>
-              <li>AI Engineering &amp; Integration</li>
-              <li>Technical Documentation</li>
-              <li>Remote Collaboration</li>
-            </ul>
-          </section>
-          <section>
-            <h2 class="cv-section__title">Tools &amp; Platforms</h2>
-            <ul class="cv-skill-list">
-              <li>Python, SQL, Java, JavaScript (React)</li>
-              <li>Power BI (DAX, data modeling)</li>
-              <li>Azure, AWS, Cloudflare</li>
-              <li>REST APIs</li>
-              <li>Infor, Dynamics 365 Business Central</li>
-              <li>Salesforce (CRM)</li>
-              <li>Git</li>
-              <li>Jira, Confluence, SharePoint</li>
-            </ul>
-          </section>
-          <section>
-            <h2 class="cv-section__title">Languages</h2>
-            <ul class="cv-lang-list">
-              <li><strong>English</strong> – Fluent</li>
-              <li><strong>German</strong> – Fluent</li>
-              <li><strong>Arabic</strong> – Native</li>
-            </ul>
-          </section>
-        </aside>
-        <main class="cv-main">
-          <section class="cv-summary">
-            <h2 class="cv-section__title">Summary</h2>
-            <p>Solutions Engineer with hands-on ownership of <strong>ERP</strong> systems, data engineering, and process automation. Skilled in <strong>Python</strong>, <strong>SQL</strong>, and <strong>Power BI</strong>, delivering scalable solutions that improve operational efficiency and data visibility. Experienced in international, remote-ready projects, <strong>AI solutions</strong>, and cross-functional teams. Focused on translating business needs into measurable technical impact.</p>
-          </section>
-          <section>
-            <h2 class="cv-section__title">Work Experience</h2>
-            <div class="cv-jobs">
-              <div class="cv-job">
-                <div class="cv-job__company">Ei Electronics KG</div>
-                <div class="cv-job__meta">
-                  <span class="cv-job__title">Solutions Engineer (Data &amp; AI)</span>
-                  <span class="cv-job__date">March 2026 – Present</span>
-                </div>
-                <ul class="cv-job__bullets">
-                  <li>Drive process automation initiatives across departments using <strong>n8n</strong> and <strong>Power Automate</strong>.</li>
-                  <li>Design and implement agentic <strong>AI</strong> solutions with <strong>Microsoft Copilot Studio</strong> across business functions, representing AI topics within IT.</li>
-                  <li>Engineer <strong>Power BI</strong> data models and dashboards (<strong>DAX</strong>, <strong>SQL</strong>) and perform end-to-end <strong>data engineering</strong> from cleaning and transformation to presentation, improving data consistency and automating weekly reports.</li>
-                </ul>
-                <div class="cv-job__meta">
-                  <span class="cv-job__title">Solutions Engineer (ERP)</span>
-                  <span class="cv-job__date">December 2024 – March 2026</span>
-                </div>
-                <ul class="cv-job__bullets">
-                  <li>Managed and supported <strong>Infor</strong> and <strong>Dynamics 365</strong> ERP operations across three entities, acting as the primary internal technical contact for setup and go-live activities for an international subsidiary.</li>
-                  <li>Automated key <strong>business processes</strong> (e.g., OCR-based order workflows and invoice posting) and maintained system documentation, security roles, and user enablement in <strong>Confluence</strong> and <strong>SharePoint</strong>.</li>
-                  <li>Developed and maintained <strong>REST API</strong> integrations between the ERP environment and internal and external services and endpoints.</li>
-                </ul>
-              </div>
-              <div class="cv-job">
-                <div class="cv-job__company">Mercedes-Benz</div>
-                <div class="cv-job__meta">
-                  <span class="cv-job__title">Intern &amp; Bachelor Thesis</span>
-                  <span class="cv-job__date">October 2023 – September 2024</span>
-                </div>
-                <div class="cv-job__sub">Information Office Production &amp; Logistics</div>
-                <ul class="cv-job__bullets">
-                  <li>Identified structural inefficiencies in <strong>system documentation</strong> during my internship and translated them into the foundation of my Bachelor's thesis.</li>
-                  <li>Developed an <strong>AI-based prototype</strong> on <strong>Azure</strong> to automate and improve system documentation, based on workflow inefficiencies identified during the internship.</li>
-                  <li>Standardized project communication and task tracking using <strong>ServiceNow</strong>, <strong>Mural</strong>, and <strong>Jira</strong>.</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-        </main>
-      </div>
-    </div>
 
+      <header class="cv-header">
+        <h1 class="cv-header__name">Samer Eladad</h1>
+        <p class="cv-header__role">AI &amp; Data Engineer</p>
+        <p class="cv-header__keywords">Agentic AI &middot; Data Engineering &middot; Business Intelligence &middot; Process Automation</p>
+        <p class="cv-header__contact">
+          Düsseldorf, Germany &middot; <a href="tel:+491747900400">+49 174 7900400</a> &middot; <a href="mailto:samer.eladad@gmail.com">samer.eladad@gmail.com</a><br />
+          <a href="https://linkedin.com/in/samereladad">linkedin.com/in/samereladad</a> &middot; <a href="https://github.com/samereladad">github.com/samereladad</a> &middot; <a href="https://samereladad.cv">samereladad.cv</a>
+        </p>
+      </header>
+
+      <section class="cv-summary">
+        <h2 class="cv-section__title">Summary</h2>
+        <p><strong>AI &amp; Data Engineer</strong> with <strong>4+ years</strong> of experience across data engineering, business intelligence, and process automation in international, ERP-integrated environments. Builds agentic AI solutions with <strong>Microsoft Copilot Studio</strong> and <strong>Azure OpenAI</strong>, <strong>Power BI</strong> data models and dashboards (<strong>DAX</strong>, <strong>SQL</strong>), and custom <strong>Python</strong> and <strong>JavaScript</strong> applications that replace manual business processes. Represents AI topics within IT at Ei Electronics across <strong>Dynamics 365 Business Central</strong> and <strong>Infor</strong> landscapes. Fluent in English and German; experienced in remote, cross-functional teams.</p>
+      </section>
+
+      <section class="cv-skills">
+        <h2 class="cv-section__title">Technical Skills</h2>
+        <ul class="cv-skills-list">
+          <li><strong>AI &amp; Automation:</strong> Agentic AI, Microsoft Copilot Studio, Azure OpenAI, Prompt Engineering, Power Automate, OCR Workflow Automation, Machine Learning</li>
+          <li><strong>Data &amp; BI:</strong> Power BI, DAX, Data Modeling, ETL &amp; Data Transformation, Dashboard Design, KPI &amp; Reporting Automation</li>
+          <li><strong>Programming:</strong> Python (pandas), SQL, JavaScript (React, Node.js), Java</li>
+          <li><strong>Data, Cloud &amp; Integration:</strong> MySQL, REST APIs, System Integration, Microsoft Azure, AWS, Cloudflare, Git</li>
+          <li><strong>ERP &amp; Business Systems:</strong> Dynamics 365 Business Central, Infor, Salesforce, ServiceNow, Jira, Confluence, SharePoint</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="cv-section__title">Work Experience</h2>
+        <div class="cv-entries">
+
+          <div class="cv-entry">
+            <div class="cv-entry__head">
+              <span class="cv-entry__org">Ei Electronics KG</span>
+              <span class="cv-entry__loc">Germany</span>
+            </div>
+            <div class="cv-entry__role">
+              <span class="cv-entry__title">Solutions Engineer (Data &amp; AI)</span>
+              <span class="cv-entry__date">March 2026 – Present</span>
+            </div>
+            <ul class="cv-bullets">
+              <li>Design and deploy agentic <strong>AI</strong> solutions with <strong>Microsoft Copilot Studio</strong>, delivering <strong>five agents</strong> — several rolled out to <strong>50+ employees</strong> across business functions — and representing AI topics within IT.</li>
+              <li>Engineer <strong>three Power BI dashboards</strong> combining ERP and external customer data, owning end-to-end <strong>data engineering</strong> from extraction and cleaning through modeling (<strong>DAX</strong>, <strong>SQL</strong>) to publication.</li>
+              <li>Automate recurring reporting and cross-department processes with <strong>Power Automate</strong> and custom <strong>Node.js</strong> applications, removing roughly <strong>2 hours of manual preparation per week</strong> from a recurring management report.</li>
+            </ul>
+            <div class="cv-entry__role">
+              <span class="cv-entry__title">Solutions Engineer (ERP)</span>
+              <span class="cv-entry__date">December 2024 – March 2026</span>
+            </div>
+            <ul class="cv-bullets">
+              <li>Managed <strong>Infor</strong> and <strong>Dynamics 365 Business Central</strong> operations across <strong>three legal entities</strong> for <strong>10–15 users</strong>, acting as primary internal technical contact for the setup and go-live of an international subsidiary.</li>
+              <li>Automated core business processes including <strong>OCR-based order intake</strong> and <strong>invoice posting</strong>, and developed <strong>REST API</strong> integrations between the ERP environment and internal and external services.</li>
+              <li>Maintained system documentation, <strong>security roles</strong>, and user enablement in <strong>Confluence</strong> and <strong>SharePoint</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <div class="cv-entry__head">
+              <span class="cv-entry__org">Mercedes-Benz</span>
+              <span class="cv-entry__loc">Germany</span>
+            </div>
+            <div class="cv-entry__role">
+              <span class="cv-entry__title">Intern &amp; Bachelor Thesis</span>
+              <span class="cv-entry__date">October 2023 – September 2024</span>
+            </div>
+            <div class="cv-entry__sub">Information Office Production &amp; Logistics</div>
+            <ul class="cv-bullets">
+              <li>Developed an <strong>AI-based prototype</strong> on <strong>Microsoft Azure</strong> using <strong>Azure OpenAI</strong> to automate and improve system documentation.</li>
+              <li>Identified structural inefficiencies in system documentation processes and translated them into the foundation of the Bachelor's thesis, <em>Enhancing System Documentation with AI: A Case Study on Implementation and Evaluation</em> (grade 1.7).</li>
+              <li>Standardized project communication and task tracking using <strong>ServiceNow</strong>, <strong>Mural</strong>, and <strong>Jira</strong>.</li>
+            </ul>
+          </div>
+
+          <div class="cv-entry">
+            <div class="cv-entry__head">
+              <span class="cv-entry__org">METRO Markets</span>
+              <span class="cv-entry__loc">Düsseldorf, Germany</span>
+            </div>
+            <div class="cv-entry__role">
+              <span class="cv-entry__title">Seller Support (Working Student)</span>
+              <span class="cv-entry__date">March 2022 – September 2023</span>
+            </div>
+            <ul class="cv-bullets">
+              <li>Supported ERP and process readiness for international marketplace operations covering <strong>300+ sellers across 5 European markets</strong>, including Italy, Portugal, the Netherlands, and France.</li>
+              <li>Built <strong>Power BI</strong> dashboards with the BI team for seller and product analytics, supporting a key account.</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
     </div><!-- /.card-wrap -->
 
-    <!-- ═══════════ CARD 2 — Page 2 ═══════════ -->
+    <!-- ═══════════ PAGE 2 ═══════════ -->
     <div class="card-wrap">
     <button class="card-dl" data-card="card2" title="Download Page 2 as PNG">
       <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
     </button>
     <div class="cv-card" id="card2">
-      <div class="cv-body">
-        <aside class="cv-sidebar">
-          <section>
-            <h2 class="cv-section__title">Certificates</h2>
-            <div class="cv-certs">
-              <div class="cv-cert">
-                <div class="cv-cert__name">AI Automation Specialist</div>
-                <div class="cv-cert__meta">Digital Beat GmbH | Germany, Jun 2026</div>
-              </div>
-              <div class="cv-cert">
-                <div class="cv-cert__name">Digital Shaper</div>
-                <div class="cv-cert__sub">(AI &amp; Deep Learning)</div>
-                <div class="cv-cert__meta">TechLabs | Germany, Sep 2024</div>
-              </div>
-              <div class="cv-cert">
-                <div class="cv-cert__name">Digital Shaper</div>
-                <div class="cv-cert__sub">(Data Science)</div>
-                <div class="cv-cert__meta">TechLabs | Germany, Apr 2024</div>
-              </div>
-              <div class="cv-cert">
-                <div class="cv-cert__name">Full Stack Developer</div>
-                <div class="cv-cert__meta">Udacity | UAE, Aug 2018</div>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2 class="cv-section__title">Volunteer Experience</h2>
-            <div class="cv-volunteer">
-              <div class="cv-volunteer__org">TechLabs Global</div>
-              <div class="cv-volunteer__date">2024 – 2025</div>
-              <div class="cv-volunteer__role">Growth Acceleration Manager</div>
-            </div>
-          </section>
-          <section>
-            <h2 class="cv-section__title">Workshops</h2>
-            <ul class="cv-workshop-list">
-              <li>Microsoft Dynamics 365 Business Central</li>
-              <li>AI Governance &amp; Ideation</li>
-            </ul>
-          </section>
-          <section>
-            <h2 class="cv-section__title">Awards</h2>
-            <div>
-              <div class="cv-award__name"><strong>Robotics Race</strong> – First Place</div>
-              <div class="cv-award__meta">Hochschule Bochum | Germany, 2021</div>
-            </div>
-          </section>
-        </aside>
-        <main class="cv-main">
-          <section>
-            <h2 class="cv-section__title">Work Experience</h2>
-            <div class="cv-jobs">
-              <div class="cv-job cv-job--metro">
-                <div class="cv-job__company">METRO Markets</div>
-                <div class="cv-job__meta">
-                  <span class="cv-job__title">Seller Support (Working Student)</span>
-                  <span class="cv-job__date">March 2022 – September 2023</span>
-                </div>
-                <ul class="cv-job__bullets">
-                  <li>Supported ERP and process readiness for international operations in Italy, Portugal, Netherlands, and France.</li>
-                  <li>Built <strong>Power BI</strong> dashboards in collaboration with BI team for seller and product analytics.</li>
-                  <li>Supported seller and product analytics for a key customer through reporting, data-driven insights, and operational support.</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2 class="cv-section__title">Education</h2>
-            <div class="cv-edu-list">
-              <div class="cv-edu">
-                <div class="cv-edu__school">Bochum University of Applied Sciences</div>
-                <div class="cv-edu__degree">Bachelor of Science in Business Informatics</div>
-                <div class="cv-edu__meta">Bochum, Germany &nbsp;|&nbsp; October 2021 – October 2024</div>
-                <div class="cv-edu__grade"><strong>Final Grade:</strong> 2.19 (Good – German grading system)</div>
-                <div class="cv-edu__coursework">Relevant Coursework: Data Science, Software Engineering, Python, Java, Algorithms, AI</div>
-              </div>
-              <div class="cv-edu">
-                <div class="cv-edu__school">Rheinisches Studienkolleg</div>
-                <div class="cv-edu__degree">Business and Mathematics College Course</div>
-                <div class="cv-edu__meta">Bonn, Germany &nbsp;|&nbsp; January 2017 – November 2017</div>
-                <div class="cv-edu__grade"><strong>Final Grade:</strong> 1.3 (Very Good – German grading system)</div>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2 class="cv-section__title">Projects</h2>
-            <div class="cv-projects">
-              <div class="cv-project">
-                <div class="cv-project__header">
-                  <span class="cv-project__name">Bonus Calculator (Ei Electronics)</span>
-                  <span class="cv-project__date">July 2026</span>
-                </div>
-                <ul class="cv-project__bullets">
-                  <li>Built a <strong>React</strong> web application connected to the ERP system through a <strong>MySQL</strong> database to automate high-level accounting calculations.</li>
-                  <li>Delivered a KPI dashboard and reporting layer supporting management decisions, including data-driven price recommendations.</li>
-                </ul>
-              </div>
-              <div class="cv-project">
-                <div class="cv-project__header">
-                  <span class="cv-project__name">Invoice Format Converter (Ei Electronics)</span>
-                  <span class="cv-project__date">June 2026</span>
-                </div>
-                <ul class="cv-project__bullets">
-                  <li>Built a <strong>Python</strong> desktop application, packaged as an executable with a simple UI, that converts invoices from PDF into the <strong>XML</strong> format required by the ERP system.</li>
-                  <li>Automated extraction and validation with <strong>pandas</strong> to work around an ERP format limitation while keeping every document within defined process criteria.</li>
-                </ul>
-              </div>
-              <div class="cv-project">
-                <div class="cv-project__header">
-                  <span class="cv-project__name">Word of the Day Bot</span>
-                  <span class="cv-project__date">April 2024</span>
-                </div>
-                <ul class="cv-project__bullets">
-                  <li>Created a bilingual word library with translations, examples, and transliterations, organized into chapters.</li>
-                  <li>Built a Cloudflare Worker connected to the Telegram Bot API to publish a daily word and avoid repetitions.</li>
-                </ul>
-              </div>
-              <div class="cv-project">
-                <div class="cv-project__header">
-                  <span class="cv-project__name">Cinemalytics</span>
-                  <span class="cv-project__date">April 2024</span>
-                </div>
-                <ul class="cv-project__bullets">
-                  <li>Built a machine learning-driven movie recommendation platform for producers to choose optimal streaming platforms, using <strong>Python</strong> and <strong>SQL</strong>.</li>
-                  <li>Applied models such as <strong>Random Forest</strong> to analyze genre-platform performance and optimize placement decisions.</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-        </main>
-      </div>
-    </div>
 
-  </div><!-- /.card-wrap -->
+      <section>
+        <h2 class="cv-section__title">Projects</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-entry__head">
+              <span class="cv-entry__org">Bonus Calculator — Ei Electronics</span>
+              <span class="cv-entry__date">July 2026</span>
+            </div>
+            <ul class="cv-bullets">
+              <li>Built a <strong>React</strong> and <strong>Node.js</strong> web application connected to the ERP system through a <strong>MySQL</strong> database to automate a monthly accounting calculation, cutting the cycle from <strong>2–3 days of manual work to 1–2 hours</strong> (roughly <strong>16–24 hours saved per month</strong>).</li>
+              <li>Delivered a <strong>KPI dashboard</strong> and reporting layer supporting management decisions, including data-driven price recommendations.</li>
+            </ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry__head">
+              <span class="cv-entry__org">Invoice Format Converter — Ei Electronics</span>
+              <span class="cv-entry__date">June 2026</span>
+            </div>
+            <ul class="cv-bullets">
+              <li>Built a <strong>Python</strong> desktop application, packaged as a standalone executable with a simple UI, that converts invoices from PDF into a legally required <strong>XML</strong> format the ERP system could not produce.</li>
+              <li>Automated extraction and validation with <strong>pandas</strong>, closing a compliance gap without ERP modification while keeping every document within defined process criteria.</li>
+            </ul>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry__head">
+              <span class="cv-entry__org">Cinemalytics</span>
+              <span class="cv-entry__date">April 2024</span>
+            </div>
+            <ul class="cv-bullets">
+              <li>Built a <strong>machine learning</strong>-driven movie recommendation platform in <strong>Python</strong> and <strong>SQL</strong>, helping producers select optimal streaming platforms.</li>
+              <li>Applied <strong>Random Forest</strong> models to analyze genre-platform performance and optimize placement decisions.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="cv-section__title">Education</h2>
+        <div class="cv-entries">
+          <div class="cv-entry">
+            <div class="cv-entry__head">
+              <span class="cv-entry__org">Bochum University of Applied Sciences</span>
+              <span class="cv-entry__date">October 2021 – October 2024</span>
+            </div>
+            <div class="cv-entry__degree">Bachelor of Science in Business Informatics</div>
+            <div class="cv-entry__detail">Bochum, Germany &nbsp;|&nbsp; Final grade 2.19 &middot; Thesis grade 1.7 <span class="cv-entry__meta" style="display:inline">(German scale: 1.0 = best, 4.0 = pass)</span></div>
+            <div class="cv-entry__meta">Relevant coursework: Data Science, Software Engineering, Python, Java, Algorithms, Artificial Intelligence</div>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry__head">
+              <span class="cv-entry__org">Rheinisches Studienkolleg</span>
+              <span class="cv-entry__date">January 2017 – November 2017</span>
+            </div>
+            <div class="cv-entry__degree">Business and Mathematics College Course</div>
+            <div class="cv-entry__detail">Bonn, Germany &nbsp;|&nbsp; Final grade 1.3</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="cv-section__title">Certifications &amp; Training</h2>
+        <ul class="cv-compact">
+          <li><strong>AI Automation Specialist</strong> — Digital Beat GmbH, Germany <span class="meta">(Jun 2026)</span></li>
+          <li><strong>Digital Shaper — AI &amp; Deep Learning</strong> — TechLabs, Germany <span class="meta">(Sep 2024)</span></li>
+          <li><strong>Digital Shaper — Data Science</strong> — TechLabs, Germany <span class="meta">(Apr 2024)</span></li>
+          <li><strong>Full Stack Developer</strong> — Udacity, UAE <span class="meta">(Aug 2018)</span></li>
+          <li><span class="meta">Workshops attended: Microsoft Dynamics 365 Business Central; AI Governance &amp; Ideation</span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="cv-section__title">Languages</h2>
+        <p class="cv-inline"><strong>English</strong> — Fluent &nbsp;&middot;&nbsp; <strong>German</strong> — Fluent &nbsp;&middot;&nbsp; <strong>Arabic</strong> — Native</p>
+      </section>
+
+      <section>
+        <h2 class="cv-section__title">Volunteer Experience &amp; Awards</h2>
+        <ul class="cv-compact">
+          <li><strong>Growth Acceleration Manager</strong>, TechLabs Global <span class="meta">(2024 – 2025)</span> — planned and delivered in-person community events, including the Digital Shaper Summit.</li>
+          <li><strong>Robotics Race, First Place</strong> — Hochschule Bochum, Germany <span class="meta">(2021)</span></li>
+        </ul>
+      </section>
+
+    </div>
+    </div><!-- /.card-wrap -->
 
   </div>
 
@@ -848,7 +436,6 @@
       });
     });
 
-    // Theme toggle
     const printThemeToggle = document.getElementById('printThemeToggle');
     const updateToggleLabel = isDark => {
       if (!printThemeToggle) return;
